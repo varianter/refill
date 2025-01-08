@@ -1,0 +1,16 @@
+<form method="POST">
+  <label for="email">Register to get notified</label>
+  <input placeholder="Email" name="email" id="email" type="text" />
+  <button type="submit">Register</button>
+</form>
+
+<script>
+  import { actions } from "astro:actions";
+
+  const form = document.querySelector("form");
+  form?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const formData = new FormData(form);
+    actions.newsletter.addToNewsletter(formData);
+  });
+</script>
