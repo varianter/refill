@@ -1,16 +1,8 @@
-<form method="POST">
-  <label for="email">Register to get notified</label>
-  <input placeholder="Email" name="email" id="email" type="text" />
-  <button type="submit">Register</button>
+<form
+  action="https://buttondown.com/api/emails/embed-subscribe/pc"
+  method="post"
+>
+  <label for="bd-email">Enter your email</label>
+  <input type="email" name="email" id="bd-email" />
+  <input type="submit" value="Subscribe" />
 </form>
-
-<script>
-  import { actions } from "astro:actions";
-
-  const form = document.querySelector("form");
-  form?.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const formData = new FormData(form);
-    actions.newsletter.addToNewsletter(formData);
-  });
-</script>

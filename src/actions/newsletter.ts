@@ -8,8 +8,19 @@ export const newsletter = {
       email: z.string().email(),
     }),
     handler: async ({ email }) => {
-      // call a mailing service, or store to a database
-      return { success: true };
+      const action = "https://buttondown.com/api/emails/embed-subscribe/pc";
+      const method = "post";
+      try {
+        const response = await fetch(action, {
+          method: method,
+          body: JSON.stringify({ email }),
+        });
+        if (response) {
+          return { success: true };
+        }
+      } catch (error) {
+        console.error("Error signing up for Refil:", error);
+      }
     },
   }),
 };
