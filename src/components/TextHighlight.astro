@@ -1,15 +1,44 @@
 ---
 interface Props {
-  highlightColor: string;
+  htmlTag?: keyof HTMLElementTagNameMap;
+  type?: "small" | "big" | "clock";
 }
 
-const { highlightColor } = Astro.props;
+const { htmlTag = "span", type = "small" } = Astro.props;
+const Tag = htmlTag;
 ---
 
-<span class="text_highlight"><slot /></span>
+<Tag class={type}><slot /></Tag>
 
-<style define:vars={{ highlightColor }}>
-  .text_highlight {
-    background: var(--highlightColor);
+<style>
+  span {
+    background-color: var(--color-yellow);
+    padding: 0rem 0.25rem;
+    border-radius: 0.375rem;
+  }
+
+  :where(.small, .big, .clock) {
+    background-color: var(--color-yellow);
+    color: var(--text-primary);
+
+    width: fit-content;
+    border-radius: 0.375rem;
+  }
+
+  .small {
+    padding: 0.25rem 0.5rem;
+
+    font-size: 1.25rem;
+  }
+
+  .big {
+    padding: var(--Padding-s, 0.75rem) var(--Padding-m, 1.5rem);
+    font-size: 5.625rem;
+    letter-spacing: -0.1125rem;
+  }
+
+  .clock {
+    font-size: 3.5rem;
+    padding: var(--Padding-m, 1.5rem) var(--Padding-s, 0.75rem);
   }
 </style>
