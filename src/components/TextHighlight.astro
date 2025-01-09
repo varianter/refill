@@ -1,0 +1,15 @@
+---
+interface Props {
+  highlightColor: string;
+}
+
+const { highlightColor } = Astro.props;
+---
+
+<span class="text_highlight"><slot /></span>
+
+<style define:vars={{ highlightColor }}>
+  .text_highlight {
+    background: var(--highlightColor);
+  }
+</style>
