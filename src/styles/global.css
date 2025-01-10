@@ -21,8 +21,9 @@
   --Padding-m: 1.5rem;
 }
 
-:where(h1, p, a) {
+:where(h1, h2, p, a) {
   font-family: var(--font-britti);
+  color: var(--text-primary-on-dark);
   padding: 0;
   margin: 0;
 }
