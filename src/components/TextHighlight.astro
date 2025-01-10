@@ -35,10 +35,16 @@ const Tag = htmlTag;
     padding: var(--Padding-s, 0.75rem) var(--Padding-m, 1.5rem);
     font-size: 5.625rem;
     letter-spacing: -0.1125rem;
+
+    @media (max-width: 1000px) {
+      font-size: 3.5rem;
+    }
   }
 
   .clock {
-    font-size: 3.5rem;
+    font-size: var(--Font-size-H2);
     padding: var(--Padding-m, 1.5rem) var(--Padding-s, 0.75rem);
+  }
+
   }
 </style>
