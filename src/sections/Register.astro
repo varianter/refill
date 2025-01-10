@@ -1,0 +1,27 @@
+---
+import Newsletter from "../components/Newsletter.astro";
+---
+
+<section class="register">
+  <h2>【Register】 to get updates</h2>
+  <p>
+    Be part of the conversation and stay informed about speakers and the full
+    agenda by registering your email below.
+  </p>
+  <Newsletter />
+</section>
+
+<style>
+  .register {
+    max-width: 870px;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    & > p {
+      font-size: var(--Font-size-H3);
+    }
+  }
+</style>
