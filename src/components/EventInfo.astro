@@ -1,5 +1,8 @@
 ---
+import Clock from "./Clock.vue";
 import TextHighlight from "./TextHighlight.astro";
+
+const date = new Date(2025, 3, 4);
 ---
 
 <div class="event_info">
@@ -13,11 +16,15 @@ import TextHighlight from "./TextHighlight.astro";
 
   <div class="event_info__time">
     <div class="event_info__clock">
-      <TextHighlight htmlTag="p" type="clock">86</TextHighlight>
+      <TextHighlight htmlTag="p" type="clock"
+        ><Clock targetTime={date} format="days" /></TextHighlight
+      >
       <p>days</p>
     </div>
     <div class="event_info__clock">
-      <TextHighlight htmlTag="p" type="clock">26</TextHighlight>
+      <TextHighlight htmlTag="p" type="clock"
+        ><Clock targetTime={date} format="hours" /></TextHighlight
+      >
       <p>hours</p>
     </div>
   </div>
