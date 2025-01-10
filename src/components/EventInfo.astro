@@ -23,34 +23,37 @@ import TextHighlight from "./TextHighlight.astro";
   </div>
 
   <style>
-    .event_info {
+    :where(
+      .event_info,
+      .event_info__text,
+      .event_info__text__first,
+      .event_info__time,
+      .event_info__clock
+    ) {
       display: flex;
       flex-direction: column;
+    }
+
+    .event_info {
       gap: var(--Padding-m);
       align-items: flex-end;
     }
 
     .event_info__text {
-      display: flex;
-      flex-direction: column;
       gap: 0.5rem;
       align-items: flex-end;
     }
 
     .event_info__text__first {
-      display: flex;
-      flex-direction: column;
       gap: 0.5rem;
     }
 
     .event_info__time {
-      display: flex;
+      flex-direction: row;
       gap: 0.25rem;
     }
 
     .event_info__clock {
-      display: flex;
-      flex-direction: column;
       gap: 0.75rem;
       align-items: center;
 
