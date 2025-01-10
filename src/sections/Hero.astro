@@ -53,12 +53,18 @@ import { linkId } from "../utils/linkId";
     .hero__heading {
       order: -1;
       max-width: 100%;
-      font-size: 4.375rem;
     }
 
     .hero__register {
       align-items: flex-start;
       justify-content: flex-end;
+    }
+  }
+
+  @media (max-width: 530px) {
+    .hero {
+      gap: var(--Padding-l);
+      padding: var(--Padding-l) var(--Padding-s);
     }
   }
 </style>

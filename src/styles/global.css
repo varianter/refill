@@ -19,10 +19,12 @@
 
   --Padding-s: 0.75rem;
   --Padding-m: 1.5rem;
+  --Padding-l: 3rem;
   --Padding-xl: 6rem;
   --Padding-xxl: 8rem;
 
-  --Font-size-H2: 3.5rem;
+  --Font-size-H1: 8rem;
+  --Font-size-H2: 4rem;
   --Font-size-H3: 2rem;
 
   --Line-height-H2: 4rem;
@@ -30,7 +32,13 @@
   --max-width-tablet: 834px;
 
   @media (max-width: 1000px) {
+    --Font-size-H1: 4.375rem;
     --Font-size-H2: 2.5rem;
+  }
+
+  @media (max-width: 530px) {
+    --Font-size-H1: 2.625rem;
+    --Font-size-H2: 2rem;
   }
 }
 
@@ -42,7 +50,7 @@
 }
 
 h1 {
-  font-size: 8rem;
+  font-size: var(--Font-size-H1);
 }
 
 h2 {
@@ -53,10 +61,4 @@ h2 {
 a {
   text-decoration: none;
   color: inherit;
-}
-
-@media (max-width: 834px) {
-  h1 {
-    font-size: 4.375rem;
-  }
 }
