@@ -1,0 +1,46 @@
+---
+import EventInfo from "../components/EventInfo.astro";
+import { linkId } from "../utils/linkId";
+---
+
+<section class="hero">
+  <EventInfo />
+  <div class="hero__flex">
+    <h1>Refill Stockholm 2025</h1>
+    <a class="hero__register" href={linkId.newsletter.href}>Register now</a>
+  </div>
+</section>
+
+<style>
+  .hero {
+    background-color: white;
+    padding: 7rem 10rem 4.5rem 3rem;
+    border-radius: 0.375rem 6rem 0.375rem 0.375rem;
+
+    & h1 {
+      max-width: 40rem;
+    }
+  }
+
+  .hero__flex {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .hero__register {
+    font-size: 3.5rem;
+    min-width: 73px;
+
+    display: flex;
+    gap: var(--Padding-m);
+
+    &::after {
+      display: inline-block;
+
+      content: "↓";
+
+      background-color: white;
+    }
+  }
+</style>

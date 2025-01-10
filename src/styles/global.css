@@ -16,10 +16,22 @@
   --text-primary: #0a0b0b;
   --text-primary-on-dark: #fafafa;
   --text-tertiary: #5e5e5e;
+
+  --Padding-s: 0.75rem;
+  --Padding-m: 1.5rem;
 }
 
-p {
+:where(h1, p, a) {
   font-family: var(--font-britti);
   padding: 0;
   margin: 0;
+}
+
+h1 {
+  font-size: 8rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
