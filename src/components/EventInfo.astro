@@ -1,0 +1,62 @@
+---
+import TextHighlight from "./TextHighlight.astro";
+---
+
+<div class="event_info">
+  <div class="event_info__text">
+    <div class="event_info__text__first">
+      <TextHighlight htmlTag="p" type="small">7A Posthuset</TextHighlight>
+      <TextHighlight htmlTag="p" type="big">4. april</TextHighlight>
+    </div>
+    <TextHighlight htmlTag="p" type="big">Build for impact</TextHighlight>
+  </div>
+
+  <div class="event_info__time">
+    <div class="event_info__clock">
+      <TextHighlight htmlTag="p" type="clock">86</TextHighlight>
+      <p>days</p>
+    </div>
+    <div class="event_info__clock">
+      <TextHighlight htmlTag="p" type="clock">26</TextHighlight>
+      <p>hours</p>
+    </div>
+  </div>
+
+  <style>
+    .event_info {
+      display: flex;
+      flex-direction: column;
+      gap: var(--Padding-m);
+      align-items: flex-end;
+    }
+
+    .event_info__text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: flex-end;
+    }
+
+    .event_info__text__first {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .event_info__time {
+      display: flex;
+      gap: 0.25rem;
+    }
+
+    .event_info__clock {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: center;
+
+      & > p {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</div>
