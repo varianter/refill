@@ -1,0 +1,26 @@
+<div class="key_info_Label">
+  <p>
+    <slot />
+  </p>
+</div>
+
+<style>
+  .key_info_Label {
+    background-color: var(--background-dark);
+    padding: 0rem 1.25rem;
+    width: 100%;
+    height: 6.5rem;
+    border-radius: 1.5rem;
+
+    display: flex;
+    align-items: center;
+
+    & p {
+      font-size: var(--Font-size-H3);
+    }
+
+    @media (max-width: 530px) {
+      width: auto;
+    }
+  }
+</style>

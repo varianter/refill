@@ -1,0 +1,41 @@
+---
+import KeyInfoLabel from "../components/KeyInfoLabel.astro";
+---
+
+<section class="key_info">
+  <mark>Refill 2025</mark>
+  <div class="key_info__label_container">
+    <KeyInfoLabel>3 tracks</KeyInfoLabel>
+    <KeyInfoLabel>18+ talks</KeyInfoLabel>
+    <KeyInfoLabel>Afterparty</KeyInfoLabel>
+  </div>
+</section>
+
+<style>
+  .key_info {
+    max-width: 1091px;
+    width: 100%;
+    margin: auto;
+    & mark {
+      font-size: var(--Font-size-H4);
+      padding: 0.38rem 1.5rem;
+    }
+
+    @media (max-width: 837px) {
+      max-width: 706px;
+    }
+  }
+
+  .key_info__label_container {
+    background-color: var(--color-yellow);
+    padding: 0.25rem;
+
+    display: flex;
+    gap: 0.25rem;
+    justify-content: space-evenly;
+
+    @media (max-width: 530px) {
+      flex-direction: column;
+    }
+  }
+</style>
