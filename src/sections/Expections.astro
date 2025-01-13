@@ -1,0 +1,34 @@
+---
+import Talk from "../components/Talk.astro";
+import { colorPairs } from "../utils/colors";
+---
+
+<section class="expections">
+  <h2>A glimpse of what to expect ⚡</h2>
+  <div class="expections__talks">
+    <Talk track="Strategy & product" colorPair={colorPairs.green}>
+      Defining your MVP with the “MVP canvas”
+    </Talk>
+    <Talk track="Design" colorPair={colorPairs.yellow}>
+      Design meets Sustainable Business – an experiment
+    </Talk>
+    <Talk track="Development" colorPair={colorPairs.blue}>
+      Test side-effects and behaviour, don’t mock them!
+    </Talk>
+  </div>
+</section>
+
+<style>
+  .expections {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Padding-l);
+  }
+
+  .expections__talks {
+    display: flex;
+    gap: var(--Padding-m);
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+</style>

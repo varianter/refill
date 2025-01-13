@@ -25,6 +25,11 @@ const textColor = colorPair.textColor;
 <style define:vars={{ color, textColor }}>
   .talk {
     max-width: 424px;
+    width: 100%;
+
+    @media (max-width: 900px) {
+      max-width: 100%;
+    }
   }
   .talk__content {
     background-color: var(--color);
