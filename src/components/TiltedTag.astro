@@ -1,0 +1,49 @@
+---
+import type { ColorPair } from "../utils/colors";
+
+interface Props {
+  colorPair: ColorPair;
+}
+
+const { colorPair } = Astro.props;
+const color = colorPair.color;
+const textColor = colorPair.textColor;
+---
+
+<div class="tilted_tag">
+  <p class="tilted_tag__text">
+    <slot />
+  </p>
+  <span class="tilted_tag__background"></span>
+</div>
+
+<style define:vars={{ color, textColor }}>
+  .tilted_tag {
+    position: relative;
+    width: max-content;
+  }
+
+  .tilted_tag__text {
+    color: var(--textColor);
+    font-size: var(--Font-size-H5);
+
+    position: relative;
+    padding: 0.25rem 0.25rem;
+    z-index: 1;
+  }
+
+  .tilted_tag__background {
+    background-color: var(--color);
+    display: inline-block;
+    border-radius: 0.4rem;
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    top: 0;
+
+    transform: rotate(-3deg);
+  }
+</style>
