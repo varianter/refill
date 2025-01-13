@@ -1,14 +1,14 @@
-import { l as ROUTE_TYPE_HEADER, n as REROUTE_DIRECTIVE_HEADER, D as DEFAULT_404_COMPONENT, o as clientAddressSymbol, A as AstroError, L as LocalsNotAnObject, p as REROUTABLE_STATUS_CODES, q as responseSentSymbol } from './astro/server_ClgZUokg.mjs';
+import { l as ROUTE_TYPE_HEADER, n as REROUTE_DIRECTIVE_HEADER, D as DEFAULT_404_COMPONENT, o as clientAddressSymbol, A as AstroError, L as LocalsNotAnObject, p as REROUTABLE_STATUS_CODES, q as responseSentSymbol } from './astro/server_BtctW2vh.mjs';
 import 'cookie';
 import { bold, red, yellow, dim, blue } from 'kleur/colors';
-import { f as default404Instance, D as DEFAULT_404_ROUTE, h as ensure404Route } from './astro-designed-error-pages_4x2vINuE.mjs';
+import { f as default404Instance, D as DEFAULT_404_ROUTE, h as ensure404Route } from './astro-designed-error-pages_CcXaPcGG.mjs';
 import 'es-module-lexer';
 import 'clsx';
 import buffer from 'node:buffer';
 import crypto$1 from 'node:crypto';
 import { Http2ServerResponse } from 'node:http2';
-import { r as requestHasLocale, c as requestIs404Or500, n as notFound, e as redirectToFallback, g as normalizeTheLocale, j as redirectToDefaultLocale, d as defineMiddleware, k as createEndpoint, S as SERVER_ISLAND_COMPONENT, l as SERVER_ISLAND_ROUTE, R as RouteCache, s as sequence, m as findRouteToRewrite, o as matchRoute, p as RenderContext, P as PERSIST_SYMBOL, q as getSetCookiesFromResponse } from './index_CGib1MW2.mjs';
-import { N as NOOP_MIDDLEWARE_FN } from './noop-middleware_Lxjcr2a8.mjs';
+import { r as requestHasLocale, c as requestIs404Or500, n as notFound, e as redirectToFallback, g as normalizeTheLocale, j as redirectToDefaultLocale, d as defineMiddleware, k as createEndpoint, S as SERVER_ISLAND_COMPONENT, l as SERVER_ISLAND_ROUTE, R as RouteCache, s as sequence, m as findRouteToRewrite, o as matchRoute, p as RenderContext, P as PERSIST_SYMBOL, q as getSetCookiesFromResponse } from './index_DJU6xkSA.mjs';
+import { N as NOOP_MIDDLEWARE_FN } from './noop-middleware_CzwsvZrY.mjs';
 import { f as fileExtension, j as joinPaths, s as slash, p as prependForwardSlash, r as removeTrailingForwardSlash, a as appendForwardSlash } from './path_CVKLlyuj.mjs';
 import 'fast-glob';
 import nodePath from 'node:path';

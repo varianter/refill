@@ -1159,9 +1159,6 @@ function isSlotString(str) {
   return !!str[slotString];
 }
 function renderSlot(result, slotted, fallback) {
-  if (!slotted && fallback) {
-    return renderSlot(result, fallback);
-  }
   return {
     async render(destination) {
       await renderChild(destination, typeof slotted === "function" ? slotted(result) : slotted);
@@ -1190,7 +1187,7 @@ async function renderSlotToString(result, slotted, fallback) {
       }
     }
   };
-  const renderInstance = renderSlot(result, slotted, fallback);
+  const renderInstance = renderSlot(result, slotted);
   await renderInstance.render(temporaryDestination);
   return markHTMLString(new SlotString(content, instructions));
 }
