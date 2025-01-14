@@ -1,0 +1,33 @@
+---
+import SpeakerCard from "../components/SpeakerCard.astro";
+import { colorPairs } from "../utils/colors";
+---
+
+<section class="speakers">
+  <h2>A glimpse of what to expect ⚡</h2>
+  <div class="speakers__talks">
+    <SpeakerCard
+      colorPair={colorPairs.yellow}
+      speakerName="Vera Haye Bjerga"
+      talk="Defining your MVP with the “MVP canvas”"
+    />
+  </div>
+</section>
+
+<style>
+  .speakers {
+    max-width: 1401px;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--Padding-l);
+  }
+
+  .speakers__talks {
+    display: flex;
+    gap: var(--Padding-m);
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+</style>

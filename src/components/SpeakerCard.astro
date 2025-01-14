@@ -1,0 +1,64 @@
+---
+import { type ColorPair } from "../utils/colors";
+import Discipline from "./Discipline.astro";
+import Talk from "./Talk.astro";
+
+interface Props {
+  speakerName: string;
+  talk: string;
+  colorPair: ColorPair;
+  discipline: string;
+  company: string;
+}
+
+const { speakerName, talk, colorPair, discipline, company } = Astro.props;
+
+const nameImgSrc = speakerName.replaceAll(" ", "-");
+const imgSrc = `/assets/img/${nameImgSrc}.svg`;
+const altText = `image of ${speakerName}`;
+const companyImgSrc = `/assets/img/company/${company}.svg`;
+const companyImgAlt = `${company} icon`;
+---
+
+<div class="speaker_card">
+  <div class="speaker_card__wrapper">
+    <img class="speaker_card__img" src={imgSrc} alt={altText} />
+    <Talk colorPair={colorPair} speakerName={speakerName}>{talk}</Talk>
+    <div class="speaker_card__flex">
+      <Discipline>{discipline}</Discipline>
+      <img src={companyImgSrc} alt={companyImgAlt} />
+    </div>
+  </div>
+</div>
+
+<style>
+  .speaker_card {
+    width: 412px;
+    height: 398px;
+    padding: var(--Padding-m);
+    background-color: var(--background-primary);
+    border-radius: 0.375rem;
+  }
+
+  .speaker_card__wrapper {
+    position: relative;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 0.3rem;
+  }
+
+  .speaker_card__img {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .speaker_card__flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+</style>

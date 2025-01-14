@@ -1,44 +1,67 @@
 ---
 import type { ColorPair } from "../utils/colors";
+import Discipline from "./Discipline.astro";
 import TiltedTag from "./TiltedTag.astro";
 
 interface Props {
-  track: string;
+  speakerName: string;
   colorPair: ColorPair;
 }
 
-const { track, colorPair } = Astro.props;
+const { speakerName, colorPair } = Astro.props;
 
 const color = colorPair.color;
 const textColor = colorPair.textColor;
 ---
 
 <div class="talk">
-  <TiltedTag colorPair={colorPair}>{track}</TiltedTag>
+  <TiltedTag colorPair={colorPair}>{speakerName}</TiltedTag>
   <div class="talk__content">
-    <p>
+    <p class="talk__text">
       <slot />
     </p>
+    <span class="talk__background"></span>
   </div>
 </div>
 
 <style define:vars={{ color, textColor }}>
   .talk {
-    max-width: 424px;
+    max-width: 250px;
     width: 100%;
+
+    position: relative;
+    z-index: 2;
 
     @media (max-width: 900px) {
       max-width: 100%;
     }
   }
-  .talk__content {
-    background-color: var(--color);
-    padding: 1rem var(--Padding-s);
-    border-radius: 0.375rem;
 
-    & p {
-      color: var(--textColor);
-      font-size: var(--Font-size-H2);
-    }
+  .talk__text {
+    color: var(--textColor);
+    font-size: 1.4rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .talk__content {
+    width: fit-content;
+    position: relative;
+    padding: 0.5rem;
+  }
+
+  .talk__background {
+    background-color: var(--color);
+    display: inline-block;
+    border-radius: 0.4rem;
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    top: 0;
+
+    transform: rotate(2deg);
   }
 </style>
