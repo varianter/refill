@@ -1,11 +1,11 @@
-import { g as getActionQueryString } from './astro-designed-error-pages_DPwSjLdE.mjs';
+import { g as getActionQueryString } from './astro-designed-error-pages_haCMS76X.mjs';
 import 'es-module-lexer';
 import 'kleur/colors';
-import './astro/server_Cyi_mjAk.mjs';
+import './astro/server_C7i5G_-b.mjs';
 import 'clsx';
 import 'cookie';
 import * as z from 'zod';
-import { d as defineAction } from './server_BL6-8W1f.mjs';
+import { d as defineAction } from './server_BUPFSMTA.mjs';
 
 const ENCODED_DOT = "%2E";
 function toActionProxy(actionCallback = {}, aggregatedPath = "") {
@@ -48,7 +48,7 @@ function toActionProxy(actionCallback = {}, aggregatedPath = "") {
 }
 async function handleAction(param, path, context) {
   {
-    const { getAction } = await import('./server_BL6-8W1f.mjs').then(n => n.a);
+    const { getAction } = await import('./server_BUPFSMTA.mjs').then(n => n.a);
     const action = await getAction(path);
     if (!action) throw new Error(`Action not found: ${path}`);
     return action.bind(context)(param);
