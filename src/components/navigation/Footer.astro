@@ -1,0 +1,110 @@
+---
+const offices = [
+  "Trondheim",
+  "Oslo",
+  "Bergen",
+  "Stavanger",
+  "Stockholm",
+  "Gothenburg",
+  "Linköping",
+];
+---
+
+<footer class="footer">
+  <div class="footer__content">
+    <div class="footer__office">
+      <p>
+        We have multiple offices in Norway and Sweden. Feel free to drop by for
+        a cup of coffee or just a friendly chat.
+      </p>
+      <div class="footer__offices">
+        {
+          offices.map((office) => {
+            return <p>{office}</p>;
+          })
+        }
+      </div>
+    </div>
+    <div class="footer__contact">
+      <p>General contact</p>
+      <a href="mailto:post@variant.no">post@variant.no</a>
+    </div>
+  </div>
+  <img
+    class="footer__img"
+    src="assets/img/logo-variant.svg"
+    alt="Variant logo"
+  />
+</footer>
+
+<style>
+  .footer {
+    padding: 3rem;
+    max-width: 1410px;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 7.5rem;
+
+    @media (max-width: 1000px) {
+      padding: 2.25rem;
+      gap: 2rem;
+    }
+    @media (max-width: 530px) {
+      padding: 1.5rem;
+      padding-bottom: 2.25rem;
+    }
+
+    & * p {
+      font-size: 1.125rem;
+    }
+  }
+  .footer__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Padding-l);
+
+    @media (max-width: 1000px) {
+      gap: 2.25rem;
+    }
+  }
+  .footer__office {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Padding-m);
+
+    max-width: 353px;
+  }
+
+  .footer__offices {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+
+    & > p {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    & > p:not(:last-child)::after {
+      content: "·";
+      color: var(--text-disabled);
+    }
+  }
+
+  .footer__contact {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Padding-m);
+
+    & > a {
+      color: var(--text-primary-on-dark);
+    }
+  }
+
+  .footer__img {
+    width: 100%;
+    height: auto;
+  }
+</style>
