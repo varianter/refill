@@ -1,7 +1,11 @@
 export const colors = {
   yellow: "#FFD02F",
+
   green: "#3ACA40",
+  greenLight: "#B4F3B6",
+
   blue: "#3840FF",
+  blueLight: "#B7E6FF",
 
   background: {
     primary: "#fafafa",
@@ -20,7 +24,7 @@ export type ColorPair = {
   textColor: string;
 };
 
-type ColorNames = "yellow" | "green" | "blue";
+type ColorNames = "yellow" | "green" | "greenLight" | "blue" | "blueLight";
 
 export const colorPairs: Record<ColorNames, ColorPair> = {
   yellow: {
@@ -31,8 +35,16 @@ export const colorPairs: Record<ColorNames, ColorPair> = {
     color: colors.green,
     textColor: colors.text.primary,
   },
+  greenLight: {
+    color: colors.greenLight,
+    textColor: colors.text.primary,
+  },
   blue: {
     color: colors.blue,
     textColor: colors.text.primaryOnDark,
+  },
+  blueLight: {
+    color: colors.blueLight,
+    textColor: colors.text.primary,
   },
 };
