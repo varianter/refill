@@ -14,7 +14,7 @@ interface Props {
 const { speakerName, talk, colorPair, discipline, company } = Astro.props;
 
 const nameImgSrc = speakerName.replaceAll(" ", "-");
-const imgSrc = `/assets/img/${nameImgSrc}.svg`;
+const imgSrc = `/assets/img/people/${nameImgSrc}.svg`;
 const altText = `image of ${speakerName}`;
 const companyImgSrc = `/assets/img/company/${company}.svg`;
 const companyImgAlt = `${company} icon`;
