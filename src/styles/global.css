@@ -50,10 +50,12 @@
   color: var(--text-primary-on-dark);
   padding: 0;
   margin: 0;
+  font-weight: 450;
 }
 
 h1 {
   font-size: var(--Font-size-H1);
+  font-weight: 700;
 }
 
 h2 {
