@@ -7,16 +7,32 @@ import { colorPairs } from "../utils/colors";
   <h2>A glimpse of what to expect ⚡</h2>
   <div class="speakers__talks">
     <SpeakerCard
-      colorPair={colorPairs.yellow}
+      colorPair={colorPairs.greenLight}
       speakerName="Vera Haye Bjerga"
       talk="Defining your MVP with the “MVP canvas”"
+      discipline="Design"
+      company="Variant"
+    />
+    <SpeakerCard
+      colorPair={colorPairs.blueLight}
+      speakerName="Kristi Strømstad"
+      talk="Test side-effects and behaviour, don’t mock them!"
+      discipline="Design"
+      company="Variant"
+    />
+    <SpeakerCard
+      colorPair={colorPairs.yellow}
+      speakerName="Petter Hohle"
+      talk="Defining your MVP with the “MVP canvas”"
+      discipline="Design"
+      company="Variant"
     />
   </div>
 </section>
 
 <style>
   .speakers {
-    max-width: 1401px;
+    max-width: 1410px;
     margin: auto;
 
     display: flex;
@@ -26,7 +42,7 @@ import { colorPairs } from "../utils/colors";
 
   .speakers__talks {
     display: flex;
-    gap: var(--Padding-m);
+    gap: var(--Padding-s);
     justify-content: space-between;
     flex-wrap: wrap;
   }
