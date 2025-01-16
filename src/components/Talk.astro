@@ -4,28 +4,36 @@ import TiltedTag from "./TiltedTag.astro";
 
 interface Props {
   speakerName: string;
+  talk: string;
   colorPair: ColorPair;
 }
 
-const { speakerName, colorPair } = Astro.props;
+const { speakerName, colorPair, talk } = Astro.props;
 
 const color = colorPair.color;
 const textColor = colorPair.textColor;
+
+function checkTalkLenght() {
+  if (talk.length > 50) return "90%";
+  return "250px";
+}
+
+const maxWidth = checkTalkLenght();
 ---
 
 <div class="talk">
   <TiltedTag colorPair={colorPair}>{speakerName}</TiltedTag>
   <div class="talk__content">
     <p class="talk__text">
-      <slot />
+      {talk}
     </p>
     <span class="talk__background"></span>
   </div>
 </div>
 
-<style define:vars={{ color, textColor }}>
+<style define:vars={{ color, textColor, maxWidth }}>
   .talk {
-    max-width: 250px;
+    max-width: var(--maxWidth);
     width: 100%;
 
     position: relative;
