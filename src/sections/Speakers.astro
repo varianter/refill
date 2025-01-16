@@ -30,6 +30,7 @@ import { colorPairs } from "../utils/colors";
 <style>
   .speakers {
     max-width: 1410px;
+    width: 100%;
     margin: auto;
 
     display: flex;
@@ -42,5 +43,9 @@ import { colorPairs } from "../utils/colors";
     gap: var(--Padding-s);
     justify-content: space-between;
     flex-wrap: wrap;
+
+    @media (max-width: 1000px) {
+      justify-content: center;
+    }
   }
 </style>
