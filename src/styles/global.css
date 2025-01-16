@@ -67,6 +67,7 @@ body {
 
   @media (max-width: 530px) {
     gap: var(--Padding-l);
+    padding: var(--Padding-s);
   }
 }
 
