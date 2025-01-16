@@ -8,25 +8,29 @@ interface Props {
   talk: string;
   colorPair: ColorPair;
   discipline: string;
-  company: string;
 }
 
-const { speakerName, talk, colorPair, discipline, company } = Astro.props;
+const { speakerName, talk, colorPair, discipline } = Astro.props;
 
-const nameImgSrc = speakerName.replaceAll(" ", "-");
-const imgSrc = `/assets/img/people/${nameImgSrc}.svg`;
-const altText = `image of ${speakerName}`;
-const companyImgSrc = `/assets/img/company/${company}.svg`;
-const companyImgAlt = `${company} icon`;
+const formattedNames = speakerName
+  .split(" & ")
+  .map((name) => name.split(" ").join("-"));
 ---
 
 <div class="speaker_card">
   <div class="speaker_card__wrapper">
-    <img class="speaker_card__img" src={imgSrc} alt={altText} />
-    <Talk colorPair={colorPair} speakerName={speakerName}>{talk}</Talk>
+    <div class="speaker_card__img_flex">
+      {
+        formattedNames.map((name) => {
+          const imgSrc = `/assets/img/people/${name}.svg`;
+          const altText = name.replaceAll("-", " ");
+          return <img src={imgSrc} alt={altText} />;
+        })
+      }
+    </div>
+    <Talk colorPair={colorPair} speakerName={speakerName} talk={talk} />
     <div class="speaker_card__flex">
       <Discipline>{discipline}</Discipline>
-      <img src={companyImgSrc} alt={companyImgAlt} />
     </div>
   </div>
 </div>
@@ -50,7 +54,8 @@ const companyImgAlt = `${company} icon`;
     gap: 0.3rem;
   }
 
-  .speaker_card__img {
+  .speaker_card__img_flex {
+    display: flex;
     position: absolute;
     right: 0;
     top: 0;
