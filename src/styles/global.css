@@ -64,6 +64,10 @@ body {
   @media (max-width: 1000px) {
     gap: var(--Padding-xl);
   }
+
+  @media (max-width: 530px) {
+    gap: var(--Padding-l);
+  }
 }
 
 :where(h1, h2, p, a, mark) {
