@@ -1,9 +1,6 @@
 ---
 import "../styles/global.css";
-import { colors } from "../utils/colors";
 import Footer from "../components/navigation/Footer.astro";
-
-const { dark } = colors.background;
 ---
 
 <!doctype html>
@@ -19,23 +16,4 @@ const { dark } = colors.background;
     <slot />
     <Footer />
   </body>
-
-  <style define:vars={{ dark }}>
-    :where(html, body) {
-      margin: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background-color: var(--dark);
-      padding: 1rem;
-
-      display: flex;
-      flex-direction: column;
-      gap: var(--Padding-xxl);
-    }
-  </style>
 </html>
