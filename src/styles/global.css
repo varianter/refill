@@ -31,6 +31,7 @@
   --Font-size-H5: 1.25rem;
 
   --Line-height-H2: 4rem;
+  --Line-height-H3: 2.5rem;
 
   --max-width-tablet: 834px;
 
@@ -42,6 +43,9 @@
   @media (max-width: 530px) {
     --Font-size-H1: 2.625rem;
     --Font-size-H2: 2rem;
+    --Font-size-H3: 1.5rem;
+
+    --Line-height-H3: 2rem;
   }
 }
 
