@@ -9,6 +9,7 @@
   --font-britti: "Britti";
 
   --color-yellow: #ffd02f;
+  --Surface-yellow-subtle: #fffbf6;
 
   --background-primary: #fafafa;
   --background-dark: #2d2d2d;
@@ -30,8 +31,12 @@
   --Font-size-H4: 1.5rem;
   --Font-size-H5: 1.25rem;
 
+  --Font-size-Body-Small: 1rem;
+
   --Line-height-H2: 4rem;
   --Line-height-H3: 2.5rem;
+
+  --Line-height-Body-Small: 1.5rem;
 
   --max-width-tablet: 834px;
 
