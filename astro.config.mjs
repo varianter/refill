@@ -8,5 +8,6 @@ import vercel from "@astrojs/vercel";
 // https://astro.build/config
 export default defineConfig({
   integrations: [vue()],
-  adapter: vercel()
+  output: "server",
+  adapter: vercel(),
 });
