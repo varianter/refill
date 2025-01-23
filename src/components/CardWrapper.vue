@@ -1,10 +1,6 @@
 <script>
 export default {
   props: {
-    maxWidth: {
-      type: String,
-      required: true,
-    },
     height: {
       type: String,
       required: false,
@@ -21,8 +17,6 @@ export default {
 
 <style lang="css">
 .card_wrapper {
-  max-width: v-bind(maxWidth);
-  width: 100%;
   max-height: 398px;
   height: v-bind(height);
   padding: var(--Padding-m);
