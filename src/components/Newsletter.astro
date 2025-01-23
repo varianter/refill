@@ -8,7 +8,7 @@ import Button from "./button/button.astro";
   method="post"
 >
   <input class="email" type="email" name="email" placeholder="E-mail" />
-  <Button text="Register" buttonType="primary" />
+  <Button text="Sign up" buttonType="primary" />
 </form>
 
 <style>
@@ -30,5 +30,9 @@ import Button from "./button/button.astro";
 
     font-size: 1rem;
     font-family: var(--font-britti);
+  }
+
+  button {
+    text-wrap: nowrap;
   }
 </style>
