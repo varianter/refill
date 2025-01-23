@@ -25,7 +25,7 @@ export default {
     Divider,
   },
   setup(props) {
-    const isOpen = ref(false);
+    const isOpen = ref(true);
     const accordionId = `accordion${props.id}`;
     const sectionId = `section${props.id}`;
 
