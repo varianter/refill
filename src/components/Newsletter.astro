@@ -1,5 +1,4 @@
 ---
-import { linkId } from "../utils/linkId";
 import Button from "./button/button.astro";
 ---
 
@@ -7,7 +6,6 @@ import Button from "./button/button.astro";
   class="newsletter"
   action="https://buttondown.com/api/emails/embed-subscribe/variant"
   method="post"
-  id={linkId.newsletter.id}
 >
   <input class="email" type="email" name="email" placeholder="E-mail" />
   <Button text="Register" buttonType="primary" />
