@@ -1,0 +1,39 @@
+---
+import { colorPairs } from "../utils/colors";
+import { type Track } from "../utils/schedule";
+import SpeakerCard from "./SpeakerCard.astro";
+
+interface Props {
+  track: Track;
+}
+const { track } = Astro.props;
+---
+
+<div class="track">
+  {
+    track.map((talk) => {
+      return (
+        <SpeakerCard
+          speakerName={talk.speaker}
+          colorPair={colorPairs.greenLight}
+          talk={talk.title}
+          discipline={`${talk.where} ${talk.from}-${talk.to}`}
+        />
+      );
+    })
+  }
+</div>
+
+<style>
+  .track {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(412px, 1fr));
+    gap: 1rem;
+
+    @media (max-width: 1300px) {
+      > div:nth-last-child(1) {
+        grid-column: 1 / -1;
+      }
+    }
+  }
+</style>
