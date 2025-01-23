@@ -37,7 +37,7 @@ const formattedNames = speakerName
   </div>
 </CardWrapper>
 
-<style>
+<style is:global>
   .speaker_card__wrapper {
     position: relative;
     height: 100%;
@@ -46,6 +46,25 @@ const formattedNames = speakerName
     flex-direction: column;
     justify-content: flex-end;
     gap: 0.3rem;
+
+    container-type: inline-size;
+    container-name: cardContent;
+  }
+
+  @container (width > 650px) {
+    .speaker_card__wrapper:has(img) .talk__text {
+      font-size: var(--Font-size-H2);
+    }
+
+    .speaker_card__wrapper:has(img) .talk {
+      max-width: 650px;
+    }
+  }
+
+  @container (width < 650px) {
+    .speaker_card__wrapper:has(img) .talk {
+      max-width: 285px;
+    }
   }
 
   .speaker_card__img_flex {
@@ -54,11 +73,9 @@ const formattedNames = speakerName
     right: 0;
     top: 0;
 
-    @media (max-width: 530px) {
-      & > img {
-        width: 100%;
-        overflow: hidden;
-      }
+    & > img {
+      overflow: hidden;
+      width: 100%;
     }
   }
 
