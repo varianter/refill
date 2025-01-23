@@ -55,6 +55,11 @@
   }
 }
 
+/* Fixes issue with variable fonts on Safari */
+* {
+  font-synthesis: none;
+}
+
 :where(html, body) {
   margin: 0;
 }
@@ -69,6 +74,7 @@ body {
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-text-stroke: 0.5px;
 
   display: flex;
   flex-direction: column;
