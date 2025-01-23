@@ -3,7 +3,7 @@ import type { ColorPair } from "../utils/colors";
 import TiltedTag from "./TiltedTag.astro";
 
 interface Props {
-  speakerName: string;
+  speakerName?: string;
   talk: string;
   colorPair: ColorPair;
 }
@@ -22,7 +22,7 @@ const maxWidth = checkTalkLenght();
 ---
 
 <div class="talk">
-  <TiltedTag colorPair={colorPair}>{speakerName}</TiltedTag>
+  {speakerName && <TiltedTag colorPair={colorPair}>{speakerName}</TiltedTag>}
   <div class="talk__content">
     <p class="talk__text">
       {talk}
