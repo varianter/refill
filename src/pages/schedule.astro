@@ -1,40 +1,27 @@
 ---
 import Accordion from "../components/Accordion.vue";
+import Track from "../components/Track.astro";
 import Layout from "../layouts/Layout.astro";
+import { schedule } from "../utils/schedule";
 ---
 
 <Layout>
   <h1>Schedule</h1>
-  <Accordion
-    client:visible
-    title="Reception & opening keynote"
-    startTime="08:00"
-    endTime="10:00"
-    id={1}
-  >
-    <div>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id ad
-        molestias, iusto tempora excepturi qui omnis mollitia repudiandae eius
-        quasi, corporis earum quo, aliquid quis adipisci. Quaerat qui suscipit
-        consequuntur.
-      </p>
-    </div>
-    <div>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id ad
-        molestias, iusto tempora excepturi qui omnis mollitia repudiandae eius
-        quasi, corporis earum quo, aliquid quis adipisci. Quaerat qui suscipit
-        consequuntur.
-      </p>
-    </div>
-    <div>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id ad
-        molestias, iusto tempora excepturi qui omnis mollitia repudiandae eius
-        quasi, corporis earum quo, aliquid quis adipisci. Quaerat qui suscipit
-        consequuntur.
-      </p>
-    </div>
-  </Accordion>
+  {
+    schedule.map((session) => {
+      return (
+        <Accordion
+          client:visible
+          title={session.title}
+          startTime={session.start}
+          endTime={session.end}
+          id={1}
+        >
+          {session.tracks.map((track) => {
+            return <Track track={track} />;
+          })}
+        </Accordion>
+      );
+    })
+  }
 </Layout>
