@@ -35,5 +35,9 @@ const { track } = Astro.props;
         grid-column: 1 / -1;
       }
     }
+
+    @media (max-width: 430px) {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
   }
 </style>
