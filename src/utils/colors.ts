@@ -9,6 +9,8 @@ export const colors = {
   blueAccent: "#8FC3FF",
   blueLight: "#B7E6FF",
 
+  purpleAccent: "#DDD6FF",
+
   redAccent: "#FF8183",
 
   background: {
@@ -36,6 +38,7 @@ type ColorNames =
   | "blue"
   | "blueAccent"
   | "blueLight"
+  | "purpleAccent"
   | "redAccent";
 
 export const colorPairs: Record<ColorNames, ColorPair> = {
@@ -65,6 +68,10 @@ export const colorPairs: Record<ColorNames, ColorPair> = {
   },
   blueLight: {
     color: colors.blueLight,
+    textColor: colors.text.primary,
+  },
+  purpleAccent: {
+    color: colors.purpleAccent,
     textColor: colors.text.primary,
   },
   redAccent: {

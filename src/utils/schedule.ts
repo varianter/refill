@@ -1,8 +1,11 @@
+import { colorPairs, type ColorPair } from "./colors";
+
 type Talk = {
   title: string;
-  where: string;
+  location: string;
   from: string;
   to: string;
+  color: ColorPair;
   speaker?: string;
 };
 
@@ -17,39 +20,6 @@ type Session = {
 
 type Schedule = Session[];
 
-export const session: Session = {
-  title: "Reception & opening keynote",
-  start: "08:00",
-  end: "10:00",
-  tracks: [
-    [
-      {
-        title: "Coffee & networking",
-        where: "Orangeriet",
-        from: "08:00",
-        to: "08:45",
-      },
-    ],
-    [
-      {
-        title: "Opening remarks",
-        where: "Palmsalen",
-        from: "08:45",
-        to: "09:00",
-      },
-    ],
-    [
-      {
-        title: "Design meets Sustainable Business – an experiment",
-        where: "Palmsalen",
-        from: "09:00",
-        to: "09:45",
-        speaker: "Anita Steinstad",
-      },
-    ],
-  ],
-};
-
 export const schedule: Schedule = [
   {
     title: "Reception & opening keynote",
@@ -59,25 +29,28 @@ export const schedule: Schedule = [
       [
         {
           title: "Coffee & networking",
-          where: "Orangeriet",
+          location: "Orangeriet",
           from: "08:00",
           to: "08:45",
+          color: colorPairs.purpleAccent,
         },
       ],
       [
         {
           title: "Opening remarks",
-          where: "Palmsalen",
+          location: "Palmsalen",
           from: "08:45",
           to: "09:00",
+          color: colorPairs.purpleAccent,
         },
       ],
       [
         {
           title: "Design meets Sustainable Business – an experiment",
-          where: "Palmsalen",
+          location: "Palmsalen",
           from: "09:00",
           to: "09:45",
+          color: colorPairs.yellow,
           speaker: "Anita Steinstad",
         },
       ],
@@ -93,40 +66,26 @@ export const schedule: Schedule = [
           speaker: "Vegard Ingebrigtsen Feste",
           title:
             "Designing with the mind in mind - Creating digital products that align with the human behaviour",
-          where: "Palmsalen",
+          location: "Palmsalen",
           from: "10:00",
           to: "10:20",
+          color: colorPairs.blueAccent,
         },
         {
           speaker: "Mikael Brevik",
           title: "Client Side Solutions Can Have DevOps Too",
-          where: "Aulan",
-          from: "Aulan",
+          location: "Aulan",
+          from: "10:00",
           to: "10:40",
+          color: colorPairs.redAccent,
         },
         {
           speaker: "Mikael Brevik",
           title: "Client Side Solutions Can Have DevOps Too",
-          where: "Aulan",
-          from: "Aulan",
+          location: "No. 314",
+          from: "10:00",
           to: "10:40",
-        },
-      ],
-      [
-        {
-          title: "",
-          where: "",
-          from: "",
-          to: "",
-        },
-      ],
-      [
-        {
-          title: "",
-          where: "",
-          from: "",
-          to: "",
-          speaker: "",
+          color: colorPairs.greenSubtle,
         },
       ],
     ],

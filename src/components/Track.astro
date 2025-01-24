@@ -1,5 +1,4 @@
 ---
-import { colorPairs } from "../utils/colors";
 import { type Track } from "../utils/schedule";
 import SpeakerCard from "./SpeakerCard.astro";
 
@@ -15,9 +14,9 @@ const { track } = Astro.props;
       return (
         <SpeakerCard
           speakerName={talk.speaker}
-          colorPair={colorPairs.greenLight}
+          colorPair={talk.color}
           talk={talk.title}
-          discipline={`${talk.where} ${talk.from}-${talk.to}`}
+          discipline={`${talk.location} ${talk.from}-${talk.to}`}
         />
       );
     })
