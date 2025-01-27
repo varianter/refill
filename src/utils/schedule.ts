@@ -83,6 +83,13 @@ export const schedule: Schedule = [
           color: colorPairs.greenSubtle,
         },
       ],
+    ],
+  },
+  {
+    title: "Lunch",
+    start: "11:30",
+    end: "12:30",
+    tracks: [
       [
         {
           title: "Lunch break",
@@ -122,6 +129,13 @@ export const schedule: Schedule = [
           color: colorPairs.greenSubtle,
         },
       ],
+    ],
+  },
+  {
+    title: "Refreshments, mingling & ???",
+    start: "14:00",
+    end: "14:30",
+    tracks: [
       [
         {
           title: "Refreshments, mingling & ???",

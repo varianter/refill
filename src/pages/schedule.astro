@@ -1,5 +1,6 @@
 ---
 import Accordion from "../components/Accordion.vue";
+import SpeakerCard from "../components/SpeakerCard.astro";
 import Track from "../components/Track.astro";
 import ScheduleLayout from "../layouts/Layout.astro";
 import { schedule } from "../utils/schedule";
@@ -9,25 +10,40 @@ import { schedule } from "../utils/schedule";
   <h1 class="schedule__heading">Schedule</h1>
   {
     schedule.map((session) => {
-      return (
-        <Accordion
-          client:visible
-          title={session.title}
-          startTime={session.start}
-          endTime={session.end}
-          id={1}
-        >
-          {session.tracks.map((track) => {
-            return <Track track={track} />;
-          })}
-        </Accordion>
-      );
+      if (session.tracks.length > 1 || session.tracks[0].length > 1) {
+        return (
+          <Accordion
+            client:visible
+            title={session.title}
+            startTime={session.start}
+            endTime={session.end}
+            id={1}
+          >
+            {session.tracks.map((track) => {
+              return <Track track={track} />;
+            })}
+          </Accordion>
+        );
+      } else {
+        const singleTrack = session.tracks[0][0];
+        return (
+          <div class="schedule__speaker_card">
+            <SpeakerCard
+              speakerName={singleTrack.speaker}
+              colorPair={singleTrack.color}
+              talk={singleTrack.title}
+              discipline={`${singleTrack.location} ${singleTrack.from}-${singleTrack.to}`}
+            />
+          </div>
+        );
+      }
     })
   }
 </ScheduleLayout>
 
 <style>
-  .schedule__heading {
+  .schedule__heading,
+  .schedule__speaker_card {
     width: 100%;
     max-width: 1410px;
     margin: auto;
