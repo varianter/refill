@@ -54,7 +54,7 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="accordion">
     <div class="accordion__heading">
       <h2>
         <button :class="returnTitleClass()" @click="handleOpen" type="button" :aria-expanded="isOpen"
@@ -72,6 +72,12 @@ export default {
 </template>
 
 <style lang="css">
+.accordion {
+  max-width: 1410px;
+  width: 100%;
+  margin: auto;
+}
+
 .accordion__heading {
   padding: var(--Padding-m) var(--Padding-s) 0 var(--Padding-s);
 }

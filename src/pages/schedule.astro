@@ -1,12 +1,12 @@
 ---
 import Accordion from "../components/Accordion.vue";
 import Track from "../components/Track.astro";
-import Layout from "../layouts/Layout.astro";
+import ScheduleLayout from "../layouts/Layout.astro";
 import { schedule } from "../utils/schedule";
 ---
 
-<Layout>
-  <h1>Schedule</h1>
+<ScheduleLayout>
+  <h1 class="schedule__heading">Schedule</h1>
   {
     schedule.map((session) => {
       return (
@@ -24,4 +24,12 @@ import { schedule } from "../utils/schedule";
       );
     })
   }
-</Layout>
+</ScheduleLayout>
+
+<style>
+  .schedule__heading {
+    width: 100%;
+    max-width: 1410px;
+    margin: auto;
+  }
+</style>
