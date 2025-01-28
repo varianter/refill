@@ -5,13 +5,18 @@ export const colors = {
   greenLight: "#B4F3B6",
   greenSubtle: "#DAFBDC",
 
+  darkBlue: "#2F02F6",
   blue: "#3840FF",
   blueAccent: "#8FC3FF",
   blueLight: "#B7E6FF",
 
+  teal50: "#D7FFF7",
+
   purpleAccent: "#DDD6FF",
 
   redAccent: "#FF8183",
+
+  orange200: "#FFC9BC",
 
   background: {
     primary: "#fafafa",
@@ -35,11 +40,14 @@ type ColorNames =
   | "green"
   | "greenLight"
   | "greenSubtle"
+  | "darkBlue"
   | "blue"
   | "blueAccent"
   | "blueLight"
+  | "teal50"
   | "purpleAccent"
-  | "redAccent";
+  | "redAccent"
+  | "orange200";
 
 export const colorPairs: Record<ColorNames, ColorPair> = {
   yellow: {
@@ -58,6 +66,10 @@ export const colorPairs: Record<ColorNames, ColorPair> = {
     color: colors.greenSubtle,
     textColor: colors.text.primary,
   },
+  darkBlue: {
+    color: colors.darkBlue,
+    textColor: colors.text.primaryOnDark,
+  },
   blue: {
     color: colors.blue,
     textColor: colors.text.primaryOnDark,
@@ -70,12 +82,20 @@ export const colorPairs: Record<ColorNames, ColorPair> = {
     color: colors.blueLight,
     textColor: colors.text.primary,
   },
+  teal50: {
+    color: colors.teal50,
+    textColor: colors.text.primary,
+  },
   purpleAccent: {
     color: colors.purpleAccent,
     textColor: colors.text.primary,
   },
   redAccent: {
     color: colors.redAccent,
+    textColor: colors.text.primary,
+  },
+  orange200: {
+    color: colors.orange200,
     textColor: colors.text.primary,
   },
 };
