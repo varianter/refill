@@ -64,7 +64,7 @@ const date = new Date(2025, 3, 4);
   .event_info__clock {
     gap: 0.75rem;
     align-items: center;
-    background-color: var(--coral-200);
+    background-color: var(--background-primary);
     width: 84px;
 
     & > p {
@@ -78,14 +78,16 @@ const date = new Date(2025, 3, 4);
   }
 
   .event_info__adress {
+    padding: var(--Padding-s, 0.75rem) var(--Padding-m, 1.5rem);
     font-size: var(--Font-size-H5);
     width: fit-content;
+    padding:;
   }
 
   .event_info__large {
     padding: var(--Padding-s, 0.75rem) var(--Padding-m, 1.5rem);
     font-size: 5.625rem;
-    font-weight: 500;
+    font-weight: 700;
     letter-spacing: -0.1125rem;
 
     @media (max-width: 1000px) {
