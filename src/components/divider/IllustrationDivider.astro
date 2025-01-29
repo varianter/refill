@@ -1,0 +1,31 @@
+---
+interface Props {
+  type: "curl" | "smiley";
+}
+
+const { type } = Astro.props;
+---
+
+{
+  type === "curl" && (
+    <img src="/assets/img/divider/curly.svg" alt="curly illustration" />
+  )
+}
+
+{
+  type === "smiley" && (
+    <img
+      class="smiley"
+      src="/assets/img/divider/smiley.svg"
+      alt="curly illustration"
+    />
+  )
+}
+
+<style>
+  .smiley {
+    width: 290px;
+    height: auto;
+    margin: auto;
+  }
+</style>
