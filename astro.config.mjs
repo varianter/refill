@@ -5,9 +5,11 @@ import vue from "@astrojs/vue";
 
 import vercel from "@astrojs/vercel";
 
+import react from "@astrojs/react";
+
 // https://astro.build/config
 export default defineConfig({
-  integrations: [vue()],
+  integrations: [vue(), react()],
   output: "server",
   adapter: vercel(),
 });
