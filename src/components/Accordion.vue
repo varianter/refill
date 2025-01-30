@@ -111,7 +111,7 @@ export default {
   height: 24px;
   content: "";
 
-  background-color: white;
+  background-color: var(--text-primary);
 
   transition: rotate 0.3s;
 }
