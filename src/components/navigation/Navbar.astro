@@ -1,0 +1,50 @@
+---
+import { linkId } from "../../utils/linkId";
+import LinkButton from "../button/LinkButton.astro";
+---
+
+<nav class="navbar">
+  <ul>
+    <li>
+      <a href="/schedule">Full schedule</a>
+    </li>
+    <li>
+      <a href="/schedule">Speakers</a>
+    </li>
+    <li>
+      <a href="/schedule">FAQ</a>
+    </li>
+    <li>
+      <LinkButton href={linkId.newsletter.href}>Sign up</LinkButton>
+    </li>
+  </ul>
+</nav>
+
+<style>
+  .navbar {
+    padding: 1.5rem 0rem 1.5rem 3rem;
+    height: fit-content;
+    width: 100%;
+    background-color: var(--background-primary);
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    & > ul {
+      max-width: 756px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  a {
+    font-size: var(--Font-size-H5);
+    font-weight: 400;
+  }
+</style>
