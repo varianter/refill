@@ -1,0 +1,39 @@
+---
+interface Props {
+  href: string;
+}
+
+const { href } = Astro.props;
+---
+
+<a class="link_button" href={href}>
+  <slot />
+</a>
+
+<style>
+  .link_button {
+    padding: 0.38rem 0.5rem;
+    width: fit-content;
+    border-radius: 0.375rem;
+    border: 1px solid var(--background-dark);
+
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+  }
+
+  .link_button::after {
+    display: inline-block;
+    -webkit-mask: url("/assets/icons/arrowRight.svg") no-repeat center;
+    -webkit-mask-size: cover;
+    mask: url("/assets/icons/arrowRight.svg") no-repeat center;
+    mask-size: cover;
+    background-color: var(--background-dark);
+
+    width: 24px;
+    height: 24px;
+    content: "";
+
+    rotate: 90deg;
+  }
+</style>
