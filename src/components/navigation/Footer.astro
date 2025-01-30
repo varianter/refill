@@ -40,8 +40,10 @@ const offices = [
 <style>
   .footer {
     padding: 3rem;
+    border-radius: var(--Padding-s);
     max-width: 1410px;
     margin: auto;
+    background: linear-gradient(180deg, #ffc2be 0%, #ef826e 45%, #e45738 100%);
 
     display: flex;
     flex-direction: column;
@@ -56,9 +58,10 @@ const offices = [
       padding-bottom: 2.25rem;
     }
 
-    & * p {
+    & p {
       font-size: 1.125rem;
       font-weight: 400;
+      color: var(--grey-900);
     }
   }
   .footer__content {
@@ -88,6 +91,7 @@ const offices = [
     & > p {
       display: flex;
       gap: 0.5rem;
+      color: var(--grey-800);
     }
 
     & > p:not(:last-child)::after {
@@ -102,7 +106,7 @@ const offices = [
     gap: var(--Padding-m);
 
     & > a {
-      color: var(--text-primary-on-dark);
+      color: var(--grey-800);
     }
   }
 

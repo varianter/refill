@@ -1,6 +1,5 @@
 ---
 import EventInfo from "../components/EventInfo.astro";
-import { linkId } from "../utils/linkId";
 ---
 
 <section class="hero">
@@ -9,15 +8,17 @@ import { linkId } from "../utils/linkId";
       <EventInfo />
     </div>
     <h1 class="hero__heading">Refill Stockholm 2025</h1>
-    <a class="hero__register" href={linkId.newsletter.href}>Sign up ↓</a>
+    <a class="hero__register" href="/schedule">Schedule →</a>
   </div>
 </section>
 
 <style>
   .hero {
-    background-color: #fffbf6;
+    background-image: url("/assets/img/hero.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
     padding: 7rem 10rem 4.5rem 3rem;
-    border-radius: 0.375rem 6rem 0.375rem 0.375rem;
     min-height: calc(100vh - var(--Padding-rem) * 2);
     box-sizing: border-box;
   }

@@ -14,6 +14,6 @@
   display: inline-block;
   width: 100%;
   height: 1px;
-  background-color: var(--Surface-yellow-subtle);
+  background-color: var(--grey-800);
 }
 </style>

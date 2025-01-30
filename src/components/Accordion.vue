@@ -87,7 +87,7 @@ export default {
   padding: 0;
   border: none;
   background-color: inherit;
-  color: var(--text-primary-on-dark);
+  color: var(--text-primary);
   font-size: var(--Font-size-H5);
 
   display: flex;
@@ -111,7 +111,7 @@ export default {
   height: 24px;
   content: "";
 
-  background-color: white;
+  background-color: var(--text-primary);
 
   transition: rotate 0.3s;
 }

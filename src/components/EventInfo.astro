@@ -1,6 +1,5 @@
 ---
 import Clock from "./Clock.vue";
-import TextHighlight from "./TextHighlight.astro";
 
 const date = new Date(2025, 3, 4);
 ---
@@ -8,78 +7,95 @@ const date = new Date(2025, 3, 4);
 <div class="event_info">
   <div class="event_info__text">
     <div class="event_info__text__first">
-      <TextHighlight htmlTag="p" type="small">7A Posthuset</TextHighlight>
-      <TextHighlight htmlTag="p" type="big">4. april</TextHighlight>
+      <p class="event_info__adress">7A Posthuset</p>
+      <p class="event_info__large">4. april</p>
     </div>
-    <TextHighlight htmlTag="p" type="big">Build for impact</TextHighlight>
+    <p class="event_info__large">Build for impact</p>
   </div>
 
   <div class="event_info__time">
     <div class="event_info__clock">
-      <TextHighlight htmlTag="p" type="clock"
-        ><Clock targetTime={date} format="days" /></TextHighlight
-      >
+      <Clock targetTime={date} format="days" />
       <p>days</p>
     </div>
     <div class="event_info__clock">
-      <TextHighlight htmlTag="p" type="clock"
-        ><Clock targetTime={date} format="hours" /></TextHighlight
-      >
+      <Clock targetTime={date} format="hours" />
       <p>hours</p>
     </div>
   </div>
-
-  <style>
-    :root {
-      --small-gap: 0.5rem;
-      --clock-gap: 0.75rem;
-
-      @media (max-width: 1000px) {
-        --small-gap: 0.25rem;
-      }
-    }
-    :where(
-      .event_info,
-      .event_info__text,
-      .event_info__text__first,
-      .event_info__time,
-      .event_info__clock
-    ) {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .event_info {
-      gap: var(--Padding-m);
-      align-items: flex-end;
-    }
-
-    .event_info__text {
-      gap: var(--small-gap);
-      align-items: flex-end;
-    }
-
-    .event_info__text__first {
-      gap: var(--small-gap);
-    }
-
-    .event_info__time {
-      flex-direction: row;
-      gap: 0.25rem;
-    }
-
-    .event_info__clock {
-      gap: 0.75rem;
-      align-items: center;
-
-      & > p {
-        font-size: 2rem;
-        color: var(--text-primary);
-
-        @media (max-width: 530px) {
-          font-size: 1.5rem;
-        }
-      }
-    }
-  </style>
 </div>
+
+<style>
+  :root {
+    --small-gap: 0.25rem;
+    --clock-gap: 0.75rem;
+  }
+  :where(
+    .event_info,
+    .event_info__text,
+    .event_info__text__first,
+    .event_info__time,
+    .event_info__clock
+  ) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .event_info {
+    gap: var(--Padding-m);
+    align-items: flex-end;
+  }
+
+  .event_info__text {
+    gap: var(--small-gap);
+    align-items: flex-end;
+  }
+
+  .event_info__text__first {
+    gap: var(--small-gap);
+    align-items: flex-end;
+  }
+
+  .event_info__time {
+    flex-direction: row;
+    gap: 0.25rem;
+  }
+
+  .event_info__clock {
+    gap: 0.75rem;
+    align-items: center;
+    background-color: var(--background-primary);
+    width: 84px;
+
+    & > p {
+      font-size: 2rem;
+      color: var(--text-primary);
+
+      @media (max-width: 530px) {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .event_info__adress {
+    padding: var(--Padding-s, 0.75rem) var(--Padding-m, 1.5rem);
+    font-size: var(--Font-size-H5);
+    width: fit-content;
+    padding:;
+  }
+
+  .event_info__large {
+    padding: var(--Padding-s, 0.75rem) var(--Padding-m, 1.5rem);
+    font-size: 5.625rem;
+    font-weight: 700;
+    letter-spacing: -0.1125rem;
+
+    @media (max-width: 1000px) {
+      font-size: 3.5rem;
+    }
+
+    @media (max-width: 530px) {
+      font-size: 2.5rem;
+    }
+  }
+</style>
