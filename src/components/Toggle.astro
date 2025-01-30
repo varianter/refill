@@ -1,0 +1,67 @@
+---
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<label class="toggle">
+  <span class="toggle__label"> {text} </span>
+  <input class="toggle__input" id="id-switch-1" type="checkbox" role="switch" />
+  <span class="toggle__container">
+    <span class="toggle__position"> </span>
+  </span>
+</label>
+
+<style>
+  .toggle {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+  }
+
+  .toggle__label {
+    color: var(--text-primary-on-dark);
+    font-size: 0.875rem;
+  }
+
+  .toggle__input {
+    opacity: 0;
+  }
+
+  .toggle__container {
+    display: inline-block;
+    width: 3.625rem;
+    height: 2rem;
+    background-color: var(--background-primary);
+    border-radius: 999px;
+
+    position: relative;
+
+    transition: background 0.4s;
+  }
+
+  .toggle__position {
+    display: inline-block;
+    background-color: var(--background-primary);
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    border: 2px solid black;
+
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.4s;
+  }
+
+  .toggle__input:checked + .toggle__container {
+    background-color: var(--color-yellow);
+  }
+
+  .toggle__input:checked + .toggle__container .toggle__position {
+    transform: translate(25px, -50%);
+  }
+</style>

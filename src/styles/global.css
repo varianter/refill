@@ -90,7 +90,7 @@ body {
   }
 }
 
-:where(h1, h2, p, a, mark) {
+:where(h1, h2, p, a, mark, span) {
   font-family: var(--font-britti);
   color: var(--text-primary-on-dark);
   padding: 0;
