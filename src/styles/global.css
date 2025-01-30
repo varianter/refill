@@ -72,6 +72,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: calc(2 * var(--Padding-m) + 40px);
 }
 
 body {
