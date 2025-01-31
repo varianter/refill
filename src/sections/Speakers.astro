@@ -1,53 +1,168 @@
 ---
-import SpeakerCard from "../components/SpeakerCard.astro";
-import { colorPairs } from "../utils/colors";
+import Discipline from "../components/Discipline.astro";
 ---
 
 <section class="speakers">
-  <h2>A glimpse of what to expect ⚡</h2>
-  <div class="speakers__talks">
-    <SpeakerCard
-      colorPair={colorPairs.teal50}
-      speakerName="Anita Steinstad"
-      talk="Design meets Sustainable Business – an experiment"
-      discipline="Design"
-    />
-    <SpeakerCard
-      colorPair={colorPairs.orange200}
-      speakerName="Christian Brevik"
-      talk="Test side-effects and behaviour, don’t mock them!"
-      discipline="Development"
-    />
-    <SpeakerCard
-      colorPair={colorPairs.darkBlue}
-      speakerName="Malin C. Karlsen & Anders Hammervold"
-      talk="Driving Transformation in Technology, Processes, and Governance for the National Road Database"
-      discipline="Strategy & product"
-    />
+  <img
+    class="speakers__splash_top"
+    src="/assets/img/splash1.svg"
+    alt="colorsplash illustration"
+  />
+  <div class="speakers__content">
+    <h2>Meet these inspiring speakers ⚡</h2>
+    <div class="grid speakers__talk_one">
+      <div>
+        <Discipline>Design</Discipline>
+      </div>
+      <img src="/assets/img/people/Anita-Steinstad.svg" alt="anita" />
+      <p>Design meets Sustainable Business –  an experiment</p>
+    </div>
+    <div class="grid speakers__talk_two">
+      <div>
+        <Discipline>Development</Discipline>
+      </div>
+      <img src="/assets/img/people/Christian-Brevik.svg" alt="anita" />
+      <p>Test side-effects and behaviour, don’t mock them!</p>
+    </div>
+    <div class="grid_two speakers__talk_three">
+      <div>
+        <Discipline>Strategy & product</Discipline>
+      </div>
+      <img src="/assets/img/people/Anders-Hammervold.svg" alt="anita" />
+      <img src="/assets/img/people/Malin-C.-Karlsen.svg" alt="anita" />
+      <p>Test side-effects and behaviour, don’t mock them!</p>
+    </div>
   </div>
+  <img
+    class="speakers__splash_bottom"
+    src="/assets/img/splash2.svg"
+    alt="colorsplash illustration"
+  />
 </section>
 
 <style>
   .speakers {
-    max-width: 1410px;
-    width: 100%;
-    margin: auto;
-
-    display: flex;
-    flex-direction: column;
-    gap: var(--Padding-l);
+    position: relative;
   }
 
-  .speakers__talks {
+  .speakers p {
+    font-size: var(--Font-size-H3);
+  }
+
+  .speakers__splash_top,
+  .speakers__splash_bottom {
+    position: absolute;
+    width: 399px;
+    height: auto;
+  }
+
+  .speakers__splash_top {
+    left: -20px;
+  }
+
+  .speakers__splash_bottom {
+    right: -20px;
+    bottom: -150px;
+  }
+
+  .speakers__content {
+    max-width: 1410px;
+    width: 100%;
     display: flex;
-    gap: var(--Padding-s);
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 3.75rem;
+  }
+
+  /* Grid Layout */
+  .grid,
+  .grid_two {
+    width: 100%;
+    display: grid;
+    justify-content: start;
+    row-gap: 1.25rem;
+    column-gap: 2.25rem;
+
+    > * {
+      max-width: 354px;
+    }
 
     > div {
-      max-width: 412px;
-      max-height: 448px;
-      width: 100%;
+      grid-area: discipline;
+    }
+
+    > p {
+      align-self: end;
+      grid-area: text;
+      max-width: 267px;
+    }
+  }
+
+  /* Grid 1 Layout */
+  .grid {
+    grid-template-areas:
+      "discipline empty"
+      "img text";
+
+    > img {
+      grid-area: img;
+    }
+  }
+
+  /* Grid 2 Layout */
+  .grid_two {
+    grid-template-areas:
+      ". discipline ."
+      "text img1 img2";
+
+    > img:nth-child(2) {
+      grid-area: img1;
+    }
+
+    > img:nth-child(3) {
+      grid-area: img2;
+    }
+  }
+
+  .speakers__talk_one,
+  .speakers__talk_three {
+    max-width: 1136px;
+    margin-left: auto;
+  }
+
+  .speakers__talk_two {
+    max-width: 829px;
+    margin-left: auto;
+  }
+
+  /* Media Queries */
+  @media (max-width: 1105px) {
+    .grid_two {
+      grid-template-areas:
+        "discipline ."
+        "img1 img2"
+        "text .";
+    }
+  }
+
+  @media (max-width: 800px) {
+    .grid_two {
+      column-gap: 0;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(0, 1fr);
+
+      > img:nth-child(2),
+      > img:nth-child(3) {
+        width: 100%;
+      }
+    }
+  }
+
+  @media (max-width: 630px) {
+    .grid {
+      grid-template-areas:
+        "discipline"
+        "img"
+        "text";
     }
   }
 </style>
