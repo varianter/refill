@@ -8,7 +8,11 @@ const { type } = Astro.props;
 
 {
   type === "curl" && (
-    <img src="/assets/img/divider/curly.svg" alt="curly illustration" />
+    <img
+      class="curl"
+      src="/assets/img/divider/curly.svg"
+      alt="curly illustration"
+    />
   )
 }
 
@@ -23,6 +27,11 @@ const { type } = Astro.props;
 }
 
 <style>
+  .curl {
+    max-height: 300px;
+    object-fit: cover;
+  }
+
   .smiley {
     width: 290px;
     height: auto;
