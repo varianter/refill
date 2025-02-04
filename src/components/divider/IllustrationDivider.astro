@@ -1,4 +1,8 @@
 ---
+import { Image } from "astro:assets";
+import curl from "../../../public/assets/img/divider/curly.svg";
+import smiley from "../../../public/assets/img/divider/smiley.svg";
+
 interface Props {
   type: "curl" | "smiley";
 }
@@ -6,28 +10,18 @@ interface Props {
 const { type } = Astro.props;
 ---
 
-{
-  type === "curl" && (
-    <img
-      class="curl"
-      src="/assets/img/divider/curly.svg"
-      alt="curly illustration"
-    />
-  )
-}
+{type === "curl" && <Image class="curl" src={curl} alt="curly illustration" />}
 
 {
   type === "smiley" && (
-    <img
-      class="smiley"
-      src="/assets/img/divider/smiley.svg"
-      alt="curly illustration"
-    />
+    <Image class="smiley" src={smiley} alt="curly illustration" />
   )
 }
 
 <style>
   .curl {
+    width: 100%;
+    height: auto;
     max-height: 300px;
     object-fit: cover;
   }
