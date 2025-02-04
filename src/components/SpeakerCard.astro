@@ -29,7 +29,13 @@ const formattedNames = speakerName
           formattedNames.map((name) => {
             const imgSrc = `/assets/img/people/${name}.svg`;
             const altText = name.replaceAll("-", " ");
-            return <img src={imgSrc} alt={altText} />;
+            return (
+              <img
+                class="speaker_card__speaker_img"
+                src={imgSrc}
+                alt={altText}
+              />
+            );
           })
       }
     </div>
@@ -52,6 +58,11 @@ const formattedNames = speakerName
 
     container-type: inline-size;
     container-name: cardContent;
+  }
+
+  .speaker_card__wrapper:not(:has(.speaker_card__speaker_img)) .talk__text {
+    background-color: var(--background-dark);
+    color: var(--text-primary-on-dark);
   }
 
   .talk {
