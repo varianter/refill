@@ -1,5 +1,5 @@
 ---
-import { colors, type ColorPair } from "../utils/colors";
+import { colorPairs, colors, type ColorPair } from "../utils/colors";
 import CardWrapper from "./CardWrapper.vue";
 import Discipline from "./Discipline.astro";
 import Talk from "./Talk.astro";
@@ -16,6 +16,16 @@ const { speakerName, talk, colorPair, discipline } = Astro.props;
 const formattedNames = speakerName
   ? speakerName.split(" & ").map((name) => name.split(" ").join("-"))
   : undefined;
+
+function getDiscipline() {
+  if (colorPair?.color === colors.orange) {
+    return "Design";
+  } else if (colorPair?.color === colors.darkBlue) {
+    return "Development";
+  } else {
+    return "Strategy & product";
+  }
+}
 ---
 
 <CardWrapper
@@ -41,7 +51,14 @@ const formattedNames = speakerName
     </div>
     <Talk speakerName={speakerName} talk={talk} />
     <div class="speaker_card__flex">
-      <Discipline>{discipline}</Discipline>
+      <div class="speaker_card__flex__labels">
+        <Discipline>{discipline}</Discipline>
+        {
+          speakerName && (
+            <Discipline colorPair={colorPair}>{getDiscipline()}</Discipline>
+          )
+        }
+      </div>
     </div>
   </div>
 </CardWrapper>
@@ -87,6 +104,11 @@ const formattedNames = speakerName
     height: fit-content;
     align-items: end;
     justify-content: space-between;
+  }
+
+  .speaker_card__flex__labels {
+    display: flex;
+    flex-wrap: wrap;
   }
 
   @container (width > 650px) {
