@@ -12,10 +12,12 @@ export const colors = {
 
   teal50: "#D7FFF7",
 
+  purple: "#8A4CF6",
   purpleAccent: "#DDD6FF",
 
   redAccent: "#FF8183",
 
+  orange: "#E45738",
   orange200: "#FFC9BC",
 
   background: {
@@ -45,8 +47,10 @@ type ColorNames =
   | "blueAccent"
   | "blueLight"
   | "teal50"
+  | "purple"
   | "purpleAccent"
   | "redAccent"
+  | "orange"
   | "orange200";
 
 export const colorPairs: Record<ColorNames, ColorPair> = {
@@ -86,6 +90,10 @@ export const colorPairs: Record<ColorNames, ColorPair> = {
     color: colors.teal50,
     textColor: colors.text.primary,
   },
+  purple: {
+    color: colors.purple,
+    textColor: colors.text.primaryOnDark,
+  },
   purpleAccent: {
     color: colors.purpleAccent,
     textColor: colors.text.primary,
@@ -93,6 +101,10 @@ export const colorPairs: Record<ColorNames, ColorPair> = {
   redAccent: {
     color: colors.redAccent,
     textColor: colors.text.primary,
+  },
+  orange: {
+    color: colors.orange,
+    textColor: colors.text.primaryOnDark,
   },
   orange200: {
     color: colors.orange200,
