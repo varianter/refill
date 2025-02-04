@@ -48,8 +48,6 @@ const formattedNames = speakerName
 
 <style is:global>
   .speaker_card__wrapper {
-    height: 100%;
-
     display: grid;
     grid-template-areas:
       "img"
@@ -86,7 +84,8 @@ const formattedNames = speakerName
   .speaker_card__flex {
     grid-area: location;
     display: flex;
-    align-items: center;
+    height: fit-content;
+    align-items: end;
     justify-content: space-between;
   }
 

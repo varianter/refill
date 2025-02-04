@@ -24,5 +24,9 @@ export default {
   border: 2px solid v-bind(borderColor);
   padding: var(--Padding-m);
   border-radius: 0.375rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
 }
 </style>
