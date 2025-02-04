@@ -1,5 +1,5 @@
 ---
-import { colorPairs, colors, type ColorPair } from "../utils/colors";
+import { colors, type ColorPair } from "../utils/colors";
 import CardWrapper from "./CardWrapper.vue";
 import Discipline from "./Discipline.astro";
 import Talk from "./Talk.astro";
@@ -78,6 +78,10 @@ function getDiscipline() {
   .speaker_card__wrapper:not(:has(.speaker_card__speaker_img)) .talk__text {
     background-color: var(--background-dark);
     color: var(--text-primary-on-dark);
+  }
+
+  .speaker_card__wrapper:not(:has(.speaker_card__speaker_img)) .talk {
+    max-width: 100%;
   }
 
   .talk {
