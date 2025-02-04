@@ -1,21 +1,28 @@
+---
+import { Image } from "astro:assets";
+import snapshot1 from "../../public/assets/img/snapshot-1.svg";
+import snapshot2 from "../../public/assets/img/snapshot-2.svg";
+import snapshot3 from "../../public/assets/img/snapshot-3.svg";
+import snapshot4 from "../../public/assets/img/snapshot-4.svg";
+import snapshot5 from "../../public/assets/img/snapshot-5.svg";
+import shockedFace from "../../public/assets/icons/Face-Shock.svg";
+---
+
 <section class="snapshots">
   <h2>Snapshots from Refill 2024</h2>
   <div class="snapshots__images">
-    <img src="/assets/img/snapshot-1.svg" alt="Audience at refil" />
+    <Image src={snapshot1} alt="Audience at refil" />
     <div>
-      <img src="/assets/icons/Face-Shock.svg" alt="Shocked face illustration" />
+      <Image src={shockedFace} alt="Shocked face illustration" />
       <p>
         We love to learn. New technologies, new methodologies, and new ways to
         see the world.
       </p>
     </div>
-    <img src="/assets/img/snapshot-2.svg" alt="People smiling and laughing" />
-    <img
-      src="/assets/img/snapshot-3.svg"
-      alt="Two people having a conversation"
-    />
-    <img src="/assets/img/snapshot-4.svg" alt="Audience at refil" />
-    <img src="/assets/img/snapshot-5.svg" alt="Workshop at refil" />
+    <Image src={snapshot2} alt="People smiling and laughing" />
+    <Image src={snapshot3} alt="Two people having a conversation" />
+    <Image src={snapshot4} alt="Audience at refil" />
+    <Image src={snapshot5} alt="Workshop at refil" />
   </div>
 </section>
 
