@@ -52,5 +52,10 @@ import Footer from "../components/navigation/Footer.astro";
 <style>
   body {
     background-color: var(--background-primary);
+    padding: var(--Padding-xxl) 4rem;
+
+    @media (max-width: 530px) {
+      padding: var(--Padding-xxl) var(--Padding-rem);
+    }
   }
 </style>
