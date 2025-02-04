@@ -1,15 +1,28 @@
+---
+import type { ColorPair } from "../utils/colors";
+
+interface Props {
+  colorPair?: ColorPair;
+}
+
+const { colorPair } = Astro.props;
+const color = colorPair?.color;
+const textColor = colorPair?.textColor;
+---
+
 <p class="discipline">
   <slot />
 </p>
 
-<style>
+<style define:vars={{ color, textColor }}>
   .discipline {
     padding: 0.5rem;
-    border: 1px solid #000;
+    border: 1px solid var(--color, #0a0b0b);
     border-radius: 2.5rem;
     width: fit-content;
 
-    color: var(--text-primary);
+    color: var(--textColor, #0a0b0b);
+    background-color: var(--color);
     font-size: 1rem;
   }
 </style>

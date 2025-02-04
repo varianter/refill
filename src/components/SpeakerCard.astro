@@ -1,5 +1,5 @@
 ---
-import { type ColorPair } from "../utils/colors";
+import { colors, type ColorPair } from "../utils/colors";
 import CardWrapper from "./CardWrapper.vue";
 import Discipline from "./Discipline.astro";
 import Talk from "./Talk.astro";
@@ -7,7 +7,7 @@ import Talk from "./Talk.astro";
 interface Props {
   speakerName?: string;
   talk: string;
-  colorPair: ColorPair;
+  colorPair?: ColorPair;
   discipline: string;
 }
 
@@ -16,9 +16,22 @@ const { speakerName, talk, colorPair, discipline } = Astro.props;
 const formattedNames = speakerName
   ? speakerName.split(" & ").map((name) => name.split(" ").join("-"))
   : undefined;
+
+function getDiscipline() {
+  if (colorPair?.color === colors.orange) {
+    return "Design";
+  } else if (colorPair?.color === colors.darkBlue) {
+    return "Development";
+  } else {
+    return "Strategy & product";
+  }
+}
 ---
 
-<CardWrapper maxWidth="412px" height={speakerName ? "398px" : "auto"}>
+<CardWrapper
+  borderColor={colorPair ? colorPair.color : colors.text.primary}
+  height={speakerName ? "398px" : "auto"}
+>
   <div class="speaker_card__wrapper">
     <div class="speaker_card__img_flex">
       {
@@ -26,29 +39,80 @@ const formattedNames = speakerName
           formattedNames.map((name) => {
             const imgSrc = `/assets/img/people/${name}.svg`;
             const altText = name.replaceAll("-", " ");
-            return <img src={imgSrc} alt={altText} />;
+            return (
+              <img
+                class="speaker_card__speaker_img"
+                src={imgSrc}
+                alt={altText}
+              />
+            );
           })
       }
     </div>
-    <Talk colorPair={colorPair} speakerName={speakerName} talk={talk} />
+    <Talk speakerName={speakerName} talk={talk} />
     <div class="speaker_card__flex">
-      <Discipline>{discipline}</Discipline>
+      <div class="speaker_card__flex__labels">
+        <Discipline>{discipline}</Discipline>
+        {
+          speakerName && (
+            <Discipline colorPair={colorPair}>{getDiscipline()}</Discipline>
+          )
+        }
+      </div>
     </div>
   </div>
 </CardWrapper>
 
 <style is:global>
   .speaker_card__wrapper {
-    position: relative;
-    height: 100%;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    gap: 0.3rem;
+    display: grid;
+    grid-template-areas:
+      "img"
+      "location";
+    gap: var(--Padding-m);
 
     container-type: inline-size;
     container-name: cardContent;
+  }
+
+  .speaker_card__wrapper:not(:has(.speaker_card__speaker_img)) .talk__text {
+    background-color: var(--background-dark);
+    color: var(--text-primary-on-dark);
+  }
+
+  .speaker_card__wrapper:not(:has(.speaker_card__speaker_img)) .talk {
+    max-width: 100%;
+  }
+
+  .talk {
+    grid-area: img;
+    align-self: end;
+  }
+
+  .speaker_card__img_flex {
+    grid-area: img;
+    justify-self: end;
+    display: flex;
+
+    max-width: 338px;
+
+    & > img {
+      overflow: hidden;
+      width: 100%;
+    }
+  }
+
+  .speaker_card__flex {
+    grid-area: location;
+    display: flex;
+    height: fit-content;
+    align-items: end;
+    justify-content: space-between;
+  }
+
+  .speaker_card__flex__labels {
+    display: flex;
+    flex-wrap: wrap;
   }
 
   @container (width > 650px) {
@@ -65,23 +129,5 @@ const formattedNames = speakerName
     .speaker_card__wrapper:has(img) .talk {
       max-width: 285px;
     }
-  }
-
-  .speaker_card__img_flex {
-    display: flex;
-    position: absolute;
-    right: 0;
-    top: 0;
-
-    & > img {
-      overflow: hidden;
-      width: 100%;
-    }
-  }
-
-  .speaker_card__flex {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
   }
 </style>

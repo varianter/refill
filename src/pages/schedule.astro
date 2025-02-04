@@ -2,7 +2,7 @@
 import Accordion from "../components/Accordion.vue";
 import SpeakerCard from "../components/SpeakerCard.astro";
 import Track from "../components/Track.astro";
-import ScheduleLayout from "../layouts/Layout.astro";
+import ScheduleLayout from "../layouts/ScheduleLayout.astro";
 import { schedule } from "../utils/schedule";
 ---
 
@@ -42,6 +42,18 @@ import { schedule } from "../utils/schedule";
 </ScheduleLayout>
 
 <style>
+  .schedule__heading {
+    font-size: 4.5rem;
+
+    @media (max-width: 1000px) {
+      font-size: 3.5rem;
+    }
+
+    @media (max-width: 530px) {
+      font-size: 2rem;
+    }
+  }
+
   .schedule__heading,
   .schedule__speaker_card {
     width: 100%;

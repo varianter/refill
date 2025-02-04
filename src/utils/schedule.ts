@@ -5,7 +5,7 @@ type Talk = {
   location: string;
   from: string;
   to: string;
-  color: ColorPair;
+  color?: ColorPair;
   speaker?: string;
 };
 
@@ -32,7 +32,6 @@ export const schedule: Schedule = [
           location: "Orangeriet",
           from: "08:00",
           to: "08:45",
-          color: colorPairs.purpleAccent,
         },
       ],
       [
@@ -41,7 +40,6 @@ export const schedule: Schedule = [
           location: "Palmsalen",
           from: "08:45",
           to: "09:00",
-          color: colorPairs.purpleAccent,
         },
       ],
       [
@@ -50,7 +48,6 @@ export const schedule: Schedule = [
           location: "Palmsalen",
           from: "09:00",
           to: "09:45",
-          color: colorPairs.yellow,
         },
       ],
     ],
@@ -66,21 +63,21 @@ export const schedule: Schedule = [
           location: "Palmsalen",
           from: "10:00",
           to: "11:30",
-          color: colorPairs.blueAccent,
+          color: colorPairs.orange,
         },
         {
           title: "Developer track",
           location: "Aulan",
           from: "10:00",
           to: "11:30",
-          color: colorPairs.redAccent,
+          color: colorPairs.darkBlue,
         },
         {
-          title: "Project managment track",
+          title: "Project management track",
           location: "No. 314",
           from: "10:00",
           to: "11:30",
-          color: colorPairs.greenSubtle,
+          color: colorPairs.purple,
         },
       ],
     ],
@@ -96,7 +93,6 @@ export const schedule: Schedule = [
           location: "Orangeriet",
           from: "11:30",
           to: "12:30",
-          color: colorPairs.purpleAccent,
         },
       ],
     ],
@@ -112,21 +108,21 @@ export const schedule: Schedule = [
           location: "Palmsalen",
           from: "12:30",
           to: "14:00",
-          color: colorPairs.blueAccent,
+          color: colorPairs.orange,
         },
         {
           title: "Developer track",
           location: "Aulan",
           from: "12:30",
           to: "14:00",
-          color: colorPairs.redAccent,
+          color: colorPairs.darkBlue,
         },
         {
-          title: "Project managment track",
+          title: "Project management track",
           location: "No. 314",
           from: "12:30",
           to: "14:00",
-          color: colorPairs.greenSubtle,
+          color: colorPairs.purple,
         },
       ],
     ],
@@ -142,7 +138,6 @@ export const schedule: Schedule = [
           location: "Orangeriet",
           from: "14:00",
           to: "14:30",
-          color: colorPairs.purpleAccent,
         },
       ],
     ],
@@ -158,21 +153,21 @@ export const schedule: Schedule = [
           location: "Palmsalen",
           from: "14:30",
           to: "16:00",
-          color: colorPairs.blueAccent,
+          color: colorPairs.orange,
         },
         {
           title: "Developer track",
           location: "Aulan",
           from: "14:30",
           to: "16:00",
-          color: colorPairs.redAccent,
+          color: colorPairs.darkBlue,
         },
         {
-          title: "Project managment track",
+          title: "Project management track",
           location: "No. 314",
           from: "14:30",
           to: "16:00",
-          color: colorPairs.greenSubtle,
+          color: colorPairs.purple,
         },
       ],
     ],
@@ -188,7 +183,6 @@ export const schedule: Schedule = [
           location: "Palmsalen",
           from: "16:00",
           to: "16:30",
-          color: colorPairs.purpleAccent,
         },
       ],
       [
@@ -197,7 +191,6 @@ export const schedule: Schedule = [
           location: "Palmsalen",
           from: "16:30",
           to: "17:10",
-          color: colorPairs.yellow,
         },
       ],
       [
@@ -206,7 +199,6 @@ export const schedule: Schedule = [
           location: "Palmsalen",
           from: "17:30",
           to: "",
-          color: colorPairs.purpleAccent,
         },
       ],
     ],
