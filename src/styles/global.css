@@ -75,7 +75,7 @@ html {
   scroll-padding-top: calc(2 * var(--Padding-m) + 40px);
 }
 
-body {
+:where(body) {
   background-color: var(--grey-50);
   padding: var(--Padding-rem);
 
@@ -105,22 +105,22 @@ body {
   font-weight: 450;
 }
 
-h1 {
+:where(h1) {
   font-size: var(--Font-size-H1);
   font-weight: 700;
 }
 
-h2 {
+:where(h2) {
   font-size: var(--Font-size-H2);
   line-height: var(--Line-height-H2);
 }
 
-a {
+:where(a) {
   text-decoration: none;
   color: inherit;
 }
 
-mark {
+:where(mark) {
   background-color: var(--coral-200);
   padding: 0rem 0.25rem;
   border-radius: 0.375rem;
