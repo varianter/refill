@@ -21,7 +21,7 @@ export default {
 
 <style lang="css">
 .card_wrapper {
-  border: 1px solid v-bind(borderColor, "#0A0B0B");
+  border: 2px solid v-bind(borderColor);
   padding: var(--Padding-m);
   border-radius: 0.375rem;
 }
