@@ -1,4 +1,7 @@
 ---
+import { Image } from "astro:assets";
+import logoVariant from "../../../public/assets/img/logo-variant.svg";
+
 const offices = [
   "Trondheim",
   "Oslo",
@@ -30,11 +33,7 @@ const offices = [
       <a href="mailto:post@variant.no">post@variant.no</a>
     </div>
   </div>
-  <img
-    class="footer__img"
-    src="/assets/img/logo-variant.svg"
-    alt="Variant logo"
-  />
+  <Image class="footer__img" src={logoVariant} alt="Variant logo" />
 </footer>
 
 <style>
