@@ -2,7 +2,7 @@
 import EventInfo from "../components/EventInfo.astro";
 ---
 
-<section class="hero">
+<section class="hero" id="hero">
   <div class="hero__wrapper">
     <div class="grid-item-full">
       <EventInfo />
@@ -14,14 +14,22 @@ import EventInfo from "../components/EventInfo.astro";
 
 <style>
   .hero {
-    background-image: url("/assets/img/hero.png");
+    background: #e0e0e0; /* Fallback color */
+    background-image: url("/assets/img/hero.webp"); /* Low-res placeholder */
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
+    transition: background-image 0.4s ease-in-out;
 
     padding: 7rem 10rem 4.5rem 3rem;
     min-height: calc(100vh - var(--Padding-rem) * 2);
     box-sizing: border-box;
   }
+
+  .hero.loaded {
+    background-image: url("/assets/img/hero.png"); /* High-resolution image */
+  }
+
   .hero__wrapper {
     max-width: 1410px;
     margin: auto;
@@ -42,7 +50,6 @@ import EventInfo from "../components/EventInfo.astro";
   .hero__register {
     font-size: var(--Font-size-H2);
     min-width: 73px;
-
     grid-area: right;
     display: flex;
     justify-content: flex-end;
@@ -79,3 +86,15 @@ import EventInfo from "../components/EventInfo.astro";
     }
   }
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const hero = document.getElementById("hero");
+    const highResImg = new Image();
+    highResImg.src = "/assets/img/hero.png";
+
+    highResImg.onload = () => {
+      hero?.classList.add("loaded");
+    };
+  });
+</script>
