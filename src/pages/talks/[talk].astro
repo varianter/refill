@@ -1,0 +1,211 @@
+---
+import TalkLayout from "../../layouts/Layout.astro";
+import { type ColorPair, colorPairs } from "../../utils/colors";
+
+type Talk = {
+  id: string;
+  title: string;
+  location: string;
+  from: string;
+  to: string;
+  color?: ColorPair;
+  speaker?: string;
+  speakerDescription?: string;
+  discipline?: string;
+  description?: string;
+};
+
+const talks: Talk[] = [
+  {
+    id: "1",
+    title:
+      "Driving Transformation in Technology, Processes, and Governance for the National Road Database",
+    location: "No. 314",
+    from: "10:00",
+    to: "10:40",
+    speaker: "Malin C. Karlsen & Anders Hammervold",
+    speakerDescription:
+      "Anders is Chief Commercial officer in Variant, Key Account manager for Statens vegvesen and has also worked in different projects in Statens vegvesen as project manager.  Malin is a project manager in Variant Trondheim, and has been working in projects for Statens vegvesen for 4 years out of the last 5. ",
+    discipline: "Strategy & Product",
+    description:
+      "This session provides the outlines on how we, in collaboration with the Norwegian Public Roads Administration (Statens vegvesen), established a transformative program addressing both technology and processes for the National Road Database (Nasjonal vegdatabank). We will explore key questions that shaped the program: ...",
+  },
+];
+
+const { talk } = Astro.params;
+
+const maybeTalk = talks.find((t) => t.id === talk);
+const talkDetails = maybeTalk ? maybeTalk : talks[0];
+
+const { purple } = colorPairs;
+const purpleColor = purple.color;
+const purpleTextColor = purple.textColor;
+---
+
+<TalkLayout>
+  <a class="schedule_link" href="/schedule">
+    <span class="left_arrow">↓</span>
+    <span class="link_text">Full schedule</span>
+  </a>
+  <main>
+    <section>
+      <h1>
+        {talkDetails.title}
+      </h1>
+      <div id="flaff">
+        <div id="talk_details">
+          <p class="chip" id="time_and_location">
+            {`${talkDetails.location} ${talkDetails.from}-${talkDetails.to}`}
+          </p>
+          <p class="chip" id="discipline">{talkDetails.discipline}</p>
+          <img
+            src="/assets/icons/heart.svg"
+            alt="Heart symbol"
+            width="28"
+            height="29"
+          />
+        </div>
+        <p>
+          This session provides the outlines on how we, in collaboration with
+          the Norwegian Public Roads Administration (Statens vegvesen),
+          established a transformative program addressing both technology and
+          processes for the National Road Database (Nasjonal vegdatabank). We
+          will explore key questions that shaped the program: How did we align
+          the program's establishment with the agency’s governance structures?
+          What were the critical success factors driving the program forward?
+          What lessons have we learned, and what could have been done
+          differently? Where does the program stand today, and what lies ahead?
+          By sharing insights from this journey, we aim to highlight practical
+          strategies, challenges, and outcomes relevant to large-scale
+          transformation programs in the public sector.
+        </p>
+      </div>
+      <div id="author_section">
+        <div id="images">
+          <img
+            src="/assets/img/people/Malin-C.-Karlsen.jpg"
+            class="author_image"
+            alt="Malin C. Karlsen"
+          />
+          <img
+            src="/assets/img/people/Anders-Hammervold.jpg"
+            class="author_image"
+            alt="Anders Hammervold"
+          />
+        </div>
+        <div id="author_description">
+          <p id="author_title">{talkDetails.speaker}</p>
+          <p>{talkDetails.speakerDescription}</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</TalkLayout>
+
+<style define:vars={{ purpleColor, purpleTextColor }}>
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--Padding-xl);
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Padding-xl);
+    max-width: 870px;
+  }
+
+  h1 {
+    font-size: var(--Font-size-H2);
+  }
+
+  .left_arrow {
+    transform: rotate(90deg);
+    font-size: 3.2rem;
+    font-weight: 600;
+  }
+
+  .schedule_link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+    width: fit-content;
+  }
+
+  .link_text {
+    font-size: var(--Font-size-H3);
+  }
+
+  #talk_details {
+    display: flex;
+    align-items: center;
+    gap: var(--Padding-l);
+  }
+
+  #flaff {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Padding-l);
+    width: 650px;
+  }
+
+  p {
+    font-size: var(--Font-size-Body-Big);
+    line-height: var(--Line-height-Body-Big);
+    font-weight: 300;
+  }
+
+  .chip {
+    font-size: var(--Font-size-H4);
+    font-weight: 450;
+    line-height: var(--Line-height-H4);
+    border-radius: 2.5rem;
+    padding: var(--Padding-xs) var(--Padding-s);
+    border-radius: 2rem;
+  }
+
+  #time_and_location {
+    border: 1px solid;
+  }
+
+  #discipline {
+    background: var(--purpleColor);
+    color: var(--purpleTextColor);
+  }
+
+  #author_section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--Padding-m);
+    width: 650px;
+  }
+
+  #images {
+    display: flex;
+    align-items: center;
+    gap: var(--Padding-rem);
+  }
+
+  .author_image {
+    /* width: 400px; */
+    height: 408.284px;
+    width: 316.5px;
+    overflow: hidden;
+    object-fit: cover;
+    border-radius: 0.8rem;
+  }
+
+  #author_title {
+    font-size: var(--Font-size-H3);
+  }
+
+  #author_description {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+</style>
