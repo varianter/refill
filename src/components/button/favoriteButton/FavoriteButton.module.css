@@ -9,14 +9,14 @@
 }
 
 .favorite_button__red,
-.favorite_button__black {
+.favorite_button__inherit {
   transition: fill 0.4s;
 }
 
-.favorite_button__black {
-  fill: black;
+.favorite_button__inherit {
+  fill: var(--background-primary);
 }
 
 .favorite_button__red {
-  fill: red;
+  fill: var(--coral-200);
 }
