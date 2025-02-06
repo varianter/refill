@@ -8,8 +8,12 @@
 :root {
   --font-britti: "Britti";
 
-  --color-yellow: #ffd02f;
   --Surface-yellow-subtle: #fffbf6;
+
+  --color-yellow: #ffd02f;
+  --color-orange: #e45738;
+  --color-dark-blue: #2f02f6;
+  ---color-purple: #8a4cf6;
 
   --coral-200: #ffc2be;
 
