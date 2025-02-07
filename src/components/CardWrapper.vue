@@ -2,6 +2,10 @@
 import colors from "../utils/colors.ts";
 export default {
   props: {
+    id: {
+      type: String,
+      required: true,
+    },
     height: {
       type: String,
       required: false,
@@ -14,7 +18,7 @@ export default {
 };
 </script>
 <template>
-  <div class="card_wrapper">
+  <div :id="`card${id}`" class="card_wrapper">
     <slot />
   </div>
 </template>
@@ -28,5 +32,9 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: end;
+}
+
+.hidden {
+  display: hidden;
 }
 </style>

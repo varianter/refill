@@ -1,17 +1,19 @@
 ---
 import { colors, type ColorPair } from "../utils/colors";
+import { FavoriteButton } from "./button/favoriteButton/FavoriteButton";
 import CardWrapper from "./CardWrapper.vue";
 import Discipline from "./Discipline.astro";
 import Talk from "./Talk.astro";
 
 interface Props {
+  id: string;
   speakerName?: string;
   talk: string;
   colorPair?: ColorPair;
   discipline: string;
 }
 
-const { speakerName, talk, colorPair, discipline } = Astro.props;
+const { id, speakerName, talk, colorPair, discipline } = Astro.props;
 
 const formattedNames = speakerName
   ? speakerName.split(" & ").map((name) => name.split(" ").join("-"))
@@ -29,10 +31,11 @@ function getDiscipline() {
 ---
 
 <CardWrapper
+  id={id}
   borderColor={colorPair ? colorPair.color : colors.text.primary}
   height={speakerName ? "398px" : "auto"}
 >
-  <div class="speaker_card__wrapper">
+  <div id={`speakercard${id}`} class="speaker_card__wrapper">
     <div class="speaker_card__img_flex">
       {
         formattedNames &&
@@ -59,9 +62,43 @@ function getDiscipline() {
           )
         }
       </div>
+      <FavoriteButton client:load id={id} />
     </div>
   </div>
 </CardWrapper>
+
+<script>
+  function getAllFavoriteIdsFromLocalStorage() {
+    const favorites = localStorage.getItem("favorites");
+    if (favorites) {
+      const parsedFavorites = JSON.parse(favorites);
+      const ids = Object.keys(parsedFavorites);
+      return ids;
+    }
+    return [];
+  }
+
+  // Checks if favorites is toggled on
+  const urlParams = new URLSearchParams(window.location.search);
+  const favorites = urlParams.get("favorites");
+
+  if (favorites) {
+    const ids = getAllFavoriteIdsFromLocalStorage();
+
+    // Set all cards to hidden by default
+    const allCards = document.getElementsByClassName("card_wrapper");
+    const allCardsArray = Array.from(allCards);
+    allCardsArray.map((card) => {
+      card.setAttribute("class", "hidden");
+    });
+
+    // Checks set class to card wrapper if id is in localstorage
+    ids.map((id) => {
+      const speakerCardWithId = document.getElementById(`card${id}`);
+      speakerCardWithId?.setAttribute("class", "card_wrapper");
+    });
+  }
+</script>
 
 <style is:global>
   .speaker_card__wrapper {
@@ -73,6 +110,10 @@ function getDiscipline() {
 
     container-type: inline-size;
     container-name: cardContent;
+  }
+
+  .hidden {
+    display: none;
   }
 
   .speaker_card__wrapper:not(:has(.speaker_card__speaker_img)) .talk__text {

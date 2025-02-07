@@ -1,13 +1,17 @@
 ---
 import Accordion from "../components/Accordion.vue";
 import SpeakerCard from "../components/SpeakerCard.astro";
+import Toggle from "../components/Toggle.astro";
 import Track from "../components/Track.astro";
 import ScheduleLayout from "../layouts/ScheduleLayout.astro";
 import { schedule } from "../utils/schedule";
 ---
 
 <ScheduleLayout>
-  <h1 class="schedule__heading">Schedule</h1>
+  <div class="schedule__flex">
+    <h1 class="schedule__heading">Schedule</h1>
+    <Toggle text="Favorites" />
+  </div>
   {
     schedule.map((session) => {
       if (session.tracks.length > 1 || session.tracks[0].length > 1) {
@@ -29,6 +33,7 @@ import { schedule } from "../utils/schedule";
         return (
           <div class="schedule__speaker_card">
             <SpeakerCard
+              id={singleTrack.id}
               speakerName={singleTrack.speaker}
               colorPair={singleTrack.color}
               talk={singleTrack.title}
@@ -42,6 +47,12 @@ import { schedule } from "../utils/schedule";
 </ScheduleLayout>
 
 <style>
+  .schedule__flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .schedule__heading {
     font-size: 4.5rem;
 
@@ -54,7 +65,7 @@ import { schedule } from "../utils/schedule";
     }
   }
 
-  .schedule__heading,
+  .schedule__flex,
   .schedule__speaker_card {
     width: 100%;
     max-width: 1410px;

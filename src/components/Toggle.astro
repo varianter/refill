@@ -14,6 +14,36 @@ const { text } = Astro.props;
   </span>
 </label>
 
+<script>
+  const input = document.getElementById(
+    "id-switch-1",
+  ) as HTMLInputElement | null;
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const favorites = urlParams.get("favorites");
+
+  if (favorites && input) {
+    input.checked = true;
+  }
+
+  input?.addEventListener("change", (event: Event) => {
+    const target = event.target as HTMLInputElement;
+    const isChecked = target.checked;
+
+    const url = new URL(window.location.href);
+    const params = new URLSearchParams(url.search);
+
+    if (isChecked) {
+      params.set("favorites", "true");
+    } else {
+      params.delete("favorites");
+    }
+
+    const newUrl = `${url.pathname}?${params.toString()}`;
+    window.location.href = newUrl;
+  });
+</script>
+
 <style>
   .toggle {
     width: fit-content;
