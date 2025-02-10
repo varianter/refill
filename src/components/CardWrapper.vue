@@ -28,13 +28,17 @@ export default {
   border: 2px solid v-bind(borderColor);
   padding: var(--Padding-m);
   border-radius: 0.375rem;
+  opacity: 1;
 
   display: flex;
   flex-direction: column;
   justify-content: end;
+
+  transition: all 0.4s;
 }
 
-.hidden {
-  display: hidden;
+.card_wrapper__hidden {
+  opacity: 0;
+  position: absolute;
 }
 </style>
