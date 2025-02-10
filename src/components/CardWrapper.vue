@@ -18,12 +18,18 @@ export default {
 };
 </script>
 <template>
-  <div :id="`card${id}`" class="card_wrapper">
-    <slot />
+  <div class="relative">
+    <div :id="`card${id}`" class="card_wrapper">
+      <slot />
+    </div>
   </div>
 </template>
 
 <style lang="css">
+.relative {
+  position: relative;
+}
+
 .card_wrapper,
 .card_wrapper__hidden {
   border: 2px solid v-bind(borderColor);
@@ -47,5 +53,6 @@ export default {
   opacity: 0;
   position: absolute;
   width: 100%;
+  box-sizing: border-box;
 }
 </style>
