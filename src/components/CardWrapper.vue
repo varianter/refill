@@ -24,7 +24,8 @@ export default {
 </template>
 
 <style lang="css">
-.card_wrapper {
+.card_wrapper,
+.card_wrapper__hidden {
   border: 2px solid v-bind(borderColor);
   padding: var(--Padding-m);
   border-radius: 0.375rem;
@@ -37,8 +38,14 @@ export default {
   transition: all 0.4s;
 }
 
+.card_wrapper {
+  opacity: 1;
+  position: relative;
+}
+
 .card_wrapper__hidden {
   opacity: 0;
   position: absolute;
+  width: 100%;
 }
 </style>
