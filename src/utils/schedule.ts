@@ -293,7 +293,7 @@ export const schedule: Schedule = [
         },
         {
           id: "24",
-          title: "????",
+          title: "TBA",
           location: "No. 314",
           from: "12:50",
           to: "13:10",
@@ -313,7 +313,7 @@ export const schedule: Schedule = [
         },
         {
           id: "26",
-          title: "????",
+          title: "TBA",
           location: "Aulan",
           from: "13:00",
           to: "13:10",
@@ -321,7 +321,7 @@ export const schedule: Schedule = [
         },
         {
           id: "24",
-          title: "????",
+          title: "TBA",
           location: "No. 314",
           from: "12:50",
           to: "13:10",
@@ -407,7 +407,7 @@ export const schedule: Schedule = [
       [
         {
           id: "33",
-          title: "?????",
+          title: "TBA",
           location: "Palmsalen",
           from: "14:30",
           to: "16:00",
