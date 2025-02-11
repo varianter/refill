@@ -11,6 +11,7 @@ export const colors = {
   blueLight: "#B7E6FF",
 
   teal50: "#D7FFF7",
+  teal100: "#7EFFEC",
 
   purple: "#8A4CF6",
   purpleAccent: "#DDD6FF",
@@ -47,6 +48,7 @@ type ColorNames =
   | "blueAccent"
   | "blueLight"
   | "teal50"
+  | "teal100"
   | "purple"
   | "purpleAccent"
   | "redAccent"
@@ -88,6 +90,10 @@ export const colorPairs: Record<ColorNames, ColorPair> = {
   },
   teal50: {
     color: colors.teal50,
+    textColor: colors.text.primary,
+  },
+  teal100: {
+    color: colors.teal100,
     textColor: colors.text.primary,
   },
   purple: {
