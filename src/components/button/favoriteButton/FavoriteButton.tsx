@@ -7,9 +7,10 @@ import {
 
 type FavoriteButtonProps = {
   id: string;
+  talk: string;
 };
 
-export const FavoriteButton = ({ id }: FavoriteButtonProps) => {
+export const FavoriteButton = ({ id, talk }: FavoriteButtonProps) => {
   const [isFavorited, setIsFavorited] = useState<boolean>(false);
 
   useEffect(() => {
@@ -21,8 +22,13 @@ export const FavoriteButton = ({ id }: FavoriteButtonProps) => {
     setIsFavorited(!isFavorited);
   }
 
+  //TODO: Should have a aria checked if favorited
   return (
-    <button className={style.favorite_button} onClick={toggleFavorite}>
+    <button
+      aria-label={`Favorite talk: ${talk}`}
+      className={style.favorite_button}
+      onClick={toggleFavorite}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="30"
