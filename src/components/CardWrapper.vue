@@ -36,6 +36,8 @@ export default {
   padding: var(--Padding-m);
   border-radius: 0.375rem;
   opacity: 1;
+  height: 100%;
+  box-sizing: border-box;
 
   display: flex;
   flex-direction: column;

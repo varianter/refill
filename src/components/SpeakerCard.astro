@@ -40,14 +40,12 @@ function getDiscipline() {
       {
         formattedNames &&
           formattedNames.map((name) => {
-            const imgSrc = `/assets/img/people/${name}.svg`;
-            const altText = name.replaceAll("-", " ");
+            //TODO: Get img from chewbacca
+            // const imgSrc = `/assets/img/people/${name}.jpg`;
+            // const altText = name.replaceAll("-", " ");
+            const imgSrc = "";
             return (
-              <img
-                class="speaker_card__speaker_img"
-                src={imgSrc}
-                alt={altText}
-              />
+              <img class="speaker_card__speaker_img" src={imgSrc} alt="" />
             );
           })
       }
@@ -93,17 +91,19 @@ function getDiscipline() {
     align-self: end;
   }
 
+  .speaker_card__speaker_img {
+    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  }
+
   .speaker_card__img_flex {
     grid-area: img;
     justify-self: end;
     display: flex;
 
     max-width: 338px;
-
-    & > img {
-      overflow: hidden;
-      width: 100%;
-    }
   }
 
   .speaker_card__flex {
