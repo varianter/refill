@@ -12,14 +12,14 @@ type Talk = {
 
 export type Track = Talk[];
 
-type Session = {
+type Block = {
   title: string;
   start: string;
   end: string;
   tracks: Track[];
 };
 
-type Schedule = Session[];
+type Schedule = Block[];
 
 export const schedule: Schedule = [
   {
@@ -73,7 +73,7 @@ export const schedule: Schedule = [
     ],
   },
   {
-    title: "Session 1",
+    title: "Block 1",
     start: "10:00",
     end: "10:40",
     tracks: [
@@ -154,7 +154,7 @@ export const schedule: Schedule = [
     ],
   },
   {
-    title: "Session 2",
+    title: "Block 2",
     start: "10:50",
     end: "11:30",
     tracks: [
@@ -231,7 +231,7 @@ export const schedule: Schedule = [
     ],
   },
   {
-    title: "Session 3",
+    title: "Block 3",
     start: "12:30",
     end: "13:10",
     tracks: [
@@ -341,7 +341,7 @@ export const schedule: Schedule = [
     ],
   },
   {
-    title: "Session 4",
+    title: "Block 4",
     start: "13:20",
     end: "14:00",
     tracks: [
@@ -394,7 +394,7 @@ export const schedule: Schedule = [
     ],
   },
   {
-    title: "Session 5",
+    title: "Block 5",
     start: "14:30",
     end: "15:10",
     tracks: [
@@ -446,7 +446,7 @@ export const schedule: Schedule = [
     ],
   },
   {
-    title: "Session 6",
+    title: "Block 6",
     start: "15:20",
     end: "16:00",
     tracks: [
