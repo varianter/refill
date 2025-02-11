@@ -13,6 +13,7 @@ const { track } = Astro.props;
     track.map((talk) => {
       return (
         <SpeakerCard
+          id={talk.id}
           speakerName={talk.speaker}
           colorPair={talk.color}
           talk={talk.title}

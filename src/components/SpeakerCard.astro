@@ -1,17 +1,19 @@
 ---
 import { colors, type ColorPair } from "../utils/colors";
+import { FavoriteButton } from "./button/favoriteButton/FavoriteButton";
 import CardWrapper from "./CardWrapper.vue";
 import Discipline from "./Discipline.astro";
 import Talk from "./Talk.astro";
 
 interface Props {
+  id: string;
   speakerName?: string;
   talk: string;
   colorPair?: ColorPair;
   discipline: string;
 }
 
-const { speakerName, talk, colorPair, discipline } = Astro.props;
+const { id, speakerName, talk, colorPair, discipline } = Astro.props;
 
 const formattedNames = speakerName
   ? speakerName.split(" & ").map((name) => name.split(" ").join("-"))
@@ -29,6 +31,7 @@ function getDiscipline() {
 ---
 
 <CardWrapper
+  id={id}
   borderColor={colorPair ? colorPair.color : colors.text.primary}
   height={speakerName ? "398px" : "auto"}
 >
@@ -59,6 +62,7 @@ function getDiscipline() {
           )
         }
       </div>
+      <FavoriteButton client:load id={id} />
     </div>
   </div>
 </CardWrapper>
