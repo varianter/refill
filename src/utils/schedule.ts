@@ -419,12 +419,12 @@ export const schedule: Schedule = [
         {
           id: "35",
           title:
-            "Liza Hansson & Länsförsäkringar: Kundresor som ett strategiskt verktyg för deras mest affärskritsika kundresor",
+            "Kundresor som ett strategiskt verktyg för deras mest affärskritsika kundresor",
           location: "No. 314",
           from: "14:30",
           to: "14:50",
           color: colorPairs.teal100,
-          speaker: "Marius Krakeli",
+          speaker: "Liza Hansson & Länsförsäkringar",
         },
       ],
     ],
