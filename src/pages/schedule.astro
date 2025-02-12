@@ -28,13 +28,23 @@ import {
             id={1}
           >
             {block.tracks.map((track) => {
-              return (
-                <Track
-                  track={track}
-                  numberOfRows={getSlotsAvaliable(block)}
-                  shortestTime={getShortestTalkDuration(block)}
-                />
-              );
+              if (block.tracks[0].length > 1) {
+                return (
+                  <Track
+                    track={track}
+                    numberOfRows={getSlotsAvaliable(block)}
+                    shortestTime={getShortestTalkDuration(block)}
+                  />
+                );
+              } else {
+                return (
+                  <Track
+                    track={track}
+                    numberOfRows={1}
+                    shortestTime={getShortestTalkDuration(block)}
+                  />
+                );
+              }
             })}
           </Accordion>
         );
