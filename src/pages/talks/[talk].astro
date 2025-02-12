@@ -6,6 +6,7 @@ import {
   getDisciplineName,
 } from "../../utils/discipline";
 import { schedule, type Talk } from "../../utils/schedule";
+import { FavoriteButton } from "../../components/button/favoriteButton/FavoriteButton";
 
 /* const talks: Talk[] = [
   {
@@ -73,12 +74,7 @@ const disciplineTextColor = colorPair.textColor;
           <p class="chip" id="discipline">
             {getDisciplineName(talk.discipline)}
           </p>
-          <img
-            src="/assets/icons/heart.svg"
-            alt="Heart symbol"
-            width="28"
-            height="29"
-          />
+          <FavoriteButton id={talk.id} talkTitle={talk.title} />
         </div>
         <p>
           {exampleDescription}
