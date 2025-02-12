@@ -422,7 +422,7 @@ export const schedule: Schedule = [
           title: "TBA",
           location: "Palmsalen",
           from: "14:30",
-          to: "16:00",
+          to: "15:10",
           color: colorPairs.orange,
         },
         {
