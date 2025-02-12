@@ -31,7 +31,7 @@ import backgroundImg from "../../public/assets/img/hero.jpg";
   .hero__background_image {
     position: absolute;
     inset: 0;
-    z-index: -1;
+    z-index: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -42,6 +42,7 @@ import backgroundImg from "../../public/assets/img/hero.jpg";
     margin: auto;
     display: grid;
     grid-template-areas: "full full" "left right";
+    position: relative;
   }
 
   .grid-item-full {
