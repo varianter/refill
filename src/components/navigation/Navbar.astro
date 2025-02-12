@@ -42,11 +42,13 @@
   }
 
   .navbar {
-    padding: 1.5rem 0rem 1.5rem 3rem;
+    padding: 1.5rem 2rem 1.5rem 2rem;
     height: fit-content;
     background-color: var(--background-primary);
+    width: 100%;
+    box-sizing: border-box;
 
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 100;
   }
@@ -77,8 +79,10 @@
 
   @media (max-width: 830px) {
     .navbar {
-      background-color: var(--grey-50);
       padding-left: 1rem;
+
+      display: flex;
+      justify-content: flex-end;
     }
 
     .navbar__menu {
@@ -94,6 +98,7 @@
 
       position: absolute;
       left: -1000px;
+      top: 70px;
 
       transition: left 0.3s;
     }
