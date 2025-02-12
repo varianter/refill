@@ -170,7 +170,8 @@ export const schedule: Schedule = [
         },
         {
           id: "13",
-          title: "Elkjøp/Elgiganten",
+          title:
+            "What we learned rebuilding the largest Nordic electronic retail website in Next.js?",
           location: "Aulan",
           from: "10:50",
           to: "11:30",
