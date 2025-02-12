@@ -1,3 +1,7 @@
+---
+import LinkButton from "../button/LinkButton.astro";
+---
+
 <nav class="navbar">
   <button
     class="navbar__hamburger_menu"
@@ -18,6 +22,9 @@
     <li role="menuitem">
       <a href="/schedule">FAQ</a>
     </li>
+    <li>
+      <LinkButton href="TICKETSLINK">Buy tickets</LinkButton>
+    </li>
   </ul>
 </nav>
 
@@ -36,8 +43,8 @@
   }
 </script>
 
-<style>
-  a {
+<style is:global>
+  .navbar > ul > li > a {
     font-size: var(--Font-size-H5);
   }
 
@@ -137,7 +144,7 @@
       }
     }
 
-    a {
+    .navbar > ul > li > a {
       font-size: var(--Font-size-H3);
     }
   }
