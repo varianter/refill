@@ -1,29 +1,11 @@
 ---
+import { FavoriteButton } from "../../components/button/favoriteButton/FavoriteButton";
 import TalkLayout from "../../layouts/Layout.astro";
-import { type ColorPair, colorPairs } from "../../utils/colors";
 import {
   getDisciplineColorPair,
   getDisciplineName,
 } from "../../utils/discipline";
 import { schedule, type Talk } from "../../utils/schedule";
-import { FavoriteButton } from "../../components/button/favoriteButton/FavoriteButton";
-
-/* const talks: Talk[] = [
-  {
-    id: "1",
-    title:
-      "Driving Transformation in Technology, Processes, and Governance for the National Road Database",
-    location: "No. 314",
-    from: "10:00",
-    to: "10:40",
-    speaker: "Malin C. Karlsen & Anders Hammervold",
-    speakerDescription:
-      "Anders is Chief Commercial officer in Variant, Key Account manager for Statens vegvesen and has also worked in different projects in Statens vegvesen as project manager.  Malin is a project manager in Variant Trondheim, and has been working in projects for Statens vegvesen for 4 years out of the last 5. ",
-    discipline: "Strategy & Product",
-    description:
-      "This session provides the outlines on how we, in collaboration with the Norwegian Public Roads Administration (Statens vegvesen), established a transformative program addressing both technology and processes for the National Road Database (Nasjonal vegdatabank). We will explore key questions that shaped the program: ...",
-  },
-]; */
 
 const exampleDescription =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
@@ -57,21 +39,21 @@ const disciplineTextColor = colorPair.textColor;
 ---
 
 <TalkLayout>
-  <a class="schedule_link" href="/schedule">
-    <span class="left_arrow">↓</span>
-    <span class="link_text">Full schedule</span>
+  <a class="talk__schedule_link" href="/schedule">
+    <span class="talk__left_arrow">↓</span>
+    <span class="talk__talk__link_text">Full schedule</span>
   </a>
   <main>
     <section>
       <h1>
         {talk.title}
       </h1>
-      <div id="flaff">
-        <div id="talk_details">
-          <p class="chip" id="time_and_location">
+      <div class="talk__talk_section">
+        <div class="talk__talk_details">
+          <p class="talk__chip" id="talk__time_and_location">
             {`${talk.location} ${talk.from}-${talk.to}`}
           </p>
-          <p class="chip" id="discipline">
+          <p class="talk__chip" id="talk__discipline">
             {getDisciplineName(talk.discipline)}
           </p>
           <FavoriteButton id={talk.id} talkTitle={talk.title} />
@@ -80,16 +62,17 @@ const disciplineTextColor = colorPair.textColor;
           {exampleDescription}
         </p>
       </div>
-      <div id="author_section">
-        <div id="images">
+      <div class="talk__author_section">
+        <div class="talk__author_images">
           <img
             src="/assets/img/divider/smiley.png"
-            class="author_image"
+            class="talk__author_image"
             alt="Temporary image of author(s)"
           />
+          <p>Temporary image of author(s)</p>
         </div>
-        <div id="author_description">
-          <p id="author_title">{talk.speaker}</p>
+        <div class="talk__author_description">
+          <p class="talk__author_title">{talk.speaker}</p>
           <p>{exampleSpeakerDescription}</p>
         </div>
       </div>
@@ -116,13 +99,13 @@ const disciplineTextColor = colorPair.textColor;
     font-size: var(--Font-size-H2);
   }
 
-  .left_arrow {
+  .talk__left_arrow {
     transform: rotate(90deg);
     font-size: 3.2rem;
     font-weight: 600;
   }
 
-  .schedule_link {
+  .talk__schedule_link {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -130,17 +113,17 @@ const disciplineTextColor = colorPair.textColor;
     width: fit-content;
   }
 
-  .link_text {
+  .talk__talk__link_text {
     font-size: var(--Font-size-H3);
   }
 
-  #talk_details {
+  .talk__talk_details {
     display: flex;
     align-items: center;
     gap: var(--Padding-l);
   }
 
-  #flaff {
+  .talk__talk_section {
     display: flex;
     flex-direction: column;
     gap: var(--Padding-l);
@@ -153,7 +136,7 @@ const disciplineTextColor = colorPair.textColor;
     font-weight: 300;
   }
 
-  .chip {
+  .talk__chip {
     font-size: var(--Font-size-H4);
     font-weight: 450;
     line-height: var(--Line-height-H4);
@@ -162,16 +145,16 @@ const disciplineTextColor = colorPair.textColor;
     border-radius: 2rem;
   }
 
-  #time_and_location {
+  #talk__time_and_location: {
     border: 1px solid;
   }
 
-  #discipline {
+  #talk__discipline {
     background: var(--disciplineBackgroundColor);
     color: var(--disciplineTextColor);
   }
 
-  #author_section {
+  .talk__author_section {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -179,28 +162,34 @@ const disciplineTextColor = colorPair.textColor;
     width: 650px;
   }
 
-  #images {
+  .talk__author_images {
     display: flex;
+    flex-direction: column;
     align-items: center;
     gap: var(--Padding-rem);
+    p {
+      font-size: var(--Font-size-H5);
+      color: var(--grey-900);
+    }
   }
 
-  .author_image {
+  .talk__author_image {
     /* width: 400px; */
     height: 408.284px;
     width: 316.5px;
     overflow: hidden;
     object-fit: contain;
     border-radius: 0.8rem;
+    border: 1px dotted var(--grey-800);
   }
 
-  #author_title {
-    font-size: var(--Font-size-H3);
-  }
-
-  #author_description {
+  .talk__author_description {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+  }
+
+  .talk__author_title {
+    font-size: var(--Font-size-H3);
   }
 </style>
