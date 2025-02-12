@@ -5,20 +5,12 @@ import {
   getDisciplineColorPair,
   getDisciplineName,
 } from "../../utils/discipline";
-import { schedule, type Talk } from "../../utils/schedule";
+import { getTalkById } from "../../utils/schedule";
 
 const exampleDescription =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 const exampleSpeakerDescription =
   "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo";
-
-function getTalkById(talkId: string): Talk | undefined {
-  const allTalks: Talk[] = schedule
-    .flatMap((block) => block.tracks.flat())
-    .filter((scheduleEntry) => scheduleEntry.type === "talk");
-
-  return allTalks.find((t) => t.id === talkId);
-}
 
 const { talk: talkId } = Astro.params;
 
@@ -32,7 +24,9 @@ if (talk === undefined) {
   return Astro.redirect("/404");
 }
 
-const colorPair = getDisciplineColorPair(talk.discipline);
+const { id, title, location, from, to, discipline, speaker } = talk;
+
+const colorPair = getDisciplineColorPair(discipline);
 
 const disciplineBackgroundColor = colorPair.color;
 const disciplineTextColor = colorPair.textColor;
@@ -46,17 +40,17 @@ const disciplineTextColor = colorPair.textColor;
   <main>
     <section>
       <h1>
-        {talk.title}
+        {title}
       </h1>
       <div class="talk__talk_section">
         <div class="talk__talk_details">
-          <p class="talk__chip" id="talk__time_and_location">
-            {`${talk.location} ${talk.from}-${talk.to}`}
+          <p class="talk__chip talk__time_and_location">
+            {`${location} ${from}-${to}`}
           </p>
-          <p class="talk__chip" id="talk__discipline">
-            {getDisciplineName(talk.discipline)}
+          <p class="talk__chip talk__discipline">
+            {getDisciplineName(discipline)}
           </p>
-          <FavoriteButton id={talk.id} talkTitle={talk.title} />
+          <FavoriteButton id={id} title={title} />
         </div>
         <p>
           {exampleDescription}
@@ -72,7 +66,7 @@ const disciplineTextColor = colorPair.textColor;
           <p>Temporary image of author(s)</p>
         </div>
         <div class="talk__author_description">
-          <p class="talk__author_title">{talk.speaker}</p>
+          <p class="talk__author_title">{speaker}</p>
           <p>{exampleSpeakerDescription}</p>
         </div>
       </div>
@@ -145,11 +139,11 @@ const disciplineTextColor = colorPair.textColor;
     border-radius: 2rem;
   }
 
-  #talk__time_and_location: {
-    border: 1px solid;
+  .talk__time_and_location {
+    border: 1px solid var(--text-primary);
   }
 
-  #talk__discipline {
+  .talk__discipline {
     background: var(--disciplineBackgroundColor);
     color: var(--disciplineTextColor);
   }
@@ -174,7 +168,6 @@ const disciplineTextColor = colorPair.textColor;
   }
 
   .talk__author_image {
-    /* width: 400px; */
     height: 408.284px;
     width: 316.5px;
     overflow: hidden;

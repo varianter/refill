@@ -1,6 +1,6 @@
 ---
 import Accordion from "../components/Accordion.vue";
-import ScheduleEntry from "../components/ScheduleEntry.astro";
+import ScheduleEntryCard from "../components/ScheduleEntryCard.astro";
 import Toggle from "../components/Toggle.astro";
 import Track from "../components/Track.astro";
 import ScheduleLayout from "../layouts/ScheduleLayout.astro";
@@ -52,7 +52,7 @@ import {
         const singleTrack = block.tracks[0][0];
         return (
           <div class="schedule__speaker_card">
-            <ScheduleEntry event={singleTrack} span={1} />
+            <ScheduleEntryCard event={singleTrack} span={1} />
           </div>
         );
       }

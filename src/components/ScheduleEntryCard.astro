@@ -1,23 +1,28 @@
 ---
 import { colors } from "../utils/colors";
+import { getDisciplineColorPair, getDisciplineName } from "../utils/discipline";
 import { getColumn } from "../utils/getColumm";
+import type { ScheduleEntry } from "../utils/schedule";
 import { FavoriteButton } from "./button/favoriteButton/FavoriteButton";
 import CardWrapper from "./CardWrapper.astro";
 import Discipline from "./Discipline.astro";
 import Talk from "./Talk.astro";
-import { type Talk as TalkEvent, type CommonEvent } from "../utils/schedule";
-import { getDisciplineColorPair, getDisciplineName } from "../utils/discipline";
 
 interface Props {
-  event: TalkEvent | CommonEvent;
+  event: ScheduleEntry;
   span: number;
 }
 
 const { event, span } = Astro.props;
+const { id, title, to, from } = event;
 
-const formattedNames = event.speaker
-  ? event.speaker.split(" & ").map((name) => name.split(" ").join("-"))
-  : undefined;
+const speaker = event.type !== "break" ? event.speaker : undefined;
+const location = event.type !== "break" ? event.location : "";
+
+const formattedNames =
+  event.type !== "break" && event.speaker
+    ? event.speaker.split(" & ").map((name) => name.split(" ").join("-"))
+    : undefined;
 
 const colorPair =
   event.type === "talk" ? getDisciplineColorPair(event.discipline) : undefined;
@@ -25,13 +30,11 @@ const colorPair =
 const borderColor =
   colorPair?.color === colors.teal100 ? colors.tealDark : colorPair?.color;
 
-const column = event.location ? getColumn(event.location) : "unset";
-
-const timeAndLocation = `${event.location} ${event.from}-${event.to}`;
+const column = colorPair ? getColumn(colorPair) : "unset";
 ---
 
 <CardWrapper
-  id={event.id}
+  id={id}
   borderColor={borderColor ? borderColor : colors.text.primary}
   span={span}
   column={column}
@@ -52,19 +55,19 @@ const timeAndLocation = `${event.location} ${event.from}-${event.to}`;
           })
       }
     </div>
-    <Talk speakerName={event.speaker} title={event.title} />
+    <Talk speakerName={speaker} title={title} />
     <div class="speaker_card__flex">
       <div class="speaker_card__flex__labels">
-        <Discipline>{timeAndLocation}</Discipline>
+        <Discipline>{`${location} ${from}-${to}`}</Discipline>
         {
-          event.type === "talk" && (
+          event.type === "talk" && speaker && (
             <Discipline colorPair={colorPair}>
               {getDisciplineName(event.discipline)}
             </Discipline>
           )
         }
       </div>
-      <FavoriteButton client:load id={event.id} talkTitle={event.title} />
+      <FavoriteButton client:load id={id} title={title} />
     </div>
   </div>
 </CardWrapper>

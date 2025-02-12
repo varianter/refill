@@ -1,6 +1,6 @@
 ---
 import { getTimesShortestFitInEvent, type Track } from "../utils/schedule";
-import ScheduleEntry from "./ScheduleEntry.astro";
+import ScheduleEntryCard from "./ScheduleEntryCard.astro";
 
 interface Props {
   track: Track;
@@ -14,7 +14,7 @@ const { track, numberOfRows, shortestTime } = Astro.props;
   {
     track.map((scheduleEntry) => {
       return (
-        <ScheduleEntry
+        <ScheduleEntryCard
           event={scheduleEntry}
           span={getTimesShortestFitInEvent(scheduleEntry, shortestTime)}
         />

@@ -1,36 +1,29 @@
-import { colorPairs, type ColorPair } from "./colors";
 import { Discipline } from "../utils/discipline";
 
-interface Event {
+interface ScheduleEvent {
   id: string;
   title: string;
-  location: string;
   from: string;
   to: string;
 }
 
-export interface CommonEvent extends Event {
+export interface CommonEvent extends ScheduleEvent {
   type: "common";
-  id: string;
-  title: string;
   location: string;
-  from: string;
-  to: string;
   speaker?: string;
 }
 
-export interface Talk extends Event {
+export interface Talk extends ScheduleEvent {
   type: "talk";
-  id: string;
-  title: string;
   location: string;
-  from: string;
-  to: string;
   discipline: Discipline;
-  color: ColorPair;
   speaker: string;
 }
-export type ScheduleEntry = Talk | CommonEvent;
+
+export interface Break extends ScheduleEvent {
+  type: "break";
+}
+export type ScheduleEntry = Talk | CommonEvent | Break;
 
 export type Track = ScheduleEntry[];
 
@@ -87,7 +80,7 @@ export function getShortestTalkDuration(block: Block): number {
 }
 
 export function getTimesShortestFitInEvent(
-  talk: Event,
+  talk: ScheduleEvent,
   shortestDuration: number,
 ): number {
   const talkStart = timeToMinutes(talk.from);
@@ -96,6 +89,16 @@ export function getTimesShortestFitInEvent(
 
   return Math.floor(talkDuration / shortestDuration);
 }
+
+export function getTalkById(talkId: string): Talk | undefined {
+  const allTalks: Talk[] = schedule
+    .flatMap((block) => block.tracks.flat())
+    .filter((scheduleEntry) => scheduleEntry.type === "talk");
+
+  return allTalks.find((t) => t.id === talkId);
+}
+
+const { Design, Development, StrategyAndProduct } = Discipline;
 
 export const schedule: Schedule = [
   {
@@ -142,10 +145,9 @@ export const schedule: Schedule = [
     tracks: [
       [
         {
-          type: "common",
+          type: "break",
           id: "4",
           title: "Break",
-          location: "",
           from: "09:45",
           to: "10:00",
         },
@@ -166,8 +168,7 @@ export const schedule: Schedule = [
           location: "Palmsalen",
           from: "10:00",
           to: "10:20",
-          discipline: Discipline.Design,
-          color: colorPairs.orange,
+          discipline: Design,
           speaker: "Vegard Ingebrigtsen Feste",
         },
         {
@@ -177,8 +178,7 @@ export const schedule: Schedule = [
           location: "Aulan",
           from: "10:00",
           to: "10:40",
-          discipline: Discipline.Development,
-          color: colorPairs.darkBlue,
+          discipline: Development,
           speaker: "Mikael Brevik",
         },
         {
@@ -189,8 +189,7 @@ export const schedule: Schedule = [
           location: "No. 314",
           from: "10:00",
           to: "10:20",
-          discipline: Discipline.StrategyAndProduct,
-          color: colorPairs.teal100,
+          discipline: StrategyAndProduct,
           speaker: "Tonje Evanger & Hildegunn Vada",
         },
         {
@@ -200,8 +199,7 @@ export const schedule: Schedule = [
           location: "Palmsalen",
           from: "10:20",
           to: "10:40",
-          discipline: Discipline.Design,
-          color: colorPairs.orange,
+          discipline: Design,
           speaker: "Ole Petter Klæstad",
         },
         {
@@ -211,8 +209,7 @@ export const schedule: Schedule = [
           location: "No. 314",
           from: "10:20",
           to: "10:40",
-          discipline: Discipline.StrategyAndProduct,
-          color: colorPairs.teal100,
+          discipline: StrategyAndProduct,
           speaker: "Kristoffer Nordström",
         },
       ],
@@ -225,10 +222,9 @@ export const schedule: Schedule = [
     tracks: [
       [
         {
-          type: "common",
+          type: "break",
           id: "11",
           title: "Short technical break",
-          location: "",
           from: "10:40",
           to: "10:50",
         },
@@ -248,8 +244,7 @@ export const schedule: Schedule = [
           location: "Palmsalen",
           from: "10:50",
           to: "11:10",
-          discipline: Discipline.Design,
-          color: colorPairs.orange,
+          discipline: Design,
           speaker: "Anita Steinstad",
         },
         {
@@ -260,8 +255,7 @@ export const schedule: Schedule = [
           location: "Aulan",
           from: "10:50",
           to: "11:30",
-          discipline: Discipline.Development,
-          color: colorPairs.darkBlue,
+          discipline: Development,
           speaker: "Tomas Janson",
         },
         {
@@ -271,8 +265,7 @@ export const schedule: Schedule = [
           location: "No. 314",
           from: "10:50",
           to: "11:30",
-          discipline: Discipline.StrategyAndProduct,
-          color: colorPairs.teal100,
+          discipline: StrategyAndProduct,
           speaker: "Andreas Hartveit",
         },
         {
@@ -282,8 +275,7 @@ export const schedule: Schedule = [
           location: "Palmsalen",
           from: "11:10",
           to: "11:30",
-          discipline: Discipline.Design,
-          color: colorPairs.orange,
+          discipline: Design,
           speaker: "Vikas Gupta",
         },
       ],
@@ -296,10 +288,9 @@ export const schedule: Schedule = [
     tracks: [
       [
         {
-          type: "common",
+          type: "break",
           id: "18",
           title: "Lunch break",
-          location: "",
           from: "11:30",
           to: "12:30",
         },
@@ -320,8 +311,7 @@ export const schedule: Schedule = [
           location: "Palmsalen",
           from: "12:30",
           to: "12:50",
-          discipline: Discipline.Development,
-          color: colorPairs.darkBlue,
+          discipline: Development,
           speaker: "Elise Kristiansen",
         },
         {
@@ -331,8 +321,7 @@ export const schedule: Schedule = [
           location: "Aulan",
           from: "12:30",
           to: "12:40",
-          discipline: Discipline.Design,
-          color: colorPairs.orange,
+          discipline: Design,
           speaker: "Julia Kuhley",
         },
         {
@@ -343,8 +332,7 @@ export const schedule: Schedule = [
           location: "No. 314",
           from: "12:30",
           to: "12:50",
-          discipline: Discipline.StrategyAndProduct,
-          color: colorPairs.teal100,
+          discipline: StrategyAndProduct,
           speaker: "Malin C. Karlsen",
         },
         {
@@ -354,8 +342,7 @@ export const schedule: Schedule = [
           location: "Palmsalen",
           from: "12:50",
           to: "13:00",
-          discipline: Discipline.Development,
-          color: colorPairs.darkBlue,
+          discipline: Development,
           speaker: "Truls Henrik Jakobsen",
         },
         {
@@ -365,8 +352,7 @@ export const schedule: Schedule = [
           location: "Aulan",
           from: "12:40",
           to: "13:00",
-          discipline: Discipline.Design,
-          color: colorPairs.orange,
+          discipline: Design,
           speaker: "Jonas Lillevold",
         },
         {
@@ -376,9 +362,8 @@ export const schedule: Schedule = [
           location: "No. 314",
           from: "12:50",
           to: "13:10",
-          discipline: Discipline.StrategyAndProduct,
-          color: colorPairs.teal100,
-          speaker: "TBA",
+          discipline: StrategyAndProduct,
+          speaker: "",
         },
         {
           type: "talk",
@@ -388,8 +373,7 @@ export const schedule: Schedule = [
           location: "Palmsalen",
           from: "13:00",
           to: "13:10",
-          discipline: Discipline.Development,
-          color: colorPairs.darkBlue,
+          discipline: Development,
           speaker: "Thomas Lyngtun Hansen",
         },
         {
@@ -399,9 +383,8 @@ export const schedule: Schedule = [
           location: "Aulan",
           from: "13:00",
           to: "13:10",
-          discipline: Discipline.Design,
-          color: colorPairs.orange,
-          speaker: "TBA",
+          discipline: Design,
+          speaker: "",
         },
       ],
     ],
@@ -413,10 +396,9 @@ export const schedule: Schedule = [
     tracks: [
       [
         {
-          type: "common",
+          type: "break",
           id: "28",
           title: "Short technical break",
-          location: "",
           from: "13:10",
           to: "13:20",
         },
@@ -436,8 +418,7 @@ export const schedule: Schedule = [
           location: "Palmsalen",
           from: "13:20",
           to: "14:00",
-          discipline: Discipline.Development,
-          color: colorPairs.darkBlue,
+          discipline: Development,
           speaker: "Christian Brevik",
         },
         {
@@ -447,8 +428,7 @@ export const schedule: Schedule = [
           location: "Aulan",
           from: "13:20",
           to: "14:00",
-          discipline: Discipline.Design,
-          color: colorPairs.orange,
+          discipline: Design,
           speaker: "Rolf Anders Storset",
         },
         {
@@ -459,8 +439,7 @@ export const schedule: Schedule = [
           location: "No. 314",
           from: "13:20",
           to: "13:30",
-          discipline: Discipline.StrategyAndProduct,
-          color: colorPairs.teal100,
+          discipline: StrategyAndProduct,
           speaker: "Marius Krakeli",
         },
         {
@@ -470,9 +449,8 @@ export const schedule: Schedule = [
           location: "No. 314",
           from: "13:30",
           to: "14:00",
-          discipline: Discipline.StrategyAndProduct,
-          color: colorPairs.teal100,
-          speaker: "TBA",
+          discipline: StrategyAndProduct,
+          speaker: "",
         },
       ],
     ],
@@ -484,10 +462,9 @@ export const schedule: Schedule = [
     tracks: [
       [
         {
-          type: "common",
+          type: "break",
           id: "32",
           title: "Break",
-          location: "",
           from: "14:00",
           to: "14:30",
         },
@@ -507,9 +484,8 @@ export const schedule: Schedule = [
           location: "Palmsalen",
           from: "14:30",
           to: "15:10",
-          discipline: Discipline.Design,
-          color: colorPairs.orange,
-          speaker: "TBA",
+          discipline: Design,
+          speaker: "",
         },
         {
           type: "talk",
@@ -518,8 +494,7 @@ export const schedule: Schedule = [
           location: "Aulan",
           from: "14:30",
           to: "15:10",
-          discipline: Discipline.Development,
-          color: colorPairs.darkBlue,
+          discipline: Development,
           speaker: "Jacob Berglund",
         },
         {
@@ -530,8 +505,7 @@ export const schedule: Schedule = [
           location: "No. 314",
           from: "14:30",
           to: "14:50",
-          discipline: Discipline.StrategyAndProduct,
-          color: colorPairs.teal100,
+          discipline: StrategyAndProduct,
           speaker: "Liza Hansson & Länsförsäkringar",
         },
         {
@@ -541,9 +515,8 @@ export const schedule: Schedule = [
           location: "No. 314",
           from: "13:30",
           to: "14:00",
-          discipline: Discipline.StrategyAndProduct,
-          color: colorPairs.teal100,
-          speaker: "TBA",
+          discipline: StrategyAndProduct,
+          speaker: "",
         },
       ],
     ],
@@ -555,10 +528,9 @@ export const schedule: Schedule = [
     tracks: [
       [
         {
-          type: "common",
+          type: "break",
           id: "36",
           title: "Short technical break",
-          location: "",
           from: "15:10",
           to: "15:20",
         },
@@ -579,8 +551,7 @@ export const schedule: Schedule = [
           location: "Palmsalen",
           from: "15:20",
           to: "16:00",
-          discipline: Discipline.Design,
-          color: colorPairs.orange,
+          discipline: Design,
           speaker: "Andrea Hvattum",
         },
         {
@@ -590,8 +561,7 @@ export const schedule: Schedule = [
           location: "Aulan",
           from: "15:20",
           to: "15:40",
-          discipline: Discipline.Development,
-          color: colorPairs.darkBlue,
+          discipline: Development,
           speaker: "Nikolai Norman Andersen",
         },
         {
@@ -601,8 +571,7 @@ export const schedule: Schedule = [
           location: "No. 314",
           from: "15:20",
           to: "16:00",
-          discipline: Discipline.StrategyAndProduct,
-          color: colorPairs.teal100,
+          discipline: StrategyAndProduct,
           speaker: "David Dinka",
         },
         {
@@ -612,8 +581,7 @@ export const schedule: Schedule = [
           location: "Aulan",
           from: "15:40",
           to: "16:00",
-          discipline: Discipline.Development,
-          color: colorPairs.darkBlue,
+          discipline: Development,
           speaker: "Yoeri Otten",
         },
       ],
@@ -626,10 +594,9 @@ export const schedule: Schedule = [
     tracks: [
       [
         {
-          type: "common",
+          type: "break",
           id: "43",
           title: "Break",
-          location: "",
           from: "16:00",
           to: "16:30",
         },
