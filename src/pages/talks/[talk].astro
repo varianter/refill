@@ -1,21 +1,13 @@
 ---
 import TalkLayout from "../../layouts/Layout.astro";
 import { type ColorPair, colorPairs } from "../../utils/colors";
+import {
+  getDisciplineColorPair,
+  getDisciplineName,
+} from "../../utils/discipline";
+import { schedule, type Talk } from "../../utils/schedule";
 
-type Talk = {
-  id: string;
-  title: string;
-  location: string;
-  from: string;
-  to: string;
-  color?: ColorPair;
-  speaker?: string;
-  speakerDescription?: string;
-  discipline?: string;
-  description?: string;
-};
-
-const talks: Talk[] = [
+/* const talks: Talk[] = [
   {
     id: "1",
     title:
@@ -30,16 +22,37 @@ const talks: Talk[] = [
     description:
       "This session provides the outlines on how we, in collaboration with the Norwegian Public Roads Administration (Statens vegvesen), established a transformative program addressing both technology and processes for the National Road Database (Nasjonal vegdatabank). We will explore key questions that shaped the program: ...",
   },
-];
+]; */
 
-const { talk } = Astro.params;
+const exampleDescription =
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+const exampleSpeakerDescription =
+  "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo";
 
-const maybeTalk = talks.find((t) => t.id === talk);
-const talkDetails = maybeTalk ? maybeTalk : talks[0];
+function getTalkById(talkId: string): Talk | undefined {
+  const allTalks: Talk[] = schedule
+    .flatMap((block) => block.tracks.flat())
+    .filter((scheduleEntry) => scheduleEntry.type === "talk");
 
-const { purple } = colorPairs;
-const purpleColor = purple.color;
-const purpleTextColor = purple.textColor;
+  return allTalks.find((t) => t.id === talkId);
+}
+
+const { talk: talkId } = Astro.params;
+
+if (talkId === undefined) {
+  return Astro.redirect("/404");
+}
+
+const talk = getTalkById(talkId);
+
+if (talk === undefined) {
+  return Astro.redirect("/404");
+}
+
+const colorPair = getDisciplineColorPair(talk.discipline);
+
+const disciplineBackgroundColor = colorPair.color;
+const disciplineTextColor = colorPair.textColor;
 ---
 
 <TalkLayout>
@@ -50,14 +63,16 @@ const purpleTextColor = purple.textColor;
   <main>
     <section>
       <h1>
-        {talkDetails.title}
+        {talk.title}
       </h1>
       <div id="flaff">
         <div id="talk_details">
           <p class="chip" id="time_and_location">
-            {`${talkDetails.location} ${talkDetails.from}-${talkDetails.to}`}
+            {`${talk.location} ${talk.from}-${talk.to}`}
           </p>
-          <p class="chip" id="discipline">{talkDetails.discipline}</p>
+          <p class="chip" id="discipline">
+            {getDisciplineName(talk.discipline)}
+          </p>
           <img
             src="/assets/icons/heart.svg"
             alt="Heart symbol"
@@ -66,18 +81,7 @@ const purpleTextColor = purple.textColor;
           />
         </div>
         <p>
-          This session provides the outlines on how we, in collaboration with
-          the Norwegian Public Roads Administration (Statens vegvesen),
-          established a transformative program addressing both technology and
-          processes for the National Road Database (Nasjonal vegdatabank). We
-          will explore key questions that shaped the program: How did we align
-          the program's establishment with the agency’s governance structures?
-          What were the critical success factors driving the program forward?
-          What lessons have we learned, and what could have been done
-          differently? Where does the program stand today, and what lies ahead?
-          By sharing insights from this journey, we aim to highlight practical
-          strategies, challenges, and outcomes relevant to large-scale
-          transformation programs in the public sector.
+          {exampleDescription}
         </p>
       </div>
       <div id="author_section">
@@ -94,15 +98,15 @@ const purpleTextColor = purple.textColor;
           />
         </div>
         <div id="author_description">
-          <p id="author_title">{talkDetails.speaker}</p>
-          <p>{talkDetails.speakerDescription}</p>
+          <p id="author_title">{talk.speaker}</p>
+          <p>{exampleSpeakerDescription}</p>
         </div>
       </div>
     </section>
   </main>
 </TalkLayout>
 
-<style define:vars={{ purpleColor, purpleTextColor }}>
+<style define:vars={{ disciplineBackgroundColor, disciplineTextColor }}>
   main {
     display: flex;
     flex-direction: column;
@@ -172,8 +176,8 @@ const purpleTextColor = purple.textColor;
   }
 
   #discipline {
-    background: var(--purpleColor);
-    color: var(--purpleTextColor);
+    background: var(--disciplineBackgroundColor);
+    color: var(--disciplineTextColor);
   }
 
   #author_section {
