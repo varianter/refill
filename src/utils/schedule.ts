@@ -234,7 +234,7 @@ export const schedule: Schedule = [
         },
         {
           id: "15",
-          title: "The designers Anti to-do list",
+          title: "Exploring the 7 Powers in Strategic Design",
           location: "Palmsalen",
           from: "11:10",
           to: "11:30",
