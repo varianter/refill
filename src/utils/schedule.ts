@@ -1,6 +1,6 @@
 import { colorPairs, type ColorPair } from "./colors";
 
-type Talk = {
+export type Talk = {
   id: string;
   title: string;
   location: string;
@@ -20,6 +20,60 @@ type Block = {
 };
 
 type Schedule = Block[];
+
+function timeToMinutes(time: string): number {
+  const [hours, minutes] = time.split(":").map(Number);
+  return hours * 60 + minutes;
+}
+
+export function getSlotsAvaliable(block: Block): number {
+  const blockStart = timeToMinutes(block.start);
+  const blockEnd = timeToMinutes(block.end);
+  const availableTime = blockEnd - blockStart;
+
+  let shortestDuration = Infinity;
+
+  block.tracks.flat().forEach((talk) => {
+    const talkStart = timeToMinutes(talk.from);
+    const talkEnd = timeToMinutes(talk.to);
+    const talkDuration = talkEnd - talkStart;
+
+    if (talkDuration < shortestDuration) {
+      shortestDuration = talkDuration;
+    }
+  });
+
+  const numTalks = Math.floor(availableTime / shortestDuration);
+
+  return numTalks;
+}
+
+export function getShortestTalkDuration(block: Block): number {
+  let shortestDuration = Infinity;
+
+  block.tracks.flat().forEach((talk) => {
+    const talkStart = timeToMinutes(talk.from);
+    const talkEnd = timeToMinutes(talk.to);
+    const talkDuration = talkEnd - talkStart;
+
+    if (talkDuration < shortestDuration) {
+      shortestDuration = talkDuration;
+    }
+  });
+
+  return shortestDuration;
+}
+
+export function getTimesShortestFitInTalk(
+  talk: Talk,
+  shortestDuration: number,
+): number {
+  const talkStart = timeToMinutes(talk.from);
+  const talkEnd = timeToMinutes(talk.to);
+  const talkDuration = talkEnd - talkStart;
+
+  return Math.floor(talkDuration / shortestDuration);
+}
 
 export const schedule: Schedule = [
   {
@@ -107,8 +161,6 @@ export const schedule: Schedule = [
           color: colorPairs.teal100,
           speaker: "Tonje Evanger & Hildegunn Vada",
         },
-      ],
-      [
         {
           id: "8",
           title: "The designers Anti to-do list",
@@ -117,13 +169,6 @@ export const schedule: Schedule = [
           to: "10:40",
           color: colorPairs.orange,
           speaker: "Ole Petter Klæstad",
-        },
-        {
-          id: "",
-          title: "",
-          location: "",
-          from: "",
-          to: "",
         },
         {
           id: "10",
@@ -187,8 +232,6 @@ export const schedule: Schedule = [
           color: colorPairs.teal100,
           speaker: "Andreas Hartveit",
         },
-      ],
-      [
         {
           id: "15",
           title: "The designers Anti to-do list",
@@ -197,20 +240,6 @@ export const schedule: Schedule = [
           to: "11:30",
           color: colorPairs.orange,
           speaker: "Vikas Gupta",
-        },
-        {
-          id: "",
-          title: "",
-          location: "",
-          from: "",
-          to: "",
-        },
-        {
-          id: "14",
-          title: "",
-          location: "",
-          from: "",
-          to: "",
         },
       ],
     ],
@@ -266,8 +295,6 @@ export const schedule: Schedule = [
           color: colorPairs.teal100,
           speaker: "Malin C. Karlsen",
         },
-      ],
-      [
         {
           id: "22",
           title: "Why does Fetch make you wait twice?",
@@ -294,8 +321,6 @@ export const schedule: Schedule = [
           to: "13:10",
           color: colorPairs.teal100,
         },
-      ],
-      [
         {
           id: "25",
           title:
@@ -307,20 +332,12 @@ export const schedule: Schedule = [
           speaker: "Thomas Lyngtun Hansen",
         },
         {
-          id: "26",
+          id: "24",
           title: "TBA",
           location: "Aulan",
           from: "13:00",
           to: "13:10",
           color: colorPairs.orange,
-        },
-        {
-          id: "24",
-          title: "TBA",
-          location: "No. 314",
-          from: "12:50",
-          to: "13:10",
-          color: colorPairs.teal100,
         },
       ],
     ],
@@ -479,31 +496,6 @@ export const schedule: Schedule = [
           to: "16:00",
           color: colorPairs.teal100,
           speaker: "David Dinka",
-        },
-      ],
-      [
-        {
-          id: "",
-          title: "",
-          location: "",
-          from: "",
-          to: "",
-        },
-        {
-          id: "41",
-          title: "Let's ditch Javascript, and start using WebAssembly",
-          location: "Aulan",
-          from: "15:40",
-          to: "16:00",
-          color: colorPairs.darkBlue,
-          speaker: "Yoeri Otten",
-        },
-        {
-          id: "",
-          title: "",
-          location: "",
-          from: "",
-          to: "",
         },
       ],
     ],

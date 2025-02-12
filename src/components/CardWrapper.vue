@@ -1,5 +1,6 @@
 <script>
 import colors from "../utils/colors.ts";
+import Column from "../utils/getColumm.ts";
 export default {
   props: {
     id: {
@@ -16,6 +17,14 @@ export default {
       required: false,
       default: "#0A0B0B",
     },
+    span: {
+      type: Number,
+      required: false,
+      default: 1,
+    },
+    column: {
+      type: Column,
+    },
   },
 };
 </script>
@@ -30,6 +39,13 @@ export default {
 <style lang="css">
 .relative {
   position: relative;
+  grid-row: span v-bind(span);
+  grid-column: v-bind(column);
+
+  @media (max-width: 1300px) {
+    grid-column: unset;
+    grid-row: unset;
+  }
 }
 
 .card_wrapper,
