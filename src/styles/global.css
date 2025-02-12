@@ -79,7 +79,7 @@ html {
   scroll-padding-top: calc(2 * var(--Padding-m) + 40px);
 }
 
-:where(body) {
+:where(main) {
   background-color: var(--grey-50);
   padding: var(--Padding-rem);
 

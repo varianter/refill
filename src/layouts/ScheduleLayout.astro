@@ -44,13 +44,15 @@ import Footer from "../components/navigation/Footer.astro";
     <meta name="twitter:creator" content="@Variant" /></head
   >
   <body>
-    <slot />
-    <Footer />
+    <main>
+      <slot />
+      <Footer />
+    </main>
   </body>
 </html>
 
 <style>
-  body {
+  main {
     background-color: var(--background-primary);
     padding: var(--Padding-xxl) 4rem;
 
