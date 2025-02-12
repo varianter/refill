@@ -32,9 +32,12 @@ const { track, numberOfRows, shortestTime } = Astro.props;
   .track {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-    grid-template-rows: repeat(var(--numberOfRows), 1fr);
     gap: 1rem;
     grid-auto-flow: dense;
+
+    @media (min-width: 1300px) {
+      grid-template-rows: repeat(var(--numberOfRows), 1fr);
+    }
 
     @media (max-width: 1300px) {
       > div:nth-child(odd):last-child {
