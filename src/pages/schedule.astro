@@ -4,7 +4,11 @@ import SpeakerCard from "../components/SpeakerCard.astro";
 import Toggle from "../components/Toggle.astro";
 import Track from "../components/Track.astro";
 import ScheduleLayout from "../layouts/ScheduleLayout.astro";
-import { schedule } from "../utils/schedule";
+import {
+  getShortestTalkDuration,
+  getSlotsAvaliable,
+  schedule,
+} from "../utils/schedule";
 ---
 
 <ScheduleLayout>
@@ -13,23 +17,39 @@ import { schedule } from "../utils/schedule";
     <Toggle text="Favorites" />
   </div>
   {
-    schedule.map((session) => {
-      if (session.tracks.length > 1 || session.tracks[0].length > 1) {
+    schedule.map((block) => {
+      if (block.tracks.length > 1 || block.tracks[0].length > 1) {
         return (
           <Accordion
             client:visible
-            title={session.title}
-            startTime={session.start}
-            endTime={session.end}
+            title={block.title}
+            startTime={block.start}
+            endTime={block.end}
             id={1}
           >
-            {session.tracks.map((track) => {
-              return <Track track={track} />;
+            {block.tracks.map((track) => {
+              if (block.tracks[0].length > 1) {
+                return (
+                  <Track
+                    track={track}
+                    numberOfRows={getSlotsAvaliable(block)}
+                    shortestTime={getShortestTalkDuration(block)}
+                  />
+                );
+              } else {
+                return (
+                  <Track
+                    track={track}
+                    numberOfRows={1}
+                    shortestTime={getShortestTalkDuration(block)}
+                  />
+                );
+              }
             })}
           </Accordion>
         );
       } else {
-        const singleTrack = session.tracks[0][0];
+        const singleTrack = block.tracks[0][0];
         return (
           <div class="schedule__speaker_card">
             <SpeakerCard
@@ -38,6 +58,7 @@ import { schedule } from "../utils/schedule";
               colorPair={singleTrack.color}
               talk={singleTrack.title}
               discipline={`${singleTrack.location} ${singleTrack.from}-${singleTrack.to}`}
+              span={1}
             />
           </div>
         );

@@ -1,41 +1,46 @@
 ---
-import { type Track } from "../utils/schedule";
+import { getTimesShortestFitInTalk, type Track } from "../utils/schedule";
 import SpeakerCard from "./SpeakerCard.astro";
 
 interface Props {
   track: Track;
+  numberOfRows: number;
+  shortestTime: number;
 }
-const { track } = Astro.props;
+const { track, numberOfRows, shortestTime } = Astro.props;
 ---
 
 <div class="track">
   {
     track.map((talk) => {
-      if (talk.title.length > 0) {
-        return (
-          <SpeakerCard
-            id={talk.id}
-            speakerName={talk.speaker}
-            colorPair={talk.color}
-            talk={talk.title}
-            discipline={`${talk.location} ${talk.from}-${talk.to}`}
-          />
-        );
-      } else {
-        return <div />;
-      }
+      return (
+        <SpeakerCard
+          id={talk.id}
+          speakerName={talk.speaker}
+          colorPair={talk.color}
+          talk={talk.title}
+          discipline={`${talk.location} ${talk.from}-${talk.to}`}
+          span={getTimesShortestFitInTalk(talk, shortestTime)}
+          location={talk.location}
+        />
+      );
     })
   }
 </div>
 
-<style>
+<style define:vars={{ numberOfRows }}>
   .track {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
     gap: 1rem;
+    grid-auto-flow: dense;
+
+    @media (min-width: 1300px) {
+      grid-template-rows: repeat(var(--numberOfRows), 1fr);
+    }
 
     @media (max-width: 1300px) {
-      > div:nth-last-child(1) {
+      > div:nth-child(odd):last-child {
         grid-column: 1 / -1;
       }
     }

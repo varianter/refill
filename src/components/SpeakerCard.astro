@@ -1,7 +1,8 @@
 ---
 import { colors, type ColorPair } from "../utils/colors";
+import { getColumn } from "../utils/getColumm";
 import { FavoriteButton } from "./button/favoriteButton/FavoriteButton";
-import CardWrapper from "./CardWrapper.vue";
+import CardWrapper from "./CardWrapper.astro";
 import Discipline from "./Discipline.astro";
 import Talk from "./Talk.astro";
 
@@ -11,9 +12,12 @@ interface Props {
   talk: string;
   colorPair?: ColorPair;
   discipline: string;
+  span: number;
+  location?: string;
 }
 
-const { id, speakerName, talk, colorPair, discipline } = Astro.props;
+const { id, speakerName, talk, colorPair, discipline, span, location } =
+  Astro.props;
 
 const formattedNames = speakerName
   ? speakerName.split(" & ").map((name) => name.split(" ").join("-"))
@@ -21,6 +25,8 @@ const formattedNames = speakerName
 
 const borderColor =
   colorPair?.color === colors.teal100 ? colors.tealDark : colorPair?.color;
+
+const column = location ? getColumn(location) : "unset";
 
 function getDiscipline() {
   if (colorPair?.color === colors.orange) {
@@ -36,7 +42,8 @@ function getDiscipline() {
 <CardWrapper
   id={id}
   borderColor={borderColor ? borderColor : colors.text.primary}
-  height={speakerName ? "398px" : "auto"}
+  span={span}
+  column={column}
 >
   <div class="speaker_card__wrapper">
     <div class="speaker_card__img_flex">
