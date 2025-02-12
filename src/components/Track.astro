@@ -11,15 +11,19 @@ const { track } = Astro.props;
 <div class="track">
   {
     track.map((talk) => {
-      return (
-        <SpeakerCard
-          id={talk.id}
-          speakerName={talk.speaker}
-          colorPair={talk.color}
-          talk={talk.title}
-          discipline={`${talk.location} ${talk.from}-${talk.to}`}
-        />
-      );
+      if (talk.title.length > 0) {
+        return (
+          <SpeakerCard
+            id={talk.id}
+            speakerName={talk.speaker}
+            colorPair={talk.color}
+            talk={talk.title}
+            discipline={`${talk.location} ${talk.from}-${talk.to}`}
+          />
+        );
+      } else {
+        return <div />;
+      }
     })
   }
 </div>
