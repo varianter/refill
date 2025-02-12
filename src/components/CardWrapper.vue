@@ -11,9 +11,11 @@ export default {
       required: false,
       default: "398px",
     },
-    borderColor: String,
-    required: false,
-    default: "#0A0B0B",
+    borderColor: {
+      type: String,
+      required: false,
+      default: "#0A0B0B",
+    },
   },
 };
 </script>

@@ -19,6 +19,9 @@ const formattedNames = speakerName
   ? speakerName.split(" & ").map((name) => name.split(" ").join("-"))
   : undefined;
 
+const borderColor =
+  colorPair?.color === colors.teal100 ? colors.tealDark : colorPair?.color;
+
 function getDiscipline() {
   if (colorPair?.color === colors.orange) {
     return "Design";
@@ -32,7 +35,7 @@ function getDiscipline() {
 
 <CardWrapper
   id={id}
-  borderColor={colorPair ? colorPair.color : colors.text.primary}
+  borderColor={borderColor ? borderColor : colors.text.primary}
   height={speakerName ? "398px" : "auto"}
 >
   <div class="speaker_card__wrapper">

@@ -12,6 +12,7 @@ export const colors = {
 
   teal50: "#D7FFF7",
   teal100: "#7EFFEC",
+  tealDark: "#27A290",
 
   purple: "#8A4CF6",
   purpleAccent: "#DDD6FF",
