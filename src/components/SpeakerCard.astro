@@ -2,7 +2,7 @@
 import { colors, type ColorPair } from "../utils/colors";
 import { getColumn } from "../utils/getColumm";
 import { FavoriteButton } from "./button/favoriteButton/FavoriteButton";
-import CardWrapper from "./CardWrapper.vue";
+import CardWrapper from "./CardWrapper.astro";
 import Discipline from "./Discipline.astro";
 import Talk from "./Talk.astro";
 
@@ -12,7 +12,7 @@ interface Props {
   talk: string;
   colorPair?: ColorPair;
   discipline: string;
-  span?: number;
+  span: number;
   location?: string;
 }
 
@@ -42,7 +42,6 @@ function getDiscipline() {
 <CardWrapper
   id={id}
   borderColor={borderColor ? borderColor : colors.text.primary}
-  height={speakerName ? "398px" : "auto"}
   span={span}
   column={column}
 >
