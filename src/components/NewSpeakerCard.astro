@@ -1,0 +1,76 @@
+---
+import { FavoriteButton } from "./button/favoriteButton/FavoriteButton";
+import Discipline from "./Discipline.astro";
+
+interface Props {
+  speakerName: string;
+  talk: string;
+  discipline: string;
+  id?: string;
+}
+
+const { speakerName, talk, discipline, id } = Astro.props;
+
+const formattedNames = speakerName
+  ? speakerName.split(" & ").map((name) => name.split(" ").join("-"))
+  : undefined;
+---
+
+<div class="speaker_card">
+  {
+    formattedNames &&
+      formattedNames.map((name) => {
+        const imgSrc = `/assets/img/people/${name}.webp`;
+        const altText = name.replaceAll("-", " ");
+        return <img class="speaker_card__image" src={imgSrc} alt={altText} />;
+      })
+  }
+  <div>
+    <p>{speakerName}</p>
+    <p class="speaker_card__talk">{talk}</p>
+  </div>
+  <div class="speaker_card__flex">
+    <Discipline>{discipline}</Discipline>
+    {id && <FavoriteButton client:visible id={id} title={talk} />}
+  </div>
+</div>
+
+<style>
+  .speaker_card {
+    padding: var(--Padding-m);
+    background-color: var(--background-primary);
+    border-radius: 6px;
+    box-shadow:
+      0.6px 0.7px 2.2px rgba(0, 0, 0, 0.024),
+      1.4px 1.7px 5.3px rgba(0, 0, 0, 0.032),
+      2.6px 3.1px 10px rgba(0, 0, 0, 0.038),
+      4.7px 5.6px 17.9px rgba(0, 0, 0, 0.044),
+      8.8px 10.4px 33.4px rgba(0, 0, 0, 0.053),
+      21px 25px 80px rgba(0, 0, 0, 0.07);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--Padding-m);
+  }
+
+  .speaker_card__image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    object-position: 50% 30%;
+    aspect-ratio: 16/9;
+    border-radius: 10px;
+  }
+
+  .speaker_card__talk {
+    margin-top: 0.25rem;
+    font-size: var(--Font-size-H4);
+    max-width: 380px;
+  }
+
+  .speaker_card__flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+</style>
