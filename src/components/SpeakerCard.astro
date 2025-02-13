@@ -26,7 +26,7 @@ const formattedNames = speakerName
 const borderColor =
   colorPair?.color === colors.teal100 ? colors.tealDark : colorPair?.color;
 
-const column = location ? getColumn(location) : "unset";
+const column = colorPair ? getColumn(colorPair) : "unset";
 
 function getDiscipline() {
   if (colorPair?.color === colors.orange) {

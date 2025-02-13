@@ -1,7 +1,9 @@
-export function getColumn(location: string) {
-  if (location === "Palmsalen") {
+import { colorPairs, type ColorPair } from "./colors";
+
+export function getColumn(colorPair: ColorPair) {
+  if (colorPair === colorPairs.darkBlue) {
     return 1;
-  } else if (location === "Aulan") {
+  } else if (colorPair === colorPairs.orange) {
     return 2;
   } else {
     return 3;
