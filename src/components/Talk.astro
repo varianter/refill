@@ -1,13 +1,13 @@
 ---
 interface Props {
   speakerName?: string;
-  talk: string;
+  title: string;
 }
 
-const { speakerName, talk } = Astro.props;
+const { speakerName, title } = Astro.props;
 
 function checkTalkLenght() {
-  if (talk.length > 50) return "90%";
+  if (title.length > 50) return "90%";
   return "250px";
 }
 
@@ -17,7 +17,7 @@ const maxWidth = checkTalkLenght();
 <div class="talk">
   {speakerName && <p class="talk__speaker">{speakerName}</p>}
   <p class="talk__text">
-    {talk}
+    {title}
   </p>
 </div>
 

@@ -1,6 +1,6 @@
 ---
-import { getTimesShortestFitInTalk, type Track } from "../utils/schedule";
-import SpeakerCard from "./SpeakerCard.astro";
+import { getTimesShortestFitInEvent, type Track } from "../utils/schedule";
+import ScheduleEntryCard from "./ScheduleEntryCard.astro";
 
 interface Props {
   track: Track;
@@ -12,16 +12,11 @@ const { track, numberOfRows, shortestTime } = Astro.props;
 
 <div class="track">
   {
-    track.map((talk) => {
+    track.map((scheduleEntry) => {
       return (
-        <SpeakerCard
-          id={talk.id}
-          speakerName={talk.speaker}
-          colorPair={talk.color}
-          talk={talk.title}
-          discipline={`${talk.location} ${talk.from}-${talk.to}`}
-          span={getTimesShortestFitInTalk(talk, shortestTime)}
-          location={talk.location}
+        <ScheduleEntryCard
+          event={scheduleEntry}
+          span={getTimesShortestFitInEvent(scheduleEntry, shortestTime)}
         />
       );
     })

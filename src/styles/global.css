@@ -29,6 +29,7 @@
   --text-tertiary: #5e5e5e;
   --text-disabled: #737474;
 
+  --Padding-xs: 0.25rem;
   --Padding-s: 0.75rem;
   --Padding-rem: 1rem;
   --Padding-m: 1.5rem;
@@ -43,12 +44,15 @@
   --Font-size-H5: 1.25rem;
 
   --Font-size-Body-Small: 1rem;
+  --Font-size-Body-Big: 1.5rem;
 
   --Line-height-H1: 5rem;
   --Line-height-H2: 4rem;
   --Line-height-H3: 2.5rem;
+  --Line-height-H4: 2rem;
 
   --Line-height-Body-Small: 1.5rem;
+  --Line-height-Body-Big: 2rem;
 
   --max-width-tablet: 834px;
 
@@ -106,7 +110,7 @@ html {
   }
 }
 
-:where(h1, h2, p, a, mark, span) {
+:where(h1, h2, h3, p, a, mark, span) {
   font-family: var(--font-britti);
   color: var(--text-primary);
   padding: 0;
@@ -122,6 +126,10 @@ html {
 :where(h2) {
   font-size: var(--Font-size-H2);
   line-height: var(--Line-height-H2);
+}
+
+:where(h3) {
+  font-size: var(--Font-size-H3);
 }
 
 :where(a) {

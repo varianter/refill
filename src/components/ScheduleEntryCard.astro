@@ -1,42 +1,36 @@
 ---
-import { colors, type ColorPair } from "../utils/colors";
+import { colors } from "../utils/colors";
+import { getDisciplineColorPair, getDisciplineName } from "../utils/discipline";
 import { getColumn } from "../utils/getColumm";
+import type { ScheduleEntry } from "../utils/schedule";
 import { FavoriteButton } from "./button/favoriteButton/FavoriteButton";
 import CardWrapper from "./CardWrapper.astro";
 import Discipline from "./Discipline.astro";
 import Talk from "./Talk.astro";
 
 interface Props {
-  id: string;
-  speakerName?: string;
-  talk: string;
-  colorPair?: ColorPair;
-  discipline: string;
+  event: ScheduleEntry;
   span: number;
-  location?: string;
 }
 
-const { id, speakerName, talk, colorPair, discipline, span, location } =
-  Astro.props;
+const { event, span } = Astro.props;
+const { id, title, to, from } = event;
 
-const formattedNames = speakerName
-  ? speakerName.split(" & ").map((name) => name.split(" ").join("-"))
-  : undefined;
+const speaker = event.type !== "break" ? event.speaker : undefined;
+const location = event.type !== "break" ? event.location : "";
+
+const formattedNames =
+  event.type !== "break" && event.speaker
+    ? event.speaker.split(" & ").map((name) => name.split(" ").join("-"))
+    : undefined;
+
+const colorPair =
+  event.type === "talk" ? getDisciplineColorPair(event.discipline) : undefined;
 
 const borderColor =
   colorPair?.color === colors.teal100 ? colors.tealDark : colorPair?.color;
 
 const column = colorPair ? getColumn(colorPair) : "unset";
-
-function getDiscipline() {
-  if (colorPair?.color === colors.orange) {
-    return "Design";
-  } else if (colorPair?.color === colors.darkBlue) {
-    return "Development";
-  } else {
-    return "Strategy & product";
-  }
-}
 ---
 
 <CardWrapper
@@ -61,17 +55,19 @@ function getDiscipline() {
           })
       }
     </div>
-    <Talk speakerName={speakerName} talk={talk} />
+    <Talk speakerName={speaker} title={title} />
     <div class="speaker_card__flex">
       <div class="speaker_card__flex__labels">
-        <Discipline>{discipline}</Discipline>
+        <Discipline>{`${location} ${from}-${to}`}</Discipline>
         {
-          speakerName && (
-            <Discipline colorPair={colorPair}>{getDiscipline()}</Discipline>
+          event.type === "talk" && speaker && (
+            <Discipline colorPair={colorPair}>
+              {getDisciplineName(event.discipline)}
+            </Discipline>
           )
         }
       </div>
-      <FavoriteButton client:load id={id} talk={talk} />
+      <FavoriteButton client:load id={id} title={title} />
     </div>
   </div>
 </CardWrapper>

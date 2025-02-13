@@ -7,10 +7,10 @@ import {
 
 type FavoriteButtonProps = {
   id: string;
-  talk: string;
+  title: string;
 };
 
-export const FavoriteButton = ({ id, talk }: FavoriteButtonProps) => {
+export const FavoriteButton = ({ id, title }: FavoriteButtonProps) => {
   const [isFavorited, setIsFavorited] = useState<boolean>(false);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export const FavoriteButton = ({ id, talk }: FavoriteButtonProps) => {
   //TODO: Should have a aria checked if favorited
   return (
     <button
-      aria-label={`Favorite talk: ${talk}`}
+      aria-label={`Favorite talk: ${title}`}
       className={style.favorite_button}
       onClick={toggleFavorite}
     >
