@@ -14,16 +14,18 @@ import LinkButton from "../button/LinkButton.astro";
   </button>
   <ul class="navbar__menu" role="menubar" id="menu">
     <li role="menuitem">
+      <a href="/">Refill 2025</a>
+    </li>
+    <li role="menuitem">
       <a href="/schedule">Full schedule</a>
     </li>
-    <li role="menuitem">
-      <a href="/schedule">Speakers</a>
-    </li>
-    <li role="menuitem">
-      <a href="/schedule">FAQ</a>
-    </li>
     <li>
-      <LinkButton href="TICKETSLINK">Buy tickets</LinkButton>
+      <LinkButton
+        href="https://refillconf.confetti.events/signup"
+        target="blank"
+      >
+        Buy tickets
+      </LinkButton>
     </li>
   </ul>
 </nav>
@@ -48,6 +50,29 @@ import LinkButton from "../button/LinkButton.astro";
     font-size: var(--Font-size-H5);
   }
 
+  .navbar > ul > li:not(:has(.link_button)) > a {
+    display: inline-block;
+    position: relative;
+  }
+
+  .navbar > ul > li:not(:has(.link_button)) > a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--text-primary);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  .navbar > ul > li:not(:has(.link_button)) > a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
   .navbar {
     padding: 1.5rem 2rem 1.5rem 2rem;
     height: fit-content;
@@ -67,7 +92,7 @@ import LinkButton from "../button/LinkButton.astro";
     padding: 0;
 
     display: flex;
-    justify-content: space-between;
+    gap: 2rem;
     align-items: center;
   }
 
