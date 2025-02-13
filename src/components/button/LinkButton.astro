@@ -20,6 +20,8 @@ const { href } = Astro.props;
     display: flex;
     gap: 0.25rem;
     align-items: center;
+
+    transition: background-color 0.4s;
   }
 
   .link_button::after {
@@ -33,5 +35,13 @@ const { href } = Astro.props;
     width: 24px;
     height: 24px;
     content: "";
+  }
+
+  .link_button:hover {
+    background-color: var(--grey-50);
+  }
+
+  .link_button:active {
+    transform: scale(0.9);
   }
 </style>
