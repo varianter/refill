@@ -36,7 +36,7 @@
   --Padding-xl: 6rem;
   --Padding-xxl: 8rem;
 
-  --Font-size-H1: 8rem;
+  --Font-size-H1: 4.5rem;
   --Font-size-H2: 3.5rem;
   --Font-size-H3: 2rem;
   --Font-size-H4: 1.5rem;
@@ -44,6 +44,7 @@
 
   --Font-size-Body-Small: 1rem;
 
+  --Line-height-H1: 5rem;
   --Line-height-H2: 4rem;
   --Line-height-H3: 2.5rem;
 
@@ -52,14 +53,18 @@
   --max-width-tablet: 834px;
 
   @media (max-width: 1000px) {
-    --Font-size-H1: 4.375rem;
+    --Font-size-H1: 3.5rem;
     --Font-size-H2: 2.5rem;
+
+    --Line-height-H1: 4rem;
   }
 
   @media (max-width: 530px) {
-    --Font-size-H1: 2.625rem;
+    --Font-size-H1: 2rem;
     --Font-size-H2: 2rem;
     --Font-size-H3: 1.5rem;
+
+    --Line-height-H1: 2.5rem;
 
     --Line-height-H3: 2rem;
   }
