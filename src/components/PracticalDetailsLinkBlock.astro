@@ -2,15 +2,14 @@
 interface Props {
   linkText: string;
   href: string;
-  target?: string;
 }
 
-const { linkText, href, target } = Astro.props;
+const { linkText, href } = Astro.props;
 ---
 
 <div class="practical_details_link_block">
   <slot />
-  <a href={href} target={target}>{linkText}</a>
+  <a href={href} target="_blank">{linkText}</a>
 </div>
 
 <style>
