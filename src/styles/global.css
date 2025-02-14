@@ -36,6 +36,7 @@
   --Padding-l: 3rem;
   --Padding-xl: 6rem;
   --Padding-xxl: 8rem;
+  --Padding-index: var(--Padding-rem);
 
   --Font-size-H1: 4.5rem;
   --Font-size-H2: 3.5rem;
@@ -71,6 +72,8 @@
     --Line-height-H1: 2.5rem;
 
     --Line-height-H3: 2rem;
+
+    --Padding-index: var(--Padding-s);
   }
 }
 
@@ -90,7 +93,7 @@ html {
 
 :where(main) {
   background-color: var(--grey-50);
-  padding: var(--Padding-rem);
+  padding: var(--Padding-index);
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -106,7 +109,6 @@ html {
 
   @media (max-width: 530px) {
     gap: var(--Padding-l);
-    padding: var(--Padding-s);
   }
 }
 

@@ -64,16 +64,21 @@ import malin from "../../public/assets/img/people/Malin-C.-Karlsen.jpg";
     position: absolute;
     width: 399px;
     height: auto;
+
+    @media (max-width: 400px) {
+     width: 100%; 
+      height: auto;
+    }
   }
 
   .speakers__splash_top {
     /* -1rem to stick to edge. Remove padding */
-    left: calc(-1 * var(--Padding-rem));
+    left: calc(-1 * var(--Padding-index));
   }
 
   .speakers__splash_bottom {
     /* -1rem to stick to edge. Remove padding */
-    right: calc(-1 * var(--Padding-rem));
+    right: calc(-1 * var(--Padding-index));
     bottom: -150px;
   }
 
@@ -179,5 +184,16 @@ import malin from "../../public/assets/img/people/Malin-C.-Karlsen.jpg";
         "img"
         "text";
     }
+
+    .grid_two {
+      grid-template-areas: 
+        "discipline discipline"
+        "img1 img2"
+        "text text";
+    }
+
+    img {
+      width: 100%;
+      height: auto;
   }
 </style>
