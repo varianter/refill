@@ -46,6 +46,7 @@
   --Font-size-H5: 1.25rem;
 
   --Font-size-Body-Small: 1rem;
+  --Font-size-Body-Normal: 1.125rem;
   --Font-size-Body-Big: 1.5rem;
 
   --Line-height-H1: 5rem;
@@ -54,6 +55,7 @@
   --Line-height-H4: 2rem;
 
   --Line-height-Body-Small: 1.5rem;
+  --Line-height-Body-Normal: 2rem;
   --Line-height-Body-Big: 2rem;
 
   --max-width-tablet: 834px;
@@ -135,6 +137,11 @@ html {
 :where(h3) {
   font-size: var(--Font-size-H3);
   line-height: var(--Line-height-H3);
+}
+
+:where(p) {
+  font-size: var(--Font-size-Body-Normal);
+  line-height: var(--Line-height-Body-Normal);
 }
 
 :where(a) {
