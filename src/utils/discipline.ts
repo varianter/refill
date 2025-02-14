@@ -2,7 +2,7 @@ import type { ColorPair } from "./colors";
 import { colorPairs } from "./colors";
 
 export enum Discipline {
-  Design,
+  Design = 1,
   Development,
   StrategyAndProduct,
 }
