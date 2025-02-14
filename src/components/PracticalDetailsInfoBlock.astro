@@ -1,0 +1,27 @@
+---
+interface Props {
+  heading: string;
+}
+
+const { heading } = Astro.props;
+---
+
+<div class="practical_details_info_block">
+  <h3>{heading}</h3>
+  <p>
+    <slot />
+  </p>
+</div>
+
+<style>
+  .practical_details_info_block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.38rem;
+
+    > h3 {
+      font-size: var(--Font-size-H4);
+      line-height: var(--Line-height-H4);
+    }
+  }
+</style>

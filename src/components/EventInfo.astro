@@ -68,7 +68,9 @@ const date = new Date(2025, 3, 4);
     width: 84px;
 
     & > p {
-      font-size: 2rem;
+      font-size: var(--Font-size-H3);
+      line-height: var(--Line-height-H3);
+
       color: var(--text-primary);
 
       @media (max-width: 530px) {
@@ -87,6 +89,7 @@ const date = new Date(2025, 3, 4);
   .event_info__large {
     padding: var(--Padding-s, 0.75rem) var(--Padding-m, 1.5rem);
     font-size: 5.625rem;
+    line-height: normal;
     font-weight: 700;
     letter-spacing: -0.1125rem;
 

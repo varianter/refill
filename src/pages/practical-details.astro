@@ -1,0 +1,104 @@
+---
+import PracticalDetailsInfoBlock from "../components/PracticalDetailsInfoBlock.astro";
+import PracticalDetailsLayout from "../layouts/PracticalDetailsLayout.astro";
+import PracticalDetailsSection from "../components/PracticalDetailsSection.astro";
+import PracticalDetailsLinkBlock from "../components/PracticalDetailsLinkBlock.astro";
+import IllustrationDivider from "../components/divider/IllustrationDivider.astro";
+---
+
+<PracticalDetailsLayout>
+  <h1 class="practical_details_heading">Practical Details</h1>
+
+  <PracticalDetailsSection heading="What, Where and When">
+    <PracticalDetailsLinkBlock
+      linkText="See location on Google Maps"
+      href="https://maps.app.goo.gl/C3mHj92nptXc2kWj7"
+    >
+      <p>
+        Refill is a conference organised by Variant that will take place on
+        <strong> 4th of april </strong>
+        in
+        <strong>7A Posthuset, Vasagatan 28, 111 20 Stockholm, Sverige. </strong>
+      </p>
+    </PracticalDetailsLinkBlock>
+    <PracticalDetailsInfoBlock heading="Accessibility">
+      The venue is accessible for wheelchair users.
+    </PracticalDetailsInfoBlock>
+  </PracticalDetailsSection>
+
+  <PracticalDetailsSection heading="Tickets">
+    <PracticalDetailsLinkBlock
+      linkText="Buy your tickets"
+      href="https://refillconf.confetti.events/signup"
+    >
+      <p>
+        Tickets are available at refillconf.com – grab yours before they’re
+        gone! They cost 1295 SEK for everybody.
+      </p>
+    </PracticalDetailsLinkBlock>
+    <PracticalDetailsInfoBlock heading="What is included?">
+      Your ticket includes a full day of talks, fika, lunch, and an epic
+      after-party with dinner.
+    </PracticalDetailsInfoBlock>
+    <PracticalDetailsInfoBlock heading="Are tickets refundable?">
+      Tickets are non-refundable. If you find yourself unable to attend, you are
+      more than welcome to transfer your ticket to a friend or colleague.
+    </PracticalDetailsInfoBlock>
+    <PracticalDetailsInfoBlock heading="Do I need to bring a printed ticket?">
+      Nope! Just bring your confirmation email, and we’ll check you in at the
+      entrance.
+    </PracticalDetailsInfoBlock>
+  </PracticalDetailsSection>
+
+  <PracticalDetailsSection heading="Transportation">
+    <p>
+      The venue is easily accessible via public transport, walking, or bike. The
+      closest metro station is T-Centralen.
+    </p>
+    <PracticalDetailsInfoBlock heading="Is there parking available?">
+      There are paid parking options nearby, but we recommend using public
+      transport.
+    </PracticalDetailsInfoBlock>
+  </PracticalDetailsSection>
+
+  <PracticalDetailsSection heading="The day of the event">
+    <p>
+      There will be a photographers at the event. The photos might be shared on
+      our conference site or on social media.
+    </p>
+    <PracticalDetailsInfoBlock heading="Speakers and schedule">
+      We try our hardest to confirm all announced speakers, but sometimes life
+      gets in the way. Speakers are thus subject to change without notice.
+    </PracticalDetailsInfoBlock>
+  </PracticalDetailsSection>
+
+  <PracticalDetailsSection heading="Contact">
+    <p>
+      Questions? Send us an e-mail at
+      <a href="mailto:refill@variant.no " class="hover_underline">
+        refill@variant.no
+      </a>
+      or
+      <a class="hover_underline" href="mailto:refill@variant.se!">
+        refill@variant.se!
+      </a>
+    </p>
+  </PracticalDetailsSection>
+  <IllustrationDivider type="curlBlue" />
+</PracticalDetailsLayout>
+
+<style>
+  strong {
+    font-synthesis: initial;
+    font-weight: 700;
+  }
+
+  .practical_details_heading {
+    padding-left: var(--Padding-practical);
+    padding-right: var(--Padding-practical);
+    max-width: 1150px;
+    width: 100%;
+    margin: auto;
+    box-sizing: border-box;
+  }
+</style>

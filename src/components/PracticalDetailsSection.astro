@@ -1,0 +1,36 @@
+---
+interface Props {
+  heading: string;
+}
+
+const { heading } = Astro.props;
+---
+
+<section class="practical_details_section">
+  <h2>{heading}</h2>
+  <slot />
+</section>
+
+<style>
+  .practical_details_section {
+    max-width: 1150px;
+    width: 100%;
+    margin: auto;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-left: var(--Padding-practical);
+    padding-right: var(--Padding-practical);
+
+    > h2 {
+      font-size: var(--Font-size-H3);
+      line-height: var(--Line-height-H3);
+    }
+
+    > * {
+      max-width: 720px;
+    }
+  }
+</style>
