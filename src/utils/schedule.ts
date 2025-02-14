@@ -546,13 +546,12 @@ export const schedule: Schedule = [
         {
           type: "talk",
           id: "37",
-          title:
-            "Collaborative Storytelling in UX: Bridging Design, Development and Strategy for Lasting Impact.",
+          title: "TBA",
           location: "Palmsalen",
           from: "15:20",
           to: "16:00",
           discipline: Design,
-          speaker: "Andrea Hvattum",
+          speaker: "",
         },
         {
           type: "talk",
