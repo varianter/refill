@@ -37,6 +37,7 @@
   --Padding-xl: 6rem;
   --Padding-xxl: 8rem;
   --Padding-index: var(--Padding-rem);
+  --Padding-practical: 4.5rem;
 
   --Font-size-H1: 4.5rem;
   --Font-size-H2: 3.5rem;
@@ -74,6 +75,7 @@
     --Line-height-H3: 2rem;
 
     --Padding-index: var(--Padding-s);
+    --Padding-practical: 2rem;
   }
 }
 
@@ -132,6 +134,7 @@ html {
 
 :where(h3) {
   font-size: var(--Font-size-H3);
+  line-height: var(--Line-height-H3);
 }
 
 :where(a) {
@@ -145,4 +148,27 @@ html {
   border-radius: 0.375rem;
   color: var(--text-primary);
   width: fit-content;
+}
+
+.hover_underline {
+  display: inline-block;
+  position: relative;
+}
+
+.hover_underline::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--text-primary);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover_underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }

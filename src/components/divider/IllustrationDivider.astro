@@ -1,16 +1,23 @@
 ---
 import { Image } from "astro:assets";
 import curl from "../../../public/assets/img/divider/curly.jpg";
+import curlBlue from "../../../public/assets/img/divider/curly-blue.jpg";
 import smiley from "../../../public/assets/img/divider/smiley.png";
 
 interface Props {
-  type: "curl" | "smiley";
+  type: "curl" | "smiley" | "curlBlue";
 }
 
 const { type } = Astro.props;
 ---
 
 {type === "curl" && <Image class="curl" src={curl} alt="curly illustration" />}
+
+{
+  type === "curlBlue" && (
+    <Image class="curl" src={curlBlue} alt="curly illustration" />
+  )
+}
 
 {
   type === "smiley" && (
