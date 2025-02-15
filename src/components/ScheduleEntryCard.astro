@@ -44,14 +44,17 @@ const column = colorPair ? getColumn(colorPair) : "unset";
       {
         formattedNames &&
           formattedNames.map((name) => {
-            //TODO: Get img from chewbacca
-            // const imgSrc = `/assets/img/people/${name}.jpg`;
-            // const altText = name.replaceAll("-", " ");
-            const imgSrc = "";
-            return (
-              <img class="speaker_card__speaker_img" />
-              // <img class="speaker_card__speaker_img" src={imgSrc} alt="" />
-            );
+            const imgSrc = `/assets/img/people/${name}.jpg`;
+            if (imgSrc) {
+              return (
+                <img
+                  loading="lazy"
+                  class="speaker_card__speaker_img"
+                  src={imgSrc}
+                  alt=""
+                />
+              );
+            }
           })
       }
     </div>
