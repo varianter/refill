@@ -53,6 +53,8 @@ const column = colorPair ? getColumn(colorPair) : "unset";
                   class="speaker_card__speaker_img"
                   layout="responsive"
                   src={imgSrc.src}
+                  height={355}
+                  width={338}
                   alt=""
                 />
               );
@@ -115,10 +117,6 @@ const column = colorPair ? getColumn(colorPair) : "unset";
   }
 
   .speaker_card__speaker_img {
-    overflow: hidden;
-    width: 100%;
-    aspect-ratio: 1/1;
-    object-fit: cover;
     border-radius: 10px;
   }
 
