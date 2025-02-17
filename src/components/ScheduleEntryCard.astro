@@ -60,6 +60,13 @@ const column = colorPair ? getColumn(colorPair) : "unset";
       }
     </div>
     <Talk speakerName={speaker} title={title} />
+    {
+      span > 1 && (
+        <div class="speaker_card__description">
+      <!-- TODO: Add Description for talk if span over multiple rows -->
+        </div>
+      )
+    }
     <div class="speaker_card__flex">
       <div class="speaker_card__flex__labels">
         <Discipline>{`${location} ${from}-${to}`}</Discipline>
@@ -78,11 +85,15 @@ const column = colorPair ? getColumn(colorPair) : "unset";
 
 <style is:global>
   .speaker_card__wrapper {
+    height: 100%;
     display: grid;
     grid-template-areas:
       "img"
-      "location";
+      "location"
+      "description";
+
     gap: var(--Padding-m);
+    grid-auto-rows: min-content; /* Makes rows only as tall as their content */
 
     container-type: inline-size;
     container-name: cardContent;
@@ -122,11 +133,22 @@ const column = colorPair ? getColumn(colorPair) : "unset";
     }
   }
 
+  .speaker_card__description {
+    grid-area: description;
+
+    & > p {
+      color: var(--text-tertiary);
+      line-height: var(--Line-height-Body-Small);
+      letter-spacing: 0.01125rem;
+    }
+  }
+
   .speaker_card__flex {
     grid-area: location;
     display: flex;
     height: fit-content;
     align-items: end;
+    align-self: end;
     justify-content: space-between;
   }
 
