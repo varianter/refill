@@ -3,10 +3,12 @@ import { colors } from "../utils/colors";
 import { getDisciplineColorPair, getDisciplineName } from "../utils/discipline";
 import { getColumn } from "../utils/getColumm";
 import type { ScheduleEntry } from "../utils/schedule";
+import { getSpeakerImageSrc } from "../utils/speakerImages";
 import { FavoriteButton } from "./button/favoriteButton/FavoriteButton";
 import CardWrapper from "./CardWrapper.astro";
 import Discipline from "./Discipline.astro";
 import Talk from "./Talk.astro";
+import { Image } from "astro:assets";
 
 interface Props {
   event: ScheduleEntry;
@@ -21,7 +23,7 @@ const location = event.type !== "break" ? event.location : "";
 
 const formattedNames =
   event.type !== "break" && event.speaker
-    ? event.speaker.split(" & ").map((name) => name.split(" ").join("-"))
+    ? event.speaker.split(" & ")
     : undefined;
 
 const colorPair =
@@ -44,13 +46,12 @@ const column = colorPair ? getColumn(colorPair) : "unset";
       {
         formattedNames &&
           formattedNames.map((name) => {
-            const imgSrc = `/assets/img/people/${name}.jpg`;
+            const imgSrc = getSpeakerImageSrc(name);
             if (imgSrc) {
               return (
-                <img
-                  loading="lazy"
+                <Image
                   class="speaker_card__speaker_img"
-                  src={imgSrc}
+                  src={imgSrc.src}
                   alt=""
                 />
               );
