@@ -21,6 +21,7 @@ import ThomasLyngtunHansen from "../../public/assets/img/people/Thomas-Lyngtun-H
 import TrulsHenrikJakobsen from "../../public/assets/img/people/Truls-Henrik-Jakobsen.jpg";
 import NikolaiNormanAndersen from "../../public/assets/img/people/Nikolai-Norman-Andersen.jpg";
 import VegardIngebrigtsenFeste from "../../public/assets/img/people/Vegard-Ingebrigtsen-Feste.jpg";
+import HildegunnVada from "../../public/assets/img/people/Hildegunn-Vada.jpg";
 
 type SpeakerImage = {
   name: string;
@@ -123,6 +124,10 @@ export const speakerImages: SpeakerImage[] = [
   {
     name: "Ole Petter Klæstad",
     src: OlePetterKlæstad,
+  },
+  {
+    name: "Hildegunn Vada",
+    src: HildegunnVada,
   },
 ];
 
