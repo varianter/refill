@@ -24,125 +24,38 @@ import VegardIngebrigtsenFeste from "../../public/assets/img/people/Vegard-Ingeb
 import HildegunnVada from "../../public/assets/img/people/Hildegunn-Vada.jpg";
 import TomasJanson from "../../public/assets/img/people/Tomas-Janson.webp";
 import StinaJanson from "../../public/assets/img/people/Stina-Janson.png";
+import { SpeakerName } from "./speakers";
 
-type SpeakerImage = {
-  name: string;
-  src: ImageMetadata;
+export const speakerImages: Record<SpeakerName, ImageMetadata> = {
+  [SpeakerName.None]: MikaelBrevik,
+  [SpeakerName.MikaelBrevik]: MikaelBrevik,
+  [SpeakerName.DavidDinka]: DavidDinka,
+  [SpeakerName.VikasGupta]: VikasGupta,
+  [SpeakerName.YoeriOtten]: YoeriOtten,
+  [SpeakerName.JuliaKuhley]: JuliaKuhley,
+  [SpeakerName.LizaHansson]: LizaHansson,
+  [SpeakerName.TonjeEvanger]: TonjeEvanger,
+  [SpeakerName.JacobBerglund]: JacobBerglund,
+  [SpeakerName.MariusKrakeli]: MariusKrakeli,
+  [SpeakerName.AnitaSteinstad]: AnitaSteinstad,
+  [SpeakerName.JonasLillevold]: JonasLillevold,
+  [SpeakerName.AndreasHartveit]: AndreasHartveit,
+  [SpeakerName.ChristianBrevik]: ChristianBrevik,
+  [SpeakerName.MalinCKarlsen]: MalinCKarlsen,
+  [SpeakerName.AndersHammervold]: AndersHammervold,
+  [SpeakerName.EliseKristiansen]: EliseKristiansen,
+  [SpeakerName.OlePetterKlæstad]: OlePetterKlæstad,
+  [SpeakerName.RolfAndersStorset]: RolfAndersStorset,
+  [SpeakerName.KristofferNordström]: KristofferNordström,
+  [SpeakerName.ThomasLyngtunHansen]: ThomasLyngtunHansen,
+  [SpeakerName.TrulsHenrikJakobsen]: TrulsHenrikJakobsen,
+  [SpeakerName.NikolaiNormanAndersen]: NikolaiNormanAndersen,
+  [SpeakerName.VegardIngebrigtsenFeste]: VegardIngebrigtsenFeste,
+  [SpeakerName.HildegunnVada]: HildegunnVada,
+  [SpeakerName.TomasJanson]: TomasJanson,
+  [SpeakerName.StinaJanson]: StinaJanson,
 };
 
-export const speakerImages: SpeakerImage[] = [
-  {
-    name: "Mikael Brevik",
-    src: MikaelBrevik,
-  },
-  {
-    name: "David Dinka",
-    src: DavidDinka,
-  },
-  {
-    name: "Vikas Gupta",
-    src: VikasGupta,
-  },
-  {
-    name: "Yoeri Otten",
-    src: YoeriOtten,
-  },
-  {
-    name: "Julia Kuhley",
-    src: JuliaKuhley,
-  },
-  {
-    name: "Liza Hansson",
-    src: LizaHansson,
-  },
-  {
-    name: "Tonje Evanger",
-    src: TonjeEvanger,
-  },
-  {
-    name: "Jacob Berglund",
-    src: JacobBerglund,
-  },
-  {
-    name: "Marius Krakeli",
-    src: MariusKrakeli,
-  },
-  {
-    name: "Anita Steinstad",
-    src: AnitaSteinstad,
-  },
-  {
-    name: "Jonas Lillevold",
-    src: JonasLillevold,
-  },
-  {
-    name: "Andreas Hartveit",
-    src: AndreasHartveit,
-  },
-  {
-    name: "Christian Brevik",
-    src: ChristianBrevik,
-  },
-  {
-    name: "Malin C. Karlsen",
-    src: MalinCKarlsen,
-  },
-  {
-    name: "Anders Hammervold",
-    src: AndersHammervold,
-  },
-  {
-    name: "Elise Kristiansen",
-    src: EliseKristiansen,
-  },
-  {
-    name: "Ole Petter Klæstad",
-    src: OlePetterKlæstad,
-  },
-  {
-    name: "Rolf Anders Storset",
-    src: RolfAndersStorset,
-  },
-  {
-    name: "Kristoffer Nordström",
-    src: KristofferNordström,
-  },
-  {
-    name: "Thomas Lyngtun Hansen",
-    src: ThomasLyngtunHansen,
-  },
-  {
-    name: "Truls Henrik Jakobsen",
-    src: TrulsHenrikJakobsen,
-  },
-  {
-    name: "Nikolai Norman Andersen",
-    src: NikolaiNormanAndersen,
-  },
-  {
-    name: "Vegard Ingebrigtsen Feste",
-    src: VegardIngebrigtsenFeste,
-  },
-  {
-    name: "Ole Petter Klæstad",
-    src: OlePetterKlæstad,
-  },
-  {
-    name: "Hildegunn Vada",
-    src: HildegunnVada,
-  },
-  {
-    name: "Tomas Janson",
-    src: TomasJanson,
-  },
-  {
-    name: "Stina Janson",
-    src: StinaJanson,
-  },
-];
-
-export function getSpeakerImageSrc(name: string) {
-  return speakerImages.find((img) => {
-    return img.name === name;
-  });
+export function getSpeakerImageSrc(name: SpeakerName) {
+  return speakerImages[name];
 }

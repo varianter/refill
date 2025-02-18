@@ -1,14 +1,14 @@
 ---
-import { colors } from "../utils/colors";
-import { getDisciplineColorPair, getDisciplineName } from "../utils/discipline";
-import { getColumn } from "../utils/getColumm";
-import type { ScheduleEntry } from "../utils/schedule";
-import { getSpeakerImageSrc } from "../utils/speakerImages";
-import { FavoriteButton } from "./button/favoriteButton/FavoriteButton";
-import CardWrapper from "./CardWrapper.astro";
-import Discipline from "./Discipline.astro";
-import Talk from "./Talk.astro";
 import { Image } from "astro:assets";
+import type { ScheduleEntry } from "../../utils/schedule";
+import {   getDisciplineName } from "../../utils/discipline";
+import { colors } from "../../utils/colors";
+import CardWrapper from "../CardWrapper.astro";
+import { getSpeakerImageSrc } from "../../utils/speakerImages";
+import Talk from "../Talk.astro";
+import { FavoriteButton } from "../button/favoriteButton/FavoriteButton";
+import Discipline from "../Discipline.astro";
+import { getBorderColor, getCardColumn, getColorPair, getLocation, getSpeaker } from "./functions";
 
 interface Props {
   event: ScheduleEntry;
@@ -18,21 +18,11 @@ interface Props {
 const { event, span } = Astro.props;
 const { id, title, to, from } = event;
 
-const speaker = event.type !== "break" ? event.speaker : undefined;
-const location = event.type !== "break" ? event.location : "";
-
-const formattedNames =
-  event.type !== "break" && event.speaker
-    ? event.speaker.split(" & ")
-    : undefined;
-
-const colorPair =
-  event.type === "talk" ? getDisciplineColorPair(event.discipline) : undefined;
-
-const borderColor =
-  colorPair?.color === colors.teal100 ? colors.tealDark : colorPair?.color;
-
-const column = colorPair ? getColumn(colorPair) : "unset";
+const speaker = getSpeaker(event);
+const location = getLocation(event);
+const colorPair = getColorPair(event) 
+const borderColor = getBorderColor(colorPair)
+const column = getCardColumn(colorPair);
 ---
 
 <CardWrapper
@@ -43,24 +33,29 @@ const column = colorPair ? getColumn(colorPair) : "unset";
 >
   <div class="speaker_card__wrapper">
     <div class="speaker_card__img_flex">
+      {}
       {
-        formattedNames &&
-          formattedNames.map((name) => {
-            const imgSrc = getSpeakerImageSrc(name);
-            if (imgSrc) {
+        speaker && Array.isArray(speaker) ?
+          speaker.map((name) => {
               return (
                 <Image
                   class="speaker_card__speaker_img"
                   layout="responsive"
-                  src={imgSrc.src}
+                  src={getSpeakerImageSrc(name)}
                   height={355}
                   width={338}
                   alt=""
                 />
               );
-            }
           })
-      }
+      : speaker && <Image
+                  class="speaker_card__speaker_img"
+                  layout="responsive"
+                  src={getSpeakerImageSrc(speaker)}
+                  height={355}
+                  width={338}
+                  alt=""
+                /> }
     </div>
     <Talk speakerName={speaker} title={title} />
     {

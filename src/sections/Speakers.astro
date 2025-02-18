@@ -3,10 +3,13 @@ import { Image } from "astro:assets";
 import Discipline from "../components/Discipline.astro";
 import splash1 from "../../public/assets/img/splash1.svg";
 import splash2 from "../../public/assets/img/splash2.svg";
-import anita from "../../public/assets/img/people/Anita-Steinstad.webp";
-import christian from "../../public/assets/img/people/Christian-Brevik.webp";
 import anders from "../../public/assets/img/people/Anders-Hammervold.jpg";
-import malin from "../../public/assets/img/people/Malin-C.-Karlsen.webp";
+import { getSpeakerImageSrc} from "../utils/speakerImages";
+import { SpeakerName } from "../utils/speakers";
+
+const anita = getSpeakerImageSrc(SpeakerName.AnitaSteinstad)
+const christian = getSpeakerImageSrc(SpeakerName.ChristianBrevik)
+const malin = getSpeakerImageSrc(SpeakerName.MalinCKarlsen)
 ---
 
 <section class="speakers">
@@ -21,7 +24,7 @@ import malin from "../../public/assets/img/people/Malin-C.-Karlsen.webp";
       <div>
         <Discipline>Design</Discipline>
       </div>
-      <Image  src={anita} alt="Image of Anita Steinstad" layout="full-width" width={354} height={354}/>
+      {anita && <Image  src={anita} alt="Image of Anita Steinstad" layout="full-width" width={354} height={354}/>}
       <p>Design meets Sustainable Business –  an experiment</p>
     </div>
     <div class="grid speakers__talk_two">
