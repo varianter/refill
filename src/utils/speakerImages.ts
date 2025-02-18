@@ -7,7 +7,7 @@ import LizaHansson from "../../public/assets/img/people/Liza-Hansson.jpg";
 import TonjeEvanger from "../../public/assets/img/people/Tonje-Evanger.jpg";
 import JacobBerglund from "../../public/assets/img/people/Jacob-Berglund.jpg";
 import MariusKrakeli from "../../public/assets/img/people/Marius-Krakeli.jpg";
-import AnitaSteinstad from "../../public/assets/img/people/Anita-Steinstad.jpg";
+import AnitaSteinstad from "../../public/assets/img/people/Anita-Steinstad.webp";
 import JonasLillevold from "../../public/assets/img/people/Jonas-Lillevold.jpg";
 import AndreasHartveit from "../../public/assets/img/people/Andreas-Hartveit.jpg";
 import ChristianBrevik from "../../public/assets/img/people/Christian-Brevik.jpg";
