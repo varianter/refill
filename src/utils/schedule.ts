@@ -28,7 +28,7 @@ export type ScheduleEntry = Talk | CommonEvent | Break;
 
 export type Track = ScheduleEntry[];
 
-type Block = {
+export type Block = {
   title: string;
   start: string;
   end: string;
