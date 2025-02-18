@@ -1,7 +1,7 @@
 import { colors, type ColorPair } from "../../utils/colors";
 import { getDisciplineColorPair } from "../../utils/discipline";
 import { getColumn } from "../../utils/getColumm";
-import type { ScheduleEntry } from "../../utils/schedule";
+import type { ScheduleEntry } from "../../utils/schedule/types";
 
 export const getSpeaker = (event: ScheduleEntry) => {
   return event.type !== "break" ? event.speaker : undefined;

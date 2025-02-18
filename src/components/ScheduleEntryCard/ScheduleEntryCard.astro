@@ -1,5 +1,4 @@
 ---
-import type { ScheduleEntry } from "../../utils/schedule";
 import { getDisciplineName } from "../../utils/discipline";
 import { colors } from "../../utils/colors";
 import CardWrapper from "../CardWrapper.astro";
@@ -15,6 +14,7 @@ import {
 } from "./functions";
 import RenderSpeakerImage from "./RenderSpeakerImage.astro";
 import Description from "./Description.astro";
+import type { ScheduleEntry } from "../../utils/schedule/types";
 
 interface Props {
   event: ScheduleEntry;
