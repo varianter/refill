@@ -1,7 +1,5 @@
 ---
-import Accordion from "../components/Accordion.vue";
-import RenderTrack from "../components/RenderTrack.astro";
-import ScheduleEntryCard from "../components/ScheduleEntryCard/ScheduleEntryCard.astro";
+import Block from "../components/Block.astro";
 import Toggle from "../components/Toggle.astro";
 import ScheduleLayout from "../layouts/ScheduleLayout.astro";
 import { schedule } from "../utils/schedule";
@@ -12,30 +10,7 @@ import { schedule } from "../utils/schedule";
     <h1 class="schedule__heading">Schedule</h1>
     <Toggle text="Favorites" />
   </div>
-  {
-    schedule.map((block) => {
-      if (block.tracks.length > 1 || block.tracks[0].length > 1) {
-        return (
-          <Accordion
-            client:visible
-            title={block.title}
-            startTime={block.start}
-            endTime={block.end}
-            id={1}
-          >
-            <RenderTrack block={block} />
-          </Accordion>
-        );
-      } else {
-        const singleTrack = block.tracks[0][0];
-        return (
-          <div class="schedule__speaker_card">
-            <ScheduleEntryCard event={singleTrack} span={1} />
-          </div>
-        );
-      }
-    })
-  }
+  {schedule.map((block) => <Block block={block} />)}
 </ScheduleLayout>
 
 <style>
@@ -57,8 +32,7 @@ import { schedule } from "../utils/schedule";
     }
   }
 
-  .schedule__flex,
-  .schedule__speaker_card {
+  .schedule__flex {
     width: 100%;
     max-width: 1410px;
     margin: auto;
