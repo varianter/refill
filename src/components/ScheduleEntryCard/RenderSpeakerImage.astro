@@ -20,7 +20,7 @@ function isArray(speakerName: SpeakerName | SpeakerName[]) {
       speakerName.map((name) => {
         return (
           <Image
-            class="speaker_card__speaker_img"
+            class="render_speaker_image__speaker_img"
             layout="responsive"
             src={getSpeakerImageSrc(name)}
             height={355}
@@ -31,7 +31,7 @@ function isArray(speakerName: SpeakerName | SpeakerName[]) {
       })
     ) : (
       <Image
-        class="speaker_card__speaker_img"
+        class="render_speaker_image__speaker_img"
         layout="responsive"
         src={getSpeakerImageSrc(speakerName)}
         height={355}
@@ -54,5 +54,9 @@ function isArray(speakerName: SpeakerName | SpeakerName[]) {
       height: 355px;
       min-width: 0;
     }
+  }
+
+  .speaker_card__speaker_img {
+    border-radius: 10px;
   }
 </style>
