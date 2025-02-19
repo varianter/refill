@@ -72,10 +72,13 @@ const offices = [
 
 <style>
   .footer {
-    padding: 3rem;
+    padding: var(--Padding-l);
     border-radius: var(--Padding-s);
     max-width: 1410px;
+    width: 100%;
     margin: auto;
+
+    container: footer / inline-size;
 
     display: flex;
     flex-direction: column;
@@ -125,9 +128,12 @@ const offices = [
     height: 565px;
     object-fit: contain;
     position: absolute;
-    right: 0;
-    margin-right: -16px;
+    right: calc(-1 * var(--Padding-index));
     top: -206px;
+
+    @container footer (width >= 1410px) {
+      right: 0;
+    }
   }
 
   .footer__content {
