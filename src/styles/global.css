@@ -132,7 +132,7 @@ html {
   line-height: var(--Line-height-H3);
 }
 
-:where(p) {
+:where(p, li) {
   font-size: var(--Font-size-Body-Normal);
   line-height: var(--Line-height-Body-Normal);
 }
