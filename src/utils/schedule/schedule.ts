@@ -28,6 +28,7 @@ const {
   VikasGupta,
   DavidDinka,
   MikaelBrevik,
+  DavidDeLeon,
   LizaHanssonAndStinaJanson,
 } = SpeakerName;
 
@@ -62,10 +63,11 @@ export const schedule: Schedule = [
         {
           type: "common",
           id: "3",
-          title: "Keynotes",
+          title: "Welcome and Keynote",
           location: "Palmsalen",
           from: "09:00",
           to: "09:40",
+          speaker: DavidDeLeon,
         },
       ],
     ],
@@ -546,6 +548,7 @@ export const schedule: Schedule = [
           location: "Palmsalen",
           from: "16:30",
           to: "16:45",
+          speaker: DavidDeLeon,
         },
       ],
       [
