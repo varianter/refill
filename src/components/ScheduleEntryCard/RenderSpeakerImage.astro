@@ -1,0 +1,62 @@
+---
+import { Image } from "astro:assets";
+import { getSpeakerImageSrc } from "../../utils/speakerImages";
+import { SpeakerName } from "../../utils/speakers";
+
+interface Props {
+  speakerName: SpeakerName | SpeakerName[];
+}
+
+const { speakerName } = Astro.props;
+
+function isArray(speakerName: SpeakerName | SpeakerName[]) {
+  return Array.isArray(speakerName);
+}
+---
+
+<div class="render_speaker_image">
+  {
+    isArray(speakerName) ? (
+      speakerName.map((name) => {
+        return (
+          <Image
+            class="render_speaker_image__speaker_img"
+            layout="responsive"
+            src={getSpeakerImageSrc(name)}
+            height={355}
+            width={338}
+            alt=""
+          />
+        );
+      })
+    ) : (
+      <Image
+        class="render_speaker_image__speaker_img"
+        layout="responsive"
+        src={getSpeakerImageSrc(speakerName)}
+        height={355}
+        width={338}
+        alt=""
+      />
+    )
+  }
+</div>
+
+<style>
+  .render_speaker_image {
+    grid-area: img;
+    justify-self: end;
+    display: flex;
+
+    max-width: 338px;
+
+    > img {
+      height: 355px;
+      min-width: 0;
+    }
+  }
+
+  .speaker_card__speaker_img {
+    border-radius: 10px;
+  }
+</style>

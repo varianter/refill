@@ -1,6 +1,7 @@
 ---
-import { getTimesShortestFitInEvent, type Track } from "../utils/schedule";
-import ScheduleEntryCard from "./ScheduleEntryCard.astro";
+import ScheduleEntryCard from "./ScheduleEntryCard/ScheduleEntryCard.astro";
+import { type Track } from "../utils/schedule/types";
+import { getTimesShortestFitInEvent } from "../utils/schedule/functions";
 
 interface Props {
   track: Track;

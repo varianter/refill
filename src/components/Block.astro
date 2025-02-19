@@ -1,0 +1,38 @@
+---
+import type { Block } from "../utils/schedule/types";
+import Accordion from "./Accordion.vue";
+import RenderTrack from "./RenderTrack.astro";
+import ScheduleEntryCard from "./ScheduleEntryCard/ScheduleEntryCard.astro";
+
+interface Props {
+  block: Block;
+}
+
+const { block } = Astro.props;
+---
+
+{
+  block.tracks.length > 1 || block.tracks[0].length > 1 ? (
+    <Accordion
+      client:visible
+      title={block.title}
+      startTime={block.start}
+      endTime={block.end}
+      id={1}
+    >
+      <RenderTrack block={block} />
+    </Accordion>
+  ) : (
+    <div class="block__single_track ">
+      <ScheduleEntryCard event={block.tracks[0][0]} span={1} />
+    </div>
+  )
+}
+
+<style>
+  .block__single_track {
+    width: 100%;
+    max-width: 1410px;
+    margin: auto;
+  }
+</style>

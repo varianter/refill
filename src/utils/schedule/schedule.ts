@@ -1,104 +1,36 @@
-import { Discipline } from "../utils/discipline";
-
-interface ScheduleEvent {
-  id: string;
-  title: string;
-  from: string;
-  to: string;
-}
-
-export interface CommonEvent extends ScheduleEvent {
-  type: "common";
-  location: string;
-  speaker?: string;
-}
-
-export interface Talk extends ScheduleEvent {
-  type: "talk";
-  location: string;
-  discipline: Discipline;
-  speaker: string;
-}
-
-export interface Break extends ScheduleEvent {
-  type: "break";
-}
-export type ScheduleEntry = Talk | CommonEvent | Break;
-
-export type Track = ScheduleEntry[];
-
-type Block = {
-  title: string;
-  start: string;
-  end: string;
-  tracks: Track[];
-};
-
-type Schedule = Block[];
-
-function timeToMinutes(time: string): number {
-  const [hours, minutes] = time.split(":").map(Number);
-  return hours * 60 + minutes;
-}
-
-export function getSlotsAvaliable(block: Block): number {
-  const blockStart = timeToMinutes(block.start);
-  const blockEnd = timeToMinutes(block.end);
-  const availableTime = blockEnd - blockStart;
-
-  let shortestDuration = Infinity;
-
-  block.tracks.flat().forEach((talk) => {
-    const talkStart = timeToMinutes(talk.from);
-    const talkEnd = timeToMinutes(talk.to);
-    const talkDuration = talkEnd - talkStart;
-
-    if (talkDuration < shortestDuration) {
-      shortestDuration = talkDuration;
-    }
-  });
-
-  const numTalks = Math.floor(availableTime / shortestDuration);
-
-  return numTalks;
-}
-
-export function getShortestTalkDuration(block: Block): number {
-  let shortestDuration = Infinity;
-
-  block.tracks.flat().forEach((talk) => {
-    const talkStart = timeToMinutes(talk.from);
-    const talkEnd = timeToMinutes(talk.to);
-    const talkDuration = talkEnd - talkStart;
-
-    if (talkDuration < shortestDuration) {
-      shortestDuration = talkDuration;
-    }
-  });
-
-  return shortestDuration;
-}
-
-export function getTimesShortestFitInEvent(
-  talk: ScheduleEvent,
-  shortestDuration: number,
-): number {
-  const talkStart = timeToMinutes(talk.from);
-  const talkEnd = timeToMinutes(talk.to);
-  const talkDuration = talkEnd - talkStart;
-
-  return Math.floor(talkDuration / shortestDuration);
-}
-
-export function getTalkById(talkId: string): Talk | undefined {
-  const allTalks: Talk[] = schedule
-    .flatMap((block) => block.tracks.flat())
-    .filter((scheduleEntry) => scheduleEntry.type === "talk");
-
-  return allTalks.find((t) => t.id === talkId);
-}
+import { Discipline } from "../discipline";
+import { SpeakerName } from "../speakers";
+import type { Schedule } from "./types";
 
 const { Design, Development, StrategyAndProduct } = Discipline;
+const {
+  None,
+  VegardIngebrigtsenFeste,
+  MalinCKarlsen,
+  ChristianBrevik,
+  AnitaSteinstad,
+  StinaJanson,
+  TomasJanson,
+  HildegunnVada,
+  OlePetterKlæstad,
+  NikolaiNormanAndersen,
+  TrulsHenrikJakobsen,
+  ThomasLyngtunHansen,
+  KristofferNordström,
+  RolfAndersStorset,
+  EliseKristiansen,
+  AndreasHartveit,
+  JonasLillevold,
+  MariusKrakeli,
+  JacobBerglund,
+  TonjeEvanger,
+  LizaHansson,
+  JuliaKuhley,
+  YoeriOtten,
+  VikasGupta,
+  DavidDinka,
+  MikaelBrevik,
+} = SpeakerName;
 
 export const schedule: Schedule = [
   {
@@ -169,7 +101,7 @@ export const schedule: Schedule = [
           from: "10:00",
           to: "10:20",
           discipline: Design,
-          speaker: "Vegard Ingebrigtsen Feste",
+          speaker: VegardIngebrigtsenFeste,
         },
         {
           type: "talk",
@@ -179,7 +111,7 @@ export const schedule: Schedule = [
           from: "10:00",
           to: "10:40",
           discipline: Development,
-          speaker: "Mikael Brevik",
+          speaker: MikaelBrevik,
         },
         {
           type: "talk",
@@ -190,7 +122,7 @@ export const schedule: Schedule = [
           from: "10:00",
           to: "10:20",
           discipline: StrategyAndProduct,
-          speaker: "Tonje Evanger & Hildegunn Vada",
+          speaker: [TonjeEvanger, HildegunnVada],
         },
         {
           type: "talk",
@@ -200,7 +132,7 @@ export const schedule: Schedule = [
           from: "10:20",
           to: "10:40",
           discipline: Design,
-          speaker: "Ole Petter Klæstad",
+          speaker: OlePetterKlæstad,
         },
         {
           type: "talk",
@@ -210,7 +142,7 @@ export const schedule: Schedule = [
           from: "10:20",
           to: "10:40",
           discipline: StrategyAndProduct,
-          speaker: "Kristoffer Nordström",
+          speaker: KristofferNordström,
         },
       ],
     ],
@@ -245,7 +177,7 @@ export const schedule: Schedule = [
           from: "10:50",
           to: "11:10",
           discipline: Design,
-          speaker: "Anita Steinstad",
+          speaker: AnitaSteinstad,
         },
         {
           type: "talk",
@@ -256,7 +188,7 @@ export const schedule: Schedule = [
           from: "10:50",
           to: "11:30",
           discipline: Development,
-          speaker: "Tomas Janson",
+          speaker: TomasJanson,
         },
         {
           type: "talk",
@@ -266,7 +198,7 @@ export const schedule: Schedule = [
           from: "10:50",
           to: "11:30",
           discipline: StrategyAndProduct,
-          speaker: "Andreas Hartveit",
+          speaker: AndreasHartveit,
         },
         {
           type: "talk",
@@ -276,7 +208,7 @@ export const schedule: Schedule = [
           from: "11:10",
           to: "11:30",
           discipline: Design,
-          speaker: "Vikas Gupta",
+          speaker: VikasGupta,
         },
       ],
     ],
@@ -312,7 +244,7 @@ export const schedule: Schedule = [
           from: "12:30",
           to: "12:50",
           discipline: Development,
-          speaker: "Elise Kristiansen",
+          speaker: EliseKristiansen,
         },
         {
           type: "talk",
@@ -322,7 +254,7 @@ export const schedule: Schedule = [
           from: "12:30",
           to: "12:40",
           discipline: Design,
-          speaker: "Julia Kuhley",
+          speaker: JuliaKuhley,
         },
         {
           type: "talk",
@@ -333,7 +265,7 @@ export const schedule: Schedule = [
           from: "12:30",
           to: "12:50",
           discipline: StrategyAndProduct,
-          speaker: "Malin C. Karlsen",
+          speaker: MalinCKarlsen,
         },
         {
           type: "talk",
@@ -343,7 +275,7 @@ export const schedule: Schedule = [
           from: "12:50",
           to: "13:00",
           discipline: Development,
-          speaker: "Truls Henrik Jakobsen",
+          speaker: TrulsHenrikJakobsen,
         },
         {
           type: "talk",
@@ -353,7 +285,7 @@ export const schedule: Schedule = [
           from: "12:40",
           to: "13:00",
           discipline: Design,
-          speaker: "Jonas Lillevold",
+          speaker: JonasLillevold,
         },
         {
           type: "talk",
@@ -363,7 +295,7 @@ export const schedule: Schedule = [
           from: "12:50",
           to: "13:10",
           discipline: StrategyAndProduct,
-          speaker: "",
+          speaker: None,
         },
         {
           type: "talk",
@@ -374,7 +306,7 @@ export const schedule: Schedule = [
           from: "13:00",
           to: "13:10",
           discipline: Development,
-          speaker: "Thomas Lyngtun Hansen",
+          speaker: ThomasLyngtunHansen,
         },
         {
           type: "talk",
@@ -384,7 +316,7 @@ export const schedule: Schedule = [
           from: "13:00",
           to: "13:10",
           discipline: Design,
-          speaker: "",
+          speaker: None,
         },
       ],
     ],
@@ -419,7 +351,7 @@ export const schedule: Schedule = [
           from: "13:20",
           to: "14:00",
           discipline: Development,
-          speaker: "Christian Brevik",
+          speaker: ChristianBrevik,
         },
         {
           type: "talk",
@@ -429,7 +361,7 @@ export const schedule: Schedule = [
           from: "13:20",
           to: "14:00",
           discipline: Design,
-          speaker: "Rolf Anders Storset",
+          speaker: RolfAndersStorset,
         },
         {
           type: "talk",
@@ -440,7 +372,7 @@ export const schedule: Schedule = [
           from: "13:20",
           to: "13:30",
           discipline: StrategyAndProduct,
-          speaker: "Marius Krakeli",
+          speaker: MariusKrakeli,
         },
         {
           type: "talk",
@@ -450,7 +382,7 @@ export const schedule: Schedule = [
           from: "13:30",
           to: "14:00",
           discipline: StrategyAndProduct,
-          speaker: "",
+          speaker: None,
         },
       ],
     ],
@@ -485,7 +417,7 @@ export const schedule: Schedule = [
           from: "14:30",
           to: "15:10",
           discipline: Design,
-          speaker: "",
+          speaker: None,
         },
         {
           type: "talk",
@@ -495,7 +427,7 @@ export const schedule: Schedule = [
           from: "14:30",
           to: "15:10",
           discipline: Development,
-          speaker: "Jacob Berglund",
+          speaker: JacobBerglund,
         },
         {
           type: "talk",
@@ -506,7 +438,7 @@ export const schedule: Schedule = [
           from: "14:30",
           to: "14:50",
           discipline: StrategyAndProduct,
-          speaker: "Liza Hansson & Stina Janson",
+          speaker: [LizaHansson, StinaJanson],
         },
         {
           type: "talk",
@@ -516,7 +448,7 @@ export const schedule: Schedule = [
           from: "13:30",
           to: "14:00",
           discipline: StrategyAndProduct,
-          speaker: "",
+          speaker: None,
         },
       ],
     ],
@@ -551,7 +483,7 @@ export const schedule: Schedule = [
           from: "15:20",
           to: "16:00",
           discipline: Design,
-          speaker: "",
+          speaker: None,
         },
         {
           type: "talk",
@@ -561,7 +493,7 @@ export const schedule: Schedule = [
           from: "15:20",
           to: "15:40",
           discipline: Development,
-          speaker: "Nikolai Norman Andersen",
+          speaker: NikolaiNormanAndersen,
         },
         {
           type: "talk",
@@ -571,7 +503,7 @@ export const schedule: Schedule = [
           from: "15:20",
           to: "16:00",
           discipline: StrategyAndProduct,
-          speaker: "David Dinka",
+          speaker: DavidDinka,
         },
         {
           type: "talk",
@@ -581,7 +513,7 @@ export const schedule: Schedule = [
           from: "15:40",
           to: "16:00",
           discipline: Development,
-          speaker: "Yoeri Otten",
+          speaker: YoeriOtten,
         },
       ],
     ],
@@ -615,7 +547,7 @@ export const schedule: Schedule = [
           location: "Palmsalen",
           from: "16:30",
           to: "17:00",
-          speaker: "Mikael Brevik",
+          speaker: MikaelBrevik,
         },
       ],
       [
