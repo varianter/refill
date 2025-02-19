@@ -1,5 +1,5 @@
 ---
-import { FavoriteButton } from "./button/FavoriteButton";
+import { FavoriteButton } from "./button/favoriteButton/FavoriteButton";
 import Discipline from "./Discipline.astro";
 
 interface Props {
@@ -31,7 +31,7 @@ const formattedNames = speakerName
   </div>
   <div class="speaker_card__flex">
     <Discipline>{discipline}</Discipline>
-    {id && <FavoriteButton client:visible id={id} />}
+    {id && <FavoriteButton client:visible id={id} title={talk} />}
   </div>
 </div>
 
