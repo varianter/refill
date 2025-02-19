@@ -3,7 +3,6 @@ import DavidDinka from "../../public/assets/img/people/David-Dinka.jpg";
 import VikasGupta from "../../public/assets/img/people/Vikas-Gupta.jpg";
 import YoeriOtten from "../../public/assets/img/people/Yoeri-Otten.jpg";
 import JuliaKuhley from "../../public/assets/img/people/Julia-Kuhley.jpg";
-import LizaHansson from "../../public/assets/img/people/Liza-Hansson.jpg";
 import TonjeEvanger from "../../public/assets/img/people/Tonje-Evanger.jpg";
 import JacobBerglund from "../../public/assets/img/people/Jacob-Berglund.jpg";
 import MariusKrakeli from "../../public/assets/img/people/Marius-Krakeli.jpg";
@@ -23,7 +22,7 @@ import NikolaiNormanAndersen from "../../public/assets/img/people/Nikolai-Norman
 import VegardIngebrigtsenFeste from "../../public/assets/img/people/Vegard-Ingebrigtsen-Feste.jpg";
 import HildegunnVada from "../../public/assets/img/people/Hildegunn-Vada.jpg";
 import TomasJanson from "../../public/assets/img/people/Tomas-Janson.webp";
-import StinaJanson from "../../public/assets/img/people/Stina-Janson.png";
+import LizaHanssonAndStinaJanson from "../../public/assets/img/people/Liaza-Hansson-Stina-Janson.jpg";
 import { SpeakerName } from "./speakers";
 
 export const speakerImages: Record<SpeakerName, ImageMetadata> = {
@@ -33,7 +32,7 @@ export const speakerImages: Record<SpeakerName, ImageMetadata> = {
   [SpeakerName.VikasGupta]: VikasGupta,
   [SpeakerName.YoeriOtten]: YoeriOtten,
   [SpeakerName.JuliaKuhley]: JuliaKuhley,
-  [SpeakerName.LizaHansson]: LizaHansson,
+  [SpeakerName.LizaHanssonAndStinaJanson]: LizaHanssonAndStinaJanson,
   [SpeakerName.TonjeEvanger]: TonjeEvanger,
   [SpeakerName.JacobBerglund]: JacobBerglund,
   [SpeakerName.MariusKrakeli]: MariusKrakeli,
@@ -53,7 +52,6 @@ export const speakerImages: Record<SpeakerName, ImageMetadata> = {
   [SpeakerName.VegardIngebrigtsenFeste]: VegardIngebrigtsenFeste,
   [SpeakerName.HildegunnVada]: HildegunnVada,
   [SpeakerName.TomasJanson]: TomasJanson,
-  [SpeakerName.StinaJanson]: StinaJanson,
 };
 
 export function getSpeakerImageSrc(name: SpeakerName) {

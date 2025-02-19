@@ -5,7 +5,7 @@ export enum SpeakerName {
   VikasGupta = "Vikas Gupta",
   YoeriOtten = "Yoeri Otten",
   JuliaKuhley = "Julia Kuhley",
-  LizaHansson = "Liza Hansson",
+  LizaHanssonAndStinaJanson = "Liza Hansson & Stina Janson",
   TonjeEvanger = "Tonje Evanger",
   JacobBerglund = "Jacob Berglund",
   MariusKrakeli = "Marius Krakeli",
@@ -25,5 +25,4 @@ export enum SpeakerName {
   VegardIngebrigtsenFeste = "Vegard Ingebrigtsen Feste",
   HildegunnVada = "Hildegunn Vada",
   TomasJanson = "Tomas Janson",
-  StinaJanson = "Stina Janson",
 }
