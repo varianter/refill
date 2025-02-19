@@ -12,4 +12,7 @@ export default defineConfig({
   integrations: [vue(), react()],
   output: "server",
   adapter: vercel(),
+  experimental: {
+    responsiveImages: true,
+  },
 });

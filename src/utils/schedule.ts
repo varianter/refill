@@ -501,12 +501,12 @@ export const schedule: Schedule = [
           type: "talk",
           id: "35",
           title:
-            "Kundresor som ett strategiskt verktyg för deras mest affärskritsika kundresor",
+            "Customer journeys as a strategic tool for their most business-critical customer journeys.",
           location: "No. 314",
           from: "14:30",
           to: "14:50",
           discipline: StrategyAndProduct,
-          speaker: "Liza Hansson & Länsförsäkringar",
+          speaker: "Liza Hansson & Stina Janson",
         },
         {
           type: "talk",

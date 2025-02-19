@@ -3,10 +3,10 @@ import { Image } from "astro:assets";
 import Discipline from "../components/Discipline.astro";
 import splash1 from "../../public/assets/img/splash1.svg";
 import splash2 from "../../public/assets/img/splash2.svg";
-import anita from "../../public/assets/img/people/Anita-Steinstad.jpg";
-import christian from "../../public/assets/img/people/Christian-Brevik.jpg";
+import anita from "../../public/assets/img/people/Anita-Steinstad.webp";
+import christian from "../../public/assets/img/people/Christian-Brevik.webp";
 import anders from "../../public/assets/img/people/Anders-Hammervold.jpg";
-import malin from "../../public/assets/img/people/Malin-C.-Karlsen.jpg";
+import malin from "../../public/assets/img/people/Malin-C.-Karlsen.webp";
 ---
 
 <section class="speakers">
@@ -21,22 +21,22 @@ import malin from "../../public/assets/img/people/Malin-C.-Karlsen.jpg";
       <div>
         <Discipline>Design</Discipline>
       </div>
-      <Image src={anita} alt="Image of Anita Steinstad" />
+      <Image  src={anita} alt="Image of Anita Steinstad" layout="full-width" width={354} height={354}/>
       <p>Design meets Sustainable Business –  an experiment</p>
     </div>
     <div class="grid speakers__talk_two">
       <div>
         <Discipline>Development</Discipline>
       </div>
-      <Image src={christian} alt="Image of Christian Brevik" />
+      <Image src={christian} alt="Image of Christian Brevik" layout="full-width" width={354} height={354} />
       <p>Test side-effects and behaviour, don’t mock them!</p>
     </div>
     <div class="grid_two speakers__talk_three">
       <div>
         <Discipline>Strategy & product</Discipline>
       </div>
-      <Image src={anders} alt="Image of Anders Hammervold" />
-      <Image src={malin} alt="Image of Malin C. Karlsen" />
+      <Image src={anders} alt="Image of Anders Hammervold" layout="full-width" width={354} height={354} />
+      <Image src={malin} alt="Image of Malin C. Karlsen" layout="full-width" width={354} height={354} />
       <p>
         Driving transformation in Technology, Processes and Governance for the
         National Road Database

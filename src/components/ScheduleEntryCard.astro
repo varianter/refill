@@ -3,10 +3,12 @@ import { colors } from "../utils/colors";
 import { getDisciplineColorPair, getDisciplineName } from "../utils/discipline";
 import { getColumn } from "../utils/getColumm";
 import type { ScheduleEntry } from "../utils/schedule";
+import { getSpeakerImageSrc } from "../utils/speakerImages";
 import { FavoriteButton } from "./button/favoriteButton/FavoriteButton";
 import CardWrapper from "./CardWrapper.astro";
 import Discipline from "./Discipline.astro";
 import Talk from "./Talk.astro";
+import { Image } from "astro:assets";
 
 interface Props {
   event: ScheduleEntry;
@@ -21,7 +23,7 @@ const location = event.type !== "break" ? event.location : "";
 
 const formattedNames =
   event.type !== "break" && event.speaker
-    ? event.speaker.split(" & ").map((name) => name.split(" ").join("-"))
+    ? event.speaker.split(" & ")
     : undefined;
 
 const colorPair =
@@ -44,18 +46,30 @@ const column = colorPair ? getColumn(colorPair) : "unset";
       {
         formattedNames &&
           formattedNames.map((name) => {
-            //TODO: Get img from chewbacca
-            // const imgSrc = `/assets/img/people/${name}.jpg`;
-            // const altText = name.replaceAll("-", " ");
-            const imgSrc = "";
-            return (
-              <img class="speaker_card__speaker_img" />
-              // <img class="speaker_card__speaker_img" src={imgSrc} alt="" />
-            );
+            const imgSrc = getSpeakerImageSrc(name);
+            if (imgSrc) {
+              return (
+                <Image
+                  class="speaker_card__speaker_img"
+                  layout="responsive"
+                  src={imgSrc.src}
+                  height={355}
+                  width={338}
+                  alt=""
+                />
+              );
+            }
           })
       }
     </div>
     <Talk speakerName={speaker} title={title} />
+    {
+      span > 1 && (
+        <div class="speaker_card__description">
+      <!-- TODO: Add Description for talk if span over multiple rows -->
+        </div>
+      )
+    }
     <div class="speaker_card__flex">
       <div class="speaker_card__flex__labels">
         <Discipline>{`${location} ${from}-${to}`}</Discipline>
@@ -74,11 +88,15 @@ const column = colorPair ? getColumn(colorPair) : "unset";
 
 <style is:global>
   .speaker_card__wrapper {
+    height: 100%;
     display: grid;
     grid-template-areas:
       "img"
-      "location";
+      "location"
+      "description";
+
     gap: var(--Padding-m);
+    grid-auto-rows: min-content; /* Makes rows only as tall as their content */
 
     container-type: inline-size;
     container-name: cardContent;
@@ -99,10 +117,7 @@ const column = colorPair ? getColumn(colorPair) : "unset";
   }
 
   .speaker_card__speaker_img {
-    overflow: hidden;
-    width: 100%;
-    aspect-ratio: 1/1;
-    object-fit: cover;
+    border-radius: 10px;
   }
 
   .speaker_card__img_flex {
@@ -111,6 +126,21 @@ const column = colorPair ? getColumn(colorPair) : "unset";
     display: flex;
 
     max-width: 338px;
+
+    > img {
+      height: 355px;
+      min-width: 0;
+    }
+  }
+
+  .speaker_card__description {
+    grid-area: description;
+
+    & > p {
+      color: var(--text-tertiary);
+      line-height: var(--Line-height-Body-Small);
+      letter-spacing: 0.01125rem;
+    }
   }
 
   .speaker_card__flex {
@@ -118,6 +148,7 @@ const column = colorPair ? getColumn(colorPair) : "unset";
     display: flex;
     height: fit-content;
     align-items: end;
+    align-self: end;
     justify-content: space-between;
   }
 
