@@ -233,7 +233,8 @@ export const schedule: Schedule = [
           discipline: Development,
           speaker: TomasJanson,
           talkDescription: [
-            "In a fast moving world, where digitalisation is the enabler for change, an agile approach to innovation, organisational change and sustainable businesses is needed. By combing ideas from business development with design thinking we have the toolkit for a collaborative journey where Variant facilitate and our customers own the result. Together we create shared knowledge and the result have a focus on actions, not slides. This is not a talk about Digital Strategy, a talk about Strategy for a digitalised world.",
+            "Web performance is very important for most websites, and it is crucial if you are the largest electronic retailer in the Nordics. As many of you already know, the performance of the Elkøp/Elgiganten/Gigantti site has not been good enough, and that is something Tomas set out to fix. Although the website was fairly new, it failed to meet expectations, leading to a decision to rewrite the frontend using Next.js and host it on Vercel.",
+            "By the time of Refill, we should be able to see the results of the rewrite, and Tomas will share some of the learnings made along the way. Why was Next.js picked? How does the new app router work in a larger project? What is it like to work with Vercel? How do you pitch ideas like this in larger organizations?",
           ],
         },
         {
