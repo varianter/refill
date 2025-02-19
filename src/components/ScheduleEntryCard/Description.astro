@@ -27,11 +27,13 @@ function isParagraph(descriptionParagraph: TalkDescription) {
           return <p>{descriptionParagraph}</p>;
         } else {
           return (
-            <div>
+            <div class="description__bulletpoints">
               <p>{descriptionParagraph.bulletpointsDescription}</p>
-              {descriptionParagraph.BulletpointsList.map((bulletpoint) => {
-                return <li>{bulletpoint}</li>;
-              })}
+              <ul>
+                {descriptionParagraph.BulletpointsList.map((bulletpoint) => {
+                  return <li> {bulletpoint}</li>;
+                })}
+              </ul>
             </div>
           );
         }
@@ -46,9 +48,10 @@ function isParagraph(descriptionParagraph: TalkDescription) {
 
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: var(--Padding-rem);
 
-    & > p {
+    & p,
+    li {
       color: var(--text-tertiary);
       line-height: var(--Line-height-Body-Small);
       letter-spacing: 0.01125rem;
@@ -56,6 +59,12 @@ function isParagraph(descriptionParagraph: TalkDescription) {
 
     @media (max-width: 1300px) {
       display: none;
+    }
+
+    .description__bulletpoints {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
     }
   }
 </style>

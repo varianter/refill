@@ -110,7 +110,7 @@ html {
   }
 }
 
-:where(h1, h2, h3, p, a, mark, span) {
+:where(h1, h2, h3, p, a, li, mark, span) {
   font-family: var(--font-britti);
   color: var(--text-primary);
   padding: 0;
@@ -140,6 +140,12 @@ html {
 :where(a) {
   text-decoration: none;
   color: inherit;
+}
+
+:where(ul) {
+  padding: 0;
+  padding-left: 1rem;
+  margin: 0;
 }
 
 :where(mark) {
