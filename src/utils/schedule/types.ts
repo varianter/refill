@@ -1,6 +1,14 @@
 import type { Discipline } from "../discipline";
 import type { SpeakerName } from "../speakers";
 
+type Bulletpoints = {
+  bulletpointsDescription: string;
+  BulletpointsList: string[];
+};
+
+export type TalkDescription = string | Bulletpoints;
+export type TalkDescriptionList = (string | Bulletpoints)[];
+
 export interface ScheduleEvent {
   id: string;
   title: string;
@@ -12,6 +20,7 @@ export interface CommonEvent extends ScheduleEvent {
   type: "common";
   location: string;
   speaker?: SpeakerName | SpeakerName[];
+  talkDescription: TalkDescriptionList;
 }
 
 export interface Talk extends ScheduleEvent {
@@ -19,6 +28,7 @@ export interface Talk extends ScheduleEvent {
   location: string;
   discipline: Discipline;
   speaker: SpeakerName | SpeakerName[];
+  talkDescription: TalkDescriptionList;
 }
 
 export interface Break extends ScheduleEvent {
