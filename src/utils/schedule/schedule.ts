@@ -46,6 +46,7 @@ export const schedule: Schedule = [
           location: "Orangeriet",
           from: "08:00",
           to: "08:45",
+          talkDescription: [],
         },
       ],
       [
@@ -57,6 +58,7 @@ export const schedule: Schedule = [
           from: "08:45",
           to: "09:00",
           speaker: [MikaelBrevik, TonjeEvanger],
+          talkDescription: [],
         },
       ],
       [
@@ -68,6 +70,7 @@ export const schedule: Schedule = [
           from: "09:00",
           to: "09:40",
           speaker: DavidDeLeon,
+          talkDescription: [],
         },
       ],
     ],
@@ -104,6 +107,10 @@ export const schedule: Schedule = [
           to: "10:20",
           discipline: Design,
           speaker: VegardIngebrigtsenFeste,
+          talkDescription: [
+            "What if I told you that the secret to great digital experiences lies hidden within the brain? In this talk we will explore the intersection of neuroscience and design, and how perception, emotions and trust directly impacts the way we use digital products. Expect a mix of surprisingly interesting trivia, real-world examples, and practical tips to design with the mind in mind!",
+            "Warning: This talk might change your perspectives ✨",
+          ],
         },
         {
           type: "talk",
@@ -114,6 +121,10 @@ export const schedule: Schedule = [
           to: "10:40",
           discipline: Development,
           speaker: MikaelBrevik,
+          talkDescription: [
+            "Traditionally, DevOps has focused on infrastructure and backend processes, but there is no reason as to why it should stop there. DevOps principles is just as applicable to the client-side! In this talk, we’ll explore how practices like continuous integration, delivery, and monitoring can be extended to frontend applications.",
+            " We’ll discuss automated e2e testing that _actually_ works, performance monitoring, and client observability tools that ensure a great user experiences. You will gain insights into building resilient, scalable, and maintainable client-side systems with a DevOps mindset, bridging the gap between frontend and operations once and for all.",
+          ],
         },
         {
           type: "talk",
@@ -125,6 +136,9 @@ export const schedule: Schedule = [
           to: "10:20",
           discipline: StrategyAndProduct,
           speaker: [TonjeEvanger, HildegunnVada],
+          talkDescription: [
+            "We demonstrate how scenario-based thinking became the foundation for developing a future-proof product strategy for Feide. The session provides insight into the method we used, the three scenarios we developed, and how these were used to engage employees and external stakeholders in the sector throughout the process, by having them outline future ways of working and the position they believe Feide should take moving forward.",
+          ],
         },
         {
           type: "talk",
@@ -135,6 +149,21 @@ export const schedule: Schedule = [
           to: "10:40",
           discipline: Design,
           speaker: OlePetterKlæstad,
+          talkDescription: [
+            "We´ve been there – You have an overwhelming bunch of tasks to get done, so you make a to-do list to focus. The most efficient way of crossing off items on that to-do list is to either eliminate unimportant tasks or delegate them to others that are better equipped to solve them. AI is going to be that someone for a lot of task. This talk will explore which tasks will best off delegated to AI on a reoccurring basis, to offload them onto your (A)nt(I) to-do list.",
+            {
+              bulletpointsDescription: "This talk will touch upon:",
+              BulletpointsList: [
+                "Automate tasks",
+                "Speed up your own delivery",
+                "Add new skills and do more",
+                "Multiply your impact",
+                "Synthetic users",
+                'How AI expands the role description of a "designer"',
+                "Rid product managers of their tasks",
+              ],
+            },
+          ],
         },
         {
           type: "talk",
@@ -145,6 +174,9 @@ export const schedule: Schedule = [
           to: "10:40",
           discipline: StrategyAndProduct,
           speaker: KristofferNordström,
+          talkDescription: [
+            "Building a Design System is easy, maintaining and making it grow organically is much more difficult. This requires planning and collaboration, or does it? Can't we just cut out the collaboration part and make things more efficient? What does all this have in common with The Gentle Art of Swedish Death Cleaning? Join me on a story about planning, categorising and sorting and about handling human beings and their peculiarities. Maybe your Design System will end up on The Design Systems Graveyard.",
+          ],
         },
       ],
     ],
@@ -180,6 +212,15 @@ export const schedule: Schedule = [
           to: "11:10",
           discipline: Design,
           speaker: AnitaSteinstad,
+          talkDescription: [
+            "Design Meets Sustainable Business – An Experiment",
+            "In recent years, economists and strategists have increasingly borrowed from design methodologies—tools like prototyping, human-centered design, and iterative thinking—to craft innovative business strategies. But what happens when we flip the script? What if designers themselves take the lead, creating sustainable business frameworks not as an extension of economic theory but through the lens of design principles?",
+            "This talk is an experiment that explores this provocative question, presenting a new framework developed to empower designers to facilitate sustainable transformation within organisations. The core idea is simple yet profound: sustainability, at its heart, is a design problem. How we shape our systems, workflows, and even our organizational culture determines whether businesses can thrive within planetary boundaries. The unique perspective of designers—focusing on empathy, systems thinking, and iterative problem-solving—makes them uniquely positioned to drive this transformation.",
+            "The framework introduced in this session is built on fostering a sustainable culture within organisations, led by design methodologies. It prioritises co-creation, where employees at all levels become active participants in reimagining their work and its impact on the environment and society. It emphasises prototyping circular business models in a way that is experimental and iterative—testing ideas in a safe environment before scaling them.",
+            "The experiment at the heart of this talk is this: presenting this framework to an audience of designers, technologists, and innovators, inviting them to challenge, adapt, and co-create it in real-time. By placing this audience in the driver’s seat, I aim to explore how design communities perceive and engage with the notion of sustainable business beyond traditional approaches. What new ideas emerge when sustainability becomes not a constraint but a design opportunity?",
+            "The session will showcase case studies, tools, and exercises that enable organisations to embed sustainability at the core of their operations. Attendees will gain insights into how to use their creative skills to shape sustainable futures—not only in product and service design but in rethinking how businesses fundamentally operate.",
+            "Ultimately, this talk is a call to action for designers to expand their influence, stepping into the critical role of sustainability facilitators in a time when the world urgently needs fresh perspectives and bold solutions. Together, we can test, refine, and prove that the future of sustainable business starts with design.",
+          ],
         },
         {
           type: "talk",
@@ -191,6 +232,9 @@ export const schedule: Schedule = [
           to: "11:30",
           discipline: Development,
           speaker: TomasJanson,
+          talkDescription: [
+            "In a fast moving world, where digitalisation is the enabler for change, an agile approach to innovation, organisational change and sustainable businesses is needed. By combing ideas from business development with design thinking we have the toolkit for a collaborative journey where Variant facilitate and our customers own the result. Together we create shared knowledge and the result have a focus on actions, not slides. This is not a talk about Digital Strategy, a talk about Strategy for a digitalised world.",
+          ],
         },
         {
           type: "talk",
@@ -201,6 +245,9 @@ export const schedule: Schedule = [
           to: "11:30",
           discipline: StrategyAndProduct,
           speaker: AndreasHartveit,
+          talkDescription: [
+            'Workshop hvor man lærer hands on hvordan man kan bruke "MVP arket" til å definere MVP',
+          ],
         },
         {
           type: "talk",
@@ -211,6 +258,10 @@ export const schedule: Schedule = [
           to: "11:30",
           discipline: Design,
           speaker: VikasGupta,
+          talkDescription: [
+            "What if the key to unlocking your product’s full potential was to embrace inclusivity from the start? In this lightning talk, we’ll flip the script on Universal Design and show how it’s not just a compliance checkbox, but a game changer for product strategy. You will discover how designing for accessibility can open up new markets, contribute to increased innovation and foster deeper customer loyalty.",
+            "In just 10 minutes, you’ll walk away with fresh insights and practical tips on how to turn Universal Design into a competitive advantage. Let’s turn necessity into opportunity, and create products that everyone can enjoy.",
+          ],
         },
       ],
     ],
@@ -247,6 +298,12 @@ export const schedule: Schedule = [
           to: "12:50",
           discipline: Development,
           speaker: EliseKristiansen,
+          talkDescription: [
+            "The WCAG standard has been in place for over 20 years, and starting in June 2025, it will become a legal requirement in the EU to build websites that comply with universal design standards.",
+            " Despite this, new websites and apps that fail to meet these requirements continue to appear, unintentionally excluding people from participating fully in the digital society.",
+            " In this talk, you’ll gain insight into ten common reasons why web apps fail to be accessible and learn actionable strategies to overcome these challenges.",
+            " Whether you're a developer, designer, or decision-maker, this session will give you with the tools needed to create inclusive digital experiences that work for everyone.",
+          ],
         },
         {
           type: "talk",
@@ -257,6 +314,9 @@ export const schedule: Schedule = [
           to: "12:40",
           discipline: Design,
           speaker: JuliaKuhley,
+          talkDescription: [
+            "Building a Design System is easy, maintaining and making it grow organically is much more difficult. This requires planning and collaboration, or does it? Can't we just cut out the collaboration part and make things more efficient? What does all this have in common with The Gentle Art of Swedish Death Cleaning? Join me on a story about planning, categorising and sorting and about handling human beings and their peculiarities. Maybe your Design System will end up on The Design Systems Graveyard.",
+          ],
         },
         {
           type: "talk",
@@ -268,6 +328,20 @@ export const schedule: Schedule = [
           to: "12:50",
           discipline: StrategyAndProduct,
           speaker: MalinCKarlsen,
+          talkDescription: [
+            "This session provides the outlines on how we, in collaboration with the Norwegian Public Roads Administration (Statens vegvesen), established a transformative program addressing both technology and processes for the National Road Database (Nasjonal vegdatabank).",
+            {
+              bulletpointsDescription:
+                "We will explore key questions that shaped the program:",
+              BulletpointsList: [
+                "How did we align the program's establishment with the agency’s governance structures?",
+                "What were the critical success factors driving the program forward?",
+                "What lessons have we learned, and what could have been done differently?",
+                "Where does the program stand today, and what lies ahead?",
+              ],
+            },
+            "By sharing insights from this journey, we aim to highlight practical strategies, challenges, and outcomes relevant to large-scale transformation programs in the public sector.",
+          ],
         },
         {
           type: "talk",
@@ -278,6 +352,10 @@ export const schedule: Schedule = [
           to: "13:00",
           discipline: Development,
           speaker: TrulsHenrikJakobsen,
+          talkDescription: [
+            "Anyone who's worked with the Fetch API in JavaScript has probably wondered why you have to await twice — first for the response and then for the body. If you're anything like me, you probably just accepted this as how the API works and moved on with your work. But now I've gone back and done a deep dive into Fetch so you don't have to!",
+            " We'll take a look at how data is transmitted over the Internet and have a closer look at Streams in Javascript. Expect to gain a better understanding of their funky features and how you can use them to your advantage. At the very least, you'll leave with the satisfaction of actually understanding why you need to wait twice when using Fetch.",
+          ],
         },
         {
           type: "talk",
@@ -288,6 +366,9 @@ export const schedule: Schedule = [
           to: "13:00",
           discipline: Design,
           speaker: JonasLillevold,
+          talkDescription: [
+            "When the creators of digital solutions put the users' needs aside in order to maximize their own profit, it happens that the dirty tricks are used. In these waters you have to navigate with a steady hand to end up where you want, with what you want. As a designer, it is useful to know the principles behind dark patterns because it also contributes to an understanding of how safe waters should look like.",
+          ],
         },
         {
           type: "talk",
@@ -298,6 +379,10 @@ export const schedule: Schedule = [
           to: "13:10",
           discipline: StrategyAndProduct,
           speaker: LizaHanssonAndStinaJanson,
+          talkDescription: [
+            "How can we ensure that an entire organization focuses on what truly matters—for both the customer and the business? How do we align teams around shared goals, foster a common understanding of priorities, and bridge the gap between strategic vision and day-to-day work?",
+            "In this session, we’ll explore how to maximize the impact of customer journey maps as a strategic tool. We’ll share how we combined business data, customer insights, and behavioral analytics within a structured framework—ensuring clear ownership and alignment with the organization’s top OKRs. No matter the role you’re in, you’ll learn how to turn customer journey maps into practical tools that drive real business results.",
+          ],
         },
         {
           type: "talk",
@@ -309,6 +394,11 @@ export const schedule: Schedule = [
           to: "13:10",
           discipline: Development,
           speaker: ThomasLyngtunHansen,
+          talkDescription: [
+            "In an industry obsessed with seniority, we’re overlooking the essential groundwork needed to produce it. This lightning talk challenges the conventional wisdom of hiring only seasoned consultants by spotlighting the invaluable benefits of bringing junior developers and designers into your team.",
+            " We’ll explore how investing in juniors not only infuses fresh perspectives and energy but is crucial for developing the next generation of senior talent. If no one hires juniors, where will tomorrow’s senior consultants come from? Must consulting companies resort to hiring seniors away from their own customers?",
+            " Discover how nurturing junior talent ensures sustainable growth, fosters innovation, and secures a competitive edge for both consulting companies and their clients. It is time to recognise that embracing juniors is not just beneficial—it is imperative for the future of our industry.",
+          ],
         },
         {
           type: "talk",
@@ -319,6 +409,7 @@ export const schedule: Schedule = [
           to: "13:10",
           discipline: Design,
           speaker: None,
+          talkDescription: [],
         },
       ],
     ],
@@ -354,6 +445,10 @@ export const schedule: Schedule = [
           to: "14:00",
           discipline: Development,
           speaker: ChristianBrevik,
+          talkDescription: [
+            "When writing test code, one of the tools many reach for is mocking frameworks. These frameworks allow you to simulate code dependencies, and instruct these fake dependencies to return specific values when called. That lets you quickly test different scenarios, and focus on the specific details of the thing you are testing.",
+            " That focus and speed is also the biggest trap of mocking frameworks. You are relying on the fact that the dependencies you are mocking will never change, which makes the test code brittle. And you are in no way guaranteed that you are instructing the mock to mimic the real behaviour of the dependencies. In this talk I will try to persuade you of the strength of letting your fake dependencies have state and side effects, and write test code that focuses on behaviour instead of implementation details.",
+          ],
         },
         {
           type: "talk",
@@ -364,6 +459,11 @@ export const schedule: Schedule = [
           to: "14:00",
           discipline: Design,
           speaker: RolfAndersStorset,
+          talkDescription: [
+            "Data Quality. A term that sounds important, but what does it really mean? And why should designers care? In a world where artificial intelligence relies on high-quality data to deliver results, data quality has become more critical than ever. Yet, it often remains a vague concept that few truly understand.",
+            "In this talk, we’ll break down the concept of data quality and demonstrate how designers play a key role in ensuring that data is not only collected correctly but is also of high quality. Through concrete examples and practical principles, you’ll learn how design can bridge the gap between usability and data quality – and how this can be the difference between mediocre and outstanding solutions in the world of AI.",
+            "Join us and discover how we can shape tomorrow’s data together – one design decision at a time!",
+          ],
         },
         {
           type: "talk",
@@ -375,6 +475,10 @@ export const schedule: Schedule = [
           to: "13:30",
           discipline: StrategyAndProduct,
           speaker: MariusKrakeli,
+          talkDescription: [
+            "What if the key to unlocking your product’s full potential was to embrace inclusivity from the start? In this lightning talk, we’ll flip the script on Universal Design and show how it’s not just a compliance checkbox, but a game changer for product strategy. You will discover how designing for accessibility can open up new markets, contribute to increased innovation and foster deeper customer loyalty.",
+            "In just 10 minutes, you’ll walk away with fresh insights and practical tips on how to turn Universal Design into a competitive advantage. Let’s turn necessity into opportunity, and create products that everyone can enjoy.",
+          ],
         },
         {
           type: "talk",
@@ -385,6 +489,7 @@ export const schedule: Schedule = [
           to: "14:00",
           discipline: StrategyAndProduct,
           speaker: None,
+          talkDescription: [],
         },
       ],
     ],
@@ -420,6 +525,7 @@ export const schedule: Schedule = [
           to: "14:50",
           discipline: Design,
           speaker: None,
+          talkDescription: [],
         },
         {
           type: "talk",
@@ -430,6 +536,9 @@ export const schedule: Schedule = [
           to: "15:10",
           discipline: Development,
           speaker: JacobBerglund,
+          talkDescription: [
+            "Wield the cascade and go with the grain of the web – lets create systems rather than specifying individual properties into a whole. This talk is suited for both designers and frontend developers looking to understand some of the most powerful features and concepts of CSS.",
+          ],
         },
         {
           type: "talk",
@@ -440,6 +549,7 @@ export const schedule: Schedule = [
           to: "15:10",
           discipline: StrategyAndProduct,
           speaker: None,
+          talkDescription: [],
         },
         {
           type: "talk",
@@ -450,6 +560,7 @@ export const schedule: Schedule = [
           to: "15:10",
           discipline: Design,
           speaker: None,
+          talkDescription: [],
         },
       ],
     ],
@@ -485,6 +596,7 @@ export const schedule: Schedule = [
           to: "16:00",
           discipline: Design,
           speaker: None,
+          talkDescription: [],
         },
         {
           type: "talk",
@@ -495,6 +607,10 @@ export const schedule: Schedule = [
           to: "15:40",
           discipline: Development,
           speaker: NikolaiNormanAndersen,
+          talkDescription: [
+            "Encrypted secrets that is! I'll demonstrate tools and techniques that will enable you to version control your secrets alongside the code it belongs to. Easily share secrets with new team members and get a full audit log as a bonus. And it's all according to modern security practices.",
+            " I will introduce you to SOPS and how you can use keys stored in secure remote services like Azure Key Vault or HashiCorp Vault. Access is easily controlled through the same identity you use for other services. I'll also show some gotchas to be aware of, but let's not be afraid of putting our secrets in git!",
+          ],
         },
         {
           type: "talk",
@@ -505,6 +621,9 @@ export const schedule: Schedule = [
           to: "16:00",
           discipline: StrategyAndProduct,
           speaker: DavidDinka,
+          talkDescription: [
+            "In a fast moving world, where digitalisation is the enabler for change, an agile approach to innovation, organisational change and sustainable businesses is needed. By combing ideas from business development with design thinking we have the toolkit for a collaborative journey where Variant facilitate and our customers own the result. Together we create shared knowledge and the result have a focus on actions, not slides. This is not a talk about Digital Strategy, a talk about Strategy for a digitalised world.",
+          ],
         },
         {
           type: "talk",
@@ -515,6 +634,13 @@ export const schedule: Schedule = [
           to: "16:00",
           discipline: Development,
           speaker: YoeriOtten,
+          talkDescription: [
+            "Since 1995 developers have tried to fix Javascript, by creating new languages like Coffeescript, creating superscripts like Typescript and finally trying to actually improve the language itself.",
+            " But alas WebAssembly (wasm) came along, freeing us from Javascript and allowing us to do something different on the web: compile almost any programming language to something our browser understands, with safety guarantees built in.",
+            " Over the past few years a whole new ecosystem has started to take shape, from tooling glueing everything together, to completely new frameworks trying to replace React.",
+            " Through the eyes of three different engineers we will take a look at what WebAssembly has to offer:",
+            "The innovator: who manages to solve a completely new set of problems on the web.  The revolutionary: who throws away there codebase and starts fresh, building there website with not a single line of Javascript.The madman: who tries to take things too far, and doesn’t know where to stop.",
+          ],
         },
       ],
     ],
@@ -549,6 +675,7 @@ export const schedule: Schedule = [
           from: "16:30",
           to: "16:45",
           speaker: DavidDeLeon,
+          talkDescription: [],
         },
       ],
       [
@@ -560,6 +687,7 @@ export const schedule: Schedule = [
           from: "16:45",
           to: "17:00",
           speaker: MariusKrakeli,
+          talkDescription: [],
         },
       ],
       [
@@ -570,6 +698,7 @@ export const schedule: Schedule = [
           location: "Orangeriet",
           from: "17:00",
           to: "",
+          talkDescription: [],
         },
       ],
     ],

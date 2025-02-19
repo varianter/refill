@@ -1,7 +1,10 @@
 import { colors, type ColorPair } from "../../utils/colors";
 import { getDisciplineColorPair } from "../../utils/discipline";
 import { getColumn } from "../../utils/getColumm";
-import type { ScheduleEntry } from "../../utils/schedule/types";
+import type {
+  ScheduleEntry,
+  TalkDescriptionList,
+} from "../../utils/schedule/types";
 
 export const getSpeaker = (event: ScheduleEntry) => {
   return event.type !== "break" ? event.speaker : undefined;
@@ -9,6 +12,12 @@ export const getSpeaker = (event: ScheduleEntry) => {
 
 export const getLocation = (event: ScheduleEntry): string => {
   return event.type !== "break" ? event.location : "";
+};
+
+export const getTalkDescription = (
+  event: ScheduleEntry,
+): TalkDescriptionList => {
+  return event.type !== "break" ? event.talkDescription : [];
 };
 
 export const getColorPair = (event: ScheduleEntry): ColorPair | undefined => {
