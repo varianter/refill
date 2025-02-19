@@ -9,6 +9,7 @@ import {
   getBorderColor,
   getCardColumn,
   getColorPair,
+  getTalkDescription,
   getLocation,
   getSpeaker,
 } from "./functions";
@@ -27,6 +28,7 @@ const { id, title, to, from } = event;
 const speaker = getSpeaker(event);
 const location = getLocation(event);
 const colorPair = getColorPair(event);
+const talkDescription = getTalkDescription(event);
 const borderColor = getBorderColor(colorPair);
 const column = getCardColumn(colorPair);
 ---
@@ -40,7 +42,7 @@ const column = getCardColumn(colorPair);
   <div class="speaker_card__wrapper">
     {speaker && <RenderSpeakerImage speakerName={speaker} />}
     <Talk speakerName={speaker} title={title} />
-    <Description span={span} />
+    <Description talkDescription={talkDescription} span={span} />
     <div class="speaker_card__flex">
       <div class="speaker_card__flex__labels">
         <Discipline>{`${location} ${from}-${to}`}</Discipline>
