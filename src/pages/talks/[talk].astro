@@ -3,7 +3,6 @@ import { FavoriteButton } from "../../components/button/favoriteButton/FavoriteB
 import Description from "../../components/Description.astro";
 import Footer from "../../components/navigation/Footer.astro";
 import TalkLayout from "../../layouts/Layout.astro";
-import { colors } from "../../utils/colors";
 import {
   getDisciplineColorPair,
   getDisciplineName,
@@ -77,8 +76,8 @@ const speakerName = getSpeakerNames(speaker);
       </div>
     </section>
   </div>
+  <Footer variant="black" illustrationVariant={discipline} slot="footer" />
 </TalkLayout>
-<Footer variant="black" illustrationVariant={discipline} slot="footer" />
 
 <style define:vars={{ disciplineBackgroundColor, disciplineTextColor }}>
   .talk__main {
