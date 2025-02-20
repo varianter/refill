@@ -1,27 +1,36 @@
 ---
+import type { Color } from "../utils/colors";
 import {
   type TalkDescription,
   type TalkDescriptionList,
-} from "../../utils/schedule/types";
+} from "../utils/schedule/types";
 interface Props {
   talkDescription: TalkDescriptionList;
-  span: number;
+  displayCondition?: boolean;
+  descriptionType?: "card" | "normal";
 }
 
-const { span, talkDescription } = Astro.props;
+const {
+  talkDescription,
+  displayCondition = true,
+  descriptionType = "card",
+} = Astro.props;
 
 function shouldShowDescription() {
-  return span > 1 && talkDescription.length > 0;
+  return displayCondition && talkDescription.length > 0;
 }
 
 function isParagraph(descriptionParagraph: TalkDescription) {
   return typeof descriptionParagraph === "string";
 }
+
+const className =
+  descriptionType === "card" ? "description__card" : "description__normal";
 ---
 
 {
   shouldShowDescription() && (
-    <div class="description">
+    <div class={`description ${className}`}>
       {talkDescription.map((descriptionParagraph) => {
         if (isParagraph(descriptionParagraph)) {
           return <p>{descriptionParagraph}</p>;
@@ -52,20 +61,35 @@ function isParagraph(descriptionParagraph: TalkDescription) {
 
     & p,
     li {
-      color: var(--text-tertiary);
-      line-height: var(--Line-height-Body-Small);
-      letter-spacing: 0.01125rem;
       font-weight: 300;
-    }
-
-    @media (max-width: 1300px) {
-      display: none;
     }
 
     .description__bulletpoints {
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
+    }
+  }
+
+  .description__card {
+    & p,
+    li {
+      color: var(--text-tertiary);
+      font-size: var(--Font-size-Body-Normal);
+      line-height: var(--Line-height-Body-Small);
+      letter-spacing: 0.01125rem;
+    }
+    @media (max-width: 1300px) {
+      display: none;
+    }
+  }
+
+  .description__normal {
+    & p,
+    li {
+      color: var(--text-primary);
+      font-size: var(--Font-size-Body-Big);
+      line-height: var(--Line-height-Body-Big);
     }
   }
 </style>
