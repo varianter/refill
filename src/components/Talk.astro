@@ -1,8 +1,9 @@
 ---
-import type { SpeakerName } from "../utils/speakers";
+import { getSpeakerNames } from "../utils/getSpeakerNames";
+import type { Speaker } from "../utils/schedule/types";
 
 interface Props {
-  speakerName?: SpeakerName | SpeakerName[];
+  speakerName?: Speaker;
   title: string;
 }
 
@@ -13,15 +14,12 @@ function checkTalkLenght() {
   return "250px";
 }
 
-const name = Array.isArray(speakerName)
-  ? `${speakerName[0]} & ${speakerName[1]}`
-  : speakerName;
-
+const name = speakerName ? getSpeakerNames(speakerName) : null;
 const maxWidth = checkTalkLenght();
 ---
 
 <div class="talk">
-  {speakerName && <p class="talk__speaker">{name}</p>}
+  {name && <p class="talk__speaker">{name}</p>}
   <p class="talk__text">
     {title}
   </p>
