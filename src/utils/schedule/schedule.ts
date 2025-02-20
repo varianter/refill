@@ -114,7 +114,9 @@ export const schedule: Schedule = [
             "What if I told you that the secret to great digital experiences lies hidden within the brain? In this talk we will explore the intersection of neuroscience and design, and how perception, emotions and trust directly impacts the way we use digital products. Expect a mix of surprisingly interesting trivia, real-world examples, and practical tips to design with the mind in mind!",
             "Warning: This talk might change your perspectives ✨",
           ],
-          speakerDescription: [],
+          speakerDescription: [
+            "Im a UX designer with an above average interest in human cognition and digital products. ",
+          ],
         },
         {
           type: "talk",
@@ -129,7 +131,9 @@ export const schedule: Schedule = [
             "Traditionally, DevOps has focused on infrastructure and backend processes, but there is no reason as to why it should stop there. DevOps principles is just as applicable to the client-side! In this talk, we’ll explore how practices like continuous integration, delivery, and monitoring can be extended to frontend applications.",
             " We’ll discuss automated e2e testing that _actually_ works, performance monitoring, and client observability tools that ensure a great user experiences. You will gain insights into building resilient, scalable, and maintainable client-side systems with a DevOps mindset, bridging the gap between frontend and operations once and for all.",
           ],
-          speakerDescription: [],
+          speakerDescription: [
+            "Mikael is a programming enthusiast with long experience in multiple disciplines within development. He's motivated by making teams work, delivering the proper type of quality and value. He hosts podcasts, writes blogposts and does presentations.",
+          ],
         },
         {
           type: "talk",
@@ -170,7 +174,9 @@ export const schedule: Schedule = [
               ],
             },
           ],
-          speakerDescription: [],
+          speakerDescription: [
+            "Ole Petter, Designer at Variant and part-time entrepreneur of Muttu. Eager for all things design and innovation, with a nack for the product development process.",
+          ],
         },
         {
           type: "talk",
@@ -184,7 +190,9 @@ export const schedule: Schedule = [
           talkDescription: [
             "Building a Design System is easy, maintaining and making it grow organically is much more difficult. This requires planning and collaboration, or does it? Can't we just cut out the collaboration part and make things more efficient? What does all this have in common with The Gentle Art of Swedish Death Cleaning? Join me on a story about planning, categorising and sorting and about handling human beings and their peculiarities. Maybe your Design System will end up on The Design Systems Graveyard.",
           ],
-          speakerDescription: [],
+          speakerDescription: [
+            'Kristoffer has a big heart ❤️ for humanity & inclusion. Previous Head of Front End at the Norwegian Red Cross and currently working as a consultant at Variant building education systems of the future for Sikt. He has been working with web GUIs since the 1990s GeoCities era, a "Nordic citizen" from Sweden 🇸🇪 with roots on the Åland Islands 🇦🇽 and in Finland 🇫🇮 living in Oslo Norway 🇳🇴.',
+          ],
         },
       ],
     ],
@@ -229,7 +237,11 @@ export const schedule: Schedule = [
             "The session will showcase case studies, tools, and exercises that enable organisations to embed sustainability at the core of their operations. Attendees will gain insights into how to use their creative skills to shape sustainable futures—not only in product and service design but in rethinking how businesses fundamentally operate.",
             "Ultimately, this talk is a call to action for designers to expand their influence, stepping into the critical role of sustainability facilitators in a time when the world urgently needs fresh perspectives and bold solutions. Together, we can test, refine, and prove that the future of sustainable business starts with design.",
           ],
-          speakerDescription: [],
+          speakerDescription: [
+            "I’m a designer driven by curiosity, working at the intersection of strategy, culture, sustainability, future studies, and technology. My passion lies in uncovering, navigating, and solving real challenges within organizations to create meaningful impact.",
+            "As a facilitator, I combine tools from future studies, design thinking, agile coaching, and sustainable business strategy to drive change that benefits both people and the planet.",
+            "Over the past 23 years, I’ve honed expertise in strategic innovation, service design, branding, and future thinking—both as a consultant and within organizations. This journey has given me a deep understanding of the complex challenges organizations face today. What fuels me most is uncovering human needs, concerns, and aspirations to help tackle pressing societal issues and inspire transformative solutions.",
+          ],
         },
         {
           type: "talk",
@@ -274,7 +286,10 @@ export const schedule: Schedule = [
             "What if the key to unlocking your product’s full potential was to embrace inclusivity from the start? In this lightning talk, we’ll flip the script on Universal Design and show how it’s not just a compliance checkbox, but a game changer for product strategy. You will discover how designing for accessibility can open up new markets, contribute to increased innovation and foster deeper customer loyalty.",
             "In just 10 minutes, you’ll walk away with fresh insights and practical tips on how to turn Universal Design into a competitive advantage. Let’s turn necessity into opportunity, and create products that everyone can enjoy.",
           ],
-          speakerDescription: [],
+          speakerDescription: [
+            "Vikas Gupta is a strategic and service designer at Variant Trondheim AS, a consultancy offering design, technology and business services",
+            "He has a Master of Technology in Computer Science with specialization in Interaction Design. Vikas has worked in both tech-startups and large corporates as designer, and has broad experience of working closely with technologists, users and stakeholders. He loves to think big and to work in teams to discover creative solutions to complex problems.",
+          ],
         },
       ],
     ],
@@ -317,7 +332,9 @@ export const schedule: Schedule = [
             " In this talk, you’ll gain insight into ten common reasons why web apps fail to be accessible and learn actionable strategies to overcome these challenges.",
             " Whether you're a developer, designer, or decision-maker, this session will give you with the tools needed to create inclusive digital experiences that work for everyone.",
           ],
-          speakerDescription: [],
+          speakerDescription: [
+            "Elise is a senior frontend developer and has been involved in a diverse range of projects for seven years. As a consultant, she has worked in and out of various teams, experiencing a wide range of team compositions.",
+          ],
         },
         {
           type: "talk",
@@ -331,7 +348,9 @@ export const schedule: Schedule = [
           talkDescription: [
             "Building a Design System is easy, maintaining and making it grow organically is much more difficult. This requires planning and collaboration, or does it? Can't we just cut out the collaboration part and make things more efficient? What does all this have in common with The Gentle Art of Swedish Death Cleaning? Join me on a story about planning, categorising and sorting and about handling human beings and their peculiarities. Maybe your Design System will end up on The Design Systems Graveyard.",
           ],
-          speakerDescription: [],
+          speakerDescription: [
+            "Notoriously scared of responsibility and growing up, Julia is a visual designer with six years of experience and by now forced to face her fears. Why she would be scared of anything no one knows, after having moved on her own to Norway in 2019, navigated three different work places, survived multiple rounds of downsizing (they insist it wasn’t her fault) and tackled a long row of branding, UX, and UI projects. She's trying to make sense of it all and deliver some of the extracted wisdom to fellow designers/consultants/human beings.",
+          ],
         },
         {
           type: "talk",
@@ -372,7 +391,9 @@ export const schedule: Schedule = [
             "Anyone who's worked with the Fetch API in JavaScript has probably wondered why you have to await twice — first for the response and then for the body. If you're anything like me, you probably just accepted this as how the API works and moved on with your work. But now I've gone back and done a deep dive into Fetch so you don't have to!",
             " We'll take a look at how data is transmitted over the Internet and have a closer look at Streams in Javascript. Expect to gain a better understanding of their funky features and how you can use them to your advantage. At the very least, you'll leave with the satisfaction of actually understanding why you need to wait twice when using Fetch.",
           ],
-          speakerDescription: [],
+          speakerDescription: [
+            "I work as a consultant and developer for Variant in Bergen. I've been interested computers for as long as I can remember and have always had a knack for reading manuals (very handy!). I like making silly programs in functional languages and teaching things. One of my favorite things is seeing other people experience the a-ha moment of suddenly getting a concept and then being flooded with inspiration and making new brain connections. Please come talk to me if you find me, my talk, or yourself interesting!",
+          ],
         },
         {
           type: "talk",
@@ -386,7 +407,9 @@ export const schedule: Schedule = [
           talkDescription: [
             "When the creators of digital solutions put the users' needs aside in order to maximize their own profit, it happens that the dirty tricks are used. In these waters you have to navigate with a steady hand to end up where you want, with what you want. As a designer, it is useful to know the principles behind dark patterns because it also contributes to an understanding of how safe waters should look like.",
           ],
-          speakerDescription: [],
+          speakerDescription: [
+            "Jonas is a UX designer at Variant. He has worked with digital channels for almost two decades. In recent years, he has focused on optimizing customer journeys within both online shopping and telecom. In this work, he finds himself at the intersection between the users' and the company's needs. He is an ambassador for a user-centred approach, and believes this is where the gain always lies in the long run.",
+          ],
         },
         {
           type: "talk",
@@ -401,7 +424,14 @@ export const schedule: Schedule = [
             "How can we ensure that an entire organization focuses on what truly matters—for both the customer and the business? How do we align teams around shared goals, foster a common understanding of priorities, and bridge the gap between strategic vision and day-to-day work?",
             "In this session, we’ll explore how to maximize the impact of customer journey maps as a strategic tool. We’ll share how we combined business data, customer insights, and behavioral analytics within a structured framework—ensuring clear ownership and alignment with the organization’s top OKRs. No matter the role you’re in, you’ll learn how to turn customer journey maps into practical tools that drive real business results.",
           ],
-          speakerDescription: [],
+          speakerDescription: [
+            "Stina Janson",
+            "Design Director, Länsförsäkringar",
+            "Experienced leader and designer based in Stockholm, with +20 years of experience working with user-centered and innovative products. I have a great passion for leadership, design, business, innovation and new technology. I work strategically and operationally to create value for users and business, and to ensure that design have a seat at the top table to influence product directions. ",
+            "Liza Hansson",
+            "Strategic Designer, Variant",
+            "As a consultant at Variant, Liza has taken on various roles to ensure that design delivers maximum impact and creates the greatest possible value for users. She focuses on creating great products that users love, always taking a holistic approach to ensure alignment between user needs, feasibility, business goals, and execution.",
+          ],
         },
         {
           type: "talk",
@@ -418,7 +448,9 @@ export const schedule: Schedule = [
             " We’ll explore how investing in juniors not only infuses fresh perspectives and energy but is crucial for developing the next generation of senior talent. If no one hires juniors, where will tomorrow’s senior consultants come from? Must consulting companies resort to hiring seniors away from their own customers?",
             " Discover how nurturing junior talent ensures sustainable growth, fosters innovation, and secures a competitive edge for both consulting companies and their clients. It is time to recognise that embracing juniors is not just beneficial—it is imperative for the future of our industry.",
           ],
-          speakerDescription: [],
+          speakerDescription: [
+            "Thomas has been a professional developer since 1999, when he graduated from Imperial College in London with a master’s degree in Software Engineering. He has worked both in Europe and in the United States as an in-house developer and consultant in industries such as telecommunication, intelligent transportation systems and finance. He is currently CTO in Variant Bergen, contributing to openness, generosity and the joy of learning.",
+          ],
         },
         {
           type: "talk",
@@ -486,7 +518,9 @@ export const schedule: Schedule = [
             "In this talk, we’ll break down the concept of data quality and demonstrate how designers play a key role in ensuring that data is not only collected correctly but is also of high quality. Through concrete examples and practical principles, you’ll learn how design can bridge the gap between usability and data quality – and how this can be the difference between mediocre and outstanding solutions in the world of AI.",
             "Join us and discover how we can shape tomorrow’s data together – one design decision at a time!",
           ],
-          speakerDescription: [],
+          speakerDescription: [
+            "Rolf Anders Storset is the Chief Design Officer (CDO) at Variant Trondheim, a consultancy recognized for its open and collaborative approach to digital service development.   With over 18 years of experience as a designer, both in-house and as a consultant, he has a broad range of design expertise. In the past three years, Rolf Anders has focused on projects involving organizational transformation and enabling data-sharing capabilities within Norway’s health and education sectors.",
+          ],
         },
         {
           type: "talk",
@@ -502,7 +536,9 @@ export const schedule: Schedule = [
             "What if the key to unlocking your product’s full potential was to embrace inclusivity from the start? In this lightning talk, we’ll flip the script on Universal Design and show how it’s not just a compliance checkbox, but a game changer for product strategy. You will discover how designing for accessibility can open up new markets, contribute to increased innovation and foster deeper customer loyalty.",
             "In just 10 minutes, you’ll walk away with fresh insights and practical tips on how to turn Universal Design into a competitive advantage. Let’s turn necessity into opportunity, and create products that everyone can enjoy.",
           ],
-          speakerDescription: [],
+          speakerDescription: [
+            "Marius is an ex programmer now turned product manager with a fondness for fantastic product experiences. Although spending most of his time thinking about product development, he also maintains his programming skills by being both producer and panelist on the JavaScript podcast “BartJS Podcast”. When he’s not working as a consultant at Variant, he is very entertained by video games and running.",
+          ],
         },
         {
           type: "talk",
@@ -565,7 +601,9 @@ export const schedule: Schedule = [
           talkDescription: [
             "Wield the cascade and go with the grain of the web – lets create systems rather than specifying individual properties into a whole. This talk is suited for both designers and frontend developers looking to understand some of the most powerful features and concepts of CSS.",
           ],
-          speakerDescription: [],
+          speakerDescription: [
+            "I've been doing frontend for well over a decade, and I love making shiny and delightful things for the web. Deep into CSS and web components.",
+          ],
         },
         {
           type: "talk",
@@ -641,7 +679,9 @@ export const schedule: Schedule = [
             "Encrypted secrets that is! I'll demonstrate tools and techniques that will enable you to version control your secrets alongside the code it belongs to. Easily share secrets with new team members and get a full audit log as a bonus. And it's all according to modern security practices.",
             " I will introduce you to SOPS and how you can use keys stored in secure remote services like Azure Key Vault or HashiCorp Vault. Access is easily controlled through the same identity you use for other services. I'll also show some gotchas to be aware of, but let's not be afraid of putting our secrets in git!",
           ],
-          speakerDescription: [],
+          speakerDescription: [
+            "Nikolai specializes in how processes and technology work together to enable continuous delivery of solutions. He is always searching for ways to deliver fast without compromising quality. He loves problems related to distributed systems, automation and infrastructure, but shines when focusing on developer experience and deployment pipelines.",
+          ],
         },
         {
           type: "talk",
@@ -655,7 +695,10 @@ export const schedule: Schedule = [
           talkDescription: [
             "In a fast moving world, where digitalisation is the enabler for change, an agile approach to innovation, organisational change and sustainable businesses is needed. By combing ideas from business development with design thinking we have the toolkit for a collaborative journey where Variant facilitate and our customers own the result. Together we create shared knowledge and the result have a focus on actions, not slides. This is not a talk about Digital Strategy, a talk about Strategy for a digitalised world.",
           ],
-          speakerDescription: [],
+          speakerDescription: [
+            "David is a strategically driven leader with a robust background in user research and strategy from both academia and industry. David started the User Research Lab at Skype and was also part of the corporate strategy team at Svenska Spel. For the last 10 years he has been on the consultancy side, with several strategy projects as well as leadership positions. Previously Head of inUse, a design consultancy agency and now he is the CEO of Variant Sverige AB. Variant Sverige is a consultancy agency that is transparent, value-driven, and built by and for people.",
+            "Our mission is to foster trust, transparency, and equality within European companies. Founded in Trondheim in 2018, Variant has expanded to Sweden with offices in Stockholm, Gothenburg, and Linköping. The company is committed to creating a positive digital impact through collaboration and a shared passion for learning.",
+          ],
         },
         {
           type: "talk",
@@ -673,7 +716,9 @@ export const schedule: Schedule = [
             " Through the eyes of three different engineers we will take a look at what WebAssembly has to offer:",
             "The innovator: who manages to solve a completely new set of problems on the web.  The revolutionary: who throws away there codebase and starts fresh, building there website with not a single line of Javascript.The madman: who tries to take things too far, and doesn’t know where to stop.",
           ],
-          speakerDescription: [],
+          speakerDescription: [
+            "Yoeri is a young developer at Variant Bergen. From the young age of 11, he has dived into the world of (web) development, finally making it into his study and career. Now 15 years later (and a few dozen frontend frameworks later), he is just as interested as ever in discovering new technologies and creating efficient applications.",
+          ],
         },
       ],
     ],
