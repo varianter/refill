@@ -14,8 +14,8 @@ import {
   getSpeaker,
 } from "./functions";
 import RenderSpeakerImage from "./RenderSpeakerImage.astro";
-import Description from "./Description.astro";
 import type { ScheduleEntry } from "../../utils/schedule/types";
+import Description from "../Description.astro";
 
 interface Props {
   event: ScheduleEntry;
@@ -31,6 +31,8 @@ const colorPair = getColorPair(event);
 const talkDescription = getTalkDescription(event);
 const borderColor = getBorderColor(colorPair);
 const column = getCardColumn(colorPair);
+
+const shouldRenderDescription = span > 1;
 ---
 
 <CardWrapper
@@ -42,7 +44,10 @@ const column = getCardColumn(colorPair);
   <div class="speaker_card__wrapper">
     {speaker && <RenderSpeakerImage speakerName={speaker} />}
     <Talk speakerName={speaker} title={title} />
-    <Description talkDescription={talkDescription} span={span} />
+    <Description
+      talkDescription={talkDescription}
+      displayCondition={shouldRenderDescription}
+    />
     <div class="speaker_card__flex">
       <div class="speaker_card__flex__labels">
         <Discipline>{`${location} ${from}-${to}`}</Discipline>
