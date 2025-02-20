@@ -72,6 +72,7 @@ const offices = [
 
 <style>
   .footer {
+    box-sizing: border-box;
     padding: var(--Padding-l);
     border-radius: var(--Padding-s);
     max-width: 1410px;
@@ -125,14 +126,23 @@ const offices = [
   }
 
   .footer__curly {
-    height: 565px;
+    width: 572px;
     object-fit: contain;
     position: absolute;
     right: calc(-1 * var(--Padding-index));
     top: -206px;
 
-    @container footer (width >= 1410px) {
+    @container footer (width >= 1300px) {
       right: 0;
+    }
+
+    @media (max-width: 1100px) {
+      width: 400px;
+      top: -230px;
+    }
+
+    @media (max-width: 800px) {
+      display: none;
     }
   }
 
