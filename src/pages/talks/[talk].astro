@@ -10,6 +10,7 @@ import {
 } from "../../utils/discipline";
 import { getTalkById } from "../../utils/schedule/functions";
 import RenderSpeakerImage from "../../components/ScheduleEntryCard/RenderSpeakerImage.astro";
+import { getSpeakerNames } from "../../utils/getSpeakerNames";
 
 const exampleSpeakerDescription =
   "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo";
@@ -30,9 +31,10 @@ const { id, title, location, from, to, discipline, speaker, talkDescription } =
   talk;
 
 const colorPair = getDisciplineColorPair(discipline);
-
 const disciplineBackgroundColor = colorPair.color;
 const disciplineTextColor = colorPair.textColor;
+
+const speakerName = getSpeakerNames(speaker);
 ---
 
 <TalkLayout>
@@ -59,19 +61,18 @@ const disciplineTextColor = colorPair.textColor;
           (
             <Description
               talkDescription={talkDescription}
-              descriptionSize="big"
-              textColor={colors.text.primary}
+              descriptionType="normal"
             />
           )
         }
       </div>
       <div class="talk__author_section">
         <div class="talk__author_images">
-          <!-- <RenderSpeakerImage speakerName={speaker} isCard={false} /> -->
+          <RenderSpeakerImage speakerName={speaker} isCard={false} />
         </div>
       </div>
       <div class="talk__author_description">
-        <p class="talk__author_title">{speaker}</p>
+        <p class="talk__author_title">{speakerName}</p>
         <p>{exampleSpeakerDescription}</p>
       </div>
     </section>
@@ -91,7 +92,7 @@ const disciplineTextColor = colorPair.textColor;
     display: flex;
     flex-direction: column;
     gap: var(--Padding-xl);
-    max-width: 870px;
+    max-width: 649px;
   }
 
   h1 {
