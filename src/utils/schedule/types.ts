@@ -16,10 +16,12 @@ export interface ScheduleEvent {
   to: string;
 }
 
+export type Speaker = SpeakerName | SpeakerName[];
+
 export interface CommonEvent extends ScheduleEvent {
   type: "common";
   location: string;
-  speaker?: SpeakerName | SpeakerName[];
+  speaker?: Speaker;
   talkDescription: TalkDescriptionList;
 }
 
@@ -27,7 +29,7 @@ export interface Talk extends ScheduleEvent {
   type: "talk";
   location: string;
   discipline: Discipline;
-  speaker: SpeakerName | SpeakerName[];
+  speaker: Speaker;
   talkDescription: TalkDescriptionList;
 }
 
