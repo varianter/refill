@@ -1,11 +1,10 @@
 ---
-import type { Color } from "../utils/colors";
 import {
-  type TalkDescription,
-  type TalkDescriptionList,
+  type Description,
+  type DescriptionList,
 } from "../utils/schedule/types";
 interface Props {
-  talkDescription: TalkDescriptionList;
+  talkDescription: DescriptionList;
   displayCondition?: boolean;
   descriptionType?: "card" | "normal";
 }
@@ -20,7 +19,7 @@ function shouldShowDescription() {
   return displayCondition && talkDescription.length > 0;
 }
 
-function isParagraph(descriptionParagraph: TalkDescription) {
+function isParagraph(descriptionParagraph: Description) {
   return typeof descriptionParagraph === "string";
 }
 
