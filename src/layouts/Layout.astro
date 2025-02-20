@@ -1,6 +1,5 @@
 ---
 import "../styles/global.css";
-import Footer from "../components/navigation/Footer.astro";
 import Navbar from "../components/navigation/Navbar.astro";
 ---
 
@@ -67,7 +66,7 @@ import Navbar from "../components/navigation/Navbar.astro";
     <Navbar />
     <main>
       <slot />
-      <Footer />
+      <slot name="footer" />
     </main>
   </body>
 </html>

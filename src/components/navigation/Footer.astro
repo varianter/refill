@@ -1,6 +1,30 @@
 ---
 import { Image } from "astro:assets";
+import designCurly from "../../../public/assets/img/curly_design.png";
+import developmentCurly from "../../../public/assets/img/curly_development.png";
+import strategyAndProductCurly from "../../../public/assets/img/curly_strategy_and_product.png";
 import logoVariant from "../../../public/assets/img/logo-variant.svg";
+import { Discipline } from "../../utils/discipline";
+
+interface Props {
+  variant: "red" | "black";
+  illustrationVariant?: Discipline;
+}
+
+const { variant = "red", illustrationVariant } = Astro.props;
+
+function getCurlyIllustration(discipline: Discipline) {
+  switch (discipline) {
+    case Discipline.Design:
+      return designCurly;
+    case Discipline.Development:
+      return developmentCurly;
+    case Discipline.StrategyAndProduct:
+      return strategyAndProductCurly;
+  }
+}
+
+const backgroundClass = variant === "red" ? "footer__red" : "footer__black";
 
 const offices = [
   "Trondheim",
@@ -13,7 +37,17 @@ const offices = [
 ];
 ---
 
-<footer class="footer">
+<footer class={`footer ${backgroundClass}`}>
+  {
+    illustrationVariant && (
+      <Image
+        src={getCurlyIllustration(illustrationVariant)}
+        class="footer__curly"
+        alt="Refill illustration"
+      />
+    )
+  }
+
   <div class="footer__content">
     <div class="footer__office">
       <p>
@@ -38,15 +72,19 @@ const offices = [
 
 <style>
   .footer {
-    padding: 3rem;
+    box-sizing: border-box;
+    padding: var(--Padding-l);
     border-radius: var(--Padding-s);
     max-width: 1410px;
+    width: 100%;
     margin: auto;
-    background: linear-gradient(180deg, #ffc2be 0%, #ef826e 45%, #e45738 100%);
+
+    container: footer / inline-size;
 
     display: flex;
     flex-direction: column;
     gap: 7.5rem;
+    position: relative;
 
     @media (max-width: 1000px) {
       padding: 2.25rem;
@@ -60,9 +98,54 @@ const offices = [
     & p {
       font-size: 1.125rem;
       font-weight: 400;
-      color: var(--grey-900);
     }
   }
+
+  .footer__red {
+    background: linear-gradient(180deg, #ffc2be 0%, #ef826e 45%, #e45738 100%);
+
+    p {
+      color: var(--text-primary);
+    }
+
+    a {
+      color: var(--grey-800);
+    }
+  }
+
+  .footer__black {
+    background: var(--background-dark);
+
+    p {
+      color: var(--text-primary-on-dark);
+    }
+
+    a {
+      color: var(--grey-50);
+    }
+  }
+
+  .footer__curly {
+    width: 572px;
+    object-fit: contain;
+    position: absolute;
+    right: calc(-1 * var(--Padding-index));
+    top: -206px;
+
+    @container footer (width >= 1300px) {
+      right: 0;
+    }
+
+    @media (max-width: 1100px) {
+      width: 400px;
+      top: -230px;
+    }
+
+    @media (max-width: 800px) {
+      display: none;
+    }
+  }
+
   .footer__content {
     display: flex;
     flex-direction: column;
@@ -90,7 +173,6 @@ const offices = [
     & > p {
       display: flex;
       gap: 0.5rem;
-      color: var(--grey-800);
     }
 
     & > p:not(:last-child)::after {
@@ -103,10 +185,6 @@ const offices = [
     display: flex;
     flex-direction: column;
     gap: var(--Padding-m);
-
-    & > a {
-      color: var(--grey-800);
-    }
   }
 
   .footer__img {
