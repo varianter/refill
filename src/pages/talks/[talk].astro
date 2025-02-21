@@ -60,7 +60,7 @@ const speakerName = getSpeakerNames(speaker);
           <p class="talk__chip talk__discipline">
             {getDisciplineName(discipline)}
           </p>
-          <FavoriteButton id={id} title={title} />
+          <FavoriteButton client:load id={id} title={title} />
         </div>
         {
           (
