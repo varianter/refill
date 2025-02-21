@@ -124,6 +124,12 @@ const speakerName = getSpeakerNames(speaker);
     max-width: 1184px;
     width: 100%;
     margin: auto;
+
+    @media (max-width: 1000px) {
+      max-width: 649px;
+      padding: 0;
+      padding-top: var(--Padding-xl);
+    }
   }
 
   .talk__talk__link_text {
