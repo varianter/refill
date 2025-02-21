@@ -24,7 +24,7 @@ const { track, numberOfRows, shortestTime } = Astro.props;
   }
 </div>
 
-<style define:vars={{ numberOfRows }}>
+<style is:global define:vars={{ numberOfRows }}>
   .track {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
@@ -44,5 +44,9 @@ const { track, numberOfRows, shortestTime } = Astro.props;
     @media (max-width: 430px) {
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
+  }
+
+  .track__single_card .description {
+    display: none;
   }
 </style>

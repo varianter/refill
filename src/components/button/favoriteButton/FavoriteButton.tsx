@@ -4,6 +4,10 @@ import {
   getFavoriteById,
   toggleFavoriteInLocalStorage,
 } from "../../../utils/localstorage";
+import {
+  handleFavoriteChange,
+  toggleEventListner,
+} from "../../../utils/eventListners";
 
 type FavoriteButtonProps = {
   id: string;
@@ -20,6 +24,7 @@ export const FavoriteButton = ({ id, title }: FavoriteButtonProps) => {
   function toggleFavorite() {
     toggleFavoriteInLocalStorage(id);
     setIsFavorited(!isFavorited);
+    handleFavoriteChange(isFavorited);
   }
 
   //TODO: Should have a aria checked if favorited
