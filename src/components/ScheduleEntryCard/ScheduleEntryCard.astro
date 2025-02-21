@@ -12,6 +12,7 @@ import {
   getTalkDescription,
   getLocation,
   getSpeaker,
+  isTalk,
 } from "./functions";
 import RenderSpeakerImage from "./RenderSpeakerImage.astro";
 import type { ScheduleEntry } from "../../utils/schedule/types";
@@ -42,8 +43,20 @@ const shouldRenderDescription = span > 1;
   column={column}
 >
   <div class="speaker_card__wrapper">
-    {speaker && <RenderSpeakerImage speakerName={speaker} />}
-    <Talk speakerName={speaker} title={title} />
+    {
+      isTalk(event) ? (
+        <a href={`talks/${id}`} class="speaker_card__link">
+          {speaker && <RenderSpeakerImage speakerName={speaker} />}
+          <Talk speakerName={speaker} title={title} />
+        </a>
+      ) : (
+        <>
+          {speaker && <RenderSpeakerImage speakerName={speaker} />}
+          <Talk speakerName={speaker} title={title} />
+        </>
+      )
+    }
+
     <Description
       talkDescription={talkDescription}
       displayCondition={shouldRenderDescription}
@@ -88,6 +101,10 @@ const shouldRenderDescription = span > 1;
 
   .speaker_card__wrapper:not(:has(.render_speaker_image__speaker_img)) .talk {
     max-width: 100%;
+  }
+
+  .speaker_card__link {
+    display: grid;
   }
 
   .talk {

@@ -24,6 +24,10 @@ export const getColorPair = (event: ScheduleEntry): ColorPair | undefined => {
     : undefined;
 };
 
+export const isTalk = (event: ScheduleEntry): boolean => {
+  return event.type === "talk";
+};
+
 export const getBorderColor = (
   colorPair: ColorPair | undefined,
 ): string | undefined => {
