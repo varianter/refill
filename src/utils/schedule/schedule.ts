@@ -30,6 +30,7 @@ const {
   MikaelBrevik,
   DavidDeLeon,
   LizaHanssonAndStinaJanson,
+  AndreaHvattum,
 } = SpeakerName;
 
 export const schedule: Schedule = [
@@ -543,14 +544,19 @@ export const schedule: Schedule = [
         {
           type: "talk",
           id: "41",
-          title: "TBA",
+          title: "Stories build products, align teams and drive strategy",
           location: "No. 314",
           from: "13:30",
-          to: "14:00",
+          to: "13: 50",
           discipline: StrategyAndProduct,
-          speaker: None,
-          talkDescription: [],
-          speakerDescription: [],
+          speaker: AndreaHvattum,
+          talkDescription: [
+            "Great teams don’t just execute tasks—they own the story behind the work. In high-performing, integrated teams, strategy isn’t handed over—it’s built together. This talk explores how storytelling aligns product, project, and strategy teams to minimize handovers, create shared understanding, and turn ideas into impact.💡 If you want things to work, make sure everyone is part of the same story.",
+          ],
+          speakerDescription: [
+            "Andrea Hvattum is a trusted sparring partner for leaders and teams navigating the intersection of strategy, product and execution. With a background in business development, leadership coaching, and brand positioning, she helps teams move beyond roadmaps and PowerPoints to build products and strategies that truly stick.",
+            "Known for her engaging storytelling, sharp insights and ability to make complex ideas actionable, Andrea works with startups, scaleups, and large organizations, challenging leaders and teams to rethink collaboration, minimize handovers and align around impact-driven execution.",
+          ],
         },
       ],
     ],
