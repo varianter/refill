@@ -1,4 +1,5 @@
 ---
+import { colors } from "../utils/colors";
 import type { Column } from "../utils/getColumm";
 
 interface Props {
@@ -9,13 +10,27 @@ interface Props {
 }
 
 const { id, borderColor, span, column } = Astro.props;
+
+function ShouldBeLink() {
+  return borderColor !== colors.text.primary;
+}
 ---
 
-<div class="relative">
-  <div id=`card${id}` class="card_wrapper">
-    <slot />
-  </div>
-</div>
+{
+  ShouldBeLink() ? (
+    <a href={`../talks/${id}`} class="relative" id={id}>
+      <div id={`card${id}`} class="card_wrapper">
+        <slot />
+      </div>
+    </a>
+  ) : (
+    <div class="relative" id={id}>
+      <div id={`card${id}`} class="card_wrapper">
+        <slot />
+      </div>
+    </div>
+  )
+}
 
 <style define:vars={{ span, column, borderColor }}>
   .relative {
