@@ -22,33 +22,35 @@ const width = isCard ? 338 : 408;
 const height = isCard ? 355 : 316;
 ---
 
-<div class={className}>
-  {
-    isArray(speakerName) ? (
-      speakerName.map((name) => {
-        return (
-          <Image
-            layout="responsive"
-            class="render_speaker_image__speaker_img"
-            src={getSpeakerImageSrc(name)}
-            height={width}
-            width={width}
-            alt=""
-          />
-        );
-      })
-    ) : (
-      <Image
-        layout="responsive"
-        class="render_speaker_image__speaker_img"
-        src={getSpeakerImageSrc(speakerName)}
-        height={width}
-        width={height}
-        alt=""
-      />
-    )
-  }
-</div>
+{
+  speakerName && (
+    <div class={className}>
+      {isArray(speakerName) ? (
+        speakerName.map((name) => {
+          return (
+            <Image
+              layout="responsive"
+              class="render_speaker_image__speaker_img"
+              src={getSpeakerImageSrc(name)}
+              height={width}
+              width={width}
+              alt=""
+            />
+          );
+        })
+      ) : (
+        <Image
+          layout="responsive"
+          class="render_speaker_image__speaker_img"
+          src={getSpeakerImageSrc(speakerName)}
+          height={width}
+          width={height}
+          alt=""
+        />
+      )}
+    </div>
+  )
+}
 
 <style>
   .render_speaker_image {

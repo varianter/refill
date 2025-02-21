@@ -11,9 +11,6 @@ import { getTalkById } from "../../utils/schedule/functions";
 import RenderSpeakerImage from "../../components/ScheduleEntryCard/RenderSpeakerImage.astro";
 import { getSpeakerNames } from "../../utils/getSpeakerNames";
 
-const exampleSpeakerDescription =
-  "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo";
-
 const { talk: talkId } = Astro.params;
 
 if (talkId === undefined) {
@@ -26,8 +23,17 @@ if (talk === undefined) {
   return Astro.redirect("/404");
 }
 
-const { id, title, location, from, to, discipline, speaker, talkDescription } =
-  talk;
+const {
+  id,
+  title,
+  location,
+  from,
+  to,
+  discipline,
+  speaker,
+  talkDescription,
+  speakerDescription,
+} = talk;
 
 const colorPair = getDisciplineColorPair(discipline);
 const disciplineBackgroundColor = colorPair.color;
@@ -72,7 +78,10 @@ const speakerName = getSpeakerNames(speaker);
       </div>
       <div class="talk__author_description">
         <p class="talk__author_title">{speakerName}</p>
-        <p>{exampleSpeakerDescription}</p>
+        <Description
+          talkDescription={speakerDescription}
+          descriptionType="normal"
+        />
       </div>
     </section>
   </div>
