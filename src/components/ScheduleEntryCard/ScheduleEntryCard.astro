@@ -12,10 +12,11 @@ import {
   getTalkDescription,
   getLocation,
   getSpeaker,
+  isTalk,
 } from "./functions";
 import RenderSpeakerImage from "./RenderSpeakerImage.astro";
-import Description from "./Description.astro";
 import type { ScheduleEntry } from "../../utils/schedule/types";
+import Description from "../Description.astro";
 
 interface Props {
   event: ScheduleEntry;
@@ -31,6 +32,8 @@ const colorPair = getColorPair(event);
 const talkDescription = getTalkDescription(event);
 const borderColor = getBorderColor(colorPair);
 const column = getCardColumn(colorPair);
+
+const shouldRenderDescription = span > 1;
 ---
 
 <CardWrapper
@@ -40,9 +43,24 @@ const column = getCardColumn(colorPair);
   column={column}
 >
   <div class="speaker_card__wrapper">
-    {speaker && <RenderSpeakerImage speakerName={speaker} />}
-    <Talk speakerName={speaker} title={title} />
-    <Description talkDescription={talkDescription} span={span} />
+    {
+      isTalk(event) ? (
+        <a href={`talks/${id}`} class="speaker_card__link" id={id}>
+          {speaker && <RenderSpeakerImage speakerName={speaker} />}
+          <Talk speakerName={speaker} title={title} />
+        </a>
+      ) : (
+        <>
+          {speaker && <RenderSpeakerImage speakerName={speaker} />}
+          <Talk speakerName={speaker} title={title} />
+        </>
+      )
+    }
+
+    <Description
+      talkDescription={talkDescription}
+      displayCondition={shouldRenderDescription}
+    />
     <div class="speaker_card__flex">
       <div class="speaker_card__flex__labels">
         <Discipline>{`${location} ${from}-${to}`}</Discipline>
@@ -83,6 +101,11 @@ const column = getCardColumn(colorPair);
 
   .speaker_card__wrapper:not(:has(.render_speaker_image__speaker_img)) .talk {
     max-width: 100%;
+  }
+
+  .speaker_card__link {
+    display: grid;
+    grid-template-areas: "img";
   }
 
   .talk {

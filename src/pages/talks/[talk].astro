@@ -1,5 +1,6 @@
 ---
 import { FavoriteButton } from "../../components/button/favoriteButton/FavoriteButton";
+import Description from "../../components/Description.astro";
 import Footer from "../../components/navigation/Footer.astro";
 import TalkLayout from "../../layouts/Layout.astro";
 import {
@@ -7,11 +8,8 @@ import {
   getDisciplineName,
 } from "../../utils/discipline";
 import { getTalkById } from "../../utils/schedule/functions";
-
-const exampleDescription =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-const exampleSpeakerDescription =
-  "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo";
+import RenderSpeakerImage from "../../components/ScheduleEntryCard/RenderSpeakerImage.astro";
+import { getSpeakerNames } from "../../utils/getSpeakerNames";
 
 const { talk: talkId } = Astro.params;
 
@@ -25,16 +23,27 @@ if (talk === undefined) {
   return Astro.redirect("/404");
 }
 
-const { id, title, location, from, to, discipline, speaker } = talk;
+const {
+  id,
+  title,
+  location,
+  from,
+  to,
+  discipline,
+  speaker,
+  talkDescription,
+  speakerDescription,
+} = talk;
 
 const colorPair = getDisciplineColorPair(discipline);
-
 const disciplineBackgroundColor = colorPair.color;
 const disciplineTextColor = colorPair.textColor;
+
+const speakerName = getSpeakerNames(speaker);
 ---
 
 <TalkLayout>
-  <a class="talk__schedule_link" href="/schedule">
+  <a class="talk__schedule_link" href={`/schedule#${id}`}>
     <span class="talk__left_arrow">↓</span>
     <span class="talk__talk__link_text">Full schedule</span>
   </a>
@@ -51,25 +60,28 @@ const disciplineTextColor = colorPair.textColor;
           <p class="talk__chip talk__discipline">
             {getDisciplineName(discipline)}
           </p>
-          <FavoriteButton id={id} title={title} />
+          <FavoriteButton client:load id={id} title={title} />
         </div>
-        <p>
-          {exampleDescription}
-        </p>
+        {
+          (
+            <Description
+              talkDescription={talkDescription}
+              descriptionType="normal"
+            />
+          )
+        }
       </div>
       <div class="talk__author_section">
         <div class="talk__author_images">
-          <img
-            src="/assets/img/divider/smiley.png"
-            class="talk__author_image"
-            alt="Temporary image of author(s)"
-          />
-          <p>Temporary image of author(s)</p>
+          <RenderSpeakerImage speakerName={speaker} isCard={false} />
         </div>
-        <div class="talk__author_description">
-          <p class="talk__author_title">{speaker}</p>
-          <p>{exampleSpeakerDescription}</p>
-        </div>
+      </div>
+      <div class="talk__author_description">
+        <p class="talk__author_title">{speakerName}</p>
+        <Description
+          talkDescription={speakerDescription}
+          descriptionType="normal"
+        />
       </div>
     </section>
   </div>
@@ -88,7 +100,7 @@ const disciplineTextColor = colorPair.textColor;
     display: flex;
     flex-direction: column;
     gap: var(--Padding-xl);
-    max-width: 870px;
+    max-width: 649px;
   }
 
   h1 {
@@ -107,6 +119,11 @@ const disciplineTextColor = colorPair.textColor;
     align-items: center;
     gap: 1.5rem;
     width: fit-content;
+    padding: var(--Padding-xxl);
+    padding-bottom: 0;
+    max-width: 1184px;
+    width: 100%;
+    margin: auto;
   }
 
   .talk__talk__link_text {
@@ -116,14 +133,21 @@ const disciplineTextColor = colorPair.textColor;
   .talk__talk_details {
     display: flex;
     align-items: center;
-    gap: var(--Padding-l);
+    justify-content: space-between;
+    gap: var(--Padding-s);
+    flex-wrap: wrap;
+
+    @media (max-width: 500px) {
+      flex-direction: column;
+      align-items: start;
+    }
   }
 
   .talk__talk_section {
     display: flex;
     flex-direction: column;
     gap: var(--Padding-l);
-    width: 650px;
+    max-width: 650px;
   }
 
   p {
@@ -155,7 +179,7 @@ const disciplineTextColor = colorPair.textColor;
     flex-direction: column;
     align-items: center;
     gap: var(--Padding-m);
-    width: 650px;
+    max-width: 650px;
   }
 
   .talk__author_images {

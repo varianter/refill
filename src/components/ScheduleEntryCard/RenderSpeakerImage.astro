@@ -5,67 +5,93 @@ import { SpeakerName } from "../../utils/speakers";
 
 interface Props {
   speakerName: SpeakerName | SpeakerName[];
+  isCard?: boolean;
 }
 
-const { speakerName } = Astro.props;
+const { speakerName, isCard = true } = Astro.props;
 
 function isArray(speakerName: SpeakerName | SpeakerName[]) {
   return Array.isArray(speakerName);
 }
+
+const className = isCard
+  ? "render_speaker_image__card"
+  : "render_speaker_image";
+
+const width = isCard ? 338 : 408;
+const height = isCard ? 355 : 316;
 ---
 
-<div class="render_speaker_image">
-  {
-    isArray(speakerName) ? (
-      speakerName.map((name) => {
-        return (
-          <Image
-            class="render_speaker_image__speaker_img"
-            layout="responsive"
-            src={getSpeakerImageSrc(name)}
-            height={355}
-            width={338}
-            alt=""
-          />
-        );
-      })
-    ) : (
-      <Image
-        class="render_speaker_image__speaker_img"
-        layout="responsive"
-        src={getSpeakerImageSrc(speakerName)}
-        height={355}
-        width={338}
-        alt=""
-      />
-    )
-  }
-</div>
+{
+  speakerName && (
+    <div class={className}>
+      {isArray(speakerName) ? (
+        speakerName.map((name) => {
+          return (
+            <Image
+              layout="responsive"
+              class="render_speaker_image__speaker_img"
+              src={getSpeakerImageSrc(name)}
+              height={width}
+              width={width}
+              alt=""
+            />
+          );
+        })
+      ) : (
+        <Image
+          layout="responsive"
+          class="render_speaker_image__speaker_img"
+          src={getSpeakerImageSrc(speakerName)}
+          height={width}
+          width={height}
+          alt=""
+        />
+      )}
+    </div>
+  )
+}
 
 <style>
   .render_speaker_image {
+    width: 100%;
+    display: flex;
+    gap: var(--Padding-rem);
+
+    > img {
+      border-radius: 0.75rem;
+      width: 100%;
+      min-width: 0;
+    }
+
+    @media (max-width: 690px) {
+      gap: 0;
+    }
+  }
+
+  .render_speaker_image__card {
     max-width: 338px;
 
     grid-area: img;
     justify-self: end;
     display: flex;
+
+    > img {
+      height: 355px;
+      min-width: 0;
+    }
   }
 
-  .render_speaker_image > img {
-    height: 355px;
-    min-width: 0;
-  }
-
-  .render_speaker_image:has(> img:only-child) > img {
+  .render_speaker_image__card:has(> img:only-child) > img {
     border-radius: 10px;
   }
 
-  .render_speaker_image:has(> img:nth-child(2)) > img:first-child {
+  .render_speaker_image__card:has(> img:nth-child(2)) > img:first-child {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
   }
 
-  .render_speaker_image:has(> img:nth-child(2)) > img:last-child {
+  .render_speaker_image__card:has(> img:nth-child(2)) > img:last-child {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
   }

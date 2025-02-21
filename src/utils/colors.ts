@@ -34,6 +34,8 @@ export const colors = {
   },
 };
 
+export type Color = (typeof colors)[keyof typeof colors];
+
 export type ColorPair = {
   color: string;
   textColor: string;

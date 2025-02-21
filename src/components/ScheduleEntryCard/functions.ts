@@ -3,7 +3,7 @@ import { getDisciplineColorPair } from "../../utils/discipline";
 import { getColumn } from "../../utils/getColumm";
 import type {
   ScheduleEntry,
-  TalkDescriptionList,
+  DescriptionList,
 } from "../../utils/schedule/types";
 
 export const getSpeaker = (event: ScheduleEntry) => {
@@ -14,9 +14,7 @@ export const getLocation = (event: ScheduleEntry): string => {
   return event.type !== "break" ? event.location : "";
 };
 
-export const getTalkDescription = (
-  event: ScheduleEntry,
-): TalkDescriptionList => {
+export const getTalkDescription = (event: ScheduleEntry): DescriptionList => {
   return event.type !== "break" ? event.talkDescription : [];
 };
 
@@ -24,6 +22,10 @@ export const getColorPair = (event: ScheduleEntry): ColorPair | undefined => {
   return event.type === "talk"
     ? getDisciplineColorPair(event.discipline)
     : undefined;
+};
+
+export const isTalk = (event: ScheduleEntry): boolean => {
+  return event.type === "talk";
 };
 
 export const getBorderColor = (

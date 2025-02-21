@@ -6,8 +6,8 @@ type Bulletpoints = {
   BulletpointsList: string[];
 };
 
-export type TalkDescription = string | Bulletpoints;
-export type TalkDescriptionList = (string | Bulletpoints)[];
+export type Description = string | Bulletpoints;
+export type DescriptionList = (string | Bulletpoints)[];
 
 export interface ScheduleEvent {
   id: string;
@@ -16,19 +16,24 @@ export interface ScheduleEvent {
   to: string;
 }
 
+export type Speaker = SpeakerName | SpeakerName[];
+
+// TODO: Set talkDescription to optional
 export interface CommonEvent extends ScheduleEvent {
   type: "common";
   location: string;
-  speaker?: SpeakerName | SpeakerName[];
-  talkDescription: TalkDescriptionList;
+  speaker?: Speaker;
+  talkDescription: DescriptionList;
+  speakerDescription: DescriptionList;
 }
 
 export interface Talk extends ScheduleEvent {
   type: "talk";
   location: string;
   discipline: Discipline;
-  speaker: SpeakerName | SpeakerName[];
-  talkDescription: TalkDescriptionList;
+  speaker: Speaker;
+  talkDescription: DescriptionList;
+  speakerDescription: DescriptionList;
 }
 
 export interface Break extends ScheduleEvent {
