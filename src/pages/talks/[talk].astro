@@ -40,6 +40,8 @@ const disciplineBackgroundColor = colorPair.color;
 const disciplineTextColor = colorPair.textColor;
 
 const speakerName = getSpeakerNames(speaker);
+const aboutTheSpeakerHeading =
+  speaker.length > 1 ? "About the speakers" : "About the speaker";
 ---
 
 <TalkLayout>
@@ -52,6 +54,12 @@ const speakerName = getSpeakerNames(speaker);
       <h1>
         {title}
       </h1>
+      <div class="talk__author_section">
+        <p class="talk__author_name">{speakerName}</p>
+        <div class="talk__author_images">
+          <RenderSpeakerImage speakerName={speaker} isCard={false} />
+        </div>
+      </div>
       <div class="talk__talk_section">
         <div class="talk__talk_details">
           <p class="talk__chip talk__time_and_location">
@@ -71,13 +79,8 @@ const speakerName = getSpeakerNames(speaker);
           )
         }
       </div>
-      <div class="talk__author_section">
-        <div class="talk__author_images">
-          <RenderSpeakerImage speakerName={speaker} isCard={false} />
-        </div>
-      </div>
       <div class="talk__author_description">
-        <p class="talk__author_title">{speakerName}</p>
+        <p class="talk__about_author">{aboutTheSpeakerHeading}</p>
         <Description
           talkDescription={speakerDescription}
           descriptionType="normal"
@@ -93,13 +96,13 @@ const speakerName = getSpeakerNames(speaker);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--Padding-xl);
+    gap: var(--Padding-l);
   }
 
   section {
     display: flex;
     flex-direction: column;
-    gap: var(--Padding-xl);
+    gap: var(--Padding-l);
     max-width: 649px;
   }
 
@@ -183,9 +186,12 @@ const speakerName = getSpeakerNames(speaker);
   .talk__author_section {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: var(--Padding-m);
-    max-width: 650px;
+  }
+  .talk__author_name {
+    font-size: var(--Font-size-H3);
+    font-weight: 450;
+    line-height: var(--Line-height-H3);
   }
 
   .talk__author_images {
@@ -214,7 +220,8 @@ const speakerName = getSpeakerNames(speaker);
     gap: 1.5rem;
   }
 
-  .talk__author_title {
+  .talk__about_author {
     font-size: var(--Font-size-H3);
+    font-weight: 450;
   }
 </style>
