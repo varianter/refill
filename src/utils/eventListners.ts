@@ -1,5 +1,21 @@
 import { addNoneFavorited, removeNoneFavorited } from "./localstorage";
 
+function setClassnameForTracksWithOneCard() {
+  document.querySelectorAll(".track").forEach((track) => {
+    const visibleCards = track.querySelectorAll(".card_wrapper");
+    console.log("Setting classname to Single card");
+    if (visibleCards.length === 1) {
+      track.className = "track__single_card";
+    }
+  });
+}
+
+function setAllClassnamesToTrack() {
+  document.querySelectorAll(".track__single_card").forEach((track) => {
+    track.className = "track";
+  });
+}
+
 export function toggleEventListner(event: Event) {
   const target = event.target as HTMLInputElement;
   const isChecked = target.checked;
@@ -10,11 +26,23 @@ export function toggleEventListner(event: Event) {
   if (isChecked) {
     params.set("favorites", "true");
     removeNoneFavorited();
+    setClassnameForTracksWithOneCard();
   } else {
     params.delete("favorites");
     addNoneFavorited();
+    setAllClassnamesToTrack();
   }
 
   const newUrl = `${url.pathname}?${params.toString()}`;
   window.history.pushState({}, "", newUrl);
+}
+
+export function handleFavoriteChange(isChecked: boolean) {
+  if (isChecked) {
+    removeNoneFavorited();
+    setClassnameForTracksWithOneCard();
+  } else {
+    addNoneFavorited();
+    setAllClassnamesToTrack();
+  }
 }

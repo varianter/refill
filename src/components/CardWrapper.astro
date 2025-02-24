@@ -11,13 +11,11 @@ interface Props {
 const { id, borderColor, span, column } = Astro.props;
 ---
 
-<div class="relative">
-  <div id=`card${id}` class="card_wrapper">
-    <slot />
-  </div>
+<div id=`card${id}` class="card_wrapper">
+  <slot />
 </div>
 
-<style define:vars={{ span, column, borderColor }}>
+<style is:global define:vars={{ span, column, borderColor }}>
   .relative {
     position: relative;
     grid-row: span var(--span);
@@ -53,12 +51,22 @@ const { id, borderColor, span, column } = Astro.props;
   .card_wrapper {
     opacity: 1;
     position: relative;
+    z-index: 1;
     transition: all 0.4s;
+    position: relative;
+    grid-row: span var(--span);
+    grid-column: var(--column);
+
+    @media (max-width: 1300px) {
+      grid-column: unset;
+      grid-row: unset;
+    }
   }
 
   .card_wrapper__hidden {
     opacity: 0;
     position: absolute;
+    z-index: 0;
     width: 100%;
     box-sizing: border-box;
   }
