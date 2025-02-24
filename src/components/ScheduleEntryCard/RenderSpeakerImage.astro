@@ -18,8 +18,8 @@ const className = isCard
   ? "render_speaker_image__card"
   : "render_speaker_image";
 
-const width = isCard ? 338 : 408;
-const height = isCard ? 355 : 316;
+const width = isCard ? 338 : 314;
+const height = isCard ? 355 : 239;
 ---
 
 {
@@ -32,7 +32,7 @@ const height = isCard ? 355 : 316;
               layout="responsive"
               class="render_speaker_image__speaker_img"
               src={getSpeakerImageSrc(name)}
-              height={width}
+              height={height}
               width={width}
               alt=""
             />
@@ -43,8 +43,8 @@ const height = isCard ? 355 : 316;
           layout="responsive"
           class="render_speaker_image__speaker_img"
           src={getSpeakerImageSrc(speakerName)}
-          height={width}
-          width={height}
+          height={height}
+          width={width}
           alt=""
         />
       )}
