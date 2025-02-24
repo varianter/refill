@@ -30,6 +30,10 @@ const maxWidth = checkTalkLenght();
     max-width: var(--maxWidth);
     width: 100%;
 
+    > p {
+      transition: all 0.2s;
+    }
+
     @media (max-width: 900px) {
       max-width: 100%;
     }
