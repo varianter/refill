@@ -7,8 +7,8 @@ interface Props {
 }
 
 const { id } = Astro.props;
-const baseURL = Astro.site || "http://localhost:4321"; // Fallback for local dev
-const ogImageURL = new URL(`/talks/${id}-og.png`, baseURL).href;
+const originUrl = Astro.url.origin;
+const ogImageURL = new URL(`/talks/${id}-og.png`, originUrl).href;
 ---
 
 <!doctype html>
