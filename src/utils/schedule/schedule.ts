@@ -31,6 +31,7 @@ const {
   DavidDeLeon,
   LizaHanssonAndStinaJanson,
   AndreaHvattum,
+  AndersHammervold,
 } = SpeakerName;
 
 export const schedule: Schedule = [
@@ -362,7 +363,7 @@ export const schedule: Schedule = [
           from: "12:30",
           to: "12:50",
           discipline: StrategyAndProduct,
-          speaker: MalinCKarlsen,
+          speaker: [AndersHammervold, MalinCKarlsen],
           talkDescription: [
             "This session provides the outlines on how we, in collaboration with the Norwegian Public Roads Administration (Statens vegvesen), established a transformative program addressing both technology and processes for the National Road Database (Nasjonal vegdatabank).",
             {
@@ -377,7 +378,10 @@ export const schedule: Schedule = [
             },
             "By sharing insights from this journey, we aim to highlight practical strategies, challenges, and outcomes relevant to large-scale transformation programs in the public sector.",
           ],
-          speakerDescription: [],
+          speakerDescription: [
+            "Anders is Chief Commercial officer in Variant, Key Account manager for Statens vegvesen and has also worked in different projects in Statens vegvesen as project manager.",
+            "Malin is a project manager in Variant Trondheim, and has been working in projects for Statens vegvesen for 4 years out of the last 5. ",
+          ],
         },
         {
           type: "talk",
