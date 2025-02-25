@@ -1,9 +1,9 @@
 import type { APIRoute, InferGetStaticPropsType } from "astro";
 import { PNG } from "../../../components/OpenGraph/createImage";
-import { OG } from "../../../components/OpenGraph/OG";
 import { schedule } from "../../../utils/schedule/schedule";
 import { getSpeakerImageSrc } from "../../../utils/speakerImages";
 import type { Speaker } from "../../../utils/schedule/types";
+import { OG } from "../../../components/OpenGraph/OG";
 
 export const prerender = true;
 
@@ -37,12 +37,14 @@ export const GET: APIRoute = async function get({ params }) {
     )
     .shift(); // Assuming `id` is unique, we pick the first match
 
-  if (!talk) {
+  if (!talk || talk?.type != "talk") {
     return new Response("Not Found", { status: 404 });
   }
 
+  const { title } = talk;
+
   // Generate the PNG image based on the OG component
-  const png = await PNG(OG());
+  const png = await PNG(OG({ title }));
 
   // Return the image with correct content type
   return new Response(png, {
