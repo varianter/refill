@@ -428,7 +428,7 @@ export const schedule: Schedule = [
           speakerDescription: [
             "Stina Janson",
             "Design Director, Länsförsäkringar",
-            "Experienced leader and designer based in Stockholm, with +20 years of experience working with user-centered and innovative products. I have a great passion for leadership, design, business, innovation and new technology. I work strategically and operationally to create value for users and business, and to ensure that design have a seat at the top table to influence product directions. ",
+            "Experienced leader and designer based in Stockholm, with +20 years of experience working with user-centered and innovative products. She has a strong passion for leadership, design, business, innovation, and emerging technology. Stina works strategically and operationally to create value for users and business, and to ensure that design has a seat at the top table to influence product directions.",
             "Liza Hansson",
             "Strategic Designer, Variant",
             "As a consultant at Variant, Liza has taken on various roles to ensure that design delivers maximum impact and creates the greatest possible value for users. She focuses on creating great products that users love, always taking a holistic approach to ensure alignment between user needs, feasibility, business goals, and execution.",
