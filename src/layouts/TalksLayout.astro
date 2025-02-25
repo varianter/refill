@@ -1,0 +1,80 @@
+---
+import "../styles/global.css";
+import Navbar from "../components/navigation/Navbar.astro";
+
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+const baseURL = Astro.site || "http://localhost:4321"; // Fallback for local dev
+const ogImageURL = new URL(`/talks/${id}-og.png`, baseURL).href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.png" />
+    <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="Join Refill 2025, a conference hosted by Variant, featuring expert speakers, networking opportunities, and workshops."
+    />
+    <meta
+      name="keywords"
+      content="Refill 2025, conference, tech conference, workshops, networking, Variant, Stockholm, talks"
+    />
+    <meta name="author" content="Vri Refill" />
+    <meta name="robots" content="index, follow" />
+    <title>Refill 2025: Build for impact</title>
+
+    <meta property="og:title" content="Refill 2025: Build for Impact" />
+    <meta
+      property="og:description"
+      content="Join Refill 2025, a conference hosted by Variant, featuring expert speakers, networking opportunities, and workshops."
+    />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:url" content="https://www.refillconf.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Refill 2025" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Refill 2025: Build for Impact" />
+    <meta
+      name="twitter:description"
+      content="Join Refill 2025, an open conference hosted by Variant, featuring expert speakers, networking opportunities, and workshops."
+    />
+    <meta name="twitter:image" content="/assets/img/og-refill.png" />
+    <meta name="twitter:url" content="https://www.refillconf.com/" />
+    <meta name="twitter:site" content="@Variant" />
+    <meta name="twitter:creator" content="@Variant" />
+
+    <script is:inline>
+      // @ts-ignore
+      var _paq = (window._paq = window._paq || []);
+      _paq.push(["disableCookies"]);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+      (function () {
+        var u = "https://variant.innocraft.cloud/";
+        _paq.push(["setTrackerUrl", u + "matomo.php"]);
+        _paq.push(["setSiteId", "7"]);
+        var d = document,
+          g = d.createElement("script"),
+          s = d.getElementsByTagName("script")[0];
+        g.async = true;
+        g.src = "https://cdn.matomo.cloud/variant.innocraft.cloud/matomo.js";
+        s.parentNode?.insertBefore(g, s);
+      })();
+    </script>
+  </head>
+  <body>
+    <Navbar />
+    <main>
+      <slot />
+      <slot name="footer" />
+    </main>
+  </body>
+</html>
