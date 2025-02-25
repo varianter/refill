@@ -3,10 +3,8 @@ import type { JSX } from "react";
 import satori from "satori";
 import sharp from "sharp";
 import path from "path";
-import { fileURLToPath } from "url";
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const fontPath = path.join(__dirname, "../../../public/fonts/Swansea.ttf");
+const fontPath = path.resolve(process.cwd(), "public/fonts/Swansea.ttf");
 
 export async function SVG(component: JSX.Element) {
   return await satori(component, {
