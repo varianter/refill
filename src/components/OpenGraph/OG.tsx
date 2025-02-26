@@ -1,9 +1,12 @@
+import type { Speaker } from "../../utils/schedule/types";
+import type { SpeakerName } from "../../utils/speakers";
+
 type OGProps = {
   title: string;
-  speakerName: string | string[];
+  speaker: Speaker;
 };
 
-export const OG = ({ title, speakerName }: OGProps) => {
+export const OG = ({ title, speaker }: OGProps) => {
   const baseUrl = import.meta.env.ORIGIN_URL || "http://localhost:4321";
 
   const peopleUrl = "/assets/img/people/";
@@ -11,18 +14,18 @@ export const OG = ({ title, speakerName }: OGProps) => {
   const width = 400;
   const height = 300;
   const imgProps = {
-    width,
-    height,
+    width: width,
+    height: height,
   };
 
-  function isMultipleSpeakers(speakerName: string | string[]) {
-    return Array.isArray(speakerName);
+  function isMultipleSpeakers(speaker: Speaker) {
+    return Array.isArray(speaker);
   }
 
-  function extractFilename(imagePath: string): string | null {
-    const match = imagePath.match(/people\/([^/?]+\.(jpg|jpeg|png|svg))/i);
-    return match ? match[1] : null;
+  function convertNameToImgName(name: SpeakerName) {
+    return name.replaceAll(" ", "-") + ".jpg";
   }
+
   return (
     <div
       style={{
@@ -35,21 +38,27 @@ export const OG = ({ title, speakerName }: OGProps) => {
       }}
     >
       <img
-        style={{ position: "absolute", width: "1260px", zIndex: "-1" }}
+        style={{
+          position: "absolute",
+          width: "1260px",
+          objectFit: "cover",
+        }}
         src={`${baseUrl}${backgroundImageUrl}`}
+        width={1260}
+        height={630}
       />
-      {isMultipleSpeakers(speakerName) ? (
-        speakerName.map((speaker) => {
+      {isMultipleSpeakers(speaker) ? (
+        speaker.map((name) => {
           return (
             <img
-              src={`${baseUrl}${peopleUrl}${extractFilename(speaker)}`}
+              src={`${baseUrl}${peopleUrl}${convertNameToImgName(name)}`}
               {...imgProps}
             />
           );
         })
       ) : (
         <img
-          src={`${baseUrl}${peopleUrl}${extractFilename(speakerName)}`}
+          src={`${baseUrl}${peopleUrl}${convertNameToImgName(speaker)}`}
           {...imgProps}
           style={{ objectFit: "cover", borderRadius: "0.75rem" }}
         />

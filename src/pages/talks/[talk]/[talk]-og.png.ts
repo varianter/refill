@@ -42,10 +42,9 @@ export const GET: APIRoute = async function get({ params }) {
   }
 
   const { title, speaker } = talk;
-  const speakerName = getSpeakersImage(speaker);
 
   // Generate the PNG image based on the OG component
-  const png = await PNG(OG({ title, speakerName }));
+  const png = await PNG(OG({ title, speaker }));
 
   // Return the image with correct content type
   return new Response(png, {
