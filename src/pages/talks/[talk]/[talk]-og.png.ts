@@ -41,10 +41,11 @@ export const GET: APIRoute = async function get({ params }) {
     return new Response("Not Found", { status: 404 });
   }
 
-  const { title } = talk;
+  const { title, speaker } = talk;
+  const speakerName = getSpeakersImage(speaker);
 
   // Generate the PNG image based on the OG component
-  const png = await PNG(OG({ title }));
+  const png = await PNG(OG({ title, speakerName }));
 
   // Return the image with correct content type
   return new Response(png, {
@@ -57,7 +58,7 @@ export const GET: APIRoute = async function get({ params }) {
 const getSpeakersImage = (speakers: Speaker) => {
   return Array.isArray(speakers)
     ? speakers.map((speaker) => {
-      return getSpeakerImageSrc(speaker).src;
-    })
+        return getSpeakerImageSrc(speaker).src;
+      })
     : getSpeakerImageSrc(speakers).src;
 };
