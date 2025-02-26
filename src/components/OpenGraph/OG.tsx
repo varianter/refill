@@ -4,7 +4,8 @@ type OGProps = {
 };
 
 export const OG = ({ title, speakerName }: OGProps) => {
-  const baseUrl = "http://localhost:4321";
+  const baseUrl = import.meta.env.ORIGIN_URL || "http://localhost:4321";
+
   const peopleUrl = "/assets/img/people/";
   const backgroundImageUrl = "/assets/img/hero.jpg";
   const width = 400;
