@@ -4,9 +4,11 @@ import Navbar from "../components/navigation/Navbar.astro";
 
 interface Props {
   id: string;
+  title: string;
+  description: string;
 }
 
-const { id } = Astro.props;
+const { id, title, description } = Astro.props;
 const originUrl = Astro.url.origin;
 const ogImageURL = new URL(`/talks/${id}/${id}-og.png`, originUrl).href;
 ---
@@ -18,34 +20,25 @@ const ogImageURL = new URL(`/talks/${id}/${id}-og.png`, originUrl).href;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.png" />
     <meta name="generator" content={Astro.generator} />
-    <meta
-      name="description"
-      content="Join Refill 2025, a conference hosted by Variant, featuring expert speakers, networking opportunities, and workshops."
-    />
+    <meta name="description" content={description} />
     <meta
       name="keywords"
       content="Refill 2025, conference, tech conference, workshops, networking, Variant, Stockholm, talks"
     />
     <meta name="author" content="Vri Refill" />
     <meta name="robots" content="index, follow" />
-    <title>Refill 2025: Build for impact</title>
+    <title>{title}</title>
 
-    <meta property="og:title" content="Refill 2025: Build for Impact" />
-    <meta
-      property="og:description"
-      content="Join Refill 2025, a conference hosted by Variant, featuring expert speakers, networking opportunities, and workshops."
-    />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageURL} />
     <meta property="og:url" content="https://www.refillconf.com/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Refill 2025" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Refill 2025: Build for Impact" />
-    <meta
-      name="twitter:description"
-      content="Join Refill 2025, an open conference hosted by Variant, featuring expert speakers, networking opportunities, and workshops."
-    />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageURL} />
     <meta name="twitter:url" content="https://www.refillconf.com/" />
     <meta name="twitter:site" content="@Variant" />

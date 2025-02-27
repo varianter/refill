@@ -43,9 +43,10 @@ const speakerName = getSpeakerNames(speaker);
 const aboutTheSpeakerHeading = Array.isArray(speaker)
   ? "About the speakers"
   : "About the speaker";
+const metaDescription = talkDescription.join(" ");
 ---
 
-<TalkLayout id={id}>
+<TalkLayout id={id} title={title} description={metaDescription}>
   <a class="talk__schedule_link" href={`/schedule#${id}`}>
     <span class="talk__left_arrow">↓</span>
     <span class="talk__talk__link_text">Full schedule</span>
