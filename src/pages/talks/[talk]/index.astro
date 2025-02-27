@@ -1,15 +1,15 @@
 ---
-import { FavoriteButton } from "../../components/button/favoriteButton/FavoriteButton";
-import Description from "../../components/Description.astro";
-import Footer from "../../components/navigation/Footer.astro";
-import TalkLayout from "../../layouts/Layout.astro";
+import { FavoriteButton } from "../../../components/button/favoriteButton/FavoriteButton";
+import Description from "../../../components/Description.astro";
+import Footer from "../../../components/navigation/Footer.astro";
+import TalkLayout from "../../../layouts/TalksLayout.astro";
 import {
   getDisciplineColorPair,
   getDisciplineName,
-} from "../../utils/discipline";
-import { getTalkById } from "../../utils/schedule/functions";
-import RenderSpeakerImage from "../../components/ScheduleEntryCard/RenderSpeakerImage.astro";
-import { getSpeakerNames } from "../../utils/getSpeakerNames";
+} from "../../../utils/discipline";
+import { getTalkById } from "../../../utils/schedule/functions";
+import RenderSpeakerImage from "../../../components/ScheduleEntryCard/RenderSpeakerImage.astro";
+import { getSpeakerNames } from "../../../utils/getSpeakerNames";
 
 const { talk: talkId } = Astro.params;
 
@@ -43,9 +43,10 @@ const speakerName = getSpeakerNames(speaker);
 const aboutTheSpeakerHeading = Array.isArray(speaker)
   ? "About the speakers"
   : "About the speaker";
+const metaDescription = talkDescription.join(" ");
 ---
 
-<TalkLayout>
+<TalkLayout id={id} title={title} description={metaDescription}>
   <a class="talk__schedule_link" href={`/schedule#${id}`}>
     <span class="talk__left_arrow">↓</span>
     <span class="talk__talk__link_text">Full schedule</span>
