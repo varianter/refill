@@ -6,11 +6,11 @@ import JuliaKuhley from "../../public/assets/img/people/Julia-Kuhley.jpg";
 import TonjeEvanger from "../../public/assets/img/people/Tonje-Evanger.jpg";
 import JacobBerglund from "../../public/assets/img/people/Jacob-Berglund.jpg";
 import MariusKrakeli from "../../public/assets/img/people/Marius-Krakeli.jpg";
-import AnitaSteinstad from "../../public/assets/img/people/Anita-Steinstad.webp";
+import AnitaSteinstad from "../../public/assets/img/people/Anita-Steinstad.jpg";
 import JonasLillevold from "../../public/assets/img/people/Jonas-Lillevold.jpg";
 import AndreasHartveit from "../../public/assets/img/people/Andreas-Hartveit.jpg";
-import ChristianBrevik from "../../public/assets/img/people/Christian-Brevik.webp";
-import MalinCKarlsen from "../../public/assets/img/people/Malin-C.-Karlsen.webp";
+import ChristianBrevik from "../../public/assets/img/people/Christian-Brevik.jpg";
+import MalinCKarlsen from "../../public/assets/img/people/Malin-C.-Karlsen.jpg";
 import AndersHammervold from "../../public/assets/img/people/Anders-Hammervold.jpg";
 import EliseKristiansen from "../../public/assets/img/people/Elise-Kristiansen.jpg";
 import OlePetterKlæstad from "../../public/assets/img/people/Ole-Petter-Klæstad.jpg";
@@ -21,10 +21,10 @@ import TrulsHenrikJakobsen from "../../public/assets/img/people/Truls-Henrik-Jak
 import NikolaiNormanAndersen from "../../public/assets/img/people/Nikolai-Norman-Andersen.jpg";
 import VegardIngebrigtsenFeste from "../../public/assets/img/people/Vegard-Ingebrigtsen-Feste.jpg";
 import HildegunnVada from "../../public/assets/img/people/Hildegunn-Vada.jpg";
-import TomasJanson from "../../public/assets/img/people/Tomas-Janson.webp";
-import LizaHanssonAndStinaJanson from "../../public/assets/img/people/Liaza-Hansson-Stina-Janson.jpg";
+import TomasJanson from "../../public/assets/img/people/Tomas-Janson.jpg";
+import LizaHanssonAndStinaJanson from "../../public/assets/img/people/Liza-Hansson-&-Stina-Janson.jpg";
 import DavidDeLeon from "../../public/assets/img/people/David-De-Leon.jpg";
-import AndreaHvattum from "../../public/assets/img/people/Andrea Hvattum.png";
+import AndreaHvattum from "../../public/assets/img/people/Andrea-Hvattum.png";
 import { SpeakerName } from "./speakers";
 
 export const speakerImages: Record<SpeakerName, ImageMetadata> = {
