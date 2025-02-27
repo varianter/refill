@@ -4,7 +4,10 @@ import satori from "satori";
 import sharp from "sharp";
 import path from "path";
 
-const fontPath = path.resolve(process.cwd(), "public/fonts/Swansea.ttf");
+const fontPath = path.resolve(
+  process.cwd(),
+  "public/fonts/Britti-Sans-Medium.otf",
+);
 
 export async function SVG(component: JSX.Element) {
   return await satori(component, {
