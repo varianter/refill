@@ -4,9 +4,12 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "build": "yarn build-setup && astro build && yarn kill-assets",
+    "build-setup": "yarn serve-assets",
+    "serve-assets": "serve -p 3001 --no-port-switching ./public/assets/img/people",
+    "kill-assets": "kill-port 3001 || true"
   },
   "dependencies": {
     "@astrojs/react": "^4.2.0",
@@ -25,8 +28,11 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
+    "kill-port": "^2.0.1",
     "prettier": "^3.4.2",
     "prettier-plugin-astro": "^0.14.1",
-    "typescript": "^5.7.3"
+    "serve": "^14.2.4",
+    "typescript": "^5.7.3",
+    "wait-on": "^8.0.2"
   }
 }
