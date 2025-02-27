@@ -40,8 +40,9 @@ const disciplineBackgroundColor = colorPair.color;
 const disciplineTextColor = colorPair.textColor;
 
 const speakerName = getSpeakerNames(speaker);
-const aboutTheSpeakerHeading =
-  speaker.length > 1 ? "About the speakers" : "About the speaker";
+const aboutTheSpeakerHeading = Array.isArray(speaker)
+  ? "About the speakers"
+  : "About the speaker";
 ---
 
 <TalkLayout id={id}>

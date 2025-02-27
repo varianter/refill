@@ -31,6 +31,7 @@ const {
   DavidDeLeon,
   LizaHanssonAndStinaJanson,
   AndreaHvattum,
+  AndersHammervold,
 } = SpeakerName;
 
 export const schedule: Schedule = [
@@ -347,7 +348,11 @@ export const schedule: Schedule = [
           discipline: Design,
           speaker: JuliaKuhley,
           talkDescription: [
-            "Building a Design System is easy, maintaining and making it grow organically is much more difficult. This requires planning and collaboration, or does it? Can't we just cut out the collaboration part and make things more efficient? What does all this have in common with The Gentle Art of Swedish Death Cleaning? Join me on a story about planning, categorising and sorting and about handling human beings and their peculiarities. Maybe your Design System will end up on The Design Systems Graveyard.",
+            "Have you recently discovered that somewhere in a project document or sales pitch, you've been described as a “senior” — and wondered, hoped, that they mixed you up with someone else? Do you feel like you only just figured out how to “adult” at work, and suddenly you’re expected to lead processes, offer guidance, and mentor others?",
+            "Ore are you still in the blissful, short junior phase and already dreading the darkest of days when this exact thing will happen to you?",
+            "Let me unveil the „senior secret“ for you, already spoiling that there is no magical skill upgrade and no hidden manual. It’s basically just a slightly more shiny job title (for those who care about such). And ok, maybe a little more responsibility. ",
+            "In this talk, we’ll dive into the reality behind the senior title. That it doesn’t mean knowing everything, and everything better than the others. Instead it’s about owning what you DO know, and figuring out the rest as you go. We’ll dig into the shared challenges of impostor syndrome, or late-night worries about leading a meeting or taking charge of a design review – or whatever it is that senior developers do.",
+            "In the end, you’ll walk away with a set of practical tips on how to navigate this new role, even if you secretly long to stay forever in the „mid-level“ territory. Most of all, you’ll be released of the pressure of having to have it all figured out at some point, and maybe even find the confidence to lean into your strengths, dare to delegate and get aware – none of us has really figured it all out. ",
           ],
           speakerDescription: [
             "Notoriously scared of responsibility and growing up, Julia is a visual designer with six years of experience and by now forced to face her fears. Why she would be scared of anything no one knows, after having moved on her own to Norway in 2019, navigated three different work places, survived multiple rounds of downsizing (they insist it wasn’t her fault) and tackled a long row of branding, UX, and UI projects. She's trying to make sense of it all and deliver some of the extracted wisdom to fellow designers/consultants/human beings.",
@@ -362,7 +367,7 @@ export const schedule: Schedule = [
           from: "12:30",
           to: "12:50",
           discipline: StrategyAndProduct,
-          speaker: MalinCKarlsen,
+          speaker: [AndersHammervold, MalinCKarlsen],
           talkDescription: [
             "This session provides the outlines on how we, in collaboration with the Norwegian Public Roads Administration (Statens vegvesen), established a transformative program addressing both technology and processes for the National Road Database (Nasjonal vegdatabank).",
             {
@@ -377,7 +382,10 @@ export const schedule: Schedule = [
             },
             "By sharing insights from this journey, we aim to highlight practical strategies, challenges, and outcomes relevant to large-scale transformation programs in the public sector.",
           ],
-          speakerDescription: [],
+          speakerDescription: [
+            "Anders is Chief Commercial officer in Variant, Key Account manager for Statens vegvesen and has also worked in different projects in Statens vegvesen as project manager.",
+            "Malin is a project manager in Variant Trondheim, and has been working in projects for Statens vegvesen for 4 years out of the last 5. ",
+          ],
         },
         {
           type: "talk",
