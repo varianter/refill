@@ -4,6 +4,7 @@ import { schedule } from "../../../utils/schedule/schedule";
 import { getSpeakerImageSrc } from "../../../utils/speakerImages";
 import type { Speaker } from "../../../utils/schedule/types";
 import { OG } from "../../../components/OpenGraph/OG";
+import { SpeakerName } from "../../../utils/speakers";
 
 export const prerender = true;
 
@@ -32,7 +33,12 @@ export const GET: APIRoute = async function get({ params }) {
   const talk = schedule
     .flatMap((block) =>
       block.tracks.flatMap((track) =>
-        track.filter((talk) => talk.type === "talk" && talk.id === id),
+        track.filter(
+          (talk) =>
+            talk.type === "talk" &&
+            talk.id === id &&
+            talk.speaker !== SpeakerName.None,
+        ),
       ),
     )
     .shift(); // Assuming `id` is unique, we pick the first match
