@@ -1,5 +1,6 @@
 import type { Speaker } from "../../utils/schedule/types";
 import type { SpeakerName } from "../../utils/speakers";
+import { getSpeakerImageSrc } from "../../utils/speakerImages";
 
 type OGProps = {
   title: string;
@@ -23,7 +24,8 @@ export const OG = ({ title, speaker }: OGProps) => {
   }
 
   function convertNameToImgName(name: SpeakerName) {
-    return name.replaceAll(" ", "-") + ".jpg";
+    const imgFormat = getSpeakerImageSrc(name).format;
+    return `${name.replaceAll(" ", "-")}.${imgFormat}`;
   }
 
   return (
@@ -31,10 +33,10 @@ export const OG = ({ title, speaker }: OGProps) => {
       style={{
         position: "relative",
         display: "flex",
+        alignItems: "center",
         gap: "2rem",
         width: "100%",
         padding: "4rem",
-        paddingTop: "10rem",
       }}
     >
       <img
@@ -47,22 +49,29 @@ export const OG = ({ title, speaker }: OGProps) => {
         width={1260}
         height={630}
       />
-      {isMultipleSpeakers(speaker) ? (
-        speaker.map((name) => {
-          return (
-            <img
-              src={`${baseUrl}${peopleUrl}${convertNameToImgName(name)}`}
-              {...imgProps}
-            />
-          );
-        })
-      ) : (
-        <img
-          src={`${baseUrl}${peopleUrl}${convertNameToImgName(speaker)}`}
-          {...imgProps}
-          style={{ objectFit: "cover", borderRadius: "0.75rem" }}
-        />
-      )}
+      <div style={{ display: "flex", gap: "2rem" }}>
+        {isMultipleSpeakers(speaker) ? (
+          speaker.map((name) => {
+            return (
+              <img
+                src={`${baseUrl}${peopleUrl}${convertNameToImgName(name)}`}
+                {...imgProps}
+                style={{
+                  objectFit: "cover",
+                  borderRadius: "0.75rem",
+                  width: "200px",
+                }}
+              />
+            );
+          })
+        ) : (
+          <img
+            src={`${baseUrl}${peopleUrl}${convertNameToImgName(speaker)}`}
+            {...imgProps}
+            style={{ objectFit: "cover", borderRadius: "0.75rem" }}
+          />
+        )}
+      </div>
       <p style={{ fontSize: "4rem", lineHeight: "4rem" }}>{title}</p>
     </div>
   );
