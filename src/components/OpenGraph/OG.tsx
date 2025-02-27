@@ -36,6 +36,7 @@ export const OG = ({ title, speaker }: OGProps) => {
         alignItems: "center",
         gap: "2rem",
         width: "100%",
+        height: "100%",
         padding: "4rem",
       }}
     >
