@@ -47,10 +47,10 @@ export const GET: APIRoute = async function get({ params }) {
     return new Response("Not Found", { status: 404 });
   }
 
-  const { title, speaker } = talk;
+  const { title, speaker, from, to } = talk;
 
   // Generate the PNG image based on the OG component
-  const png = await PNG(OG({ title, speaker }));
+  const png = await PNG(OG({ title, speaker, from, to }));
 
   // Return the image with correct content type
   return new Response(png, {

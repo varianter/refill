@@ -5,13 +5,15 @@ import { getSpeakerImageSrc } from "../../utils/speakerImages";
 type OGProps = {
   title: string;
   speaker: Speaker;
+  from: string;
+  to: string;
 };
 
-export const OG = ({ title, speaker }: OGProps) => {
+export const OG = ({ title, speaker, from, to }: OGProps) => {
   const baseUrl = import.meta.env.ORIGIN_URL || "http://localhost:4321";
 
   const peopleUrl = "/assets/img/people/";
-  const backgroundImageUrl = "/assets/img/hero.jpg";
+  const backgroundImageUrl = "/assets/img/talk-OG.jpg";
   const width = 400;
   const height = 300;
   const imgProps = {
@@ -33,47 +35,68 @@ export const OG = ({ title, speaker }: OGProps) => {
       style={{
         position: "relative",
         display: "flex",
-        alignItems: "center",
         gap: "2rem",
         width: "100%",
         height: "100%",
-        padding: "4rem",
+        padding: "3rem",
       }}
     >
       <img
         style={{
           position: "absolute",
           width: "1260px",
-          objectFit: "cover",
         }}
         src={`${baseUrl}${backgroundImageUrl}`}
         width={1260}
         height={630}
       />
-      <div style={{ display: "flex", gap: "2rem" }}>
-        {isMultipleSpeakers(speaker) ? (
-          speaker.map((name) => {
-            return (
-              <img
-                src={`${baseUrl}${peopleUrl}${convertNameToImgName(name)}`}
-                {...imgProps}
-                style={{
-                  objectFit: "cover",
-                  borderRadius: "0.75rem",
-                  width: "200px",
-                }}
-              />
-            );
-          })
-        ) : (
-          <img
-            src={`${baseUrl}${peopleUrl}${convertNameToImgName(speaker)}`}
-            {...imgProps}
-            style={{ objectFit: "cover", borderRadius: "0.75rem" }}
-          />
-        )}
+      <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+        <div style={{ display: "flex", gap: "2rem" }}>
+          {isMultipleSpeakers(speaker) ? (
+            speaker.map((name) => {
+              return (
+                <img
+                  src={`${baseUrl}${peopleUrl}${convertNameToImgName(name)}`}
+                  {...imgProps}
+                  style={{
+                    objectFit: "cover",
+                    width: "200px",
+                  }}
+                />
+              );
+            })
+          ) : (
+            <img
+              src={`${baseUrl}${peopleUrl}${convertNameToImgName(speaker)}`}
+              {...imgProps}
+              style={{ objectFit: "cover" }}
+            />
+          )}
+        </div>
+        <p
+          style={{
+            fontSize: "1.5rem",
+            lineHeight: "2rem",
+            padding: "0.25rem 0.75rem",
+            borderRadius: "2.5rem",
+            border: "1px solid #0A0B0B",
+            width: "150px",
+          }}
+        >
+          {from}-{to}
+        </p>
       </div>
-      <p style={{ fontSize: "4rem", lineHeight: "4rem" }}>{title}</p>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "2.25rem",
+          width: "518px",
+        }}
+      >
+        <p style={{ fontSize: "3rem", lineHeight: "3.25rem" }}>{title}</p>
+        <p style={{ fontSize: "2.25rem", lineHeight: "3.25rem" }}>{speaker}</p>
+      </div>
     </div>
   );
 };

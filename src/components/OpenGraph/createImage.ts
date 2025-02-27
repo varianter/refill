@@ -6,7 +6,7 @@ import path from "path";
 
 const fontPath = path.resolve(
   process.cwd(),
-  "public/fonts/Britti-Sans-Medium.otf",
+  "public/fonts/Britti-Sans-Regular.otf",
 );
 
 export async function SVG(component: JSX.Element) {
