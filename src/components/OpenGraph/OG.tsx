@@ -13,7 +13,7 @@ export const OG = ({ title, speaker, from, to }: OGProps) => {
   const baseUrl = import.meta.env.ORIGIN_URL || "http://localhost:4321";
 
   const peopleUrl = "/assets/img/people/";
-  const backgroundImageUrl = "/assets/img/hero.jpg";
+  const backgroundImageUrl = "/assets/img/talk-OG.jpg";
   const width = 400;
   const height = 300;
   const imgProps = {
