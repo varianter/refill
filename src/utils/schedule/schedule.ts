@@ -34,6 +34,7 @@ const {
   AndersHammervold,
   KirstiStrømstad,
   VeraHayeBjerga,
+  NinjaWidenAndChristofferJohannesson,
 } = SpeakerName;
 
 export const schedule: Schedule = [
@@ -266,15 +267,20 @@ export const schedule: Schedule = [
         },
         {
           type: "talk",
-          id: "33",
-          title: "TBA",
+          id: "17",
+          title: "When I Grow Up, I'm Gonna Be a Flying Machine!",
           location: "Palmsalen",
           from: "11:10",
           to: "11:30",
           discipline: Design,
-          speaker: None,
-          talkDescription: [],
-          speakerDescription: [],
+          speaker: NinjaWidenAndChristofferJohannesson,
+          talkDescription: [
+            "Meet Elsa, a not-so-ordinary intern at the Swedish Air Force Museum in Linköping. In fact, she’s a robot with a mind of her own. Built from spare parts, with a brand-new screen and an unexpected spark of independence, Elsa is figuring out who she is and what she wants to become.",
+            "But why does a robot need a backstory? How does a compelling narrative bring algorithms, technical functions, and artificial responses to life? And why is this especially important for children aged 7 to 12 — a time when imagination runs wild and the foundation for understanding the world is being built?",
+          ],
+          speakerDescription: [
+            "Elsa will take us through her origins, her role at the museum, and what it means to be part of the Flygvapenmuseum family. She’ll be joined by Christoffer Johannesson, CEO of Dyno Robotics, and Nina Widén, Art Director and Copywriter at Variant, to explore how stories help us connect with technology — and with each other.",
+          ],
         },
       ],
     ],
