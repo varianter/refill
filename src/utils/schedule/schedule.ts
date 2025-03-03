@@ -221,7 +221,7 @@ export const schedule: Schedule = [
           discipline: Design,
           speaker: AnitaSteinstad,
           talkDescription: [
-            "For years, economists and strategists have borrowed from design to solve complex challenges. But what if we flipped the script? What if designers took the lead—shaping sustainable business models not through economic theory, but through design principles?",
+            "For years, economists and strategists have borrowed from design to solve complex challenges. But what if we flipped the script? What if designers took the lead—shaping sustainable culture not through economic theory, but through design principles?",
             "I believe sustainability should be at the heart of every organization. For People, Planet, and Profit to thrive, we need a new way of thinking. In this talk, I’ll introduce a practical framework—one that I invite you and your business to test, adapt, and bring to life.",
             "This isn’t just about my experience at the intersection of design and sustainability. It’s a call to action. Designers have the creativity and problem-solving skills to drive real change. Now is the time to step up, expand our influence, and take on the role of sustainability facilitators in a world that urgently needs bold ideas and fresh perspectives.",
           ],
