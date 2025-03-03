@@ -245,7 +245,9 @@ export const schedule: Schedule = [
             "Web performance is very important for most websites, and it is crucial if you are the largest electronic retailer in the Nordics. As many of you already know, the performance of the Elkøp/Elgiganten/Gigantti site has not been good enough, and that is something Tomas set out to fix. Although the website was fairly new, it failed to meet expectations, leading to a decision to rewrite the frontend using Next.js and host it on Vercel.",
             "By the time of Refill, we should be able to see the results of the rewrite, and Tomas will share some of the learnings made along the way. Why was Next.js picked? How does the new app router work in a larger project? What is it like to work with Vercel? How do you pitch ideas like this in larger organizations?",
           ],
-          speakerDescription: [],
+          speakerDescription: [
+            "Tomas Jansson is developer who likes everything from programming languages to infrastructure. He has been a central figure in the Oslo .NET scene before having too many kids. After 10+ years as a consultant in Norway and Sweden, and 4 years in a startup in Oslo and New York he is now spending all his working hours at Elkjøp Nordic to build a more robust and scalable commerce platform.",
+          ],
         },
         {
           type: "talk",
