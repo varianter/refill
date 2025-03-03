@@ -7,8 +7,9 @@
     "preview": "astro preview",
     "astro": "astro",
     "build": "yarn build-setup && astro build && yarn kill-assets",
-    "build-setup": "yarn serve-assets",
-    "serve-assets": "serve -p 3001 --no-port-switching ./public/assets/img/people",
+    "build-setup": "yarn serve-assets & yarn wait-for-assets",
+    "serve-assets": "serve -p 3001 --no-port-switching ./public/assets/img",
+    "wait-for-assets": "wait-on -t 5000 http://localhost:3001/hero.png",
     "kill-assets": "kill-port 3001 || true"
   },
   "dependencies": {
