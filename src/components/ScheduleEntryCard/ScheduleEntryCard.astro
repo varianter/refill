@@ -17,6 +17,8 @@ import {
 import RenderSpeakerImage from "./RenderSpeakerImage.astro";
 import type { ScheduleEntry } from "../../utils/schedule/types";
 import Description from "../Description.astro";
+import { Image } from "astro:assets";
+import talkArrow from "../../../public/assets/icons/talkArrow.svg";
 
 interface Props {
   event: ScheduleEntry;
@@ -34,6 +36,9 @@ const borderColor = getBorderColor(colorPair);
 const column = getCardColumn(colorPair);
 
 const shouldRenderDescription = span > 1;
+
+const talkArrowWidth = 52;
+const talkArrowHeigth = 52;
 ---
 
 <CardWrapper
@@ -46,6 +51,14 @@ const shouldRenderDescription = span > 1;
     {
       isTalk(event) ? (
         <a href={`talks/${id}`} class="speaker_card__link" id={id}>
+          <Image
+            layout="responsive"
+            class="speaker_card__link__img"
+            src={talkArrow}
+            alt=""
+            width={talkArrowWidth}
+            height={talkArrowHeigth}
+          />
           {speaker && <RenderSpeakerImage speakerName={speaker} />}
           <Talk speakerName={speaker} title={title} />
           <span class="speaker_card__hover_background" />
@@ -131,6 +144,17 @@ const shouldRenderDescription = span > 1;
 
   .speaker_card__link:hover .speaker_card__hover_background {
     height: 100%;
+  }
+
+  .speaker_card__link__img {
+    grid-area: img;
+    justify-self: end;
+    align-self: start;
+    z-index: 0;
+
+    @media (min-width: 1000px) {
+      display: none;
+    }
   }
 
   .talk {
