@@ -4,7 +4,7 @@
   transition: scale 0.4s;
   position: relative;
   transition: all 0.4s;
-  --icon-fill-color: var(--background-primary);
+  --icon-fill-color: transparent;
 }
 
 .favorite_button:hover {
