@@ -3,7 +3,6 @@ import { addNoneFavorited, removeNoneFavorited } from "./localstorage";
 function setClassnameForTracksWithOneCard() {
   document.querySelectorAll(".track").forEach((track) => {
     const visibleCards = track.querySelectorAll(".card_wrapper");
-    console.log("Setting classname to Single card");
     if (visibleCards.length === 1) {
       track.className = "track__single_card";
     }
@@ -14,6 +13,10 @@ function setAllClassnamesToTrack() {
   document.querySelectorAll(".track__single_card").forEach((track) => {
     track.className = "track";
   });
+}
+
+function getUrlParams() {
+  return new URL(window.location.href);
 }
 
 export function toggleEventListner(event: Event) {
@@ -38,7 +41,10 @@ export function toggleEventListner(event: Event) {
 }
 
 export function handleFavoriteChange(isChecked: boolean) {
-  if (isChecked) {
+  const url = getUrlParams();
+  const showFavoritesOnly = url.searchParams.get("favorites") === "true";
+
+  if (isChecked && showFavoritesOnly) {
     removeNoneFavorited();
     setClassnameForTracksWithOneCard();
   } else {

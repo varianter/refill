@@ -21,7 +21,7 @@ export const FavoriteButton = ({ id, title }: FavoriteButtonProps) => {
   function toggleFavorite() {
     toggleFavoriteInLocalStorage(id);
     setIsFavorited(!isFavorited);
-    // handleFavoriteChange(isFavorited);
+    handleFavoriteChange(isFavorited);
   }
 
   return (
