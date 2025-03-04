@@ -95,7 +95,6 @@ html {
 
 :where(main) {
   background-color: var(--grey-50);
-  padding: var(--Padding-index);
 
   display: flex;
   flex-direction: column;
