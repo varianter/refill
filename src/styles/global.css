@@ -36,6 +36,7 @@
   --Padding-xxl: 8rem;
   --Padding-index: var(--Padding-rem);
   --Padding-practical: 4.5rem;
+  --Padding-talk: var(--Padding-rem);
 
   --Font-size-H1: 4.5rem;
   --Font-size-H2: 3.5rem;
