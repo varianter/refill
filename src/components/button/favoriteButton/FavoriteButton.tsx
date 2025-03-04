@@ -4,10 +4,7 @@ import {
   getFavoriteById,
   toggleFavoriteInLocalStorage,
 } from "../../../utils/localstorage";
-import {
-  handleFavoriteChange,
-  toggleEventListner,
-} from "../../../utils/eventListners";
+import { handleFavoriteChange } from "../../../utils/eventListners";
 
 type FavoriteButtonProps = {
   id: string;
@@ -24,22 +21,25 @@ export const FavoriteButton = ({ id, title }: FavoriteButtonProps) => {
   function toggleFavorite() {
     toggleFavoriteInLocalStorage(id);
     setIsFavorited(!isFavorited);
-    handleFavoriteChange(isFavorited);
+    // handleFavoriteChange(isFavorited);
   }
 
-  //TODO: Should have a aria checked if favorited
   return (
-    <button
-      aria-label={`Favorite talk: ${title}`}
-      className={style.favorite_button}
-      onClick={toggleFavorite}
-    >
+    <div className={style.favorite_button}>
+      <input
+        type="checkbox"
+        aria-label={`Favorite talk: ${title}`}
+        checked={isFavorited}
+        onChange={toggleFavorite}
+        className={style.favorite_checkbox}
+      />
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="30"
         height="28"
         viewBox="0 0 30 28"
         fill="none"
+        className={style.favorite_button__icon}
       >
         <g clipPath="url(#clip0_8197_93903)">
           <path
@@ -48,11 +48,7 @@ export const FavoriteButton = ({ id, title }: FavoriteButtonProps) => {
           />
           <path
             d="M27.1291 8.40549C27.1291 10.2152 26.6659 11.9358 25.7348 13.5698C24.806 15.2015 23.5235 16.7989 21.8918 18.3553C20.2578 19.9139 18.1104 21.7487 15.4472 23.8573L14.9931 24.1974C12.1793 21.986 9.93149 20.1011 8.24732 18.5447C6.59055 16.9609 5.26923 15.3407 4.29023 13.6816C3.33633 11.9997 2.85938 10.2403 2.85938 8.40549C2.85938 7.30097 3.0602 6.31968 3.46184 5.46619C3.86348 4.6127 4.42943 3.95775 5.15741 3.5059C5.91049 3.05405 6.79137 2.82812 7.79548 2.82812C8.84979 2.82812 9.80597 3.07915 10.6595 3.58121C11.5403 4.06044 12.3185 4.72452 12.9963 5.58029C13.6741 6.43378 14.3404 7.5132 14.9931 8.82082C15.6481 7.5132 16.3121 6.43378 16.9922 5.58029C17.67 4.72452 18.4367 4.06044 19.2902 3.58121C20.1688 3.07915 21.1364 2.82812 22.193 2.82812C23.6992 2.82812 24.8927 3.33018 25.7736 4.33657C26.6773 5.34068 27.1291 6.6985 27.1291 8.40549Z"
-            className={
-              isFavorited
-                ? style.favorite_button__red
-                : style.favorite_button__inherit
-            }
+            className={style.favorite_button__icon}
           />
         </g>
         <defs>
@@ -61,6 +57,6 @@ export const FavoriteButton = ({ id, title }: FavoriteButtonProps) => {
           </clipPath>
         </defs>
       </svg>
-    </button>
+    </div>
   );
 };

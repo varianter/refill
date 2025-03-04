@@ -2,21 +2,31 @@
   border: none;
   background: inherit;
   transition: scale 0.4s;
+  position: relative;
+  transition: all 0.4s;
+  --icon-fill-color: var(--background-primary);
 }
 
 .favorite_button:hover {
-  scale: 1.1;
+  transform: scale(1.1);
 }
 
-.favorite_button__red,
-.favorite_button__inherit {
+.favorite_checkbox {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.favorite_button__icon {
+  fill: var(--icon-fill-color);
   transition: fill 0.4s;
 }
 
-.favorite_button__inherit {
-  fill: var(--background-primary);
-}
-
-.favorite_button__red {
-  fill: var(--coral-200);
+.favorite_checkbox:checked+.favorite_button__icon,
+.favorite_checkbox:checked~.favorite_button__icon {
+  --icon-fill-color: var(--coral-200);
 }
