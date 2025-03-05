@@ -18,13 +18,10 @@ export interface ScheduleEvent {
 
 export type Speaker = SpeakerName | SpeakerName[];
 
-// TODO: Set talkDescription to optional
 export interface CommonEvent extends ScheduleEvent {
   type: "common";
   location: string;
   speaker?: Speaker;
-  talkDescription: DescriptionList;
-  speakerDescription: DescriptionList;
 }
 
 export interface Talk extends ScheduleEvent {
