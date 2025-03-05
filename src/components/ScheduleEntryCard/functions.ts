@@ -15,7 +15,7 @@ export const getLocation = (event: ScheduleEntry): string => {
 };
 
 export const getTalkDescription = (event: ScheduleEntry): DescriptionList => {
-  return event.type !== "break" ? event.talkDescription : [];
+  return event.type === "talk" ? event.talkDescription : [];
 };
 
 export const getColorPair = (event: ScheduleEntry): ColorPair | undefined => {
