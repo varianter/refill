@@ -32,6 +32,13 @@ const { linkText, href } = Astro.props;
       width: fit-content;
       transition: background-color 0.4s;
     }
-    /* TODO: Add hover and active on button */
+
+    > a:hover {
+      background-color: var(--grey-900);
+    }
+
+    > a:active {
+      scale: 0.95;
+    }
   }
 </style>
