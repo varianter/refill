@@ -1,5 +1,5 @@
 import { schedule } from "./schedule";
-import type { Block, ScheduleEvent, Talk } from "./types";
+import type { Block, CommonEvent, ScheduleEvent, Talk } from "./types";
 
 function timeToMinutes(time: string): number {
   const [hours, minutes] = time.split(":").map(Number);
@@ -61,4 +61,33 @@ export function getTalkById(talkId: string): Talk | undefined {
     .filter((scheduleEntry) => scheduleEntry.type === "talk");
 
   return allTalks.find((t) => t.id === talkId);
+}
+
+function getCurrentTime(): string {
+  const now = new Date();
+  const hours = now.getHours().toString().padStart(2, "0");
+  const minutes = now.getMinutes().toString().padStart(2, "0");
+  return `${hours}:${minutes}`;
+}
+
+export function findTalkByTimeAndLocation(location: string) {
+  const currentTime = timeToMinutes(getCurrentTime());
+
+  const activeBlocks = schedule.filter(
+    (block) =>
+      timeToMinutes(block.start) <= currentTime &&
+      timeToMinutes(block.end) >= currentTime,
+  );
+
+  const availableEvents = activeBlocks.flatMap((block) => block.tracks).flat();
+
+  return (
+    (availableEvents.find(
+      (event) =>
+        event.type !== "break" &&
+        event.location === location &&
+        timeToMinutes(event.from) <= currentTime &&
+        timeToMinutes(event.to) >= currentTime,
+    ) as Talk | CommonEvent) ?? null
+  );
 }
