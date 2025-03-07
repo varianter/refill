@@ -62,8 +62,8 @@ export function getTimesShortestFitInEvent(
   return Math.floor(talkDuration / shortestDuration);
 }
 
-export function getTalkById(talkId: string): SpeakerEvent | undefined {
-  const allTalks: SpeakerEvent[] = schedule
+export function getTalkById(talkId: string): Talk | undefined {
+  const allTalks: Talk[] = schedule
     .flatMap((block) => block.tracks.flat())
     .filter((scheduleEntry) => scheduleEntry.type === "talk");
 
