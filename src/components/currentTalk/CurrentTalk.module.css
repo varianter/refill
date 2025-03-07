@@ -1,0 +1,5 @@
+.current_talk {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
