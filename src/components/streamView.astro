@@ -9,10 +9,10 @@ interface Props {
 const { location, streamId } = Astro.props;
 ---
 
-<section>
+<section class="stream_view">
   <h1>{location}</h1>
   <CurrentTalk client:load location={location} />
-  <div class="responsive-iframe-container">
+  <div class="stream_view__iframe_container">
     <iframe
       src={`https://www.youtube.com/embed/${streamId}`}
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -23,7 +23,12 @@ const { location, streamId } = Astro.props;
 </section>
 
 <style>
-  .responsive-iframe-container {
+  .stream_view {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Padding-s);
+  }
+  .stream_view__iframe_container {
     width: 100%;
     aspect-ratio: 16 / 9;
     max-width: 1410px;
