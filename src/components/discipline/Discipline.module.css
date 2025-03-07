@@ -1,0 +1,9 @@
+.discipline {
+  font-weight: 540;
+  padding: 0.5rem;
+  border: 1px solid var(--text-primary);
+  border-radius: 2.5rem;
+  width: fit-content;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
