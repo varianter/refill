@@ -11,13 +11,16 @@ export const CurrentTalk = ({ location }: CurrentTalkProps) => {
   useEffect(() => {
     const updateTalk = () => {
       const talk = findSpeakerEventByTimeAndLocation(location);
-      talk && setCurrentTalk(talk.title);
+      if (talk) {
+        setCurrentTalk(talk.title);
+      }
     };
 
     updateTalk();
-    const interval = setInterval(updateTalk, 5 * 60 * 1000);
+    const interval = setInterval(updateTalk, 60 * 1000); // Update every minute
 
     return () => clearInterval(interval);
-  }, [location]);
+  }, []);
+
   return <p>{currentTalk}</p>;
 };
