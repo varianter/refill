@@ -1,5 +1,12 @@
 import { schedule } from "./schedule";
-import type { Block, CommonEvent, ScheduleEvent, Talk } from "./types";
+import type {
+  Block,
+  CommonEvent,
+  Schedule,
+  ScheduleEvent,
+  SpeakerEvent,
+  Talk,
+} from "./types";
 
 function timeToMinutes(time: string): number {
   const [hours, minutes] = time.split(":").map(Number);
@@ -55,39 +62,68 @@ export function getTimesShortestFitInEvent(
   return Math.floor(talkDuration / shortestDuration);
 }
 
-export function getTalkById(talkId: string): Talk | undefined {
-  const allTalks: Talk[] = schedule
+export function getTalkById(talkId: string): SpeakerEvent | undefined {
+  const allTalks: SpeakerEvent[] = schedule
     .flatMap((block) => block.tracks.flat())
     .filter((scheduleEntry) => scheduleEntry.type === "talk");
 
   return allTalks.find((t) => t.id === talkId);
 }
 
-function getCurrentTime(): string {
+function getCurrentTimeInMinutes(): number {
   const now = new Date();
-  const hours = now.getHours().toString().padStart(2, "0");
-  const minutes = now.getMinutes().toString().padStart(2, "0");
-  return `${hours}:${minutes}`;
+  return now.getHours() * 60 + now.getMinutes();
 }
 
-export function findTalkByTimeAndLocation(location: string) {
-  const currentTime = timeToMinutes(getCurrentTime());
-
-  const activeBlocks = schedule.filter(
-    (block) =>
-      timeToMinutes(block.start) <= currentTime &&
-      timeToMinutes(block.end) >= currentTime,
-  );
-
-  const availableEvents = activeBlocks.flatMap((block) => block.tracks).flat();
-
+function isTalkActive(
+  speakerEvent: SpeakerEvent,
+  currentTime: number,
+): boolean {
   return (
-    (availableEvents.find(
-      (event) =>
-        event.type !== "break" &&
-        event.location === location &&
-        timeToMinutes(event.from) <= currentTime &&
-        timeToMinutes(event.to) >= currentTime,
-    ) as Talk | CommonEvent) ?? null
+    timeToMinutes(speakerEvent.from) <= currentTime &&
+    timeToMinutes(speakerEvent.to) >= currentTime
   );
+}
+
+function filterSpeakerEventByLocation(
+  speakerEvent: SpeakerEvent[],
+  location: string,
+): SpeakerEvent[] {
+  return speakerEvent.filter((talk) => talk.location === location);
+}
+
+function getAllSpeakerEventsFromSchedule(schedule: Schedule) {
+  return schedule.flatMap((block) =>
+    block.tracks.flatMap((track) =>
+      track.filter(
+        (entry): entry is SpeakerEvent =>
+          entry.type === "talk" || entry.type === "common",
+      ),
+    ),
+  );
+}
+
+function findCurrentSpeakerEvent(
+  speakerEvent: SpeakerEvent[],
+  currentTime: number,
+): Talk | CommonEvent | undefined {
+  return speakerEvent.find((speakerEvent) =>
+    isTalkActive(speakerEvent, currentTime),
+  );
+}
+
+export function findSpeakerEventByTimeAndLocation(
+  location: string,
+): SpeakerEvent | undefined {
+  const currentTime = getCurrentTimeInMinutes();
+  const allSpeakerEvents = getAllSpeakerEventsFromSchedule(schedule);
+  const locationSpeakerEvent = filterSpeakerEventByLocation(
+    allSpeakerEvents,
+    location,
+  );
+  const currentSpeakerEvent = findCurrentSpeakerEvent(
+    locationSpeakerEvent,
+    currentTime,
+  );
+  return currentSpeakerEvent;
 }
