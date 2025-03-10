@@ -19,6 +19,7 @@ import Description from "../Description.astro";
 import { Image } from "astro:assets";
 import talkArrow from "../../../public/assets/icons/talkArrow.svg";
 import Discipline from "../discipline/Discipline.astro";
+import { Live } from "../live/Live";
 
 interface Props {
   event: ScheduleEntry;
@@ -85,6 +86,7 @@ const talkArrowHeigth = 52;
             </Discipline>
           )
         }
+        <Live client:load event={event} />
       </div>
       <FavoriteButton client:load id={id} title={title} />
     </div>

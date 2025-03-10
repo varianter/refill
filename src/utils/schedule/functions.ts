@@ -70,12 +70,12 @@ export function getTalkById(talkId: string): Talk | undefined {
   return allTalks.find((t) => t.id === talkId);
 }
 
-function getCurrentTimeInMinutes(): number {
+export function getCurrentTimeInMinutes(): number {
   const now = new Date();
   return now.getHours() * 60 + now.getMinutes();
 }
 
-function isTalkActive(
+export function isTalkActive(
   speakerEvent: SpeakerEvent,
   currentTime: number,
 ): boolean {
