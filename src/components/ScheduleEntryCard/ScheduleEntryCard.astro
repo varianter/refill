@@ -76,6 +76,9 @@ const talkArrowHeigth = 52;
       talkDescription={talkDescription}
       displayCondition={shouldRenderDescription}
     />
+    <div class="speaker_card_live">
+      <Live client:load event={event} />
+    </div>
     <div class="speaker_card__flex">
       <div class="speaker_card__flex__labels">
         <Discipline>{`${location} ${from}-${to}`}</Discipline>
@@ -86,7 +89,6 @@ const talkArrowHeigth = 52;
             </Discipline>
           )
         }
-        <Live client:load event={event} />
       </div>
       <FavoriteButton client:load id={id} title={title} />
     </div>
@@ -121,7 +123,13 @@ const talkArrowHeigth = 52;
 
   .speaker_card__link {
     display: grid;
-    grid-template-areas: "img";
+    grid-area: img;
+  }
+
+  .speaker_card_live {
+    display: grid;
+    grid-area: img;
+    width: fit-content;
   }
 
   .speaker_card__link:hover .talk p {
