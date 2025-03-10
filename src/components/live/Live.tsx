@@ -45,9 +45,11 @@ export const Live = ({ event }: LiveProps) => {
     <div>
       {isLive && (
         <a href={getHref(event)} className={style.live}>
-          <span className={style.live__dot}>
-            <span className={style.live__dot__inner} />
-          </span>
+          <div className={style.live__dot__container}>
+            <span className={style.live__dot}>
+              <span className={style.live__dot__inner} />
+            </span>
+          </div>
           Live now!
         </a>
       )}
