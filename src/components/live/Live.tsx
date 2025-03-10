@@ -13,13 +13,23 @@ type LiveProps = {
 export const Live = ({ event }: LiveProps) => {
   const [isLive, setIsLive] = useState(false);
 
-  const isCurrentTimeInRange = (event: ScheduleEntry) => {
+  function isSpeakerEvent(event: ScheduleEntry) {
+    return event.type !== "break";
+  }
+
+  function isCurrentTimeInRange(event: ScheduleEntry) {
     const now = getCurrentTimeInMinutes();
-    if (event.type !== "break") {
+    if (isSpeakerEvent(event)) {
       return isTalkActive(event, now);
     }
     return false;
-  };
+  }
+
+  function getHref(event: ScheduleEntry) {
+    if (isSpeakerEvent(event)) {
+      return `/stream#${isSpeakerEvent(event) ? event.location : ""}`;
+    }
+  }
 
   useEffect(() => {
     const updateTalk = () => {
@@ -34,7 +44,7 @@ export const Live = ({ event }: LiveProps) => {
   return (
     <div>
       {isLive && (
-        <a className={style.live}>
+        <a href={getHref(event)} className={style.live}>
           <span className={style.live__dot}>
             <span className={style.live__dot__inner} />
           </span>
