@@ -2,6 +2,12 @@
 import "../styles/global.css";
 import Footer from "../components/navigation/Footer.astro";
 import Navbar from "../components/navigation/Navbar.astro";
+
+interface Props {
+  layoutGap?: string;
+}
+
+const { layoutGap } = Astro.props;
 ---
 
 <!doctype html>
@@ -53,15 +59,16 @@ import Navbar from "../components/navigation/Navbar.astro";
   </body>
 </html>
 
-<style>
+<style define:vars={{ layoutGap }}>
   main {
     background-color: var(--background-primary);
     padding: var(--Padding-xxl) 4rem;
 
-    gap: 1rem;
+    gap: var(--layoutGap, 1rem);
 
     @media (max-width: 530px) {
       padding: var(--Padding-xxl) var(--Padding-rem);
+      gap: 1rem;
     }
   }
 </style>
