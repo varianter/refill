@@ -35,6 +35,7 @@ const {
   KirstiStrømstad,
   VeraHayeBjerga,
   NinjaWidenAndChristofferJohannesson,
+  FridaNyvinger,
 } = SpeakerName;
 
 export const schedule: Schedule = [
@@ -651,14 +652,20 @@ export const schedule: Schedule = [
         {
           type: "talk",
           id: "37",
-          title: "TBA",
+          title:
+            "What happens when news media explore the next level of user engagement with the help of AI?",
           location: "Palmsalen",
           from: "15:20",
-          to: "16:00",
+          to: "15:40",
           discipline: Design,
-          speaker: None,
-          talkDescription: [],
-          speakerDescription: [],
+          speaker: FridaNyvinger,
+          talkDescription: [
+            "Using news media as an independent source of knowledge and combining it with large language models enables a new way to keep up in a rapidly changing world. The question is what is a good user experience for a chatbot in a news context?",
+            "Bonnier News is experimenting with AI to find the next level of engagement with users - on the users' terms.",
+          ],
+          speakerDescription: [
+            "Frida Nyvinger started off with a bachelor’s degree in law and a master’s degree in journalism before finding her calling in tech. She now has more than ten years of experience working in the media industry including TV, radio and print. Today she is the Director of CX, UX & Design at Bonnier News where her superstar team of UX-designers and Designers are ensuring a great UX and CX for 140+ brands, while taking necessary steps to innovate the largest media company in the Nordics.",
+          ],
         },
         {
           type: "talk",
@@ -693,6 +700,18 @@ export const schedule: Schedule = [
             "David is a strategically driven leader with a robust background in user research and strategy from both academia and industry. David started the User Research Lab at Skype and was also part of the corporate strategy team at Svenska Spel. For the last 10 years he has been on the consultancy side, with several strategy projects as well as leadership positions. Previously Head of inUse, a design consultancy agency and now he is the CEO of Variant Sverige AB. Variant Sverige is a consultancy agency that is transparent, value-driven, and built by and for people.",
             "Our mission is to foster trust, transparency, and equality within European companies. Founded in Trondheim in 2018, Variant has expanded to Sweden with offices in Stockholm, Gothenburg, and Linköping. The company is committed to creating a positive digital impact through collaboration and a shared passion for learning.",
           ],
+        },
+        {
+          type: "talk",
+          id: "9",
+          title: "TBA",
+          location: "Palmsalen",
+          from: "15:40",
+          to: "16:00",
+          discipline: Design,
+          speaker: None,
+          talkDescription: [],
+          speakerDescription: [],
         },
         {
           type: "talk",

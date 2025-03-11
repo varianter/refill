@@ -30,4 +30,5 @@ export enum SpeakerName {
   KirstiStrømstad = "Kirsti Strømstad",
   VeraHayeBjerga = "Vera Haye Bjerga",
   NinjaWidenAndChristofferJohannesson = "Ninja Widén & Christoffer Johannesson",
+  FridaNyvinger = "Frida Nyvinger",
 }
