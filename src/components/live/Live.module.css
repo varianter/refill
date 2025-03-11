@@ -9,6 +9,15 @@
   display: flex;
   gap: var(--Padding-s);
   align-items: center;
+  transition: all 0.4s;
+
+  &:hover {
+    background-color: var(--grey-900);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
 }
 
 .live__dot__container {
