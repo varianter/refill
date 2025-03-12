@@ -1,0 +1,52 @@
+---
+import type { ScheduleEntry } from "../../utils/schedule/types";
+import { shouldBeLink } from "./functions";
+
+interface Props {
+  event: ScheduleEntry;
+}
+
+const { event } = Astro.props;
+const { id } = event;
+---
+
+{
+  shouldBeLink(event) ? (
+    <a href={`talks/${id}`} class="speaker_card__link" id={id}>
+      <slot />
+      <span class="speaker_card__hover_background" />
+    </a>
+  ) : (
+    <slot />
+  )
+}
+<style is:global>
+  .speaker_card__link {
+    display: grid;
+    grid-template-areas: "img";
+  }
+
+  .speaker_card__link:hover .talk p {
+    color: var(--text-primary-on-dark);
+    background-color: transparent;
+    position: relative;
+    z-index: 1;
+  }
+
+  .speaker_card__hover_background {
+    position: absolute;
+    z-index: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--borderColor);
+    opacity: 0.8;
+    left: 0;
+    top: 0;
+
+    transition: width 0.4s;
+  }
+
+  .speaker_card__link:hover .speaker_card__hover_background {
+    width: 100%;
+  }
+</style>
