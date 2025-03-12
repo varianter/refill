@@ -30,6 +30,11 @@ import Meta from "../components/Meta.astro";
     padding-top: 10rem;
     gap: 3.75rem;
     background-color: var(--background-primary);
+
+    > * {
+      position: relative;
+      z-index: 1;
+    }
   }
 
   p {
@@ -38,6 +43,7 @@ import Meta from "../components/Meta.astro";
 
   .practical_details_layout__splash {
     position: absolute;
+    z-index: 0;
     top: 0;
     right: 0;
 
