@@ -29,21 +29,24 @@ const {
   location,
   from,
   to,
-  discipline,
   speaker,
   talkDescription,
   speakerDescription,
 } = talk;
 
-const colorPair = getDisciplineColorPair(discipline);
-const disciplineBackgroundColor = colorPair.color;
-const disciplineTextColor = colorPair.textColor;
+let discipline, colorPair, disciplineBackgroundColor, disciplineTextColor;
+if ("discipline" in talk) {
+  discipline = talk.discipline;
+  colorPair = getDisciplineColorPair(discipline);
+  disciplineBackgroundColor = colorPair.color;
+  disciplineTextColor = colorPair.textColor;
+}
 
-const speakerName = getSpeakerNames(speaker);
+const speakerName = speaker ? getSpeakerNames(speaker) : "";
 const aboutTheSpeakerHeading = Array.isArray(speaker)
   ? "About the speakers"
   : "About the speaker";
-const metaDescription = talkDescription.join(" ");
+const metaDescription = talkDescription ? talkDescription.join(" ") : "";
 ---
 
 <TalkLayout id={id} title={title} description={metaDescription}>
@@ -59,7 +62,11 @@ const metaDescription = talkDescription.join(" ");
       <div class="talk__author_section">
         <p class="talk__author_name">{speakerName}</p>
         <div class="talk__author_images">
-          <RenderSpeakerImage speakerName={speaker} isCard={false} />
+          {
+            speaker && (
+              <RenderSpeakerImage speakerName={speaker} isCard={false} />
+            )
+          }
         </div>
       </div>
       <div class="talk__talk_section">
@@ -67,13 +74,17 @@ const metaDescription = talkDescription.join(" ");
           <p class="talk__chip talk__time_and_location">
             {`${location} ${from}-${to}`}
           </p>
-          <p class="talk__chip talk__discipline">
-            {getDisciplineName(discipline)}
-          </p>
+          {
+            discipline && (
+              <p class="talk__chip talk__discipline">
+                {getDisciplineName(discipline)}
+              </p>
+            )
+          }
           <FavoriteButton client:load id={id} title={title} />
         </div>
         {
-          (
+          talkDescription && (
             <Description
               talkDescription={talkDescription}
               descriptionType="normal"
@@ -81,13 +92,17 @@ const metaDescription = talkDescription.join(" ");
           )
         }
       </div>
-      <div class="talk__author_description">
-        <p class="talk__about_author">{aboutTheSpeakerHeading}</p>
-        <Description
-          talkDescription={speakerDescription}
-          descriptionType="normal"
-        />
-      </div>
+      {
+        speakerDescription && (
+          <div class="talk__author_description">
+            <p class="talk__about_author">{aboutTheSpeakerHeading}</p>
+            <Description
+              talkDescription={speakerDescription}
+              descriptionType="normal"
+            />
+          </div>
+        )
+      }
     </section>
   </div>
   <Footer variant="black" illustrationVariant={discipline} slot="footer" />
@@ -137,7 +152,7 @@ const metaDescription = talkDescription.join(" ");
       max-width: 649px;
       padding: 0;
       padding-top: var(--Padding-xl);
-      padding-left: var(--Padding-rem)
+      padding-left: var(--Padding-rem);
     }
   }
 

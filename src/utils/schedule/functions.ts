@@ -1,5 +1,5 @@
 import { schedule } from "./schedule";
-import type { Block, ScheduleEvent, Talk } from "./types";
+import type { Block, CommonEvent, ScheduleEvent, Talk } from "./types";
 
 function timeToMinutes(time: string): number {
   const [hours, minutes] = time.split(":").map(Number);
@@ -55,10 +55,10 @@ export function getTimesShortestFitInEvent(
   return Math.floor(talkDuration / shortestDuration);
 }
 
-export function getTalkById(talkId: string): Talk | undefined {
-  const allTalks: Talk[] = schedule
+export function getTalkById(talkId: string) {
+  const allTalks: (Talk | CommonEvent)[] = schedule
     .flatMap((block) => block.tracks.flat())
-    .filter((scheduleEntry) => scheduleEntry.type === "talk");
+    .filter((scheduleEntry) => scheduleEntry.type !== "break");
 
   return allTalks.find((t) => t.id === talkId);
 }
