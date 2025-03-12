@@ -15,7 +15,9 @@ export const getLocation = (event: ScheduleEntry): string => {
 };
 
 export const getTalkDescription = (event: ScheduleEntry): DescriptionList => {
-  return event.type === "talk" ? event.talkDescription : [];
+  return event.type !== "break" && event.talkDescription
+    ? event.talkDescription
+    : [];
 };
 
 export const getColorPair = (event: ScheduleEntry): ColorPair | undefined => {
@@ -24,8 +26,12 @@ export const getColorPair = (event: ScheduleEntry): ColorPair | undefined => {
     : undefined;
 };
 
-export const isNotBreak = (event: ScheduleEntry): boolean => {
-  return event.type !== "break";
+export const shouldBeLink = (event: ScheduleEntry): boolean => {
+  return (
+    event.type !== "break" &&
+    event.speaker !== undefined &&
+    event.talkDescription !== undefined
+  );
 };
 
 export const getBorderColor = (
