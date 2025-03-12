@@ -70,15 +70,34 @@ export function getTalkById(talkId: string) {
   return allTalks.find((t) => t.id === talkId);
 }
 
+function getDateToday() {
+  return new Date();
+}
+
 export function getCurrentTimeInMinutes(): number {
-  const now = new Date();
+  const now = getDateToday();
   return now.getHours() * 60 + now.getMinutes();
+}
+
+function isSameDate(date1: Date, date2: Date): boolean {
+  return (
+    date1.getDate() === date2.getDate() &&
+    date1.getMonth() === date2.getMonth() &&
+    date1.getFullYear() === date2.getFullYear()
+  );
 }
 
 export function isTalkActive(
   speakerEvent: SpeakerEvent,
   currentTime: number,
 ): boolean {
+  //TODO: Replace with actual date
+  const conferanceDate = getDateToday();
+  const today = getDateToday();
+
+  if (!isSameDate(conferanceDate, today)) {
+    return false;
+  }
   return (
     timeToMinutes(speakerEvent.from) <= currentTime &&
     timeToMinutes(speakerEvent.to) >= currentTime
