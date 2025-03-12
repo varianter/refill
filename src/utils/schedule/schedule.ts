@@ -67,6 +67,10 @@ export const schedule: Schedule = [
           talkDescription: [
             "You’ve attended conferences before, but no one gave you an instruction manual. There’s no need for a manual, you might object. You just go, listen, drink coffee and talk to people. I think there is more to it, which is why I will spend this opening Keynote giving advice on attending a conference with intent. I will suggest how to get the most out of the talks to come, how to network meaningfully, and how to apply what you learn. Coincidentally, doing all of this will be practicing many of the same behaviours you would employ to have more impact at work. See how that ties into the theme for the conference? Clever, if I say so myself.",
           ],
+          speakerDescription: [
+            "David de Léon is a UX designer and researcher with 25 years of academic and industry experience. You can tell by the colour of his hair and beard that he has been doing it for a while. He began his journey with a PhD in cognitive science and has since helped teams, companies, and individuals grow and develop. As a well-renowned public speaker – also known for hosting a conference or two – he regularly gives inspirational talks to large teams in presentation technique, motivation and creativity.",
+            "In his spare time he likes to read, self-publish books, and take long naps on the sofa.",
+          ],
         },
       ],
     ],
