@@ -774,6 +774,12 @@ export const schedule: Schedule = [
           from: "16:45",
           to: "17:30",
           speaker: MariusKrakeli,
+          talkDescription: [
+            "We all say tech moves so fast. So is it impossible to stay updated with all the moving technology? I guess we'll find out in The Big Tech Quiz Of The Year! A quiz with contestants trying to compete for an amazing price.",
+          ],
+          speakerDescription: [
+            "Marius is an ex programmer now turned product manager with a fondness for fantastic product experiences. Although spending most of his time thinking about product development, he also maintains his programming skills by being both producer and panelist on the JavaScript podcast “BartJS Podcast”. When he’s not working as a consultant at Variant, he is very entertained by video games and running.",
+          ],
         },
       ],
       [
