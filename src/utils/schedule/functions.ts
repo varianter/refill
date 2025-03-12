@@ -75,7 +75,6 @@ function getDateToday() {
 }
 
 export function getCurrentTimeInMinutes(): number {
-  return 540;
   const now = getDateToday();
   return now.getHours() * 60 + now.getMinutes();
 }
@@ -96,7 +95,10 @@ export function isTalkActive(
   const conferanceDate = getDateToday();
   const today = getDateToday();
 
-  if (!isSameDate(conferanceDate, today)) {
+  if (
+    !isSameDate(conferanceDate, today) ||
+    speakerEvent.speaker === undefined
+  ) {
     return false;
   }
   return (
