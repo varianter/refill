@@ -24,8 +24,8 @@ export const getColorPair = (event: ScheduleEntry): ColorPair | undefined => {
     : undefined;
 };
 
-export const isTalk = (event: ScheduleEntry): boolean => {
-  return event.type === "talk";
+export const isNotBreak = (event: ScheduleEntry): boolean => {
+  return event.type !== "break";
 };
 
 export const getBorderColor = (
