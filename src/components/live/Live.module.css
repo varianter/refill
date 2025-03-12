@@ -5,6 +5,8 @@
   color: var(--text-primary-on-dark, #fafafa);
   text-decoration: underline;
   line-height: 1.5rem;
+  position: relative;
+  z-index: 1;
 
   display: flex;
   gap: var(--Padding-s);
