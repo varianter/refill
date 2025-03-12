@@ -4,7 +4,6 @@ import type { Schedule } from "./types";
 
 const { Design, Development, StrategyAndProduct } = Discipline;
 const {
-  None,
   VegardIngebrigtsenFeste,
   MalinCKarlsen,
   ChristianBrevik,
@@ -36,6 +35,8 @@ const {
   VeraHayeBjerga,
   NinjaWidenAndChristofferJohannesson,
   FridaNyvinger,
+  SofiaTegelid,
+  RudyBortolini,
 } = SpeakerName;
 
 export const schedule: Schedule = [
@@ -567,12 +568,12 @@ export const schedule: Schedule = [
         {
           type: "talk",
           id: "33",
-          title: "TBA",
+          title: "Your key to unlocking the power of UX",
           location: "Palmsalen",
           from: "14:30",
           to: "14:50",
           discipline: Design,
-          speaker: None,
+          speaker: SofiaTegelid,
           talkDescription: [],
           speakerDescription: [],
         },
@@ -704,12 +705,13 @@ export const schedule: Schedule = [
         {
           type: "talk",
           id: "9",
-          title: "TBA",
+          title:
+            "Support 300+   Mergers into 1 Company: UX as the Glue in Global Transformation",
           location: "Palmsalen",
           from: "15:40",
           to: "16:00",
           discipline: Design,
-          speaker: None,
+          speaker: RudyBortolini,
           talkDescription: [],
           speakerDescription: [],
         },

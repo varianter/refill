@@ -29,6 +29,8 @@ import KirstiStrømstad from "../../public/assets/img/people/Kirsti-Strømstad.j
 import VeraHayeBjerga from "../../public/assets/img/people/Vera-Haye-Bjerga.jpg";
 import NinjaWidenAndChristofferJohannesson from "../../public/assets/img/people/Ninja-Widén-&-Christoffer-Johannesson.png";
 import FridaNyvinger from "../../public/assets/img/people/Frida-Nyvinger.jpg";
+import SofiaTegelid from "../../public/assets/img/people/Sofia-Tegelid.jpg";
+import RudyBortolini from "../../public/assets/img/people/Rudy-Bortolini.jpg";
 import { SpeakerName } from "./speakers";
 
 export const speakerImages: Record<SpeakerName, ImageMetadata> = {
@@ -65,6 +67,8 @@ export const speakerImages: Record<SpeakerName, ImageMetadata> = {
   [SpeakerName.NinjaWidenAndChristofferJohannesson]:
     NinjaWidenAndChristofferJohannesson,
   [SpeakerName.FridaNyvinger]: FridaNyvinger,
+  [SpeakerName.SofiaTegelid]: SofiaTegelid,
+  [SpeakerName.RudyBortolini]: RudyBortolini,
 };
 
 export function getSpeakerImageSrc(name: SpeakerName) {
