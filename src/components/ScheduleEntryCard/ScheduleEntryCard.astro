@@ -11,7 +11,7 @@ import {
   getTalkDescription,
   getLocation,
   getSpeaker,
-  isTalk,
+  shouldBeLink,
 } from "./functions";
 import RenderSpeakerImage from "./RenderSpeakerImage.astro";
 import type { ScheduleEntry } from "../../utils/schedule/types";
@@ -50,7 +50,7 @@ const talkArrowHeigth = 52;
 >
   <div class="speaker_card__wrapper">
     {
-      isTalk(event) ? (
+      shouldBeLink(event) ? (
         <a href={`talks/${id}`} class="speaker_card__link" id={id}>
           <Image
             layout="responsive"

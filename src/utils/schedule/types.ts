@@ -22,6 +22,8 @@ export interface CommonEvent extends ScheduleEvent {
   type: "common";
   location: string;
   speaker?: Speaker;
+  talkDescription?: DescriptionList;
+  speakerDescription?: DescriptionList;
 }
 
 export interface Talk extends ScheduleEvent {
@@ -29,8 +31,8 @@ export interface Talk extends ScheduleEvent {
   location: string;
   discipline: Discipline;
   speaker: Speaker;
-  talkDescription: DescriptionList;
-  speakerDescription: DescriptionList;
+  talkDescription?: DescriptionList;
+  speakerDescription?: DescriptionList;
 }
 
 export interface Break extends ScheduleEvent {
