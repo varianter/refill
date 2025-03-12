@@ -1,16 +1,25 @@
 ---
+import type { ScheduleEntry } from "../../utils/schedule/types";
+import { shouldBeLink } from "./functions";
+
 interface Props {
-  id: string;
+  event: ScheduleEntry;
 }
 
-const { id } = Astro.props;
+const { event } = Astro.props;
+const { id } = event;
 ---
 
-<a href={`talks/${id}`} class="speaker_card__link" id={id}>
-  <slot />
-  <span class="speaker_card__hover_background"></span>
-</a>
-
+{
+  shouldBeLink(event) ? (
+    <a href={`talks/${id}`} class="speaker_card__link" id={id}>
+      <slot />
+      <span class="speaker_card__hover_background" />
+    </a>
+  ) : (
+    <slot />
+  )
+}
 <style is:global>
   .speaker_card__link {
     display: grid;

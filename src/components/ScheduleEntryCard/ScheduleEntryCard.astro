@@ -12,7 +12,6 @@ import {
   getTalkDescription,
   getLocation,
   getSpeaker,
-  shouldBeLink,
 } from "./functions";
 import RenderSpeakerImage from "./RenderSpeakerImage.astro";
 import type { ScheduleEntry } from "../../utils/schedule/types";
@@ -49,35 +48,26 @@ const talkArrowHeigth = 52;
   column={column}
 >
   <div class="speaker_card__wrapper">
-    {
-      shouldBeLink(event) ? (
-        <CardLink id={id}>
-          <Image
-            layout="responsive"
-            class="speaker_card__link__img"
-            src={talkArrow}
-            alt=""
-            width={talkArrowWidth}
-            height={talkArrowHeigth}
-          />
-          {speaker && <RenderSpeakerImage speakerName={speaker} />}
-          <Talk speakerName={speaker} title={title} />
-        </CardLink>
-      ) : (
-        <>
-          {speaker && <RenderSpeakerImage speakerName={speaker} />}
-          <Talk speakerName={speaker} title={title} />
-        </>
-      )
-    }
-    <CardLink id={id}>
+    <CardLink event={event}>
+      <Image
+        layout="responsive"
+        class="speaker_card__link__img"
+        src={talkArrow}
+        alt=""
+        width={talkArrowWidth}
+        height={talkArrowHeigth}
+      />
+      {speaker && <RenderSpeakerImage speakerName={speaker} />}
+      <Talk speakerName={speaker} title={title} />
+    </CardLink>
+    <CardLink event={event}>
       <Description
         talkDescription={talkDescription}
         displayCondition={shouldRenderDescription}
       />
     </CardLink>
     <div class="speaker_card__flex">
-      <CardLink id={id}>
+      <CardLink event={event}>
         <div class="speaker_card__flex__labels">
           <Discipline>{`${location} ${from}-${to}`}</Discipline>
           {
