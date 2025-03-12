@@ -59,11 +59,14 @@ export const schedule: Schedule = [
         {
           type: "common",
           id: "3",
-          title: "Welcome and Keynote",
+          title: "Attending with intent",
           location: "Palmsalen",
           from: "09:00",
           to: "09:40",
           speaker: DavidDeLeon,
+          talkDescription: [
+            "You’ve attended conferences before, but no one gave you an instruction manual. There’s no need for a manual, you might object. You just go, listen, drink coffee and talk to people. I think there is more to it, which is why I will spend this opening Keynote giving advice on attending a conference with intent. I will suggest how to get the most out of the talks to come, how to network meaningfully, and how to apply what you learn. Coincidentally, doing all of this will be practicing many of the same behaviours you would employ to have more impact at work. See how that ties into the theme for the conference? Clever, if I say so myself.",
+          ],
         },
       ],
     ],
@@ -138,7 +141,6 @@ export const schedule: Schedule = [
           talkDescription: [
             "We demonstrate how scenario-based thinking became the foundation for developing a future-proof product strategy for Feide. The session provides insight into the method we used, the three scenarios we developed, and how these were used to engage employees and external stakeholders in the sector throughout the process, by having them outline future ways of working and the position they believe Feide should take moving forward.",
           ],
-          speakerDescription: [],
         },
         {
           type: "talk",
@@ -259,7 +261,6 @@ export const schedule: Schedule = [
           talkDescription: [
             "Unlocking success in uncertain times requires collaboration between design, product management and technology. By leveraging these tools, teams can uncover new opportunities and make informed decisions inspite of high level complexity. We will present and discuss an approach which enhances adaptability and sets the stage for impactful and innovative outcomes.",
           ],
-          speakerDescription: [],
         },
         {
           type: "talk",
@@ -467,7 +468,6 @@ export const schedule: Schedule = [
             "When writing test code, one of the tools many reach for is mocking frameworks. These frameworks allow you to simulate code dependencies, and instruct these fake dependencies to return specific values when called. That lets you quickly test different scenarios, and focus on the specific details of the thing you are testing.",
             " That focus and speed is also the biggest trap of mocking frameworks. You are relying on the fact that the dependencies you are mocking will never change, which makes the test code brittle. And you are in no way guaranteed that you are instructing the mock to mimic the real behaviour of the dependencies. In this talk I will try to persuade you of the strength of letting your fake dependencies have state and side effects, and write test code that focuses on behaviour instead of implementation details.",
           ],
-          speakerDescription: [],
         },
         {
           type: "talk",
@@ -574,8 +574,6 @@ export const schedule: Schedule = [
           to: "14:50",
           discipline: Design,
           speaker: SofiaTegelid,
-          talkDescription: [],
-          speakerDescription: [],
         },
         {
           type: "talk",
@@ -605,7 +603,6 @@ export const schedule: Schedule = [
           talkDescription: [
             'Workshop hvor man lærer hands on hvordan man kan bruke "MVP arket" til å definere MVP',
           ],
-          speakerDescription: [],
         },
         {
           type: "talk",
@@ -712,8 +709,6 @@ export const schedule: Schedule = [
           to: "16:00",
           discipline: Design,
           speaker: RudyBortolini,
-          talkDescription: [],
-          speakerDescription: [],
         },
         {
           type: "talk",
