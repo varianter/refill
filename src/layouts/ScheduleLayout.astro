@@ -2,23 +2,24 @@
 import "../styles/global.css";
 import Footer from "../components/navigation/Footer.astro";
 import Navbar from "../components/navigation/Navbar.astro";
-import Meta from "../components/Meta.astro";
+import Meta from "../components/meta/Meta.astro";
+import type { MetaProps } from "../components/meta/types";
 
-interface Props {
+interface Props extends MetaProps {
   layoutGap?: string;
 }
 
-const { layoutGap } = Astro.props;
+const { layoutGap, title, description, keywords, image, url } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <Meta
-    title="Schedule | Refill 2025"
-    description="Explore the full schedule for Refill 2025, featuring talks, workshops, and networking opportunities hosted by Variant."
-    keywords="Refill 2025 schedule, conference schedule, tech conference, workshops, networking, Variant, talks, event schedule"
-    image="/assets/img/og-refill.png"
-    url="https://www.refillconf.com/schedule"
+    title={title}
+    description={description}
+    keywords={keywords}
+    image={image}
+    url={url}
   />
   <body>
     <Navbar />
