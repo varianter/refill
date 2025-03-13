@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Footer from "../components/navigation/Footer.astro";
 import Navbar from "../components/navigation/Navbar.astro";
+import Meta from "../components/Meta.astro";
 
 interface Props {
   layoutGap?: string;
@@ -12,44 +13,13 @@ const { layoutGap } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-  <head
-    ><meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.png" />
-    <meta name="generator" content={Astro.generator} />
-    <meta
-      name="description"
-      content="Explore the full schedule for Refill 2025, featuring talks, workshops, and networking opportunities hosted by Variant."
-    />
-    <meta
-      name="keywords"
-      content="Refill 2025 schedule, conference schedule, tech conference, workshops, networking, Variant, talks, event schedule"
-    />
-    <meta name="author" content="Vri Refill" />
-    <meta name="robots" content="index, follow" />
-    <title>Schedule | Refill 2025</title>
-
-    <meta property="og:title" content="Schedule | Refill 2025" />
-    <meta
-      property="og:description"
-      content="Explore the Refill 2025 schedule, packed with insightful talks, workshops, and networking opportunities."
-    />
-    <meta property="og:image" content="/assets/img/og-refill.png" />
-    <meta property="og:url" content="https://www.refillconf.com/schedule" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Refill 2025" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Schedule | Refill 2025" />
-    <meta
-      name="twitter:description"
-      content="Discover the Refill 2025 schedule and plan your experience at the conference."
-    />
-    <meta name="twitter:image" content="/assets/img/og-refill.png" />
-    <meta name="twitter:url" content="https://www.refillconf.com/schedule" />
-    <meta name="twitter:site" content="@Variant" />
-    <meta name="twitter:creator" content="@Variant" /></head
-  >
+  <Meta
+    title="Schedule | Refill 2025"
+    description="Explore the full schedule for Refill 2025, featuring talks, workshops, and networking opportunities hosted by Variant."
+    keywords="Refill 2025 schedule, conference schedule, tech conference, workshops, networking, Variant, talks, event schedule"
+    image="/assets/img/og-refill.png"
+    url="https://www.refillconf.com/schedule"
+  />
   <body>
     <Navbar />
     <main>

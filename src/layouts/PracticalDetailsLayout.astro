@@ -3,64 +3,18 @@ import "../styles/global.css";
 import Navbar from "../components/navigation/Navbar.astro";
 import { Image } from "astro:assets";
 import splash from "../../public/assets/img/splash/splash3.svg";
+import Meta from "../components/Meta.astro";
 ---
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.png" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content="Practical details about Refill 2025" />
-    <meta
-      name="keywords"
-      content="Refill 2025, conference, tech conference, workshops, networking, Variant, Stockholm, talks, FAQ, Practical info, Practical details"
-    />
-    <meta name="author" content="Vri Refill" />
-    <meta name="robots" content="index, follow" />
-    <title>Refill 2025: Build for impact</title>
-
-    <meta property="og:title" content="Refill 2025: Build for Impact" />
-    <meta
-      property="og:description"
-      content="Practical details about Refill 2025"
-    />
-    <meta property="og:image" content="/assets/img/og-refill.png" />
-    <meta property="og:url" content="https://www.refillconf.com/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Refill 2025" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Refill 2025: Build for Impact" />
-    <meta
-      name="twitter:description"
-      content="Practical details about Refill 2025"
-    />
-    <meta name="twitter:image" content="/assets/img/og-refill.png" />
-    <meta name="twitter:url" content="https://www.refillconf.com/" />
-    <meta name="twitter:site" content="@Variant" />
-    <meta name="twitter:creator" content="@Variant" />
-
-    <script is:inline>
-      // @ts-ignore
-      var _paq = (window._paq = window._paq || []);
-      _paq.push(["disableCookies"]);
-      _paq.push(["trackPageView"]);
-      _paq.push(["enableLinkTracking"]);
-      (function () {
-        var u = "https://variant.innocraft.cloud/";
-        _paq.push(["setTrackerUrl", u + "matomo.php"]);
-        _paq.push(["setSiteId", "7"]);
-        var d = document,
-          g = d.createElement("script"),
-          s = d.getElementsByTagName("script")[0];
-        g.async = true;
-        g.src = "https://cdn.matomo.cloud/variant.innocraft.cloud/matomo.js";
-        s.parentNode?.insertBefore(g, s);
-      })();
-    </script>
-  </head>
+  <Meta
+    title="Refill 2025: Practical Details"
+    description="Practical details about Refill 2025"
+    keywords="Refill 2025, conference, tech conference, workshops, networking, Variant, Stockholm, talks, FAQ, Practical info, Practical details"
+    image="/assets/img/og-refill.png"
+    url="https://www.refillconf.com/practical-details"
+  />
   <body>
     <Navbar />
     <main>
@@ -76,6 +30,11 @@ import splash from "../../public/assets/img/splash/splash3.svg";
     padding-top: 10rem;
     gap: 3.75rem;
     background-color: var(--background-primary);
+
+    > * {
+      position: relative;
+      z-index: 1;
+    }
   }
 
   p {
@@ -84,6 +43,7 @@ import splash from "../../public/assets/img/splash/splash3.svg";
 
   .practical_details_layout__splash {
     position: absolute;
+    z-index: 0;
     top: 0;
     right: 0;
 
