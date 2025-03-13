@@ -10,7 +10,7 @@ const { location, streamId } = Astro.props;
 ---
 
 <section class="stream_view" id={location}>
-  <h1>{location}</h1>
+  <h2>{location}</h2>
   <CurrentTalk client:load location={location} />
   <div class="stream_view__iframe_container">
     <iframe
