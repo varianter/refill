@@ -39,6 +39,7 @@ export interface Break extends ScheduleEvent {
   type: "break";
 }
 export type ScheduleEntry = Talk | CommonEvent | Break;
+export type SpeakerEvent = Talk | CommonEvent;
 
 export type Track = ScheduleEntry[];
 

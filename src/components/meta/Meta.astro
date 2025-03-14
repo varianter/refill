@@ -1,12 +1,7 @@
 ---
-interface Props {
-  title: string;
-  description: string;
-  keywords: string;
-  image: string;
-  url: string;
-}
+import type { MetaProps } from "./types";
 
+type Props = MetaProps;
 const { title, description, keywords, image, url } = Astro.props;
 ---
 

@@ -4,7 +4,6 @@ import { colors } from "../../utils/colors";
 import CardWrapper from "../CardWrapper.astro";
 import Talk from "../Talk.astro";
 import { FavoriteButton } from "../button/favoriteButton/FavoriteButton";
-import Discipline from "../Discipline.astro";
 import {
   getBorderColor,
   getCardColumn,
@@ -19,6 +18,8 @@ import type { ScheduleEntry } from "../../utils/schedule/types";
 import Description from "../Description.astro";
 import { Image } from "astro:assets";
 import talkArrow from "../../../public/assets/icons/talkArrow.svg";
+import Discipline from "../discipline/Discipline.astro";
+import { Live } from "../live/Live";
 
 interface Props {
   event: ScheduleEntry;
@@ -75,6 +76,9 @@ const talkArrowHeigth = 52;
       talkDescription={talkDescription}
       displayCondition={shouldRenderDescription}
     />
+    <div class="speaker_card_live">
+      <Live client:load event={event} />
+    </div>
     <div class="speaker_card__flex">
       <div class="speaker_card__flex__labels">
         <Discipline>{`${location} ${from}-${to}`}</Discipline>
@@ -119,7 +123,14 @@ const talkArrowHeigth = 52;
 
   .speaker_card__link {
     display: grid;
-    grid-template-areas: "img";
+    grid-area: img;
+    grid-template-columns: subgrid;
+  }
+
+  .speaker_card_live {
+    display: grid;
+    grid-area: img;
+    width: fit-content;
   }
 
   .speaker_card__link:hover .talk p {

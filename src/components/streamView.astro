@@ -1,0 +1,46 @@
+---
+import { CurrentTalk } from "./currentTalk/CurrentTalk";
+
+interface Props {
+  location: string;
+  streamId: string;
+}
+
+const { location, streamId } = Astro.props;
+---
+
+<section class="stream_view" id={location}>
+  <h2>{location}</h2>
+  <CurrentTalk client:load location={location} />
+  <div class="stream_view__iframe_container">
+    <iframe
+      src={`https://www.youtube.com/embed/${streamId}`}
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    >
+    </iframe>
+  </div>
+</section>
+
+<style>
+  .stream_view {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Padding-s);
+
+    max-width: 1410px;
+    width: 100%;
+    margin: auto;
+  }
+  .stream_view__iframe_container {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    max-width: 1410px;
+    margin: 0 auto;
+
+    > iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+</style>

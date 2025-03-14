@@ -10,6 +10,7 @@ import {
 import { getTalkById } from "../../../utils/schedule/functions";
 import RenderSpeakerImage from "../../../components/ScheduleEntryCard/RenderSpeakerImage.astro";
 import { getSpeakerNames } from "../../../utils/getSpeakerNames";
+import { Live } from "../../../components/live/Live";
 
 const { talk: talkId } = Astro.params;
 
@@ -56,6 +57,9 @@ const metaDescription = talkDescription ? talkDescription.join(" ") : "";
   </a>
   <div class="talk__main">
     <section>
+      <div class="talk__live">
+        <Live client:load event={talk} />
+      </div>
       <h1>
         {title}
       </h1>
@@ -117,6 +121,10 @@ const metaDescription = talkDescription ? talkDescription.join(" ") : "";
     @media (max-width: 700px) {
       padding: 0 var(--Padding-talk);
     }
+  }
+
+  .talk__live {
+    width: fit-content;
   }
 
   section {

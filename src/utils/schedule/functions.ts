@@ -1,5 +1,12 @@
 import { schedule } from "./schedule";
-import type { Block, CommonEvent, ScheduleEvent, Talk } from "./types";
+import type {
+  Block,
+  CommonEvent,
+  Schedule,
+  ScheduleEvent,
+  SpeakerEvent,
+  Talk,
+} from "./types";
 
 function timeToMinutes(time: string): number {
   const [hours, minutes] = time.split(":").map(Number);
@@ -61,4 +68,83 @@ export function getTalkById(talkId: string) {
     .filter((scheduleEntry) => scheduleEntry.type !== "break");
 
   return allTalks.find((t) => t.id === talkId);
+}
+
+function getDateToday() {
+  return new Date();
+}
+
+export function getCurrentTimeInMinutes(): number {
+  const now = getDateToday();
+  return now.getHours() * 60 + now.getMinutes();
+}
+
+function isSameDate(date1: Date, date2: Date): boolean {
+  return (
+    date1.getDate() === date2.getDate() &&
+    date1.getMonth() === date2.getMonth() &&
+    date1.getFullYear() === date2.getFullYear()
+  );
+}
+
+export function isTalkActive(
+  speakerEvent: SpeakerEvent,
+  currentTime: number,
+): boolean {
+  const conferanceDate = new Date(2025, 3, 4);
+  const today = getDateToday();
+
+  if (
+    !isSameDate(conferanceDate, today) ||
+    speakerEvent.speaker === undefined
+  ) {
+    return false;
+  }
+  return (
+    timeToMinutes(speakerEvent.from) <= currentTime &&
+    timeToMinutes(speakerEvent.to) > currentTime
+  );
+}
+
+function filterSpeakerEventByLocation(
+  speakerEvent: SpeakerEvent[],
+  location: string,
+): SpeakerEvent[] {
+  return speakerEvent.filter((talk) => talk.location === location);
+}
+
+function getAllSpeakerEventsFromSchedule(schedule: Schedule) {
+  return schedule.flatMap((block) =>
+    block.tracks.flatMap((track) =>
+      track.filter(
+        (entry): entry is SpeakerEvent =>
+          entry.type === "talk" || entry.type === "common",
+      ),
+    ),
+  );
+}
+
+function findCurrentSpeakerEvent(
+  speakerEvent: SpeakerEvent[],
+  currentTime: number,
+): Talk | CommonEvent | undefined {
+  return speakerEvent.find((speakerEvent) =>
+    isTalkActive(speakerEvent, currentTime),
+  );
+}
+
+export function findSpeakerEventByTimeAndLocation(
+  location: string,
+): SpeakerEvent | undefined {
+  const currentTime = getCurrentTimeInMinutes();
+  const allSpeakerEvents = getAllSpeakerEventsFromSchedule(schedule);
+  const locationSpeakerEvent = filterSpeakerEventByLocation(
+    allSpeakerEvents,
+    location,
+  );
+  const currentSpeakerEvent = findCurrentSpeakerEvent(
+    locationSpeakerEvent,
+    currentTime,
+  );
+  return currentSpeakerEvent;
 }

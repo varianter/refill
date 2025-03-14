@@ -1,11 +1,11 @@
 ---
 import { Image } from "astro:assets";
-import Discipline from "../components/Discipline.astro";
 import splash1 from "../../public/assets/img/splash1.svg";
 import splash2 from "../../public/assets/img/splash2.svg";
 import anders from "../../public/assets/img/people/Anders-Hammervold.jpg";
 import { getSpeakerImageSrc} from "../utils/speakerImages";
 import { SpeakerName } from "../utils/speakers";
+import Discipline from "../components/discipline/Discipline.astro";
 
 const anita = getSpeakerImageSrc(SpeakerName.AnitaSteinstad)
 const christian = getSpeakerImageSrc(SpeakerName.ChristianBrevik)
