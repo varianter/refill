@@ -34,9 +34,9 @@ const {
   KirstiStrømstad,
   VeraHayeBjerga,
   NinjaWidenAndChristofferJohannesson,
-  FridaNyvinger,
   SofiaTegelid,
   RudyBortolini,
+  JosefEugeniusAndKatarinaReiz,
 } = SpeakerName;
 
 export const schedule: Schedule = [
@@ -660,13 +660,16 @@ export const schedule: Schedule = [
           from: "15:20",
           to: "15:40",
           discipline: Design,
-          speaker: FridaNyvinger,
+          speaker: JosefEugeniusAndKatarinaReiz,
           talkDescription: [
             "Using news media as an independent source of knowledge and combining it with large language models enables a new way to keep up in a rapidly changing world. The question is what is a good user experience for a chatbot in a news context?",
             "Bonnier News is experimenting with AI to find the next level of engagement with users - on the users' terms.",
           ],
           speakerDescription: [
-            "Frida Nyvinger started off with a bachelor’s degree in law and a master’s degree in journalism before finding her calling in tech. She now has more than ten years of experience working in the media industry including TV, radio and print. Today she is the Director of CX, UX & Design at Bonnier News where her superstar team of UX-designers and Designers are ensuring a great UX and CX for 140+ brands, while taking necessary steps to innovate the largest media company in the Nordics.",
+            "Josef Eugenius, UX Designer",
+            "Josef is a UX designer passionate about the interaction between humans and technology, with a love for seamless user journeys.",
+            "Katarina Reiz, UX Designer",
+            "Katarina is a hands-on UX designer who focuses mainly on research and is currently working on developing the Bonnier News AI platform.",
           ],
         },
         {
