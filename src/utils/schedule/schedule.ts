@@ -578,6 +578,14 @@ export const schedule: Schedule = [
           to: "14:50",
           discipline: Design,
           speaker: SofiaTegelid,
+          talkDescription: [
+            "Dear designer, have you ever felt like your hands are tied and your knowledge is diminished? Do you feel like you could do more at work with your knowledge and expertise? Imagine transforming UX design beyond interface aesthetics and development feature by feature, into a true game-changer for customer success.",
+            "This session will focus on how an organization’s customer focus impacts your role as a UX designer and how you can influence your organization toward a healthy customer focus. Get keys that can be game-changers for your projects and learn the secrets to uncover actionable strategies to amplify the impact of your UX design efforts.",
+          ],
+          speakerDescription: [
+            "Sofia Tegelid has previously worked as a design consultant for 8+ years. With clients ranging from small to big companies and organizations, both in private in public sectors she has developed an understanding of factors that impact the designer’s role. She has been a coach and mentor for UX designers, and teams and successfully worked with UX-maturity development.",
+            "She is now the Lead UX & Service designer at Sectra, a leading provider of health systems worldwide. The company is known for its customer obsession which is deeply ingrained in its corporate culture. The company’s focus on customer satisfaction has resulted in Sectra being ranked number one in global customer satisfaction for twelve consecutive years in the US, six years in Canada, and both years in the newly introduced KLAS categories for Northern and Southern Europe.",
+          ],
         },
         {
           type: "talk",
