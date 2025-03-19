@@ -716,7 +716,13 @@ export const schedule: Schedule = [
           to: "16:00",
           discipline: Design,
           speaker: RudyBortolini,
+          talkDescription: [
+            "Challenge: Managing UX at scale across multiple acquired companies and brands is unrealistic. Each acquisition brings its own identity, UX approach, and user needs. Instead of enforcing uniformity, UX must focus on solving brand- and vertical-specific challenges to ensure meaningful impact.",
+            "To address this, we established global UX focus areas for consistency with local flexibility, mapped customer journeys to identify key pain points, and implemented a gold/silver/bronze adoption framework to scale UX effectively across brands.",
+            "Rather than enforcing uniform UX, we focus on targeted interventions that balance structure and adaptability to drive real business impact.",
+          ],
         },
+
         {
           type: "talk",
           id: "40",
