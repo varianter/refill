@@ -729,6 +729,10 @@ export const schedule: Schedule = [
             "To address this, we established global UX focus areas for consistency with local flexibility, mapped customer journeys to identify key pain points, and implemented a gold/silver/bronze adoption framework to scale UX effectively across brands.",
             "Rather than enforcing uniform UX, we focus on targeted interventions that balance structure and adaptability to drive real business impact.",
           ],
+          speakerDescription: [
+            "Rudy Bortolini is the Head of Global UX at ASSA ABLOY, leading a team that drives UX strategy, design systems, and research across global digital products. With a strong background in user experience, digital accessibility, and design leadership, he focuses on enhancing efficiency, consistency, and innovation in digital design.",
+            "Rudy collaborates closely with branding, IT, and product teams to bridge UX with business impact, ensuring seamless and scalable design solutions.",
+          ],
         },
 
         {
