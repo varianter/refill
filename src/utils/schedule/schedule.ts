@@ -606,14 +606,22 @@ export const schedule: Schedule = [
         {
           type: "talk",
           id: "16",
-          title: `Workshop: hvor man lærer hands on hvordan man kan bruke "MVP arket" til å definere MVP`,
+          title: `Discover your product through the MVP Sheet`,
           location: "No. 314",
           from: "14:30",
           to: "15:10",
           discipline: StrategyAndProduct,
           speaker: AndreasHartveit,
           talkDescription: [
-            'Workshop hvor man lærer hands on hvordan man kan bruke "MVP arket" til å definere MVP',
+            "Have you ever worked on a Minimum Viable Product (MVP) that keeps growing in scope but never gets released? Does MVP sometimes feel like just another way to accelerate the output of your development team, or is it used simply to define the features of the next release?",
+            "As a strong advocate for MVP, I often see the concept misinterpreted. But what do “minimum,” “viable,” and “product” truly mean in the context of digital product development? How can a well-defined MVP help product teams succeed in an increasingly competitive landscape? And how can adopting a product mindset improve the way we scope and validate our solutions?",
+            "In this talk, I will introduce the MVP Sheet, a framework to help teams define what the first iteration of a product should include—and what can be addressed later. I will share my perspectives on the methodology, along with real world experiences from building minimum viable products. My goal is to inspire you to take a more outcome-driven and focused approach to product development, ultimately delivering greater value from your products and services.",
+            "This talk is designed for professionals involved in digital product development, including developers, designers, and members of cross-functional teams.",
+          ],
+          speakerDescription: [
+            "I am a technology-interested designer with a primary area of expertise in digital product design. As CDO at Variant in Bergen, I help my clients to design products that bring value to their users and their organisation.",
+            "In addition to my passion for design, I am also interested in team culture and interdisciplinary collaboration, especially between designers and developers.",
+            "Outside work I like to enjoy food and drinks, especially craft beer. I am also a big fantasy nerd and might know as much about fictional worlds as I do the real one. I believe that inspiration can be found in the strangest of places!",
           ],
         },
         {
