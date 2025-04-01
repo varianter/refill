@@ -629,15 +629,16 @@ export const schedule: Schedule = [
         {
           type: "talk",
           id: "15",
-          title: "Exploring the 7 Powers in Strategic Design",
+          title: "Exploring the 7 Powers in Product Design",
           location: "Palmsalen",
           from: "14:50",
           to: "15:10",
           discipline: Design,
           speaker: VikasGupta,
           talkDescription: [
-            "What if the key to unlocking your product’s full potential was to embrace inclusivity from the start? In this lightning talk, we’ll flip the script on Universal Design and show how it’s not just a compliance checkbox, but a game changer for product strategy. You will discover how designing for accessibility can open up new markets, contribute to increased innovation and foster deeper customer loyalty.",
-            "In just 10 minutes, you’ll walk away with fresh insights and practical tips on how to turn Universal Design into a competitive advantage. Let’s turn necessity into opportunity, and create products that everyone can enjoy.",
+            "The “7 Powers” framework from The Foundation of Business Strategy by Hamilton Helmer provides a unique lens for creating long-term competitive advantage. While widely used in business strategy, its potential in product design remains underexplored.",
+            "This talk examines how the 7 Powers—Scale Economies, Network Economies, Counter-Positioning, Switching Costs, Branding, Cornered Resources, and Process Power—can guide early-stage design decisions. By aligning business strategy with design thinking, teams can prioritize opportunities, optimize resources, and deliver impactful user experiences.",
+            "Through practical examples, attendees will learn how to apply this framework to evaluate ideas for their strategic defensibility and enhance collaboration between design and strategy. Whether you’re a designer or strategist, this session offers a fresh perspective on integrating competitive advantage into your design process.",
           ],
           speakerDescription: [
             "Vikas Gupta is a strategic and service designer at Variant Trondheim AS, a consultancy offering design, technology and business services",
