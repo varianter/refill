@@ -1,9 +1,9 @@
 ---
 import "../styles/global.css";
-import Footer from "../components/navigation/Footer.astro";
 import Navbar from "../components/navigation/Navbar.astro";
 import Meta from "../components/meta/Meta.astro";
 import type { MetaProps } from "../components/meta/types";
+import IllustrationDivider from "../components/divider/IllustrationDivider.astro";
 
 interface Props extends MetaProps {
   layoutGap?: string;
@@ -25,10 +25,8 @@ const { layoutGap, title, description, keywords, image, url } = Astro.props;
     <Navbar />
     <main>
       <slot />
-      <div class="schedule_layout__footer">
-        <Footer variant="black" />
-      </div>
     </main>
+    <IllustrationDivider type="curlBlue" />
   </body>
 </html>
 
@@ -43,9 +41,5 @@ const { layoutGap, title, description, keywords, image, url } = Astro.props;
       padding: var(--Padding-xxl) var(--Padding-rem);
       gap: 1rem;
     }
-  }
-
-  .schedule_layout__footer {
-    margin-top: 10rem;
   }
 </style>

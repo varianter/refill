@@ -22,6 +22,9 @@ import LinkButton from "../button/LinkButton.astro";
     <li role="menuitem">
       <a href="/practical-details">Practical details</a>
     </li>
+    <li role="menuitem">
+      <a href="/stream">Stream</a>
+    </li>
     <li>
       <LinkButton
         href="https://refillconf.confetti.events/signup"
@@ -42,7 +45,7 @@ import LinkButton from "../button/LinkButton.astro";
         hamburgerButton.getAttribute("aria-expanded") === "true";
       hamburgerButton.setAttribute(
         "aria-expanded",
-        isExpanded ? "false" : "true",
+        isExpanded ? "false" : "true"
       );
     });
   }
