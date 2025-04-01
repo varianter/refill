@@ -118,7 +118,7 @@ export const schedule: Schedule = [
         {
           type: "talk",
           id: "6",
-          title: "Client Side Solutions Can Have DevOps Too",
+          title: "DevOps for Frontend Engineers",
           location: "Palmsalen",
           from: "10:00",
           to: "10:40",
