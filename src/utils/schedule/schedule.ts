@@ -256,14 +256,17 @@ export const schedule: Schedule = [
         {
           type: "talk",
           id: "14",
-          title: "Making uncertainty your competetive advantage",
+          title: "Questions, Creativity, and Choices!",
           location: "No. 314",
           from: "10:50",
           to: "11:30",
           discipline: StrategyAndProduct,
-          speaker: [KirstiStrømstad, VeraHayeBjerga],
+          speaker: KirstiStrømstad,
           talkDescription: [
-            "Unlocking success in uncertain times requires collaboration between design, product management and technology. By leveraging these tools, teams can uncover new opportunities and make informed decisions inspite of high level complexity. We will present and discuss an approach which enhances adaptability and sets the stage for impactful and innovative outcomes.",
+            "How Strategy Helps Us Navigate Change and Create Impact Through the Choices We Make.",
+            "Strategy isn’t just for executives — it’s for anyone who wants to make a difference.",
+            "In this talk, we'll highlight questions to uncover opportunities, spark creative ideas and navigate with a focus on value rather than just deliverables.",
+            "Whether you're a designer, developer, or product manager, you have the power to drive change — starting with the choices you make.",
           ],
         },
         {
