@@ -265,8 +265,12 @@ export const schedule: Schedule = [
           talkDescription: [
             "How Strategy Helps Us Navigate Change and Create Impact Through the Choices We Make.",
             "Strategy isn’t just for executives — it’s for anyone who wants to make a difference.",
-            "In this talk, we'll highlight questions to uncover opportunities, spark creative ideas and navigate with a focus on value rather than just deliverables.",
+            "In this talk, we'll highlight questions, spark creative ideas and navigate with a focus on value rather than just deliverables.",
             "Whether you're a designer, developer, or product manager, you have the power to drive change — starting with the choices you make.",
+          ],
+          speakerDescription: [
+            "Kirsti is a senior designer with over ten years of experience in strategic design, business development, and systems-oriented design. Driven by a passion for creating a better and kinder world, she works with organizations and individuals to rethink how value is generated – without compromising the planet’s resilience or social justice.",
+            "Kirsti has specialized in facilitating cross-sector collaboration. As a process leader, she brings curiosity and humility to every project, helping organizations leverage their core strengths and unlock new ways of creating value from overlooked resources 💚 ",
           ],
         },
         {
