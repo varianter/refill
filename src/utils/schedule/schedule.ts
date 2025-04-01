@@ -590,14 +590,16 @@ export const schedule: Schedule = [
         {
           type: "talk",
           id: "34",
-          title: "Designing systems with CSS",
+          title:
+            "Rethinking Color: A designer-developer's guide to modern color systems",
           location: "Aulan",
           from: "14:30",
           to: "15:10",
           discipline: Development,
           speaker: JacobBerglund,
           talkDescription: [
-            "Wield the cascade and go with the grain of the web – lets create systems rather than specifying individual properties into a whole. This talk is suited for both designers and frontend developers looking to understand some of the most powerful features and concepts of CSS.",
+            "Colors may seem simple, but creating effective color systems is anything but. Join me as I share what I've learned about colors from both design and development perspectives – from understanding color spaces like HSL and OKLCH to building cohesive palettes. This talk is suited for both designers and frontend developers looking to understand how to create and, more importantly, think about colors going into the future.",
+            "There will be demos!",
           ],
           speakerDescription: [
             "I've been doing frontend for well over a decade, and I love making shiny and delightful things for the web. Deep into CSS and web components.",
