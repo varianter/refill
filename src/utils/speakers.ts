@@ -9,6 +9,7 @@ export enum SpeakerName {
   TonjeEvanger = "Tonje Evanger",
   JacobBerglund = "Jacob Berglund",
   MariusKrakeli = "Marius Krakeli",
+  MariusKrakeliAndJakobEndrestadKielland = "Marius Krakeli & Jakob Endrestad Kielland",
   AnitaSteinstad = "Anita Steinstad",
   JonasLillevold = "Jonas Lillevold",
   AndreasHartveit = "Andreas Hartveit",
