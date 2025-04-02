@@ -6,6 +6,7 @@ import JuliaKuhley from "../../public/assets/img/people/Julia-Kuhley.jpg";
 import TonjeEvanger from "../../public/assets/img/people/Tonje-Evanger.jpg";
 import JacobBerglund from "../../public/assets/img/people/Jacob-Berglund.jpg";
 import MariusKrakeli from "../../public/assets/img/people/Marius-Krakeli.jpg";
+import MariusKrakeliAndJakobEndrestadKielland from "../../public/assets/img/people/Marius-Krakeli-&-Jakob-Endrestad-Kielland.jpg";
 import AnitaSteinstad from "../../public/assets/img/people/Anita-Steinstad.jpg";
 import JonasLillevold from "../../public/assets/img/people/Jonas-Lillevold.jpg";
 import AndreasHartveit from "../../public/assets/img/people/Andreas-Hartveit.jpg";
@@ -45,6 +46,8 @@ export const speakerImages: Record<SpeakerName, ImageMetadata> = {
   [SpeakerName.TonjeEvanger]: TonjeEvanger,
   [SpeakerName.JacobBerglund]: JacobBerglund,
   [SpeakerName.MariusKrakeli]: MariusKrakeli,
+  [SpeakerName.MariusKrakeliAndJakobEndrestadKielland]:
+    MariusKrakeliAndJakobEndrestadKielland,
   [SpeakerName.AnitaSteinstad]: AnitaSteinstad,
   [SpeakerName.JonasLillevold]: JonasLillevold,
   [SpeakerName.AndreasHartveit]: AndreasHartveit,
