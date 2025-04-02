@@ -469,15 +469,15 @@ export const schedule: Schedule = [
         {
           type: "talk",
           id: "29",
-          title: "Test side-effects and behaviour, don't mock them!",
+          title: "Avoiding terrible assumptions by testing real behaviour",
           location: "Aulan",
           from: "13:20",
           to: "14:00",
           discipline: Development,
           speaker: ChristianBrevik,
           talkDescription: [
-            "When writing test code, one of the tools many reach for is mocking frameworks. These frameworks allow you to simulate code dependencies, and instruct these fake dependencies to return specific values when called. That lets you quickly test different scenarios, and focus on the specific details of the thing you are testing.",
-            " That focus and speed is also the biggest trap of mocking frameworks. You are relying on the fact that the dependencies you are mocking will never change, which makes the test code brittle. And you are in no way guaranteed that you are instructing the mock to mimic the real behaviour of the dependencies. In this talk I will try to persuade you of the strength of letting your fake dependencies have state and side effects, and write test code that focuses on behaviour instead of implementation details.",
+            "When writing tests, many developers want to remove the complexity of the system, focusing on the details at hand. To achieve this, we often reach for tools like mocking libraries. These libraries makes it easy to simulate dependencies and quickly test different scenarios. This allows you to focus on the details of the specific component you are testing.",
+            "While this may feel productive, that focus and speed can lead you into a trap. By testing implementation details, you are making assumptions on how the solution is built – assumptions that may not hold up over time. In this talk I will explore why testing behaviour, rather than implementation, is a better strategy in the long term.",
           ],
         },
         {
