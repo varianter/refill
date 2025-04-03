@@ -7,10 +7,15 @@ interface Props {
 }
 
 const { location, streamId } = Astro.props;
+
+function slugify(text: string) {
+  // safe slugify that filters out non-alphanumeric characters
+  return text.toLowerCase().replace(/[^a-z0-9]/g, "-");
+}
 ---
 
 <section class="stream_view" id={location}>
-  <h2>{location}</h2>
+  <h2 id={`${slugify(location)}`}>{location}</h2>
   <CurrentTalk client:load location={location} />
   <div class="stream_view__iframe_container">
     <iframe
