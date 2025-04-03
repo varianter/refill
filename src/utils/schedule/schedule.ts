@@ -264,10 +264,10 @@ export const schedule: Schedule = [
           discipline: StrategyAndProduct,
           speaker: KirstiStrømstad,
           talkDescription: [
-            "How Strategy Helps Us Navigate Change and Create Impact Through the Choices We Make.",
-            "Strategy isn’t just for executives — it’s for anyone who wants to make a difference.",
-            "In this talk, we'll highlight questions, spark creative ideas and navigate with a focus on value rather than just deliverables.",
-            "Whether you're a designer, developer, or product manager, you have the power to drive change — starting with the choices you make.",
+            "Do you care about strategy?",
+            "Strategy isn’t just for executives – it’s for anyone who wants to make a difference!",
+            "I invite you to join a conversation filled with practical examples and homemade recipes for recognizing, decoding, and leveraging strategy.",
+            "Our goal: To become strategic thinkers who create positive change within your organization.",
           ],
           speakerDescription: [
             "Kirsti is a senior designer with over ten years of experience in strategic design, business development, and systems-oriented design. Driven by a passion for creating a better and kinder world, she works with organizations and individuals to rethink how value is generated – without compromising the planet’s resilience or social justice.",
