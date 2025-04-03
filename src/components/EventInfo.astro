@@ -1,7 +1,7 @@
 ---
 import Clock from "./Clock.vue";
 
-const date = new Date(2025, 3, 4);
+const date = new Date(2025, 3, 4, 8, 0, 0);
 ---
 
 <div class="event_info">
@@ -13,16 +13,20 @@ const date = new Date(2025, 3, 4);
     <p class="event_info__large">Build for impact</p>
   </div>
 
-  <div class="event_info__time">
-    <div class="event_info__clock">
-      <Clock targetTime={date} format="days" />
-      <p>days</p>
-    </div>
-    <div class="event_info__clock">
-      <Clock targetTime={date} format="hours" />
-      <p>hours</p>
-    </div>
-  </div>
+  {
+    date > new Date() && (
+      <div class="event_info__time">
+        <div class="event_info__clock">
+          <Clock targetTime={date} format="hours" />
+          <p>hours</p>
+        </div>
+        <div class="event_info__clock">
+          <Clock targetTime={date} format="minutes" />
+          <p>min</p>
+        </div>
+      </div>
+    )
+  }
 </div>
 
 <style>

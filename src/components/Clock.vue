@@ -12,7 +12,7 @@ export default {
     format: {
       type: String,
       default: "hours",
-      validator: (value) => ["days", "hours"].includes(value),
+      validator: (value) => ["days", "hours", "minutes"].includes(value),
     },
   },
   data() {
@@ -24,8 +24,10 @@ export default {
     formattedTime() {
       if (this.format === "days") {
         return this.remainingTime.days;
-      } else {
+      } else if (this.format === "hours") {
         return this.remainingTime.hours;
+      } else if (this.format === "minutes") {
+        return this.remainingTime.minutes;
       }
     },
   },
@@ -37,8 +39,9 @@ export default {
 
       const days = Math.floor(difference / (1000 * 60 * 60 * 24));
       const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((difference / (1000 * 60)) % 60);
 
-      return { days, hours };
+      return { days, hours, minutes };
     },
   },
   mounted() {
