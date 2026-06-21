@@ -59,6 +59,5 @@ export default {
 .clock {
   font-size: var(--Font-size-H2);
   line-height: var(--Line-height-H2);
-  padding: 1.5rem 0.75rem;
 }
 </style>

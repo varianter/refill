@@ -15,7 +15,7 @@ import backgroundImg from "../../public/assets/img/hero.jpg";
     <div class="grid-item-full">
       <EventInfo />
     </div>
-    <h1 class="hero__heading">Refill Oslo 2026</h1>
+    <h1 class="hero__heading">Refill 2026</h1>
     <!-- <a class="hero__register" href="/schedule">Schedule →</a> -->
   </div>
 </section>
@@ -23,9 +23,11 @@ import backgroundImg from "../../public/assets/img/hero.jpg";
 <style>
   .hero {
     padding: 7rem 10rem 4.5rem 3rem;
-    min-height: calc(100vh);
+    min-height: 100vh;
     box-sizing: border-box;
     position: relative;
+    display: flex;
+    flex-direction: column;
   }
 
   .hero__background_image {
@@ -39,9 +41,12 @@ import backgroundImg from "../../public/assets/img/hero.jpg";
 
   .hero__wrapper {
     max-width: 1410px;
+    width: 100%;
     margin: auto;
     display: grid;
     grid-template-areas: "full full" "left right";
+    grid-template-rows: 1fr auto;
+    flex: 1;
     position: relative;
   }
 
@@ -54,6 +59,7 @@ import backgroundImg from "../../public/assets/img/hero.jpg";
     font-weight: 500;
     grid-area: left;
     max-width: 40rem;
+    align-self: end;
   }
 
   .hero__register {
