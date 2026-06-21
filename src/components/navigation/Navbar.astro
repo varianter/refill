@@ -14,9 +14,9 @@ import LinkButton from "../button/LinkButton.astro";
   </button>
   <ul class="navbar__menu" role="menubar" id="menu">
     <li role="menuitem">
-      <a href="/">Refill 2025</a>
+      <a href="/">Refill 2026</a>
     </li>
-    <li role="menuitem">
+    <!-- <li role="menuitem">
       <a href="/schedule">Full schedule</a>
     </li>
     <li role="menuitem">
@@ -32,7 +32,7 @@ import LinkButton from "../button/LinkButton.astro";
       >
         Buy tickets
       </LinkButton>
-    </li>
+    </li> -->
   </ul>
 </nav>
 
@@ -45,7 +45,7 @@ import LinkButton from "../button/LinkButton.astro";
         hamburgerButton.getAttribute("aria-expanded") === "true";
       hamburgerButton.setAttribute(
         "aria-expanded",
-        isExpanded ? "false" : "true"
+        isExpanded ? "false" : "true",
       );
     });
   }
