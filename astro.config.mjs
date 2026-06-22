@@ -16,6 +16,12 @@ export default defineConfig({
     responsiveStyles: true,
   },
   vite: {
+    optimizeDeps: {
+      exclude: ["sharp"],
+    },
+    ssr: {
+      external: ["sharp"],
+    },
     resolve: {
       dedupe: ["sharp"],
     },
