@@ -18,7 +18,7 @@ const { block } = Astro.props;
       title={block.title}
       startTime={block.start}
       endTime={block.end}
-      id={1}
+      id={block.start}
     >
       <RenderTrack block={block} />
     </Accordion>

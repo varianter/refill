@@ -53,7 +53,7 @@ export const GET: APIRoute = async function get({ params }) {
   const png = await PNG(OG({ title, speaker, from, to }));
 
   // Return the image with correct content type
-  return new Response(png, {
+  return new Response(new Uint8Array(png), {
     headers: {
       "Content-Type": "image/png",
     },
