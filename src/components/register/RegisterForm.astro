@@ -1,0 +1,707 @@
+---
+import { actions, isInputError } from "astro:actions";
+import Button from "../button/button.astro";
+
+const result = Astro.getActionResult(actions.registration.register);
+const error = result?.error;
+const serverError = error
+  ? isInputError(error)
+    ? (error.fields.frictionDisabled?.[0] ??
+      error.fields.name?.[0] ??
+      error.fields.email?.[0] ??
+      error.fields.dietary?.[0] ??
+      error.fields.confirm1?.[0] ??
+      error.fields.confirm2?.[0] ??
+      error.fields.confirm3?.[0] ??
+      error.fields.confirm4?.[0] ??
+      error.fields.confirm5?.[0] ??
+      error.message)
+    : error.message
+  : null;
+---
+
+<div class="register_form__wrapper">
+  <form
+    id="register-form"
+    class="register_form"
+    method="POST"
+    action={actions.registration.register}
+    novalidate
+  >
+    <label class="register_form__toggle">
+      <input
+        class="register_form__toggle-input"
+        id="friction-toggle"
+        name="frictionDisabled"
+        type="checkbox"
+        role="switch"
+      />
+      <span class="register_form__toggle-container">
+        <span class="register_form__toggle-position"></span>
+      </span>
+      <span class="register_form__toggle-label"
+        >Disable friction mode (recommended for cowards)</span
+      >
+    </label>
+    <p
+      class="register_form__message register_form__message--error"
+      id="friction-warning"
+      hidden
+    >
+    </p>
+
+    <div class="register_form__fields" id="form-fields">
+      <label class="register_form__field">
+        <span class="register_form__label">Full name</span>
+        <input
+          class="register_form__input"
+          type="text"
+          name="name"
+          placeholder="Ada Lovelace"
+          required
+          minlength="2"
+          maxlength="80"
+        />
+      </label>
+
+      <label class="register_form__field">
+        <span class="register_form__label">Electornic mail</span>
+        <input
+          class="register_form__input"
+          type="email"
+          name="email"
+          placeholder="ada@example.com"
+          required
+        />
+      </label>
+
+      <label class="register_form__field">
+        <span class="register_form__label">Dietary requirements</span>
+        <textarea
+          class="register_form__input register_form__textarea"
+          name="dietary"
+          placeholder="Vegetarian, nut allergy, strong opinions about how to pronounce ventricina?"
+          required
+          maxlength="300"></textarea>
+      </label>
+
+      <label class="register_form__toggle">
+        <input
+          class="register_form__toggle-input"
+          name="attendingDayProgram"
+          type="checkbox"
+          role="switch"
+          checked
+        />
+        <span class="register_form__toggle-container">
+          <span class="register_form__toggle-position"></span>
+        </span>
+        <span class="register_form__toggle-label"
+          >Attending the day program (the conference)</span
+        >
+      </label>
+
+      <label class="register_form__toggle">
+        <input
+          class="register_form__toggle-input"
+          name="attendingDinner"
+          type="checkbox"
+          role="switch"
+          checked
+        />
+        <span class="register_form__toggle-container">
+          <span class="register_form__toggle-position"></span>
+        </span>
+        <span class="register_form__toggle-label">Attending dinner</span>
+      </label>
+
+      <label class="register_form__toggle">
+        <input
+          class="register_form__toggle-input"
+          name="attendingSocial"
+          type="checkbox"
+          role="switch"
+          checked
+        />
+        <span class="register_form__toggle-container">
+          <span class="register_form__toggle-position"></span>
+        </span>
+        <span class="register_form__toggle-label"
+          >Attending the social part afterwards</span
+        >
+      </label>
+
+      <p class="register_form__caption">
+        By registering you agree to occasionally disagree, respectfully. Also,
+        we will store this info for the purpose of organizing the event and will
+        not share it with anyone else and will be deleted afterwards. The
+        storage is internally in Variant only.
+      </p>
+      <p class="register_form__caption">
+        If you have any questions, please reach out to Mikael at Slack.
+      </p>
+
+      <div class="register_form__message-area" aria-live="polite">
+        {
+          serverError && (
+            <p
+              class="register_form__message register_form__message--error"
+              id="server-error"
+            >
+              {serverError}
+            </p>
+          )
+        }
+        {
+          result && !result.error && (
+            <p class="register_form__message register_form__message--success">
+              Welcome, {result.data.name} — friction embraced. See you at
+              Refill.
+            </p>
+          )
+        }
+        <p
+          class="register_form__message register_form__message--error"
+          id="client-error"
+          hidden
+        >
+        </p>
+      </div>
+
+      <div class="register_form__confirm-chain">
+        <label
+          class="register_form__toggle register_form__confirm-step"
+          data-step="1"
+        >
+          <input
+            class="register_form__toggle-input"
+            name="confirm1"
+            type="checkbox"
+            role="switch"
+          />
+          <span class="register_form__toggle-container">
+            <span class="register_form__toggle-position"></span>
+          </span>
+          <span class="register_form__toggle-label"
+            >I confirm I want to register for Refill 2026.</span
+          >
+        </label>
+
+        <label
+          class="register_form__toggle register_form__confirm-step"
+          data-step="2"
+        >
+          <input
+            class="register_form__toggle-input"
+            name="confirm2"
+            type="checkbox"
+            role="switch"
+          />
+          <span class="register_form__toggle-container">
+            <span class="register_form__toggle-position"></span>
+          </span>
+          <span class="register_form__toggle-label">Are you sure?</span>
+        </label>
+
+        <label
+          class="register_form__toggle register_form__confirm-step"
+          data-step="3"
+        >
+          <input
+            class="register_form__toggle-input"
+            name="confirm3"
+            type="checkbox"
+            role="switch"
+          />
+          <span class="register_form__toggle-container">
+            <span class="register_form__toggle-position"></span>
+          </span>
+          <span class="register_form__toggle-label">Are you really sure?</span>
+        </label>
+
+        <label
+          class="register_form__toggle register_form__confirm-step"
+          data-step="4"
+        >
+          <input
+            class="register_form__toggle-input"
+            name="confirm4"
+            type="checkbox"
+            role="switch"
+          />
+          <span class="register_form__toggle-container">
+            <span class="register_form__toggle-position"></span>
+          </span>
+          <span class="register_form__toggle-label"
+            >Are you REALLY, REALLY sure? (last one, we promise)</span
+          >
+        </label>
+
+        <label
+          class="register_form__toggle register_form__confirm-step"
+          data-step="5"
+        >
+          <input
+            class="register_form__toggle-input"
+            name="confirm5"
+            type="checkbox"
+            role="switch"
+          />
+          <span class="register_form__toggle-container">
+            <span class="register_form__toggle-position"></span>
+          </span>
+          <span class="register_form__toggle-label"
+            >I lied, but this is the last one.</span
+          >
+        </label>
+      </div>
+
+      <div class="register_form__submit-wrapper" id="submit-wrapper">
+        <span class="register_form__dodge-tooltip" id="dodge-tooltip"
+          >Not so fast — a little resistance builds character.</span
+        >
+        <Button text="Register" buttonType="primary" type="submit" />
+      </div>
+    </div>
+  </form>
+</div>
+
+<script>
+  const form = document.getElementById(
+    "register-form",
+  ) as HTMLFormElement | null;
+  const submitWrapper = document.getElementById("submit-wrapper");
+  const dodgeTooltip = document.getElementById("dodge-tooltip");
+  const clientError = document.getElementById("client-error");
+  const frictionWarning = document.getElementById("friction-warning");
+  const checkbox = document.getElementById(
+    "friction-toggle",
+  ) as HTMLInputElement | null;
+  const nameInput = form?.querySelector<HTMLInputElement>('[name="name"]');
+  const emailInput = form?.querySelector<HTMLInputElement>('[name="email"]');
+  const dietaryInput =
+    form?.querySelector<HTMLTextAreaElement>('[name="dietary"]');
+  const confirmInputs = [1, 2, 3, 4, 5].map((step) =>
+    form?.querySelector<HTMLInputElement>(`[name="confirm${step}"]`),
+  );
+  const submitButton = submitWrapper?.querySelector("button");
+  const formFields = document.getElementById("form-fields");
+
+  const prefersReducedMotion = () =>
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function showClientError(message: string) {
+    if (!clientError) return;
+    clientError.textContent = message;
+    clientError.hidden = false;
+  }
+
+  function shake() {
+    if (!form || prefersReducedMotion()) return;
+    form.classList.remove("register_form--shake");
+    void form.offsetWidth;
+    form.classList.add("register_form--shake");
+  }
+
+  const FRICTION_TRAP_MESSAGE =
+    "Friction should not be avoided but celebrated. Please leave that box unchecked.";
+
+  checkbox?.addEventListener("change", () => {
+    formFields?.toggleAttribute("inert", checkbox.checked);
+    if (!frictionWarning) return;
+    if (checkbox.checked) {
+      frictionWarning.textContent = FRICTION_TRAP_MESSAGE;
+      frictionWarning.hidden = false;
+      shake();
+    } else {
+      frictionWarning.hidden = true;
+      frictionWarning.textContent = "";
+    }
+  });
+
+  // The first couple of times a field is focused, it immediately gets
+  // kicked back out — after that it settles down and behaves. Applies to
+  // focus from click OR keyboard, so it always eventually yields.
+  const FOCUS_REJECTIONS = 2;
+
+  function addFocusFriction(
+    input: (HTMLInputElement | HTMLTextAreaElement) | null | undefined,
+  ) {
+    if (!input) return;
+    let rejectedAttempts = 0;
+    input.addEventListener("focus", () => {
+      if (rejectedAttempts >= FOCUS_REJECTIONS) return;
+      rejectedAttempts += 1;
+      input.blur();
+      if (prefersReducedMotion()) return;
+      input.classList.remove("register_form__input--shake");
+      void input.offsetWidth;
+      input.classList.add("register_form__input--shake");
+    });
+  }
+
+  [nameInput, emailInput, dietaryInput].forEach(addFocusFriction);
+
+  // The Register button stays disabled until every confirm step is checked.
+  function updateSubmitAvailability() {
+    if (!(submitButton instanceof HTMLButtonElement)) return;
+    submitButton.disabled = !confirmInputs.every((input) => input?.checked);
+  }
+
+  // Unchecking an earlier step hides every step after it (see the CSS
+  // :has() chain below) — also uncheck them so they don't quietly stay
+  // "confirmed" underneath and reappear pre-checked if the user re-checks
+  // the earlier box.
+  confirmInputs.forEach((input, index) => {
+    input?.addEventListener("change", () => {
+      if (!input.checked) {
+        confirmInputs.slice(index + 1).forEach((laterInput) => {
+          if (laterInput) laterInput.checked = false;
+        });
+      }
+      updateSubmitAvailability();
+    });
+  });
+  updateSubmitAvailability();
+
+  form?.addEventListener("submit", (event) => {
+    let message: string | null = null;
+
+    if (checkbox?.checked) {
+      message = FRICTION_TRAP_MESSAGE;
+    } else if (!nameInput || nameInput.value.trim().length < 2) {
+      message = "A name needs at least two letters to cause any friction.";
+    } else if (!emailInput || !emailInput.validity.valid) {
+      message =
+        "That doesn't look like a real email — typos are the wrong kind of friction.";
+    } else if (!dietaryInput || !dietaryInput.value.trim()) {
+      message =
+        "Even 'I'll eat anything' is a valid answer — but you have to write something.";
+    } else if (!confirmInputs.every((input) => input?.checked)) {
+      message =
+        "Nice try, but you have to actually confirm — all the way to the end.";
+    }
+
+    if (!message) return;
+
+    event.preventDefault();
+    shake();
+
+    if (submitButton instanceof HTMLButtonElement) {
+      const originalText = submitButton.textContent;
+      submitButton.disabled = true;
+      submitButton.textContent = "Considering your submission…";
+      window.setTimeout(() => {
+        submitButton.textContent = originalText;
+        updateSubmitAvailability();
+        showClientError(message as string);
+      }, 400);
+    } else {
+      showClientError(message);
+    }
+  });
+
+  const DODGE_MESSAGES = [
+    "Not so fast — a little resistance builds character.",
+    "Still not convinced.",
+    "Okay, fine. Last time.",
+  ];
+
+  if (window.matchMedia("(hover: hover)").matches && submitButton) {
+    let dodgeCount = 0;
+    submitButton.addEventListener("mouseenter", () => {
+      if (
+        dodgeCount >= DODGE_MESSAGES.length ||
+        !submitWrapper ||
+        (submitButton instanceof HTMLButtonElement && submitButton.disabled)
+      )
+        return;
+      if (dodgeTooltip) dodgeTooltip.textContent = DODGE_MESSAGES[dodgeCount];
+      dodgeCount += 1;
+      submitWrapper.classList.add("register_form__submit-wrapper--dodge");
+      dodgeTooltip?.classList.add("register_form__dodge-tooltip--visible");
+      window.setTimeout(() => {
+        submitWrapper.classList.remove("register_form__submit-wrapper--dodge");
+        dodgeTooltip?.classList.remove("register_form__dodge-tooltip--visible");
+      }, 500);
+    });
+  }
+</script>
+
+<style>
+  .register_form__wrapper {
+    max-width: 640px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--Padding-practical) var(--Padding-xl);
+    box-sizing: border-box;
+  }
+
+  .register_form {
+    background-color: var(--grey-800);
+    padding: var(--Padding-m);
+    border-radius: 0.75rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--Padding-s);
+  }
+
+  @keyframes register_form__shake {
+    10%,
+    90% {
+      transform: translateX(-2px);
+    }
+    20%,
+    80% {
+      transform: translateX(4px);
+    }
+    30%,
+    50%,
+    70% {
+      transform: translateX(-8px);
+    }
+    40%,
+    60% {
+      transform: translateX(8px);
+    }
+  }
+
+  .register_form--shake {
+    animation: register_form__shake 0.4s ease-in-out;
+  }
+
+  .register_form__fields {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Padding-s);
+    transition:
+      opacity 0.3s,
+      filter 0.3s;
+  }
+
+  .register_form__fields[inert] {
+    opacity: 0.35;
+    filter: grayscale(1);
+    cursor: not-allowed;
+  }
+
+  .register_form__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  .register_form__label {
+    color: var(--text-primary-on-dark);
+    font-size: var(--Font-size-Body-Small);
+  }
+
+  .register_form__input {
+    padding: 0.75rem 1.5rem;
+    width: 100%;
+    border-radius: 1.5rem;
+    border: 0.5px solid var(--text-tertiary);
+    background: var(--background-primary);
+    box-sizing: border-box;
+
+    font-size: 1rem;
+    font-family: var(--font-britti);
+  }
+
+  .register_form__input--shake {
+    animation: register_form__shake 0.35s ease-in-out;
+  }
+
+  .register_form__textarea {
+    border-radius: 0.75rem;
+    resize: vertical;
+    min-height: 4.5rem;
+  }
+
+  .register_form__toggle {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    cursor: pointer;
+  }
+
+  .register_form__toggle-label {
+    color: var(--text-primary-on-dark);
+    font-size: var(--Font-size-Body-Small);
+  }
+
+  .register_form__toggle-input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .register_form__toggle-container {
+    display: inline-block;
+    flex-shrink: 0;
+    width: calc(3.625rem - 2px * 2);
+    height: calc(2rem - 2px * 2);
+    background-color: var(--background-primary);
+    border: 2px solid black;
+    border-radius: 999px;
+
+    position: relative;
+
+    transition: background 0.4s;
+  }
+
+  .register_form__toggle-position {
+    display: inline-block;
+    background-color: var(--background-primary);
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    border: 2px solid black;
+
+    position: absolute;
+    left: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.4s;
+  }
+
+  .register_form__toggle-input:checked + .register_form__toggle-container {
+    background-color: var(--color-orange);
+  }
+
+  .register_form__toggle-input:checked
+    + .register_form__toggle-container
+    .register_form__toggle-position {
+    transform: translate(24px, -50%);
+  }
+
+  .register_form__confirm-chain {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .register_form__confirm-step {
+    display: none;
+  }
+
+  .register_form__confirm-step[data-step="1"] {
+    display: flex;
+  }
+
+  /* Each step is only shown once every earlier confirm box is checked, not
+     just the immediately preceding one — otherwise unchecking an earlier
+     box while a later one is still (invisibly) checked would leave that
+     later step visible. */
+  .register_form__confirm-chain:has(input[name="confirm1"]:checked)
+    .register_form__confirm-step[data-step="2"] {
+    display: flex;
+  }
+
+  .register_form__confirm-chain:has(input[name="confirm1"]:checked):has(
+      input[name="confirm2"]:checked
+    )
+    .register_form__confirm-step[data-step="3"] {
+    display: flex;
+  }
+
+  .register_form__confirm-chain:has(input[name="confirm1"]:checked):has(
+      input[name="confirm2"]:checked
+    ):has(input[name="confirm3"]:checked)
+    .register_form__confirm-step[data-step="4"] {
+    display: flex;
+  }
+
+  .register_form__confirm-chain:has(input[name="confirm1"]:checked):has(
+      input[name="confirm2"]:checked
+    ):has(input[name="confirm3"]:checked):has(input[name="confirm4"]:checked)
+    .register_form__confirm-step[data-step="5"] {
+    display: flex;
+  }
+
+  .register_form__caption {
+    /* var(--text-disabled) is tuned for light backgrounds and only reaches
+       ~3.2:1 here; this is a manually picked on-dark tint that clears the
+       WCAG AA 4.5:1 text-contrast threshold against var(--grey-800). */
+    color: rgba(250, 250, 250, 0.65);
+    font-size: var(--Font-size-Body-Small);
+    font-style: italic;
+  }
+
+  .register_form__message-area {
+    min-height: 1.5rem;
+  }
+
+  .register_form__message {
+    font-size: var(--Font-size-Body-Small);
+    margin: 0;
+  }
+
+  .register_form__message--error {
+    /* var(--color-orange) is ~4.07:1 on var(--grey-800), just under the
+       4.5:1 AA text-contrast threshold; this lighter tint of the same hue
+       clears it (~6:1). */
+    color: #ff8566;
+  }
+
+  .register_form__message--success {
+    color: var(--text-primary-on-dark);
+  }
+
+  .register_form__submit-wrapper {
+    position: relative;
+    width: fit-content;
+    transition: transform 0.25s ease-out;
+  }
+
+  /* Button is rendered by a separate component, so its own scoped styles
+     don't reach it here — :global() is required to style its :disabled state. */
+  .register_form__submit-wrapper :global(button:disabled) {
+    opacity: 0.4;
+    cursor: not-allowed;
+    /* Browsers differ on whether disabled elements still receive hover
+       events — this guarantees the mouseenter dodge listener never fires
+       while disabled, regardless of the JS-side .disabled check. */
+    pointer-events: none;
+  }
+
+  .register_form__submit-wrapper--dodge {
+    transform: translateX(56px);
+  }
+
+  .register_form__dodge-tooltip {
+    position: absolute;
+    top: -2.25rem;
+    left: 0;
+    white-space: nowrap;
+    background-color: var(--background-dark);
+    color: var(--text-primary-on-dark);
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.375rem;
+    font-size: var(--Font-size-Body-Small);
+    font-family: var(--font-britti);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+  }
+
+  .register_form__dodge-tooltip--visible {
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .register_form--shake,
+    .register_form__input--shake {
+      animation: none;
+    }
+
+    .register_form__submit-wrapper,
+    .register_form__dodge-tooltip,
+    .register_form__fields {
+      transition: none;
+    }
+  }
+</style>

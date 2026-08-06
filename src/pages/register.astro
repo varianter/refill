@@ -1,0 +1,40 @@
+---
+import RegisterLayout from "../layouts/RegisterLayout.astro";
+import RegisterForm from "../components/register/RegisterForm.astro";
+---
+
+<RegisterLayout>
+  <div class="register_intro">
+    <h1>Register</h1>
+    <p>
+      This is a just-for-fun demo registration for Refill 2026 — submissions
+      are logged, not stored anywhere real. Looking to actually attend? Grab a
+      ticket on the
+      <a href="/practical-details" class="hover_underline"
+        >practical details page</a
+      > instead.
+    </p>
+    <p>
+      Refill is about friction: disagreement, debate, and differing
+      perspectives make discussions better, not worse. So naturally, this
+      form has a little friction of its own.
+    </p>
+  </div>
+
+  <RegisterForm />
+</RegisterLayout>
+
+<style>
+  .register_intro {
+    padding-left: var(--Padding-practical);
+    padding-right: var(--Padding-practical);
+    max-width: 1150px;
+    width: 100%;
+    margin: auto;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--Padding-s);
+  }
+</style>

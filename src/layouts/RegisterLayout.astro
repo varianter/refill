@@ -1,0 +1,64 @@
+---
+import "../styles/global.css";
+import Navbar from "../components/navigation/Navbar.astro";
+import { Image } from "astro:assets";
+import splash from "../../public/assets/img/splash/splash3.svg";
+import Meta from "../components/meta/Meta.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <Meta
+    title="Refill 2026: Register"
+    description="Reserve your (demo) spot at Refill 2026 — a conference about how friction and disagreement make discussions better."
+    keywords="Refill 2026, conference, tech conference, workshops, networking, Variant, Stockholm, register, registration, friction"
+    image="/assets/img/og-refill.png"
+    url="https://www.refillconf.com/register"
+  />
+  <body>
+    <Navbar />
+    <main>
+      <slot />
+    </main>
+    <Image class="register_layout__splash" src={splash} alt="" />
+  </body>
+</html>
+
+<style>
+  main {
+    padding: 0;
+    padding-top: 10rem;
+    gap: 3.75rem;
+    background-color: var(--background-primary);
+
+    > * {
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  p {
+    line-height: var(--Line-height-Body-Normal);
+  }
+
+  .register_layout__splash {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    right: 0;
+
+    @media (max-width: 1000px) {
+      opacity: 0.7;
+    }
+
+    @media (max-width: 800px) {
+      width: 400px;
+      height: auto;
+    }
+
+    @media (max-width: 500px) {
+      width: 300px;
+      height: auto;
+    }
+  }
+</style>
