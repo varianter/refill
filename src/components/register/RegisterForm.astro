@@ -18,252 +18,295 @@ const serverError = error
       error.message)
     : error.message
   : null;
+
+const success = Boolean(result && !result.error);
+
+const CONFETTI_COLORS = [
+  "var(--color-yellow)",
+  "var(--color-orange)",
+  "var(--color-dark-blue)",
+  "var(--color-purple)",
+  "var(--teal-100)",
+  "var(--coral-200)",
+];
+
+// Server-rendered so the fall plays immediately on the reload that follows
+// a successful submission, with no client-side JS required to kick it off.
+const confettiPieces = success
+  ? Array.from({ length: 40 }, (_, i) => ({
+      left: Math.random() * 100,
+      delay: Math.random() * 0.5,
+      duration: 2.6 + Math.random() * 2,
+      spin: 360 + Math.random() * 360,
+      drift: Math.round((Math.random() - 0.5) * 200),
+      color: CONFETTI_COLORS[i % CONFETTI_COLORS.length],
+      wide: i % 3 === 0,
+    }))
+  : [];
 ---
 
 <div class="register_form__wrapper">
-  <form
-    id="register-form"
-    class="register_form"
-    method="POST"
-    action={actions.registration.register}
-    novalidate
-  >
-    <label class="register_form__toggle">
-      <input
-        class="register_form__toggle-input"
-        id="friction-toggle"
-        name="frictionDisabled"
-        type="checkbox"
-        role="switch"
-      />
-      <span class="register_form__toggle-container">
-        <span class="register_form__toggle-position"></span>
-      </span>
-      <span class="register_form__toggle-label"
-        >Disable friction mode (recommended for cowards)</span
+  {
+    success && (
+      <div class="register_celebration" role="status">
+        <div class="register_celebration__confetti" aria-hidden="true">
+          {confettiPieces.map((piece) => (
+            <span
+              class="register_celebration__confetti-piece"
+              style={`left:${piece.left}%; width:${piece.wide ? 12 : 8}px; animation-delay:${piece.delay}s; animation-duration:${piece.duration}s; background:${piece.color}; --drift:${piece.drift}px; --spin:${piece.spin}deg;`}
+            />
+          ))}
+        </div>
+        <div class="register_celebration__text">
+          <h2 class="register_celebration__title">
+            See you at Refill, {result?.data?.name}!
+          </h2>
+          <p class="register_celebration__subtitle">
+            Friction Sparked! Confirmation: locked in, five times over. Go tell
+            someone you're about to spend a day disagreeing productively.
+          </p>
+        </div>
+      </div>
+    )
+  }
+  {
+    !success && (
+      <form
+        id="register-form"
+        class="register_form"
+        method="POST"
+        action={actions.registration.register}
+        novalidate
       >
-    </label>
-    <p
-      class="register_form__message register_form__message--error"
-      id="friction-warning"
-      hidden
-    >
-    </p>
-
-    <div class="register_form__fields" id="form-fields">
-      <label class="register_form__field">
-        <span class="register_form__label">Full name</span>
-        <input
-          class="register_form__input"
-          type="text"
-          name="name"
-          placeholder="Ada Lovelace"
-          required
-          minlength="2"
-          maxlength="80"
-        />
-      </label>
-
-      <label class="register_form__field">
-        <span class="register_form__label">Electronic mail</span>
-        <input
-          class="register_form__input"
-          type="email"
-          name="email"
-          placeholder="ada@example.com"
-          required
-        />
-      </label>
-
-      <label class="register_form__field">
-        <span class="register_form__label">Dietary requirements</span>
-        <textarea
-          class="register_form__input register_form__textarea"
-          name="dietary"
-          placeholder="Vegetarian, nut allergy, strong opinions about how to pronounce ventricina?"
-          required
-          maxlength="300"></textarea>
-      </label>
-
-      <label class="register_form__toggle">
-        <input
-          class="register_form__toggle-input"
-          name="attendingDayProgram"
-          type="checkbox"
-          role="switch"
-          checked
-        />
-        <span class="register_form__toggle-container">
-          <span class="register_form__toggle-position"></span>
-        </span>
-        <span class="register_form__toggle-label"
-          >Attending the day program (the conference)</span
-        >
-      </label>
-
-      <label class="register_form__toggle">
-        <input
-          class="register_form__toggle-input"
-          name="attendingDinner"
-          type="checkbox"
-          role="switch"
-          checked
-        />
-        <span class="register_form__toggle-container">
-          <span class="register_form__toggle-position"></span>
-        </span>
-        <span class="register_form__toggle-label">Attending dinner</span>
-      </label>
-
-      <label class="register_form__toggle">
-        <input
-          class="register_form__toggle-input"
-          name="attendingSocial"
-          type="checkbox"
-          role="switch"
-          checked
-        />
-        <span class="register_form__toggle-container">
-          <span class="register_form__toggle-position"></span>
-        </span>
-        <span class="register_form__toggle-label"
-          >Attending the social part afterwards</span
-        >
-      </label>
-
-      <p class="register_form__caption">
-        By registering you agree to occasionally disagree, respectfully. Also,
-        we will store this info for the purpose of organizing the event and will
-        not share it with anyone else and will be deleted afterwards. The
-        storage is internally in Variant only.
-      </p>
-      <p class="register_form__caption">
-        If you have any questions, please reach out to Mikael at Slack.
-      </p>
-
-      <div class="register_form__message-area" aria-live="polite">
-        {
-          serverError && (
-            <p
-              class="register_form__message register_form__message--error"
-              id="server-error"
-            >
-              {serverError}
-            </p>
-          )
-        }
-        {
-          result && !result.error && (
-            <p class="register_form__message register_form__message--success">
-              Welcome, {result.data.name} — friction embraced. See you at
-              Refill.
-            </p>
-          )
-        }
+        <label class="register_form__toggle">
+          <input
+            class="register_form__toggle-input"
+            id="friction-toggle"
+            name="frictionDisabled"
+            type="checkbox"
+            role="switch"
+          />
+          <span class="register_form__toggle-container">
+            <span class="register_form__toggle-position" />
+          </span>
+          <span class="register_form__toggle-label">
+            Disable friction mode (recommended for cowards)
+          </span>
+        </label>
         <p
           class="register_form__message register_form__message--error"
-          id="client-error"
+          id="friction-warning"
           hidden
-        >
-        </p>
-      </div>
+        ></p>
 
-      <div class="register_form__confirm-chain">
-        <label
-          class="register_form__toggle register_form__confirm-step"
-          data-step="1"
-        >
-          <input
-            class="register_form__toggle-input"
-            name="confirm1"
-            type="checkbox"
-            role="switch"
-          />
-          <span class="register_form__toggle-container">
-            <span class="register_form__toggle-position"></span>
-          </span>
-          <span class="register_form__toggle-label"
-            >I confirm I want to register for Refill 2026.</span
-          >
-        </label>
+        <div class="register_form__fields" id="form-fields">
+          <label class="register_form__field">
+            <span class="register_form__label">Full name</span>
+            <input
+              class="register_form__input"
+              type="text"
+              name="name"
+              placeholder="Ada Lovelace"
+              required
+              minlength="2"
+              maxlength="80"
+            />
+          </label>
 
-        <label
-          class="register_form__toggle register_form__confirm-step"
-          data-step="2"
-        >
-          <input
-            class="register_form__toggle-input"
-            name="confirm2"
-            type="checkbox"
-            role="switch"
-          />
-          <span class="register_form__toggle-container">
-            <span class="register_form__toggle-position"></span>
-          </span>
-          <span class="register_form__toggle-label">Are you sure?</span>
-        </label>
+          <label class="register_form__field">
+            <span class="register_form__label">Electronic mail</span>
+            <input
+              class="register_form__input"
+              type="email"
+              name="email"
+              placeholder="ada@example.com"
+              required
+            />
+          </label>
 
-        <label
-          class="register_form__toggle register_form__confirm-step"
-          data-step="3"
-        >
-          <input
-            class="register_form__toggle-input"
-            name="confirm3"
-            type="checkbox"
-            role="switch"
-          />
-          <span class="register_form__toggle-container">
-            <span class="register_form__toggle-position"></span>
-          </span>
-          <span class="register_form__toggle-label">Are you really sure?</span>
-        </label>
+          <label class="register_form__field">
+            <span class="register_form__label">Dietary requirements</span>
+            <textarea
+              class="register_form__input register_form__textarea"
+              name="dietary"
+              placeholder="Vegetarian, nut allergy, strong opinions about how to pronounce ventricina?"
+              required
+              maxlength="300"
+            />
+          </label>
 
-        <label
-          class="register_form__toggle register_form__confirm-step"
-          data-step="4"
-        >
-          <input
-            class="register_form__toggle-input"
-            name="confirm4"
-            type="checkbox"
-            role="switch"
-          />
-          <span class="register_form__toggle-container">
-            <span class="register_form__toggle-position"></span>
-          </span>
-          <span class="register_form__toggle-label"
-            >Are you REALLY, REALLY sure? (last one, we promise)</span
-          >
-        </label>
+          <label class="register_form__toggle">
+            <input
+              class="register_form__toggle-input"
+              name="attendingDayProgram"
+              type="checkbox"
+              role="switch"
+              checked
+            />
+            <span class="register_form__toggle-container">
+              <span class="register_form__toggle-position" />
+            </span>
+            <span class="register_form__toggle-label">
+              Attending the day program (the conference)
+            </span>
+          </label>
 
-        <label
-          class="register_form__toggle register_form__confirm-step"
-          data-step="5"
-        >
-          <input
-            class="register_form__toggle-input"
-            name="confirm5"
-            type="checkbox"
-            role="switch"
-          />
-          <span class="register_form__toggle-container">
-            <span class="register_form__toggle-position"></span>
-          </span>
-          <span class="register_form__toggle-label"
-            >I lied, but this is the last one.</span
-          >
-        </label>
-      </div>
+          <label class="register_form__toggle">
+            <input
+              class="register_form__toggle-input"
+              name="attendingDinner"
+              type="checkbox"
+              role="switch"
+              checked
+            />
+            <span class="register_form__toggle-container">
+              <span class="register_form__toggle-position" />
+            </span>
+            <span class="register_form__toggle-label">Attending dinner</span>
+          </label>
 
-      <div class="register_form__submit-wrapper" id="submit-wrapper">
-        <span class="register_form__dodge-tooltip" id="dodge-tooltip"
-          >Not so fast — a little resistance builds character.</span
-        >
-        <Button text="Register" buttonType="primary" type="submit" />
-      </div>
-    </div>
-  </form>
+          <label class="register_form__toggle">
+            <input
+              class="register_form__toggle-input"
+              name="attendingSocial"
+              type="checkbox"
+              role="switch"
+              checked
+            />
+            <span class="register_form__toggle-container">
+              <span class="register_form__toggle-position" />
+            </span>
+            <span class="register_form__toggle-label">
+              Attending the social part afterwards
+            </span>
+          </label>
+
+          <p class="register_form__caption">
+            By registering you agree to occasionally disagree, respectfully.
+            Also, we will store this info for the purpose of organizing the
+            event and will not share it with anyone else and will be deleted
+            afterwards. The storage is internally in Variant only.
+          </p>
+          <p class="register_form__caption">
+            If you have any questions, please reach out to Mikael at Slack.
+          </p>
+
+          <div class="register_form__message-area" aria-live="polite">
+            {serverError && (
+              <p
+                class="register_form__message register_form__message--error"
+                id="server-error"
+              >
+                {serverError}
+              </p>
+            )}
+            <p
+              class="register_form__message register_form__message--error"
+              id="client-error"
+              hidden
+            ></p>
+          </div>
+
+          <div class="register_form__confirm-chain">
+            <label
+              class="register_form__toggle register_form__confirm-step"
+              data-step="1"
+            >
+              <input
+                class="register_form__toggle-input"
+                name="confirm1"
+                type="checkbox"
+                role="switch"
+              />
+              <span class="register_form__toggle-container">
+                <span class="register_form__toggle-position" />
+              </span>
+              <span class="register_form__toggle-label">
+                I confirm I want to register for Refill 2026.
+              </span>
+            </label>
+
+            <label
+              class="register_form__toggle register_form__confirm-step"
+              data-step="2"
+            >
+              <input
+                class="register_form__toggle-input"
+                name="confirm2"
+                type="checkbox"
+                role="switch"
+              />
+              <span class="register_form__toggle-container">
+                <span class="register_form__toggle-position" />
+              </span>
+              <span class="register_form__toggle-label">Are you sure?</span>
+            </label>
+
+            <label
+              class="register_form__toggle register_form__confirm-step"
+              data-step="3"
+            >
+              <input
+                class="register_form__toggle-input"
+                name="confirm3"
+                type="checkbox"
+                role="switch"
+              />
+              <span class="register_form__toggle-container">
+                <span class="register_form__toggle-position" />
+              </span>
+              <span class="register_form__toggle-label">
+                Are you really sure?
+              </span>
+            </label>
+
+            <label
+              class="register_form__toggle register_form__confirm-step"
+              data-step="4"
+            >
+              <input
+                class="register_form__toggle-input"
+                name="confirm4"
+                type="checkbox"
+                role="switch"
+              />
+              <span class="register_form__toggle-container">
+                <span class="register_form__toggle-position" />
+              </span>
+              <span class="register_form__toggle-label">
+                Are you REALLY, REALLY sure? (last one, we promise)
+              </span>
+            </label>
+
+            <label
+              class="register_form__toggle register_form__confirm-step"
+              data-step="5"
+            >
+              <input
+                class="register_form__toggle-input"
+                name="confirm5"
+                type="checkbox"
+                role="switch"
+              />
+              <span class="register_form__toggle-container">
+                <span class="register_form__toggle-position" />
+              </span>
+              <span class="register_form__toggle-label">
+                I lied, but this is the last one.
+              </span>
+            </label>
+          </div>
+
+          <div class="register_form__submit-wrapper" id="submit-wrapper">
+            <span class="register_form__dodge-tooltip" id="dodge-tooltip">
+              Not so fast — a little resistance builds character.
+            </span>
+            <Button text="Register" buttonType="primary" type="submit" />
+          </div>
+        </div>
+      </form>
+    )
+  }
 </div>
 
 <script>
@@ -364,7 +407,17 @@ const serverError = error
   });
   updateSubmitAvailability();
 
+  // Guards against a double POST (and therefore a duplicate blob write) if
+  // the user double-clicks, or hits Enter and then clicks, before the page
+  // has navigated away with the result.
+  let submitted = false;
+
   form?.addEventListener("submit", (event) => {
+    if (submitted) {
+      event.preventDefault();
+      return;
+    }
+
     let message: string | null = null;
 
     if (checkbox?.checked) {
@@ -382,7 +435,14 @@ const serverError = error
         "Nice try, but you have to actually confirm — all the way to the end.";
     }
 
-    if (!message) return;
+    if (!message) {
+      submitted = true;
+      if (submitButton instanceof HTMLButtonElement) {
+        submitButton.disabled = true;
+        submitButton.textContent = "Registering…";
+      }
+      return;
+    }
 
     event.preventDefault();
     shake();
@@ -692,6 +752,86 @@ const serverError = error
     opacity: 1;
   }
 
+  .register_celebration {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 26rem;
+    padding: var(--Padding-m);
+    overflow: hidden;
+    border-radius: 0.75rem;
+  }
+
+  .register_celebration__confetti {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .register_celebration__confetti-piece {
+    position: absolute;
+    top: -8%;
+    height: 14px;
+    border-radius: 2px;
+    opacity: 0;
+    animation-name: register_celebration__fall;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes register_celebration__fall {
+    0% {
+      transform: translateY(0) translateX(0) rotate(0deg);
+      opacity: 1;
+    }
+    85% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(120vh) translateX(var(--drift)) rotate(var(--spin));
+      opacity: 0;
+    }
+  }
+
+  .register_celebration__text {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 30rem;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--Padding-s);
+
+    animation: register_celebration__pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)
+      both;
+  }
+
+  @keyframes register_celebration__pop {
+    0% {
+      transform: translateY(1rem);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .register_celebration__title {
+    font-size: var(--Font-size-H3);
+    line-height: var(--Line-height-H3);
+  }
+
+  .register_celebration__subtitle {
+    color: var(--text-tertiary);
+    font-size: var(--Font-size-Body-Normal);
+    line-height: var(--Line-height-Body-Normal);
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .register_form--shake,
     .register_form__input--shake {
@@ -702,6 +842,14 @@ const serverError = error
     .register_form__dodge-tooltip,
     .register_form__fields {
       transition: none;
+    }
+
+    .register_celebration__confetti {
+      display: none;
+    }
+
+    .register_celebration__text {
+      animation: none;
     }
   }
 </style>
