@@ -1,108 +1,175 @@
 ---
 import { Image } from "astro:assets";
-import EventInfo from "../components/EventInfo.astro";
-import backgroundImg from "../../public/assets/img/hero.jpg";
+import logoVariant from "../../public/assets/img/variant-mark.svg";
+import gradientMark from "../../public/assets/img/refill-mark-gradient.png";
+import refillMark from "../../public/assets/img/refill-26-mark.svg";
 ---
 
 <section class="hero">
-  <Image
-    class="hero__background_image"
-    src={backgroundImg}
-    alt=""
-    loading="eager"
-  />
-  <div class="hero__wrapper">
-    <div class="grid-item-full">
-      <EventInfo />
+  <div class="hero__row hero__row--top">
+    <div class="hero__pill_group">
+      <span class="hero__pill">Rebel</span>
+      <span class="hero__pill">Oslo</span>
     </div>
-    <h1 class="hero__heading">Refill 2026</h1>
-    <!-- <a class="hero__register" href="/schedule">Schedule →</a> -->
+    <div class="hero__pill_group">
+      <span class="hero__pill">Fredag</span>
+      <span class="hero__pill">04/09</span>
+    </div>
+  </div>
+
+  <div class="hero__center">
+    <div class="hero__mark">
+      <h1 class="hero__mark_heading">
+        <span class="hero__word hero__word--top">Friction</span>
+        <span class="hero__word hero__word--bottom">Sparks</span>
+      </h1>
+      <Image class="hero__refill" src={refillMark} alt="Refill 26" />
+    </div>
+  </div>
+
+  <div class="hero__row hero__row--bottom">
+    <div class="hero__variant">
+      <Image src={logoVariant} alt="Variant" class="hero__variant_logo" />
+    </div>
+    <Image
+      class="hero__gradient_mark"
+      src={gradientMark}
+      alt=""
+      loading="eager"
+    />
   </div>
 </section>
 
 <style>
   .hero {
-    padding: 7rem 10rem 4.5rem 3rem;
+    --spark-green: #66e76c;
+    --spark-white: #f0ebfe;
+
+    position: relative;
     min-height: 100vh;
     box-sizing: border-box;
-    position: relative;
+    background-color: #2d2d2d;
+    padding: clamp(6rem, 4.5rem + 4vw, 7.5rem) clamp(1.25rem, 0.5rem + 3vw, 4rem)
+      clamp(2rem, 1rem + 3vw, 3.5rem);
+
     display: flex;
     flex-direction: column;
+    gap: clamp(2rem, 1rem + 4vw, 4rem);
   }
 
-  .hero__background_image {
+  .hero__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem 2rem;
+    flex-wrap: wrap;
+  }
+
+  .hero__pill_group {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .hero__pill {
+    display: inline-flex;
+    align-items: center;
+    border: 1.5px solid var(--spark-white);
+    border-radius: 999px;
+    padding: 0.5rem 1.25rem;
+    color: var(--spark-white);
+    font-size: clamp(0.75rem, 0.65rem + 0.35vw, 1rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+
+  .hero__center {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+  }
+
+  .hero__mark {
+    position: relative;
+    width: min(100%, 58rem);
+    aspect-ratio: 4 / 1;
+  }
+
+  .hero__mark::before {
+    content: "";
     position: absolute;
     inset: 0;
-    z-index: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    border: clamp(3px, 0.55vw, 10px) solid var(--spark-green);
+    border-radius: 999px;
   }
 
-  .hero__wrapper {
-    max-width: 1410px;
-    width: 100%;
-    margin: auto;
-    display: grid;
-    grid-template-areas: "full full" "left right";
-    grid-template-rows: 1fr auto;
-    flex: 1;
-    position: relative;
+  .hero__mark_heading {
+    position: absolute;
+    inset: 0;
+    margin: 0;
   }
 
-  .grid-item-full {
-    grid-area: full;
+  .hero__word {
+    position: absolute;
+    left: 50%;
+    display: block;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--spark-green);
+    line-height: 1;
+    white-space: nowrap;
+    letter-spacing: -0.02em;
+    font-size: clamp(2.75rem, 1.1rem + 9vw, 8.75rem);
   }
 
-  .hero__heading {
-    font-size: 8rem;
-    font-weight: 500;
-    grid-area: left;
-    max-width: 40rem;
-    align-self: end;
+  .hero__word--top {
+    top: 0;
+    transform: translate(-50%, -50%) skewX(-9deg);
   }
 
-  .hero__register {
-    font-size: var(--Font-size-H2);
-    min-width: 73px;
-
-    grid-area: right;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+  .hero__word--bottom {
+    bottom: 0;
+    transform: translate(-50%, 50%) skewX(-9deg);
   }
 
-  @media (max-width: 1000px) {
-    .hero {
-      padding: var(--Padding-xxl) 3rem;
-    }
-    .hero__wrapper {
-      display: flex;
-      flex-direction: column;
-      gap: var(--Padding-xl);
-    }
+  .hero__refill {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(9rem, 6rem + 9vw, 15.5rem);
+    height: auto;
+    display: block;
+  }
 
-    .hero__heading {
-      font-size: 4.375rem;
-      order: -1;
-      max-width: 100%;
-    }
+  .hero__variant {
+    display: inline-flex;
+    align-items: center;
+  }
 
-    .hero__register {
-      align-items: flex-start;
-      justify-content: flex-end;
-    }
+  .hero__variant_logo {
+    height: clamp(1.5rem, 1.15rem + 1.2vw, 2.25rem);
+    width: auto;
+    display: block;
+  }
+
+  .hero__gradient_mark {
+    width: clamp(8rem, 5rem + 12vw, 18rem);
+    height: auto;
+    display: block;
   }
 
   @media (max-width: 530px) {
     .hero {
-      padding: var(--Padding-xl) var(--Padding-s);
+      gap: 2.5rem;
     }
-    .hero__wrapper {
-      gap: var(--Padding-l);
-    }
-    .hero__heading {
-      font-size: 2.625rem;
+
+    .hero__row--bottom {
+      align-items: flex-end;
     }
   }
 </style>

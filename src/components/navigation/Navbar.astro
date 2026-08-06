@@ -1,8 +1,14 @@
 ---
 import LinkButton from "../button/LinkButton.astro";
+
+interface Props {
+  variant?: "light" | "dark";
+}
+
+const { variant = "light" } = Astro.props;
 ---
 
-<nav class="navbar">
+<nav class={`navbar ${variant === "dark" ? "navbar--dark" : ""}`}>
   <button
     class="navbar__hamburger_menu"
     aria-expanded="false"
@@ -85,6 +91,34 @@ import LinkButton from "../button/LinkButton.astro";
     position: fixed;
     top: 0;
     z-index: 100;
+  }
+
+  .navbar--dark {
+    background-color: var(--background-dark);
+  }
+
+  .navbar--dark a {
+    color: var(--text-primary-on-dark);
+  }
+
+  .navbar--dark .navbar__hamburger_menu > span {
+    background-color: var(--text-primary-on-dark);
+  }
+
+  .navbar--dark .navbar__menu {
+    background-color: var(--background-dark);
+  }
+
+  .navbar--dark .link_button {
+    border-color: var(--text-primary-on-dark);
+  }
+
+  .navbar--dark .link_button::after {
+    background-color: var(--text-primary-on-dark);
+  }
+
+  .navbar--dark .link_button:hover {
+    background-color: rgba(250, 250, 250, 0.1);
   }
 
   .navbar__menu {
