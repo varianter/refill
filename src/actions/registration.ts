@@ -1,5 +1,6 @@
 import { defineAction } from "astro:actions";
 import { z } from "astro:schema";
+import { put } from "@vercel/blob";
 
 export const registration = {
   register: defineAction({
@@ -71,7 +72,7 @@ export const registration = {
       attendingDinner,
       attendingSocial,
     }) => {
-      console.log("[register] New (demo) registration received:", {
+      const submission = {
         name,
         email,
         dietary,
@@ -79,7 +80,19 @@ export const registration = {
         attendingDinner: attendingDinner === "on",
         attendingSocial: attendingSocial === "on",
         timestamp: new Date().toISOString(),
-      });
+      };
+
+      await put(
+        `registrations/${Date.now()}-${crypto.randomUUID()}.json`,
+        JSON.stringify(submission),
+        {
+          access: "private",
+          contentType: "application/json",
+          addRandomSuffix: false,
+          oidcToken: import.meta.env.VERCEL_OIDC_TOKEN,
+          storeId: import.meta.env.BLOB_STORE_ID,
+        },
+      );
 
       return { success: true as const, name };
     },
