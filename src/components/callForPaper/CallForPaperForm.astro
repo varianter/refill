@@ -9,6 +9,7 @@ const serverError = error
     ? (error.fields.title?.[0] ??
       error.fields.description?.[0] ??
       error.fields.presenter?.[0] ??
+      error.fields.duration?.[0] ??
       error.message)
     : error.message
   : null;
@@ -72,6 +73,21 @@ const success = Boolean(result && !result.error);
             minlength="2"
             maxlength="80"
           />
+        </label>
+
+        <label class="cfp_form__field">
+          <span class="cfp_form__label">Duration</span>
+          <select class="cfp_form__input" name="duration" required>
+            <option value="Lightning talk (< 10 min)" selected>
+              Lightning talk (&lt; 10 min)
+            </option>
+            <option value="Ignite talk (< 5 min, read about Ignite talks above)">
+              Ignite talk (&lt; 5 min, read about Ignite talks above)
+            </option>
+            <option value="Other (specify in description)">
+              Other (specify in description)
+            </option>
+          </select>
         </label>
 
         <div class="cfp_form__message-area" aria-live="polite">

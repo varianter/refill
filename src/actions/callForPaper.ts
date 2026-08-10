@@ -21,12 +21,20 @@ export const callForPaper = {
         .trim()
         .min(2, "Let us know who's presenting.")
         .max(80),
+      duration: z
+        .enum([
+          "Lightning talk (< 10 min)",
+          "Ignite talk (< 5 min, read about Ignite talks above)",
+          "Other (specify in description)",
+        ])
+        .default("Lightning talk (< 10 min)"),
     }),
-    handler: async ({ title, description, presenter }, context) => {
+    handler: async ({ title, description, presenter, duration }, context) => {
       const submission = {
         title,
         description,
         presenter,
+        duration,
         timestamp: new Date().toISOString(),
       };
 
