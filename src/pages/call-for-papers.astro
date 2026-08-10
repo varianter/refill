@@ -1,0 +1,43 @@
+---
+import RegisterLayout from "../layouts/RegisterLayout.astro";
+import CallForPaperForm from "../components/callForPaper/CallForPaperForm.astro";
+---
+
+<RegisterLayout
+  title="Refill 2026: Call for Papers"
+  description="Submit a talk for Refill 2026 — a conference about how friction and disagreement make discussions better."
+  keywords="Refill 2026, conference, tech conference, call for papers, CFP, speakers, Variant, Stockholm"
+  image="/assets/img/og-refill.jpg"
+  url="https://www.refillconf.com/call-for-papers"
+>
+  <div class="cfp_intro">
+    <h1>Call for Papers: Thunder & Lightning Talks</h1>
+    <p>
+      We want talks that spark opinion sharing. Take a standpoint. Argue for
+      something people will want to push back on, especially around AI,
+      technology, methodologies, and software development.
+    </p>
+
+    <p>
+      This is your chance to curate great discussions and argument in the
+      hallway afterwards, and for the social happening after the conference.
+    </p>
+  </div>
+
+  <CallForPaperForm />
+</RegisterLayout>
+
+<style>
+  .cfp_intro {
+    padding-left: var(--Padding-practical);
+    padding-right: var(--Padding-practical);
+    max-width: 1150px;
+    width: 100%;
+    margin: auto;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--Padding-s);
+  }
+</style>

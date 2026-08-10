@@ -4,16 +4,27 @@ import Navbar from "../components/navigation/Navbar.astro";
 import { Image } from "astro:assets";
 import splash from "../../public/assets/img/splash/splash3.svg";
 import Meta from "../components/meta/Meta.astro";
+import type { MetaProps } from "../components/meta/types";
+
+interface Props extends Partial<MetaProps> {}
+
+const {
+  title = "Refill 2026: Register",
+  description = "Reserve your spot at Refill 2026 — a conference about how friction and disagreement make discussions better.",
+  keywords = "Refill 2026, conference, tech conference, workshops, networking, Variant, Stockholm, register, registration, friction",
+  image = "/assets/img/og-refill.jpg",
+  url = "https://www.refillconf.com/register",
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <Meta
-    title="Refill 2026: Register"
-    description="Reserve your spot at Refill 2026 — a conference about how friction and disagreement make discussions better."
-    keywords="Refill 2026, conference, tech conference, workshops, networking, Variant, Stockholm, register, registration, friction"
-    image="/assets/img/og-refill.jpg"
-    url="https://www.refillconf.com/register"
+    title={title}
+    description={description}
+    keywords={keywords}
+    image={image}
+    url={url}
   />
   <body>
     <Navbar />
