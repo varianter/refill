@@ -64,14 +64,17 @@ export const registration = {
         message: "We lied about that being the last one. This is the last one.",
         path: ["confirm5"],
       }),
-    handler: async ({
-      name,
-      email,
-      dietary,
-      attendingDayProgram,
-      attendingDinner,
-      attendingSocial,
-    }) => {
+    handler: async (
+      {
+        name,
+        email,
+        dietary,
+        attendingDayProgram,
+        attendingDinner,
+        attendingSocial,
+      },
+      context,
+    ) => {
       const submission = {
         name,
         email,
@@ -82,6 +85,12 @@ export const registration = {
         timestamp: new Date().toISOString(),
       };
 
+      // Vercel refreshes the OIDC token per-request and delivers it via this
+      // header; import.meta.env.VERCEL_OIDC_TOKEN is only a build-time snapshot.
+      const oidcToken =
+        context.request.headers.get("x-vercel-oidc-token") ??
+        import.meta.env.VERCEL_OIDC_TOKEN;
+
       await put(
         `registrations/${Date.now()}-${crypto.randomUUID()}.json`,
         JSON.stringify(submission),
@@ -89,7 +98,7 @@ export const registration = {
           access: "private",
           contentType: "application/json",
           addRandomSuffix: false,
-          oidcToken: import.meta.env.VERCEL_OIDC_TOKEN,
+          oidcToken,
           storeId: import.meta.env.BLOB_STORE_ID,
         },
       );
