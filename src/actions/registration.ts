@@ -15,9 +15,14 @@ export const registration = {
         email: z
           .string()
           .trim()
+          .toLowerCase()
           .email(
             "That doesn't look like a real email — typos are the wrong kind of friction.",
-          ),
+          )
+          .refine((value) => value.endsWith("@variant.no"), {
+            message:
+              "This is an internal Variant event — you'll need a @variant.no email address to register.",
+          }),
         dietary: z
           .string()
           .trim()

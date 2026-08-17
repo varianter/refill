@@ -119,7 +119,7 @@ const confettiPieces = success
               class="register_form__input"
               type="email"
               name="email"
-              placeholder="ada@example.com"
+              placeholder="ada@variant.no"
               required
             />
           </label>
@@ -429,6 +429,9 @@ const confettiPieces = success
     } else if (!emailInput || !emailInput.validity.valid) {
       message =
         "That doesn't look like a real email — typos are the wrong kind of friction.";
+    } else if (!emailInput.value.trim().toLowerCase().endsWith("@variant.no")) {
+      message =
+        "This is an internal Variant event — you'll need a @variant.no email address to register.";
     } else if (!dietaryInput || !dietaryInput.value.trim()) {
       message =
         "Even 'I'll eat anything' is a valid answer — but you have to write something.";
