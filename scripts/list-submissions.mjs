@@ -177,17 +177,34 @@ function printCallForPapers(entries) {
   });
 }
 
+function printUnpopularOpinions(entries) {
+  printHeader("Unpopular Opinions", entries.length);
+  if (entries.length === 0) {
+    console.log(style("  No opinions submitted yet.", c.dim));
+    return;
+  }
+  entries.forEach((entry, i) => {
+    console.log(
+      `${style(String(i + 1).padStart(2, " "), c.dim)}  ${truncate(entry.opinion ?? "", 140)}`,
+    );
+    console.log(`      ${style(formatTimestamp(entry.timestamp), c.dim)}`);
+    console.log();
+  });
+}
+
 async function main() {
   console.log(style("\nRefill submissions", c.bold));
   console.log(style(`store: ${storeId}`, c.dim));
 
-  const [registrations, callForPapers] = await Promise.all([
+  const [registrations, callForPapers, unpopularOpinions] = await Promise.all([
     fetchAll("registrations/"),
     fetchAll("call-for-papers/"),
+    fetchAll("unpopular-opinions/"),
   ]);
 
   printRegistrations(registrations);
   printCallForPapers(callForPapers);
+  printUnpopularOpinions(unpopularOpinions);
 }
 
 main().catch((err) => {

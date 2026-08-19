@@ -1,0 +1,161 @@
+---
+import { actions, isInputError } from "astro:actions";
+import Button from "../button/button.astro";
+
+const result = Astro.getActionResult(actions.unpopularOpinion.submit);
+const error = result?.error;
+const serverError = error
+  ? isInputError(error)
+    ? (error.fields.opinion?.[0] ?? error.message)
+    : error.message
+  : null;
+
+const success = Boolean(result && !result.error);
+---
+
+<div class="unpop_form__wrapper">
+  {
+    success && (
+      <div class="unpop_form__success" role="status">
+        <h2 class="unpop_form__success-title">Thanks for sharing.</h2>
+        <p class="unpop_form__success-subtitle">
+          Your opinion was submitted anonymously — no name or identifying info
+          was recorded.
+        </p>
+      </div>
+    )
+  }
+  {
+    !success && (
+      <form
+        id="unpop-form"
+        class="unpop_form"
+        method="POST"
+        action={actions.unpopularOpinion.submit}
+      >
+        <label class="unpop_form__field">
+          <span class="unpop_form__label">Unpopular opinion</span>
+          <textarea
+            class="unpop_form__input unpop_form__textarea"
+            name="opinion"
+            placeholder="Say the thing you know will start an argument. (Ja, det kan være på norsk)"
+            required
+            minlength="2"
+            maxlength="500"
+          />
+        </label>
+
+        <div class="unpop_form__message-area" aria-live="polite">
+          {serverError && (
+            <p class="unpop_form__message unpop_form__message--error">
+              {serverError}
+            </p>
+          )}
+        </div>
+
+        <div class="unpop_form__submit-wrapper">
+          <Button
+            text="Submit anonymously"
+            buttonType="primary"
+            type="submit"
+          />
+        </div>
+      </form>
+    )
+  }
+</div>
+
+<style>
+  .unpop_form__wrapper {
+    max-width: 640px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--Padding-practical) var(--Padding-xl);
+    box-sizing: border-box;
+  }
+
+  .unpop_form {
+    background-color: var(--grey-800);
+    padding: var(--Padding-m);
+    border-radius: 0.75rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--Padding-s);
+  }
+
+  .unpop_form__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  .unpop_form__label {
+    color: var(--text-primary-on-dark);
+    font-size: var(--Font-size-Body-Small);
+  }
+
+  .unpop_form__input {
+    padding: 0.75rem 1.5rem;
+    width: 100%;
+    border-radius: 1.5rem;
+    border: 0.5px solid var(--text-tertiary);
+    background: var(--background-primary);
+    box-sizing: border-box;
+
+    font-size: 1rem;
+    font-family: var(--font-britti);
+  }
+
+  .unpop_form__textarea {
+    border-radius: 0.75rem;
+    resize: vertical;
+    min-height: 8rem;
+  }
+
+  .unpop_form__message-area {
+    min-height: 1.5rem;
+  }
+
+  .unpop_form__message {
+    font-size: var(--Font-size-Body-Small);
+    margin: 0;
+  }
+
+  .unpop_form__message--error {
+    /* var(--color-orange) is ~4.07:1 on var(--grey-800), just under the
+       4.5:1 AA text-contrast threshold; this lighter tint of the same hue
+       clears it (~6:1). */
+    color: #ff8566;
+  }
+
+  .unpop_form__submit-wrapper {
+    width: fit-content;
+  }
+
+  .unpop_form__success {
+    display: flex;
+    flex-direction: column;
+    gap: var(--Padding-s);
+    padding: var(--Padding-m);
+    border-radius: 0.75rem;
+    background-color: var(--grey-800);
+    text-align: center;
+  }
+
+  .unpop_form__success-title {
+    color: var(--text-primary-on-dark);
+    font-size: var(--Font-size-H3);
+    line-height: var(--Line-height-H3);
+  }
+
+  .unpop_form__success-subtitle {
+    /* var(--text-tertiary) is tuned for light backgrounds and only reaches
+       ~2.4:1 here; this is the same manually picked on-dark tint used in
+       RegisterForm.astro's caption, which clears the WCAG AA 4.5:1
+       text-contrast threshold against var(--grey-800). */
+    color: rgba(250, 250, 250, 0.65);
+    font-size: var(--Font-size-Body-Normal);
+    line-height: var(--Line-height-Body-Normal);
+  }
+</style>

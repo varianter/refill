@@ -1,0 +1,42 @@
+---
+import RegisterLayout from "../layouts/RegisterLayout.astro";
+import UnpopularOpinionForm from "../components/unpopularOpinion/UnpopularOpinionForm.astro";
+---
+
+<RegisterLayout
+  title="Refill 2026: Unpopular Opinion"
+  description="Share an anonymous unpopular opinion for Refill 2026 — a conference about how friction and disagreement make discussions better."
+  keywords="Refill 2026, conference, tech conference, unpopular opinion, anonymous, discussion, Variant, Stockholm"
+  image="/assets/img/og-refill.jpg"
+  url="https://www.refillconf.com/unpopular-opinion"
+>
+  <div class="unpop_intro">
+    <h1>Unpopular Opinion</h1>
+    <p>
+      Got a take that's going to spark friction? Say it here, anonymously. We're
+      collecting opinions that create disagreement and discussion — the good
+      kind.
+    </p>
+
+    <p>No name, no email, nothing that identifies you — just the opinion.</p>
+
+    <p>Psst: Setningen kan gjerne være på norsk om du så ønsker.</p>
+  </div>
+
+  <UnpopularOpinionForm />
+</RegisterLayout>
+
+<style>
+  .unpop_intro {
+    padding-left: var(--Padding-practical);
+    padding-right: var(--Padding-practical);
+    max-width: 1150px;
+    width: 100%;
+    margin: auto;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--Padding-s);
+  }
+</style>
