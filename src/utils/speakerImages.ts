@@ -1,4 +1,6 @@
 import MikaelBrevik from "../../public/assets/img/people/Mikael-Brevik.jpg";
+import TormodLiseth from "../../public/assets/img/people/Tormod-Liseth.png";
+import SvanhildEgge from "../../public/assets/img/people/Svanhild-Egge.png";
 import DavidDinka from "../../public/assets/img/people/David-Dinka.jpg";
 import VikasGupta from "../../public/assets/img/people/Vikas-Gupta.jpg";
 import YoeriOtten from "../../public/assets/img/people/Yoeri-Otten.jpg";
@@ -39,12 +41,9 @@ export const speakerImages: Record<SpeakerName, ImageMetadata> = {
   [SpeakerName.None]: MikaelBrevik,
   [SpeakerName.TBA]: MikaelBrevik,
   [SpeakerName.AnnaEkblom]: MikaelBrevik,
-  [SpeakerName.Malin]: MikaelBrevik,
-  [SpeakerName.TormodLiseth]: MikaelBrevik,
+  [SpeakerName.TormodLiseth]: TormodLiseth,
   [SpeakerName.Stian]: MikaelBrevik,
-  [SpeakerName.Elise]: MikaelBrevik,
-  [SpeakerName.Svanhild]: MikaelBrevik,
-  [SpeakerName.Nikolai]: MikaelBrevik,
+  [SpeakerName.SvanhildEgge]: SvanhildEgge,
   [SpeakerName.MikaelBrevik]: MikaelBrevik,
   [SpeakerName.DavidDinka]: DavidDinka,
   [SpeakerName.VikasGupta]: VikasGupta,
