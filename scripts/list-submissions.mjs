@@ -97,10 +97,32 @@ function formatTimestamp(ts) {
   });
 }
 
-function printHeader(title, count) {
+function printHeader(title, count, note) {
   console.log();
-  console.log(style(`── ${title} `, c.bold, c.cyan) + style(`(${count})`, c.dim));
+  console.log(
+    style(`── ${title} `, c.bold, c.cyan) +
+      style(`(${count})`, c.dim) +
+      (note ? " " + style(note, c.dim) : ""),
+  );
   console.log();
+}
+
+// Entries are sorted newest-first, so keeping the first occurrence per key
+// keeps the latest submission and drops older duplicates.
+function dedupeByKey(entries, keyFn) {
+  const seen = new Set();
+  const unique = [];
+  let duplicates = 0;
+  for (const entry of entries) {
+    const key = keyFn(entry);
+    if (key && seen.has(key)) {
+      duplicates++;
+      continue;
+    }
+    if (key) seen.add(key);
+    unique.push(entry);
+  }
+  return { unique, duplicates };
 }
 
 function truncate(text, maxLength) {
@@ -142,13 +164,18 @@ function printTable(headers, rows) {
 }
 
 function printRegistrations(entries) {
-  printHeader("Registrations", entries.length);
-  if (entries.length === 0) {
+  const { unique, duplicates } = dedupeByKey(entries, (entry) => entry.email);
+  printHeader(
+    "Registrations",
+    unique.length,
+    duplicates > 0 ? `(${duplicates} duplicate resubmission${duplicates === 1 ? "" : "s"} ignored)` : "",
+  );
+  if (unique.length === 0) {
     console.log(style("  No registrations yet.", c.dim));
     return;
   }
 
-  const rows = entries.map((entry) => [
+  const rows = unique.map((entry) => [
     `${style(entry.name ?? "(no name)", c.bold)} ${style(`(${entry.email ?? "no email"})`, c.dim)}`,
     truncate(entry.dietary, 60) || style("-", c.dim),
     attendingSummary(entry),
@@ -157,13 +184,24 @@ function printRegistrations(entries) {
   printTable(["Name (email)", "Allergies / food preference", "Attending"], rows);
 }
 
+function normalizeText(text) {
+  return text?.trim().toLowerCase() || undefined;
+}
+
 function printCallForPapers(entries) {
-  printHeader("Call for Papers", entries.length);
-  if (entries.length === 0) {
+  const { unique, duplicates } = dedupeByKey(entries, (entry) =>
+    normalizeText(entry.title),
+  );
+  printHeader(
+    "Call for Papers",
+    unique.length,
+    duplicates > 0 ? `(${duplicates} duplicate resubmission${duplicates === 1 ? "" : "s"} ignored)` : "",
+  );
+  if (unique.length === 0) {
     console.log(style("  No talk submissions yet.", c.dim));
     return;
   }
-  entries.forEach((entry, i) => {
+  unique.forEach((entry, i) => {
     console.log(
       `${style(String(i + 1).padStart(2, " "), c.dim)}  ${style(entry.title ?? "(untitled)", c.bold, c.magenta)}`,
     );
@@ -171,19 +209,28 @@ function printCallForPapers(entries) {
       `      ${style("by", c.dim)} ${entry.presenter ?? "unknown"}   ${style(entry.duration ?? "", c.dim)}   ${style(formatTimestamp(entry.timestamp), c.dim)}`,
     );
     if (entry.description) {
-      console.log(`      ${truncate(entry.description, 140)}`);
+      for (const line of entry.description.split("\n")) {
+        console.log(`      ${line}`);
+      }
     }
     console.log();
   });
 }
 
 function printUnpopularOpinions(entries) {
-  printHeader("Unpopular Opinions", entries.length);
-  if (entries.length === 0) {
+  const { unique, duplicates } = dedupeByKey(entries, (entry) =>
+    normalizeText(entry.opinion),
+  );
+  printHeader(
+    "Unpopular Opinions",
+    unique.length,
+    duplicates > 0 ? `(${duplicates} duplicate resubmission${duplicates === 1 ? "" : "s"} ignored)` : "",
+  );
+  if (unique.length === 0) {
     console.log(style("  No opinions submitted yet.", c.dim));
     return;
   }
-  entries.forEach((entry, i) => {
+  unique.forEach((entry, i) => {
     console.log(
       `${style(String(i + 1).padStart(2, " "), c.dim)}  ${truncate(entry.opinion ?? "", 140)}`,
     );

@@ -1,5 +1,13 @@
 export enum SpeakerName {
   None = "",
+  TBA = "TBA",
+  AnnaEkblom = "Anna Ekblom",
+  Malin = "Malin",
+  TormodLiseth = "Tormod Liseth",
+  Stian = "Stian",
+  Elise = "Elise",
+  Svanhild = "Svanhild",
+  Nikolai = "Nikolai",
   MikaelBrevik = "Mikael Brevik",
   DavidDinka = "David Dinka",
   VikasGupta = "Vikas Gupta",

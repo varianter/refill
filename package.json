@@ -11,7 +11,9 @@
     "serve-assets": "serve -p 3001 --no-port-switching ./public/assets/img",
     "wait-for-assets": "wait-on -t 5000 http://localhost:3001/hero.png",
     "kill-assets": "kill-port 3001 || true",
-    "list-submissions": "node scripts/list-submissions.mjs"
+    "list-submissions": "node scripts/list-submissions.mjs",
+    "export-registrations-csv": "node scripts/export-registrations-csv.mjs",
+    "export-lightning-talks": "node scripts/export-lightning-talks.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^5.0.7",

@@ -91,7 +91,7 @@ export function isTalkActive(
   speakerEvent: SpeakerEvent,
   currentTime: number,
 ): boolean {
-  const conferanceDate = new Date(2025, 3, 4);
+  const conferanceDate = new Date(2026, 8, 4);
   const today = getDateToday();
 
   if (

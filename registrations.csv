@@ -1,0 +1,75 @@
+name;email;dietary;attendingDayProgram;attendingDinner;attendingSocial;timestamp
+Arja;arja@variant.no;Pescetarianer;TRUE;TRUE;TRUE;2026-08-19T01:10:05.210Z
+Jon Hofsli;jh@variant.no;yes;TRUE;TRUE;TRUE;2026-08-18T11:39:54.105Z
+Even Stene;even@variant.no;Allergisk mot friksjon;TRUE;TRUE;TRUE;2026-08-17T14:20:10.607Z
+Robin Burø;robin.buro@variant.no;Spiser ikke skalldyr, thats it;FALSE;TRUE;TRUE;2026-08-17T13:19:16.644Z
+Anita Steinstad;anita@variant.no;I can eat anything but prefer salads;TRUE;TRUE;TRUE;2026-08-17T11:27:47.335Z
+Jonas Lillevold;jl@variant.no;I ❤️ meat;TRUE;TRUE;TRUE;2026-08-17T11:27:36.281Z
+Marie Stoltz;marie@variant.no;Ingen;TRUE;TRUE;TRUE;2026-08-17T11:26:41.299Z
+Truls Henrik Jakobsen;thj@variant.no;something;TRUE;TRUE;TRUE;2026-08-17T10:29:13.619Z
+Johannes Tomren Røsvik;jtr@variant.no;I'll eat anything;TRUE;TRUE;TRUE;2026-08-17T07:08:42.318Z
+Håkon Rydland;haakon@variant.no;I'll eat anything;TRUE;TRUE;TRUE;2026-08-17T06:40:12.705Z
+Simen Strøm Braaten;ssb@variant.no;Vegetarian, but i eat fish, eggs, and love butter;TRUE;TRUE;FALSE;2026-08-14T12:54:41.161Z
+Erik Hognestad;erik.hognestad@variant.no;Ingen :);TRUE;TRUE;TRUE;2026-08-14T10:57:35.989Z
+Henrik Olsen Eide;he@variant.no;None;TRUE;TRUE;TRUE;2026-08-14T10:06:13.476Z
+Ken Are Meisler;ken.are@variant.no;Nei;TRUE;TRUE;TRUE;2026-08-14T06:35:10.750Z
+Sindre Holm;sh@variant.no;I'll eat normal food;TRUE;TRUE;TRUE;2026-08-13T12:46:15.194Z
+Inge Hegge;ih@variant.no;Even 'I'll eat anything' is a valid answer — but you have to write something.;TRUE;TRUE;TRUE;2026-08-13T11:29:26.060Z
+Erik Vesteraas;erik@vestera.as;No requirements;TRUE;TRUE;TRUE;2026-08-13T11:16:41.092Z
+Thomas Hansen;tlh@variant.no;Food;TRUE;TRUE;TRUE;2026-08-13T10:28:57.454Z
+Alice Søvik Røskar;asr@variant.no;Ingenting!;TRUE;TRUE;TRUE;2026-08-13T10:18:21.041Z
+Henrikke Haugan;henrikke@variant.no;Alt går fint!;TRUE;TRUE;TRUE;2026-08-13T09:26:07.063Z
+Svanhild Egge;svanhild.egge@variant.no;Laktosefri og gravid;TRUE;TRUE;FALSE;2026-08-13T09:11:38.855Z
+Henrik Østgaard;henrik.ostgaard@variant.no;None;TRUE;TRUE;TRUE;2026-08-13T08:46:03.570Z
+Julia Kuhley;kuhlia@arcor.de;No quinoa;TRUE;TRUE;FALSE;2026-08-13T07:59:58.857Z
+Julia Hellem Brandt;julia@variant.no;No dietary requirements :);TRUE;TRUE;TRUE;2026-08-13T07:13:56.280Z
+Anina Hanekom;anina.hanekom@variant.no;All food is good;TRUE;TRUE;TRUE;2026-08-13T07:12:20.922Z
+Sindre Aarvik Vingen;sindre.vingen@variant.no;Hazelnuts could kill me.;TRUE;TRUE;TRUE;2026-08-13T07:10:17.516Z
+Elise Kristiansen;elise.kristiansen@variant.no;I'll eat anything;TRUE;TRUE;TRUE;2026-08-13T06:30:01.022Z
+Marius Krakeli;mk@variant.no;something;TRUE;TRUE;TRUE;2026-08-13T06:26:27.472Z
+Markus Pettrem;markus.pettrem@variant.no;Pescetar;TRUE;TRUE;TRUE;2026-08-12T13:39:24.380Z
+Ole Petter Klæstad;opk@variant.no;None;TRUE;TRUE;TRUE;2026-08-12T13:31:41.332Z
+Yann Smith-Kielland;ysk@variant.no;Food;TRUE;TRUE;TRUE;2026-08-12T08:57:49.573Z
+Emil Meby Steen;emil.mst@gmail.com;None;TRUE;TRUE;TRUE;2026-08-11T11:31:37.589Z
+Kristin Qvenild Nesset;kristin@variant.no;no;TRUE;TRUE;TRUE;2026-08-11T09:28:59.263Z
+Vegard Ingebrigtsen Feste;vif@variant.no;No requirements :-);TRUE;TRUE;TRUE;2026-08-10T20:08:05.289Z
+Ben Oscar Strømhylden;ben@variant.no;No dietary allergies to consider;TRUE;TRUE;TRUE;2026-08-10T17:17:34.239Z
+Hanne Lian;hanne.lian@variant.no;Nope;TRUE;TRUE;TRUE;2026-08-10T13:55:23.288Z
+Anders Njøs Slinde;ans@variant.no;Ingen druejuice. Gjelder både alkohol og alkoholfri;TRUE;TRUE;TRUE;2026-08-10T12:49:02.575Z
+Gard Høstmælingen;gsh@variant.no;Spiser ikke hunde-, katte- og menneskekjøtt. Trolig en del andre kjøttyper jeg ikke spiser også. Ønsker heller ingenting som er giftig eller dødelig på andre måter. Heller ingenting ulovlig.;TRUE;TRUE;TRUE;2026-08-10T12:41:05.619Z
+Christian Brevik;cb@variant.no;Food;TRUE;TRUE;TRUE;2026-08-10T12:25:52.657Z
+Yoeri Otten;yoeri@variant.no;I'll eat anything;TRUE;TRUE;TRUE;2026-08-10T12:24:52.132Z
+Kjetil Møkkelgjerd;km@variant.no;fu;TRUE;TRUE;TRUE;2026-08-10T12:20:24.494Z
+Stian Veum Møllersen;stian.moellersen@gmail.com;None;TRUE;TRUE;TRUE;2026-08-10T11:36:20.094Z
+Håkon Steinkopf Søhoel;hss@variant.no;Not too fond of shrimps;TRUE;TRUE;TRUE;2026-08-10T11:14:53.346Z
+August Klevberg;august@variant.no;I'll eat anything;TRUE;TRUE;TRUE;2026-08-10T10:56:28.876Z
+Anna Selvåg Braadland;anna.braadland@variant.no;ingenting;TRUE;TRUE;TRUE;2026-08-10T09:51:54.486Z
+Rolf Anders Storset;ras@variant.no;Allergisk mot nøtter (Peanøtter går fint. Spor går fint);TRUE;TRUE;TRUE;2026-08-10T09:29:24.817Z
+Tuva Langedal Djupvik;tuva.djupvik@variant.no;Ikke så glad i mais og oliven, håper dere kan ta hensyn til dette;TRUE;TRUE;TRUE;2026-08-10T07:59:24.056Z
+Mari Hegrenes Øvrebø;mari.ovrebo@variant.no;Pescetar (vegetar+fisk);TRUE;TRUE;TRUE;2026-08-10T07:44:04.832Z
+Magnus Olderø Sæther;mos@variant.no;Beast mode. Im an Omnivore. Enthusiastically so. Equal-opportunity eater.;TRUE;TRUE;TRUE;2026-08-10T07:41:12.410Z
+Linn Sandvik;linn@variant.no;eats anything;TRUE;TRUE;TRUE;2026-08-10T07:39:33.818Z
+Marthe Skaara Drabløs;msd@variant.no;no;TRUE;TRUE;TRUE;2026-08-10T07:36:56.620Z
+Lars Løwenborg;lel@variant.no;Ingen;TRUE;TRUE;TRUE;2026-08-10T07:36:03.188Z
+Robin Espinosa Jelle;robin.espinosa@variant.no;👎;TRUE;TRUE;TRUE;2026-08-10T07:34:03.714Z
+Magnus Dahl;md@variant.no;No;TRUE;TRUE;TRUE;2026-08-10T07:21:24.193Z
+Kristoffer Nordström;kn@variant.no;For you to find out;TRUE;TRUE;TRUE;2026-08-10T07:20:49.664Z
+Nikolai Norman Andersen;nikolai@variant.no;None;TRUE;TRUE;TRUE;2026-08-10T07:19:09.487Z
+Morten Nordseth;mn@variant.no;None;TRUE;TRUE;TRUE;2026-08-10T07:08:46.447Z
+Mari Lise Stenvik Kvistad;mlsk@variant.no;Uten løk og selleri, alt av fisk/kjøtt må være ordentlig gjennomstekt, alkoholfritt drikkealternativ som ikke er brus.;TRUE;TRUE;TRUE;2026-08-10T06:59:40.396Z
+Jørgen Nyborg;jorgen.e.nyborg@gmail.com;Nei;TRUE;TRUE;TRUE;2026-08-10T06:58:41.709Z
+Rolf Anders Storset;ras@variant.no;Allergisk mot nøtter (Peanøtter går fint. Spor går fint);TRUE;TRUE;TRUE;2026-08-10T06:51:29.811Z
+Idun Sarre Ramstad;ir@variant.no;Pescetarian with lactose intolerance;TRUE;TRUE;TRUE;2026-08-10T06:50:12.494Z
+Odd Morten Sveås;oms@variant.no;Æ spise alt, men treng ikke østers;TRUE;TRUE;TRUE;2026-08-10T06:46:36.287Z
+Vera Haye Bjerga;vera@variant.no;Spiser alt;TRUE;TRUE;TRUE;2026-08-10T06:42:35.922Z
+Andreas Hartveit;andreas@variant.no;Koser meg;TRUE;TRUE;TRUE;2026-08-10T06:41:30.177Z
+Jonas Reines;jr@variant.no;NO;TRUE;TRUE;TRUE;2026-08-10T06:39:58.986Z
+Jacob Berglund;jb@variant.no;something;TRUE;TRUE;TRUE;2026-08-10T06:38:52.928Z
+William Starheim Vallestad;william.vallestad@variant.no;Kjør;TRUE;TRUE;TRUE;2026-08-10T06:38:24.523Z
+Mathias Oterhals Myklebust;mom@variant.no;I'll eat anything, respecting local laws;TRUE;TRUE;TRUE;2026-08-10T06:37:48.447Z
+Linea Breivik;lb@variant.no;hvete- og sukroseallergi;TRUE;TRUE;TRUE;2026-08-10T06:37:06.087Z
+Malin C. Karlsen;mck@variant.no;None;TRUE;TRUE;TRUE;2026-08-10T06:36:14.155Z
+Anders Hammervold;ah@variant.no;Mat uten Hvete, løk og hvitløk.;TRUE;TRUE;TRUE;2026-08-10T06:36:04.326Z
+mikael;mb@variant.no;Spiser alt;TRUE;TRUE;TRUE;2026-08-10T06:33:56.200Z
+Linn Helen;lhd@variant.no;NO;TRUE;TRUE;TRUE;2026-08-10T06:32:55.047Z
+Tormod Liseth;tl@variant.no;I will eat everything;TRUE;TRUE;TRUE;2026-08-10T06:32:51.965Z
