@@ -1,5 +1,6 @@
 ---
 import { getDisciplineName } from "../../utils/discipline";
+import { getContentFormatColorPair } from "../../utils/contentFormat";
 import { colors } from "../../utils/colors";
 import CardWrapper from "../CardWrapper.astro";
 import Talk from "../Talk.astro";
@@ -8,6 +9,7 @@ import {
   getBorderColor,
   getCardColumn,
   getColorPair,
+  getContentFormat,
   getTalkDescription,
   getLocation,
   getSpeaker,
@@ -32,6 +34,7 @@ const { id, title, to, from } = event;
 const speaker = getSpeaker(event);
 const location = getLocation(event);
 const colorPair = getColorPair(event);
+const contentFormat = getContentFormat(event);
 const talkDescription = getTalkDescription(event);
 const borderColor = getBorderColor(colorPair);
 const column = getCardColumn(colorPair);
@@ -86,6 +89,13 @@ const talkArrowHeigth = 52;
           event.type === "talk" && speaker && (
             <Discipline colorPair={colorPair}>
               {getDisciplineName(event.discipline)}
+            </Discipline>
+          )
+        }
+        {
+          contentFormat && (
+            <Discipline colorPair={getContentFormatColorPair(contentFormat)}>
+              {contentFormat}
             </Discipline>
           )
         }

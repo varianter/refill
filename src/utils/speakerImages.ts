@@ -1,6 +1,12 @@
 import MikaelBrevik from "../../public/assets/img/people/Mikael-Brevik.jpg";
 import TormodLiseth from "../../public/assets/img/people/Tormod-Liseth.png";
 import SvanhildEgge from "../../public/assets/img/people/Svanhild-Egge.png";
+import OddMortenSveås from "../../public/assets/img/people/Odd-Morten-Sveås.jpg";
+import Kortslutning from "../../public/assets/img/podcasts/Kortslutning.jpg";
+import Lesehesten from "../../public/assets/img/podcasts/Lesehesten.png";
+import Placeholder from "../../public/assets/img/placeholder/refill26.png";
+import Chiruto from "../../public/assets/img/venues/Chiruto.png";
+import AnnaEkblom from "../../public/assets/img/people/Anna-Ekblom.png";
 import DavidDinka from "../../public/assets/img/people/David-Dinka.jpg";
 import VikasGupta from "../../public/assets/img/people/Vikas-Gupta.jpg";
 import YoeriOtten from "../../public/assets/img/people/Yoeri-Otten.jpg";
@@ -38,12 +44,16 @@ import JosefEugeniusAndKatarinaReiz from "../../public/assets/img/people/Josef-E
 import { SpeakerName } from "./speakers";
 
 export const speakerImages: Record<SpeakerName, ImageMetadata> = {
-  [SpeakerName.None]: MikaelBrevik,
-  [SpeakerName.TBA]: MikaelBrevik,
-  [SpeakerName.AnnaEkblom]: MikaelBrevik,
+  [SpeakerName.None]: Placeholder,
+  [SpeakerName.TBA]: Placeholder,
+  [SpeakerName.AnnaEkblom]: AnnaEkblom,
   [SpeakerName.TormodLiseth]: TormodLiseth,
-  [SpeakerName.Stian]: MikaelBrevik,
+  [SpeakerName.Stian]: Placeholder,
+  [SpeakerName.MikaelBrevikAndStianMøllersen]: Kortslutning,
+  [SpeakerName.LesehestenUtvikling]: Lesehesten,
+  [SpeakerName.Chiruto]: Chiruto,
   [SpeakerName.SvanhildEgge]: SvanhildEgge,
+  [SpeakerName.OddMortenSveås]: OddMortenSveås,
   [SpeakerName.MikaelBrevik]: MikaelBrevik,
   [SpeakerName.DavidDinka]: DavidDinka,
   [SpeakerName.VikasGupta]: VikasGupta,

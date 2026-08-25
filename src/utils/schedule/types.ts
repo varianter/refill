@@ -1,3 +1,4 @@
+import type { ContentFormat } from "../contentFormat";
 import type { Discipline } from "../discipline";
 import type { SpeakerName } from "../speakers";
 
@@ -24,6 +25,7 @@ export interface CommonEvent extends ScheduleEvent {
   speaker?: Speaker;
   talkDescription?: DescriptionList;
   speakerDescription?: DescriptionList;
+  format?: ContentFormat;
 }
 
 export interface Talk extends ScheduleEvent {

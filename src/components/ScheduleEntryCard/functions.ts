@@ -1,4 +1,5 @@
 import { colors, type ColorPair } from "../../utils/colors";
+import type { ContentFormat } from "../../utils/contentFormat";
 import { getDisciplineColorPair } from "../../utils/discipline";
 import { getColumn } from "../../utils/getColumm";
 import type {
@@ -24,6 +25,12 @@ export const getColorPair = (event: ScheduleEntry): ColorPair | undefined => {
   return event.type === "talk"
     ? getDisciplineColorPair(event.discipline)
     : undefined;
+};
+
+export const getContentFormat = (
+  event: ScheduleEntry,
+): ContentFormat | undefined => {
+  return event.type === "common" ? event.format : undefined;
 };
 
 export const shouldBeLink = (event: ScheduleEntry): boolean => {

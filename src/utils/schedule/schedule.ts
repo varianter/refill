@@ -1,8 +1,10 @@
+import { ContentFormat } from "../contentFormat";
 import { Discipline } from "../discipline";
 import { SpeakerName } from "../speakers";
 import type { Schedule } from "./types";
 
 const { Design, Development, StrategyAndProduct } = Discipline;
+const { PanelDebate, Podcast } = ContentFormat;
 const {
   TBA,
   MikaelBrevik,
@@ -13,10 +15,15 @@ const {
   OlePetterKlæstad,
   JuliaKuhley,
   Stian,
+  MikaelBrevikAndStianMøllersen,
   JacobBerglund,
   EliseKristiansen,
   SvanhildEgge,
   NikolaiNormanAndersen,
+  OddMortenSveås,
+  LesehestenUtvikling,
+  MariusKrakeli,
+  Chiruto,
 } = SpeakerName;
 
 export const schedule: Schedule = [
@@ -30,7 +37,7 @@ export const schedule: Schedule = [
           type: "common",
           id: "1",
           title: "Åpning m/ Mikael og Tonje",
-          location: "Storsal",
+          location: "Alle rom",
           from: "10:00",
           to: "10:05",
           speaker: [MikaelBrevik, TonjeEvanger],
@@ -49,7 +56,7 @@ export const schedule: Schedule = [
           id: "2",
           title:
             "Keynote: Anna Ekblom om «Positiv friksjon og meningsutveksling»",
-          location: "Storsal",
+          location: "Alle rom",
           from: "10:05",
           to: "10:50",
           speaker: AnnaEkblom,
@@ -112,6 +119,7 @@ export const schedule: Schedule = [
           location: "Bibliotek",
           from: "11:05",
           to: "12:00",
+          format: PanelDebate,
           talkDescription: ["TBA"],
         },
         {
@@ -195,6 +203,7 @@ export const schedule: Schedule = [
           from: "13:00",
           to: "13:45",
           speaker: TBA,
+          format: PanelDebate,
           talkDescription: ["TBA"],
         },
         {
@@ -204,7 +213,8 @@ export const schedule: Schedule = [
           location: "Bibliotek",
           from: "13:00",
           to: "13:45",
-          speaker: TBA,
+          speaker: LesehestenUtvikling,
+          format: Podcast,
           talkDescription: ["TBA"],
         },
         {
@@ -275,6 +285,7 @@ export const schedule: Schedule = [
           from: "14:00",
           to: "14:45",
           speaker: TBA,
+          format: PanelDebate,
           talkDescription: ["TBA"],
         },
         {
@@ -285,6 +296,7 @@ export const schedule: Schedule = [
           from: "14:00",
           to: "14:45",
           speaker: TBA,
+          format: PanelDebate,
           talkDescription: ["TBA"],
         },
         {
@@ -302,7 +314,7 @@ export const schedule: Schedule = [
     ],
   },
   {
-    title: "Bollepause (Andreas)",
+    title: "Pause",
     start: "14:45",
     end: "15:05",
     tracks: [
@@ -310,7 +322,7 @@ export const schedule: Schedule = [
         {
           type: "break",
           id: "20",
-          title: "Bollepause (Andreas)",
+          title: "Pause",
           from: "14:45",
           to: "15:05",
         },
@@ -331,6 +343,7 @@ export const schedule: Schedule = [
           from: "15:05",
           to: "15:50",
           speaker: TBA,
+          format: PanelDebate,
           talkDescription: ["TBA"],
         },
         {
@@ -340,8 +353,8 @@ export const schedule: Schedule = [
           location: "Bibliotek",
           from: "15:05",
           to: "15:50",
-          speaker: TBA,
-          talkDescription: ["TBA"],
+          speaker: MikaelBrevikAndStianMøllersen,
+          talkDescription: ["Live-innspilling av podcasten Kortslutning."],
         },
       ],
     ],
@@ -372,10 +385,10 @@ export const schedule: Schedule = [
           type: "common",
           id: "24",
           title: "TownHall Live + Øl",
-          location: "Storsal",
+          location: "Alle rom",
           from: "16:00",
           to: "17:00",
-          speaker: TBA,
+          speaker: [MikaelBrevik, OddMortenSveås],
           talkDescription: ["TBA"],
         },
       ],
@@ -394,7 +407,7 @@ export const schedule: Schedule = [
           location: "Skraa",
           from: "17:00",
           to: "18:30",
-          speaker: TBA,
+          speaker: MariusKrakeli,
           talkDescription: ["TBA"],
         },
       ],
@@ -413,7 +426,7 @@ export const schedule: Schedule = [
           location: "Chiruto",
           from: "18:30",
           to: "",
-          speaker: TBA,
+          speaker: Chiruto,
           talkDescription: ["TBA"],
         },
       ],
