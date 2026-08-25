@@ -90,19 +90,6 @@ export const schedule: Schedule = [
       [
         {
           type: "talk",
-          id: "4",
-          title: "Produktledelse er (heller) ikke the new snake oil",
-          location: "Storsal",
-          from: "11:05",
-          to: "11:23",
-          discipline: StrategyAndProduct,
-          speaker: MalinCKarlsen,
-          talkDescription: [
-            "Produktledelses-vinden blåser kraftig gjennom Norge, og prosjektet er erklært dødt, uaktuelt, old-school, kontra-produktivt, you name it. Det tror jeg er feil! Kom og hør hvorfor :)",
-          ],
-        },
-        {
-          type: "talk",
           id: "7",
           title: "React Won. So Why does the web feel so broken?",
           location: "Kinosal",
@@ -121,40 +108,6 @@ export const schedule: Schedule = [
           to: "12:00",
           format: PanelDebate,
           talkDescription: ["TBA"],
-        },
-        {
-          type: "talk",
-          id: "5",
-          title: "Temp-love",
-          location: "Storsal",
-          from: "11:23",
-          to: "11:41",
-          discipline: Development,
-          speaker: TormodLiseth,
-          talkDescription: [
-            "Forbannelsen fra filmmusikk-verdenen har kommet til tech. Hvilke alternativ har man når interaktive mockups og generiske prototyper blir grunnlaget for utvikling?",
-          ],
-        },
-        {
-          type: "talk",
-          id: "6",
-          title: "Friction as a feature",
-          location: "Storsal",
-          from: "11:41",
-          to: "12:00",
-          discipline: Design,
-          speaker: [OlePetterKlæstad, JuliaKuhley],
-          talkDescription: [
-            "Core theme: friction as a productive force in the design process",
-            {
-              bulletpointsDescription: "This talk explores:",
-              BulletpointsList: [
-                '"Interrogator agent" — an agent that asks probing questions to surface hidden assumptions and problems, helping designers think more critically before jumping to solutions',
-                "Prompting and getting a solution too quickly can bypass valuable reflection",
-                "System 1 vs. System 2 thinking angle",
-              ],
-            },
-          ],
         },
       ],
     ],
@@ -208,13 +161,13 @@ export const schedule: Schedule = [
         },
         {
           type: "common",
-          id: "14",
-          title: "Lesehesten Live",
+          id: "19",
+          title: "Idiotrådet",
           location: "Bibliotek",
           from: "13:00",
           to: "13:45",
-          speaker: LesehestenUtvikling,
-          format: Podcast,
+          speaker: TBA,
+          format: PanelDebate,
           talkDescription: ["TBA"],
         },
         {
@@ -290,13 +243,13 @@ export const schedule: Schedule = [
         },
         {
           type: "common",
-          id: "19",
-          title: "Idiotrådet",
+          id: "14",
+          title: "Lesehesten Live",
           location: "Bibliotek",
           from: "14:00",
           to: "14:45",
-          speaker: TBA,
-          format: PanelDebate,
+          speaker: LesehestenUtvikling,
+          format: Podcast,
           talkDescription: ["TBA"],
         },
         {
@@ -336,6 +289,19 @@ export const schedule: Schedule = [
     tracks: [
       [
         {
+          type: "talk",
+          id: "4",
+          title: "Produktledelse er (heller) ikke the new snake oil",
+          location: "Storsal",
+          from: "15:05",
+          to: "15:20",
+          discipline: StrategyAndProduct,
+          speaker: MalinCKarlsen,
+          talkDescription: [
+            "Produktledelses-vinden blåser kraftig gjennom Norge, og prosjektet er erklært dødt, uaktuelt, old-school, kontra-produktivt, you name it. Det tror jeg er feil! Kom og hør hvorfor :)",
+          ],
+        },
+        {
           type: "common",
           id: "21",
           title: "FishBowl og diskusjon – Unpopular Opinion style",
@@ -355,6 +321,40 @@ export const schedule: Schedule = [
           to: "15:50",
           speaker: MikaelBrevikAndStianMøllersen,
           talkDescription: ["Live-innspilling av podcasten Kortslutning."],
+        },
+        {
+          type: "talk",
+          id: "5",
+          title: "Temp-love",
+          location: "Storsal",
+          from: "15:20",
+          to: "15:35",
+          discipline: Development,
+          speaker: TormodLiseth,
+          talkDescription: [
+            "Forbannelsen fra filmmusikk-verdenen har kommet til tech. Hvilke alternativ har man når interaktive mockups og generiske prototyper blir grunnlaget for utvikling?",
+          ],
+        },
+        {
+          type: "talk",
+          id: "6",
+          title: "Friction as a feature",
+          location: "Storsal",
+          from: "15:35",
+          to: "15:50",
+          discipline: Design,
+          speaker: [OlePetterKlæstad, JuliaKuhley],
+          talkDescription: [
+            "Core theme: friction as a productive force in the design process",
+            {
+              bulletpointsDescription: "This talk explores:",
+              BulletpointsList: [
+                '"Interrogator agent" — an agent that asks probing questions to surface hidden assumptions and problems, helping designers think more critically before jumping to solutions',
+                "Prompting and getting a solution too quickly can bypass valuable reflection",
+                "System 1 vs. System 2 thinking angle",
+              ],
+            },
+          ],
         },
       ],
     ],

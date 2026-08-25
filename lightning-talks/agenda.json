@@ -62,20 +62,6 @@
       [
         {
           "type": "talk",
-          "id": "4",
-          "title": "Produktledelse er (heller) ikke the new snake oil",
-          "location": "Storsal",
-          "from": "11:05",
-          "to": "11:23",
-          "discipline": "StrategyAndProduct",
-          "speaker": "Malin",
-          "talkDescription": [
-            "Produktledelses-vinden blåser kraftig gjennom Norge, og prosjektet er erklært dødt, uaktuelt, old-school, kontra-produktivt, you name it. Det tror jeg er feil! Kom og hør hvorfor :)"
-          ],
-          "note": "Part of the 'Lyntalebulk' (11:05-12:00, 3 talks in Storsal). The agenda image didn't give a per-talk running order/timing, so this is an even 3-way split — adjust once the actual order is fixed."
-        },
-        {
-          "type": "talk",
           "id": "7",
           "title": "React Won. So Why does the web feel so broken?",
           "location": "Kinosal",
@@ -95,42 +81,6 @@
           "to": "12:00",
           "talkDescription": ["TBA"],
           "note": "No panelists/speakers listed in the agenda image — fill in manually."
-        },
-        {
-          "type": "talk",
-          "id": "5",
-          "title": "Temp-love",
-          "location": "Storsal",
-          "from": "11:23",
-          "to": "11:41",
-          "discipline": "Development",
-          "speaker": "Tormod Liseth",
-          "talkDescription": [
-            "Forbannelsen fra filmmusikk-verdenen har kommet til tech. Hvilke alternativ har man når interaktive mockups og generiske prototyper blir grunnlaget for utvikling?"
-          ],
-          "note": "Part of the 'Lyntalebulk' — placeholder sub-slot timing, see talk 4's note."
-        },
-        {
-          "type": "talk",
-          "id": "6",
-          "title": "Friction as a feature",
-          "location": "Storsal",
-          "from": "11:41",
-          "to": "12:00",
-          "discipline": "Design",
-          "speaker": ["Ole Petter Klæstad", "Julia Kuhley"],
-          "talkDescription": [
-            "Core theme: friction as a productive force in the design process",
-            {
-              "bulletpointsDescription": "This talk explores:",
-              "BulletpointsList": [
-                "\"Interrogator agent\" — an agent that asks probing questions to surface hidden assumptions and problems, helping designers think more critically before jumping to solutions",
-                "Prompting and getting a solution too quickly can bypass valuable reflection",
-                "System 1 vs. System 2 thinking angle"
-              ]
-            }
-          ],
-          "note": "Part of the 'Lyntalebulk' — placeholder sub-slot timing, see talk 4's note. Original submission text reformatted into a bullet list to match the Bulletpoints shape used elsewhere."
         }
       ]
     ]
@@ -185,8 +135,8 @@
         },
         {
           "type": "common",
-          "id": "14",
-          "title": "Lesehesten Live",
+          "id": "19",
+          "title": "Idiotrådet",
           "location": "Bibliotek",
           "from": "13:00",
           "to": "13:45",
@@ -269,8 +219,8 @@
         },
         {
           "type": "common",
-          "id": "19",
-          "title": "Idiotrådet",
+          "id": "14",
+          "title": "Lesehesten Live",
           "location": "Bibliotek",
           "from": "14:00",
           "to": "14:45",
@@ -316,6 +266,20 @@
     "tracks": [
       [
         {
+          "type": "talk",
+          "id": "4",
+          "title": "Produktledelse er (heller) ikke the new snake oil",
+          "location": "Storsal",
+          "from": "15:05",
+          "to": "15:20",
+          "discipline": "StrategyAndProduct",
+          "speaker": "Malin",
+          "talkDescription": [
+            "Produktledelses-vinden blåser kraftig gjennom Norge, og prosjektet er erklært dødt, uaktuelt, old-school, kontra-produktivt, you name it. Det tror jeg er feil! Kom og hør hvorfor :)"
+          ],
+          "note": "Part of the 'Lyntalebulk', moved from Block 1 to Block 4 (15:05-15:50, 3 talks in Storsal). Even 3-way 15-min split — adjust once the actual order is fixed."
+        },
+        {
           "type": "common",
           "id": "21",
           "title": "FishBowl og diskusjon – Unpopular Opinion style",
@@ -324,7 +288,7 @@
           "to": "15:50",
           "speaker": "TBA",
           "talkDescription": ["TBA"],
-          "note": "Likely draws on submissions from the site's Unpopular Opinion form. No facilitator/speaker listed. The source image was cropped for this row, so the Storsal/Kinosal/Bibliotek column alignment is inferred, not confirmed — Storsal is assumed empty in this slot."
+          "note": "Likely draws on submissions from the site's Unpopular Opinion form. No facilitator/speaker listed. The source image was cropped for this row, so the Storsal/Kinosal/Bibliotek column alignment is inferred, not confirmed."
         },
         {
           "type": "common",
@@ -336,6 +300,42 @@
           "speaker": "TBA",
           "talkDescription": ["TBA"],
           "note": "Column placement inferred from a cropped image — confirm this belongs in Bibliotek."
+        },
+        {
+          "type": "talk",
+          "id": "5",
+          "title": "Temp-love",
+          "location": "Storsal",
+          "from": "15:20",
+          "to": "15:35",
+          "discipline": "Development",
+          "speaker": "Tormod Liseth",
+          "talkDescription": [
+            "Forbannelsen fra filmmusikk-verdenen har kommet til tech. Hvilke alternativ har man når interaktive mockups og generiske prototyper blir grunnlaget for utvikling?"
+          ],
+          "note": "Part of the 'Lyntalebulk', moved from Block 1 to Block 4 — placeholder sub-slot timing, see talk 4's note."
+        },
+        {
+          "type": "talk",
+          "id": "6",
+          "title": "Friction as a feature",
+          "location": "Storsal",
+          "from": "15:35",
+          "to": "15:50",
+          "discipline": "Design",
+          "speaker": ["Ole Petter Klæstad", "Julia Kuhley"],
+          "talkDescription": [
+            "Core theme: friction as a productive force in the design process",
+            {
+              "bulletpointsDescription": "This talk explores:",
+              "BulletpointsList": [
+                "\"Interrogator agent\" — an agent that asks probing questions to surface hidden assumptions and problems, helping designers think more critically before jumping to solutions",
+                "Prompting and getting a solution too quickly can bypass valuable reflection",
+                "System 1 vs. System 2 thinking angle"
+              ]
+            }
+          ],
+          "note": "Part of the 'Lyntalebulk', moved from Block 1 to Block 4 — placeholder sub-slot timing, see talk 4's note. Original submission text reformatted into a bullet list to match the Bulletpoints shape used elsewhere."
         }
       ]
     ]
