@@ -50,6 +50,6 @@ export const getBorderColor = (
   return colorPair?.color;
 };
 
-export const getCardColumn = (colorPair: ColorPair | undefined) => {
-  return colorPair ? getColumn(colorPair) : "unset";
+export const getCardColumn = (location: string) => {
+  return getColumn(location);
 };

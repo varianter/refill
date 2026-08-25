@@ -1,12 +1,12 @@
-import { colorPairs, type ColorPair } from "./colors";
-
-export function getColumn(colorPair: ColorPair) {
-  if (colorPair === colorPairs.darkBlue) {
+export function getColumn(location: string) {
+  if (location === "Storsal") {
     return 1;
-  } else if (colorPair === colorPairs.orange) {
+  } else if (location === "Kinosal") {
     return 2;
-  } else {
+  } else if (location === "Bibliotek") {
     return 3;
+  } else {
+    return "unset";
   }
 }
 
