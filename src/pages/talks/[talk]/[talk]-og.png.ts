@@ -2,24 +2,32 @@ import type { APIRoute, InferGetStaticPropsType } from "astro";
 import { PNG } from "../../../components/OpenGraph/createImage";
 import { schedule } from "../../../utils/schedule/schedule";
 import { getSpeakerImageSrc } from "../../../utils/speakerImages";
-import type { Speaker } from "../../../utils/schedule/types";
+import type { ScheduleEntry, Speaker } from "../../../utils/schedule/types";
 import { OG } from "../../../components/OpenGraph/OG";
 import { SpeakerName } from "../../../utils/speakers";
 
 export const prerender = true;
 
+function hasOgImage(
+  entry: ScheduleEntry,
+): entry is ScheduleEntry & { speaker: Speaker } {
+  return (
+    entry.type !== "break" &&
+    entry.speaker !== undefined &&
+    entry.talkDescription !== undefined
+  );
+}
+
 export async function getStaticPaths() {
   return schedule.flatMap((block) =>
     block.tracks.flatMap((track) =>
-      track
-        .filter((talk) => talk.type === "talk")
-        .map((talk) => ({
-          params: { talk: talk.id },
-          props: {
-            title: talk.title,
-            heroImage: getSpeakersImage(talk.speaker),
-          },
-        })),
+      track.filter(hasOgImage).map((talk) => ({
+        params: { talk: talk.id },
+        props: {
+          title: talk.title,
+          heroImage: getSpeakersImage(talk.speaker),
+        },
+      })),
     ),
   );
 }
@@ -33,17 +41,16 @@ export const GET: APIRoute = async function get({ params }) {
   const talk = schedule
     .flatMap((block) =>
       block.tracks.flatMap((track) =>
-        track.filter(
-          (talk) =>
-            talk.type === "talk" &&
-            talk.id === id &&
-            talk.speaker !== SpeakerName.None,
-        ),
+        track
+          .filter(hasOgImage)
+          .filter(
+            (talk) => talk.id === id && talk.speaker !== SpeakerName.None,
+          ),
       ),
     )
     .shift(); // Assuming `id` is unique, we pick the first match
 
-  if (!talk || talk?.type != "talk") {
+  if (!talk) {
     return new Response("Not Found", { status: 404 });
   }
 
