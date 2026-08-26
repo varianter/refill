@@ -47,6 +47,7 @@ import { SpeakerName } from "./speakers";
 export const speakerImages: Record<SpeakerName, ImageMetadata> = {
   [SpeakerName.None]: Placeholder,
   [SpeakerName.TBA]: Placeholder,
+  [SpeakerName.GodKommunikasjonPraksis]: Placeholder,
   [SpeakerName.AnnaEkblom]: AnnaEkblom,
   [SpeakerName.TormodLiseth]: TormodLiseth,
   [SpeakerName.Stian]: StianMøllersen,

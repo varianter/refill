@@ -7,6 +7,7 @@ const { Design, Development, StrategyAndProduct } = Discipline;
 const { PanelDebate, Podcast, Workshop, Talks } = ContentFormat;
 const {
   TBA,
+  GodKommunikasjonPraksis,
   MikaelBrevik,
   TonjeEvanger,
   AnnaEkblom,
@@ -177,9 +178,9 @@ export const schedule: Schedule = [
           location: "Bibliotek",
           from: "13:00",
           to: "13:45",
-          speaker: TBA,
+          speaker: GodKommunikasjonPraksis,
           format: PanelDebate,
-          talkDescription: ["TBA"],
+          talkDescription: ["Podcast av faggruppen God kommunikasjon i praksis"],
         },
         {
           type: "talk",
@@ -246,13 +247,13 @@ export const schedule: Schedule = [
         {
           type: "common",
           id: "13",
-          title: "Workshop: Kommunikasjon & Personlighetstyper",
+          title: "Workshop for idioter",
           location: "Kinosal",
           from: "14:00",
           to: "14:45",
-          speaker: TBA,
+          speaker: GodKommunikasjonPraksis,
           format: Workshop,
-          talkDescription: ["TBA"],
+          talkDescription: ["En workshop fra faggruppen God kommunikasjon i praksis"],
         },
         {
           type: "common",
