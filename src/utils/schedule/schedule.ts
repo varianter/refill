@@ -152,15 +152,15 @@ export const schedule: Schedule = [
         {
           type: "talk",
           id: "10",
-          title: "Programming for fun in the age of AI",
+          title: "Programmering for moro skyld i KI-alderen",
           location: "Storsal",
           from: "13:00",
           to: "13:15",
           discipline: Development,
           speaker: Stian,
           talkDescription: [
-            "Programming stupid things for fun is... well, fun. Now a days we could get agents to do the programming, and we would be left with all the fun.",
-            "Would we though? Is the fun in the result or the process? Is programming for shits and giggles even more important now than ever? If so, why?",
+            "Å programmere teite ting for moro skyld er... vel, moro. I disse dager kan vi få agenter til å gjøre programmeringen, og i teorien skal vi sitte igjen med alt det morsomme.",
+            "Men gjør vi egentlig det? Finner vi det morsomme i resultatet eller prosessen? Er programmering for underholdning viktigere nå? Hvis så, hvorfor?",
           ],
         },
         {
