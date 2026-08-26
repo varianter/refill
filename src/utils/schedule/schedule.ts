@@ -98,7 +98,10 @@ export const schedule: Schedule = [
           to: "11:30",
           discipline: Development,
           speaker: NikolaiNormanAndersen,
-          talkDescription: ["TBA"],
+          talkDescription: [
+            "Agents are taking your job, but can you at least keep your secrets? The last thing we want is agents and LLMs reading our secret values into context and sending them to someone else's computer. In this talk I will get into how to safely store secrets and how we can let our agents use these secrets without actually seeing them and potentially not even being able to access them at all.",
+            "I will introduce you to how you can use encryption, key management and practical patterns like stdin-based handoff to let agents use secrets without dragging the plaintext into prompts, logs, chats or onto remote servers. There are some caveats, make sure you come and learn what they are!",
+          ],
         },
         {
           type: "common",
