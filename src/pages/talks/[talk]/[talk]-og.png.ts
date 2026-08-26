@@ -2,7 +2,11 @@ import type { APIRoute, InferGetStaticPropsType } from "astro";
 import { PNG } from "../../../components/OpenGraph/createImage";
 import { schedule } from "../../../utils/schedule/schedule";
 import { getSpeakerImageSrc } from "../../../utils/speakerImages";
-import type { ScheduleEntry, Speaker } from "../../../utils/schedule/types";
+import type {
+  ScheduleEntry,
+  Speaker,
+  SpeakerEvent,
+} from "../../../utils/schedule/types";
 import { OG } from "../../../components/OpenGraph/OG";
 import { SpeakerName } from "../../../utils/speakers";
 
@@ -10,7 +14,7 @@ export const prerender = true;
 
 function hasOgImage(
   entry: ScheduleEntry,
-): entry is ScheduleEntry & { speaker: Speaker } {
+): entry is SpeakerEvent & { speaker: Speaker } {
   return (
     entry.type !== "break" &&
     entry.speaker !== undefined &&
@@ -54,10 +58,10 @@ export const GET: APIRoute = async function get({ params }) {
     return new Response("Not Found", { status: 404 });
   }
 
-  const { title, speaker, from, to } = talk;
+  const { title, speaker, from, to, location } = talk;
 
   // Generate the PNG image based on the OG component
-  const png = await PNG(OG({ title, speaker, from, to }));
+  const png = await PNG(OG({ title, speaker, from, to, location }));
 
   // Return the image with correct content type
   return new Response(new Uint8Array(png), {
