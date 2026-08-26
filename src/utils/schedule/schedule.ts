@@ -4,7 +4,7 @@ import { SpeakerName } from "../speakers";
 import type { Schedule } from "./types";
 
 const { Design, Development, StrategyAndProduct } = Discipline;
-const { PanelDebate, Podcast } = ContentFormat;
+const { PanelDebate, Podcast, Workshop, Talks } = ContentFormat;
 const {
   TBA,
   MikaelBrevik,
@@ -90,13 +90,13 @@ export const schedule: Schedule = [
       [
         {
           type: "talk",
-          id: "7",
-          title: "React Won. So Why does the web feel so broken?",
+          id: "17",
+          title: "How to Keep Secrets from your Agent",
           location: "Kinosal",
           from: "11:05",
-          to: "12:00",
+          to: "11:30",
           discipline: Development,
-          speaker: MikaelBrevik,
+          speaker: NikolaiNormanAndersen,
           talkDescription: ["TBA"],
         },
         {
@@ -107,6 +107,17 @@ export const schedule: Schedule = [
           from: "11:05",
           to: "12:00",
           format: PanelDebate,
+          talkDescription: ["TBA"],
+        },
+        {
+          type: "talk",
+          id: "7",
+          title: "React Won. So Why does the web feel so broken?",
+          location: "Kinosal",
+          from: "11:30",
+          to: "11:55",
+          discipline: Development,
+          speaker: MikaelBrevik,
           talkDescription: ["TBA"],
         },
       ],
@@ -150,13 +161,13 @@ export const schedule: Schedule = [
         },
         {
           type: "common",
-          id: "13",
-          title: "Workshop: Kommunikasjon & Personlighetstyper",
+          id: "18",
+          title: "Discomfort Zone: 4 impro lyntaler",
           location: "Kinosal",
           from: "13:00",
           to: "13:45",
           speaker: TBA,
-          format: PanelDebate,
+          format: Talks,
           talkDescription: ["TBA"],
         },
         {
@@ -222,23 +233,25 @@ export const schedule: Schedule = [
         {
           type: "talk",
           id: "16",
-          title: "Eksperimentering i Ruter-appen for å redusere …",
+          title: "Eksperimentering i Ruter-appen for å redusere snikandel",
           location: "Storsal",
           from: "14:00",
           to: "14:20",
           discipline: Design,
           speaker: SvanhildEgge,
-          talkDescription: ["TBA"],
+          talkDescription: [
+            "Ruter taper 500 mill kr årlig på sniking, der nesten 40% av snikerene har betalingsvilje men likevel ender opp uten billett. Hvordan kan vi bruke eksperimentering i Ruter-appen for å få flere av disse til å kjøpe ny billett når den gamle utløper, og dermed få ned antall snik?",
+          ],
         },
         {
           type: "common",
-          id: "18",
-          title: "Discomfort Zone: 4 impro lyntaler",
+          id: "13",
+          title: "Workshop: Kommunikasjon & Personlighetstyper",
           location: "Kinosal",
           from: "14:00",
           to: "14:45",
           speaker: TBA,
-          format: PanelDebate,
+          format: Workshop,
           talkDescription: ["TBA"],
         },
         {
@@ -250,17 +263,6 @@ export const schedule: Schedule = [
           to: "14:45",
           speaker: LesehestenUtvikling,
           format: Podcast,
-          talkDescription: ["TBA"],
-        },
-        {
-          type: "talk",
-          id: "17",
-          title: "How to Keep Secrets from your Agent",
-          location: "Storsal",
-          from: "14:20",
-          to: "14:40",
-          discipline: Development,
-          speaker: NikolaiNormanAndersen,
           talkDescription: ["TBA"],
         },
       ],

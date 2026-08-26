@@ -62,15 +62,15 @@
       [
         {
           "type": "talk",
-          "id": "7",
-          "title": "React Won. So Why does the web feel so broken?",
+          "id": "17",
+          "title": "How to Keep Secrets from your Agent",
           "location": "Kinosal",
           "from": "11:05",
-          "to": "12:00",
+          "to": "11:30",
           "discipline": "Development",
-          "speaker": "Mikael Brevik",
+          "speaker": "Nikolai",
           "talkDescription": ["TBA"],
-          "note": "Speaker shown only as \"Mikael\" in the agenda image — assumed to be Mikael Brevik; confirm."
+          "note": "Swapped into Mikael Brevik's Block 1 'React Won' slot. Extended from Nikolai's original 20-min submission to 25 min per confirmation. Surname unknown from the agenda image; possibly Nikolai Norman Andersen (a past conference speaker) — confirm before merging."
         },
         {
           "type": "common",
@@ -81,6 +81,18 @@
           "to": "12:00",
           "talkDescription": ["TBA"],
           "note": "No panelists/speakers listed in the agenda image — fill in manually."
+        },
+        {
+          "type": "talk",
+          "id": "7",
+          "title": "React Won. So Why does the web feel so broken?",
+          "location": "Kinosal",
+          "from": "11:30",
+          "to": "11:55",
+          "discipline": "Development",
+          "speaker": "Mikael Brevik",
+          "talkDescription": ["TBA"],
+          "note": "Re-added after Nikolai's talk in Kinosal, shortened to 25 min (was previously the full 11:05-12:00 slot). 11:55-12:00 in Kinosal remains a small open gap."
         }
       ]
     ]
@@ -124,14 +136,14 @@
         },
         {
           "type": "common",
-          "id": "13",
-          "title": "Workshop: Kommunikasjon & Personlighetstyper",
+          "id": "18",
+          "title": "Discomfort Zone: 4 impro lyntaler",
           "location": "Kinosal",
           "from": "13:00",
           "to": "13:45",
           "speaker": "TBA",
           "talkDescription": ["TBA"],
-          "note": "Facilitator explicitly marked TBA in the agenda image."
+          "note": "Speakers marked \"(Temp)\" in the agenda image, i.e. still to be decided."
         },
         {
           "type": "common",
@@ -197,25 +209,27 @@
         {
           "type": "talk",
           "id": "16",
-          "title": "Eksperimentering i Ruter-appen for å redusere …",
+          "title": "Eksperimentering i Ruter-appen for å redusere snikandel",
           "location": "Storsal",
           "from": "14:00",
           "to": "14:20",
           "discipline": "Design",
-          "speaker": "Svanhild",
-          "talkDescription": ["TBA"],
-          "note": "Title is truncated in the agenda image (cut off after \"redusere\") — confirm the full title and get a description. Surname for Svanhild also unknown."
+          "speaker": "Svanhild Egge",
+          "talkDescription": [
+            "Ruter taper 500 mill kr årlig på sniking, der nesten 40% av snikerene har betalingsvilje men likevel ender opp uten billett. Hvordan kan vi bruke eksperimentering i Ruter-appen for å få flere av disse til å kjøpe ny billett når den gamle utløper, og dermed få ned antall snik?"
+          ],
+          "note": "Full title, presenter surname, and description pulled from the call-for-papers submission in Vercel Blob (submitted 2026-08-14T13:51:29.950Z). Submission requested ~20 min, matching the existing slot."
         },
         {
           "type": "common",
-          "id": "18",
-          "title": "Discomfort Zone: 4 impro lyntaler",
+          "id": "13",
+          "title": "Workshop: Kommunikasjon & Personlighetstyper",
           "location": "Kinosal",
           "from": "14:00",
           "to": "14:45",
           "speaker": "TBA",
           "talkDescription": ["TBA"],
-          "note": "Speakers marked \"(Temp)\" in the agenda image, i.e. still to be decided."
+          "note": "Facilitator explicitly marked TBA in the agenda image."
         },
         {
           "type": "common",
@@ -226,18 +240,6 @@
           "to": "14:45",
           "speaker": "TBA",
           "talkDescription": ["TBA"]
-        },
-        {
-          "type": "talk",
-          "id": "17",
-          "title": "How to Keep Secrets from your Agent",
-          "location": "Storsal",
-          "from": "14:20",
-          "to": "14:40",
-          "discipline": "Development",
-          "speaker": "Nikolai",
-          "talkDescription": ["TBA"],
-          "note": "Surname unknown from the agenda image; possibly Nikolai Norman Andersen (a past conference speaker) — confirm before merging."
         }
       ]
     ]
