@@ -4,6 +4,7 @@ import Discipline from "../discipline/Discipline";
 import {
   getDisciplineColorPair,
   getDisciplineName,
+  getDisciplines,
   type Discipline as DisciplineEnum,
 } from "../../utils/discipline";
 import style from "./CurrentTalk.module.css";
@@ -14,7 +15,7 @@ type CurrentTalkProps = {
 
 export const CurrentTalk = ({ location }: CurrentTalkProps) => {
   const [currentTalk, setCurrentTalk] = useState("");
-  const [discipline, setDiscipline] = useState<DisciplineEnum>();
+  const [disciplines, setDisciplines] = useState<DisciplineEnum[]>([]);
 
   useEffect(() => {
     const updateTalk = () => {
@@ -22,7 +23,7 @@ export const CurrentTalk = ({ location }: CurrentTalkProps) => {
       if (talk) {
         setCurrentTalk(talk.title);
         if (talk.type === "talk") {
-          setDiscipline(talk.discipline);
+          setDisciplines(getDisciplines(talk.discipline));
         }
       }
     };
@@ -36,11 +37,11 @@ export const CurrentTalk = ({ location }: CurrentTalkProps) => {
   return (
     <div className={style.current_talk}>
       <p>{currentTalk}</p>
-      {discipline && (
-        <Discipline colorPair={getDisciplineColorPair(discipline)}>
+      {disciplines.map((discipline) => (
+        <Discipline key={discipline} colorPair={getDisciplineColorPair(discipline)}>
           {getDisciplineName(discipline)}
         </Discipline>
-      )}
+      ))}
     </div>
   );
 };

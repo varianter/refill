@@ -1,6 +1,10 @@
 import { colors, type ColorPair } from "../../utils/colors";
 import type { ContentFormat } from "../../utils/contentFormat";
-import { getDisciplineColorPair } from "../../utils/discipline";
+import {
+  getDisciplineColorPair,
+  getDisciplines,
+  type Discipline,
+} from "../../utils/discipline";
 import { getColumn } from "../../utils/getColumm";
 import type {
   ScheduleEntry,
@@ -21,9 +25,14 @@ export const getTalkDescription = (event: ScheduleEntry): DescriptionList => {
     : [];
 };
 
+export const getEventDisciplines = (event: ScheduleEntry): Discipline[] => {
+  return event.type === "talk" ? getDisciplines(event.discipline) : [];
+};
+
 export const getColorPair = (event: ScheduleEntry): ColorPair | undefined => {
-  return event.type === "talk"
-    ? getDisciplineColorPair(event.discipline)
+  const [primaryDiscipline] = getEventDisciplines(event);
+  return primaryDiscipline
+    ? getDisciplineColorPair(primaryDiscipline)
     : undefined;
 };
 

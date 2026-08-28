@@ -31,7 +31,7 @@ export interface CommonEvent extends ScheduleEvent {
 export interface Talk extends ScheduleEvent {
   type: "talk";
   location: string;
-  discipline: Discipline;
+  discipline: Discipline | Discipline[];
   speaker: Speaker;
   talkDescription?: DescriptionList;
   speakerDescription?: DescriptionList;

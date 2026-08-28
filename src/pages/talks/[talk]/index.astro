@@ -6,6 +6,7 @@ import TalkLayout from "../../../layouts/TalksLayout.astro";
 import {
   getDisciplineColorPair,
   getDisciplineName,
+  getDisciplines,
 } from "../../../utils/discipline";
 import { getTalkById } from "../../../utils/schedule/functions";
 import RenderSpeakerImage from "../../../components/ScheduleEntryCard/RenderSpeakerImage.astro";
@@ -35,12 +36,11 @@ const {
   speakerDescription,
 } = talk;
 
-let discipline, colorPair, disciplineBackgroundColor, disciplineTextColor;
+let disciplines: ReturnType<typeof getDisciplines> = [];
+let primaryDiscipline;
 if ("discipline" in talk) {
-  discipline = talk.discipline;
-  colorPair = getDisciplineColorPair(discipline);
-  disciplineBackgroundColor = colorPair.color;
-  disciplineTextColor = colorPair.textColor;
+  disciplines = getDisciplines(talk.discipline);
+  [primaryDiscipline] = disciplines;
 }
 
 const speakerName = speaker ? getSpeakerNames(speaker) : "";
@@ -79,11 +79,17 @@ const metaDescription = talkDescription ? talkDescription.join(" ") : "";
             {`${location} ${from}-${to}`}
           </p>
           {
-            discipline && (
-              <p class="talk__chip talk__discipline">
-                {getDisciplineName(discipline)}
-              </p>
-            )
+            disciplines.map((discipline) => {
+              const { color, textColor } = getDisciplineColorPair(discipline);
+              return (
+                <p
+                  class="talk__chip talk__discipline"
+                  style={`background: ${color}; color: ${textColor};`}
+                >
+                  {getDisciplineName(discipline)}
+                </p>
+              );
+            })
           }
           <FavoriteButton client:load id={id} title={title} />
         </div>
@@ -109,10 +115,10 @@ const metaDescription = talkDescription ? talkDescription.join(" ") : "";
       }
     </section>
   </div>
-  <Footer variant="black" illustrationVariant={discipline} slot="footer" />
+  <Footer variant="black" illustrationVariant={primaryDiscipline} slot="footer" />
 </TalkLayout>
 
-<style define:vars={{ disciplineBackgroundColor, disciplineTextColor }}>
+<style>
   .talk__main {
     display: flex;
     flex-direction: column;
@@ -205,11 +211,6 @@ const metaDescription = talkDescription ? talkDescription.join(" ") : "";
 
   .talk__time_and_location {
     border: 1px solid var(--text-primary);
-  }
-
-  .talk__discipline {
-    background: var(--disciplineBackgroundColor);
-    color: var(--disciplineTextColor);
   }
 
   .talk__author_section {

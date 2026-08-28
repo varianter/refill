@@ -1,5 +1,5 @@
 ---
-import { getDisciplineName } from "../../utils/discipline";
+import { getDisciplineColorPair, getDisciplineName } from "../../utils/discipline";
 import { getContentFormatColorPair } from "../../utils/contentFormat";
 import { colors } from "../../utils/colors";
 import CardWrapper from "../CardWrapper.astro";
@@ -10,6 +10,7 @@ import {
   getCardColumn,
   getColorPair,
   getContentFormat,
+  getEventDisciplines,
   getTalkDescription,
   getLocation,
   getSpeaker,
@@ -38,6 +39,7 @@ const contentFormat = getContentFormat(event);
 const talkDescription = getTalkDescription(event);
 const borderColor = getBorderColor(colorPair);
 const column = getCardColumn(location);
+const disciplines = getEventDisciplines(event);
 
 const shouldRenderDescription = span > 1;
 
@@ -86,11 +88,13 @@ const talkArrowHeigth = 52;
       <div class="speaker_card__flex__labels">
         <Discipline>{`${location} ${from}-${to}`}</Discipline>
         {
-          event.type === "talk" && speaker && (
-            <Discipline colorPair={colorPair}>
-              {getDisciplineName(event.discipline)}
-            </Discipline>
-          )
+          event.type === "talk" &&
+            speaker &&
+            disciplines.map((discipline) => (
+              <Discipline colorPair={getDisciplineColorPair(discipline)}>
+                {getDisciplineName(discipline)}
+              </Discipline>
+            ))
         }
         {
           contentFormat && (

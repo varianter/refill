@@ -28,3 +28,9 @@ export function getDisciplineColorPair(discipline: Discipline): ColorPair {
       return colorPairs.teal100;
   }
 }
+
+export function getDisciplines(
+  discipline: Discipline | Discipline[],
+): Discipline[] {
+  return Array.isArray(discipline) ? discipline : [discipline];
+}
