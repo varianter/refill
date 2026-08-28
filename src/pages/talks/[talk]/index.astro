@@ -38,7 +38,7 @@ const {
 
 let disciplines: ReturnType<typeof getDisciplines> = [];
 let primaryDiscipline;
-if ("discipline" in talk) {
+if ("discipline" in talk && talk.discipline) {
   disciplines = getDisciplines(talk.discipline);
   [primaryDiscipline] = disciplines;
 }

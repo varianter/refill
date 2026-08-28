@@ -27,6 +27,8 @@ const {
   Chiruto,
   AnitaSteinstad,
   HenrikkeØijordHaugan,
+  RolfAndersStorset,
+  AndreasHartveit,
 } = SpeakerName;
 
 export const schedule: Schedule = [
@@ -112,8 +114,15 @@ export const schedule: Schedule = [
           location: "Bibliotek",
           from: "11:05",
           to: "12:00",
+          discipline: Design,
           format: PanelDebate,
-          talkDescription: ["TBA"],
+          speaker: [RolfAndersStorset, AndreasHartveit],
+          talkDescription: [
+            "Uavhengig av om vi ønsker det eller ikke, dyttes vi alle mot å gjøre oss opp en mening om hvordan nye teknologiske fremskritt påvirker arbeidet vårt. Den kommer gjerne frampå lunsjbordet, i Slack-tråder, eller i den gode uformelle samtalen. Men hvor står egentlig Variant-designeren når vi må sette ord på det?",
+            "I denne debatten tar vi den uformelle samtalen opp på scenen. Gjennom en tett fasilitert debatt utforsker vi hvordan design og designerrollen endres av den teknologiske revolusjonen vi står, eller ikke står, midt i. Hvilke framtider drømmer vi om, hvilke behov har vi, og hva er det vi egentlig ligger våkne og bekymrer oss for?",
+            "Her finnes ingen feil svar, og målet er ikke å finne fram til en felles konsensus. Målet er å bli litt klokere på mangfoldet av tanker som finnes i gruppen vår, enten de er filosofiske, etiske eller helt praktiske.",
+            "Vi går sammen inn og sammen ut av en samtale om faget vi er glad i. Ta med meningene dine, vi lover å ta godt vare på dem.",
+          ],
         },
         {
           type: "talk",

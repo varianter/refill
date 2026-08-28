@@ -88,8 +88,7 @@ const talkArrowHeigth = 52;
       <div class="speaker_card__flex__labels">
         <Discipline>{`${location} ${from}-${to}`}</Discipline>
         {
-          event.type === "talk" &&
-            speaker &&
+          speaker &&
             disciplines.map((discipline) => (
               <Discipline colorPair={getDisciplineColorPair(discipline)}>
                 {getDisciplineName(discipline)}

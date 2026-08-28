@@ -22,6 +22,7 @@ export type Speaker = SpeakerName | SpeakerName[];
 export interface CommonEvent extends ScheduleEvent {
   type: "common";
   location: string;
+  discipline?: Discipline | Discipline[];
   speaker?: Speaker;
   talkDescription?: DescriptionList;
   speakerDescription?: DescriptionList;

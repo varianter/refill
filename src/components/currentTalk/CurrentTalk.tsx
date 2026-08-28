@@ -22,7 +22,7 @@ export const CurrentTalk = ({ location }: CurrentTalkProps) => {
       const talk = findSpeakerEventByTimeAndLocation(location);
       if (talk) {
         setCurrentTalk(talk.title);
-        if (talk.type === "talk") {
+        if (talk.discipline) {
           setDisciplines(getDisciplines(talk.discipline));
         }
       }

@@ -26,7 +26,9 @@ export const getTalkDescription = (event: ScheduleEntry): DescriptionList => {
 };
 
 export const getEventDisciplines = (event: ScheduleEntry): Discipline[] => {
-  return event.type === "talk" ? getDisciplines(event.discipline) : [];
+  return event.type !== "break" && event.discipline
+    ? getDisciplines(event.discipline)
+    : [];
 };
 
 export const getColorPair = (event: ScheduleEntry): ColorPair | undefined => {
