@@ -190,14 +190,14 @@ export const schedule: Schedule = [
         {
           type: "talk",
           id: "11",
-          title: "Variants Varde",
+          title: "Variants Varde: kanske ett designsystem",
           location: "Kinosal",
           from: "13:15",
           to: "13:30",
           discipline: Development,
           speaker: JacobBerglund,
           talkDescription: [
-            "Varde är väldigt _opininated_ å denna talken blir spicy.",
+            "Varde är destillatet av allt jag tror på när det kommer till CSS, design tokens och färgsystem. Detta handlar om min filosofi runt det hela, vilka val jag tagit och varför.",
           ],
         },
         {
