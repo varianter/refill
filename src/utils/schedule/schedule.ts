@@ -345,7 +345,10 @@ export const schedule: Schedule = [
           to: "15:50",
           speaker: TBA,
           format: PanelDebate,
-          talkDescription: ["TBA"],
+          talkDescription: [
+            "Upopulære meninger er sendt inn og nå skal de diskuteres. Møt opp, trekk tema fra hatten og bli med på diskusjonen!",
+            "Reglene er enkle: Vil du si noe må du inn i panelet. Og der sitter du til neste rullering."
+          ],
         },
         {
           type: "common",
