@@ -366,7 +366,9 @@ export const schedule: Schedule = [
           discipline: Development,
           speaker: TormodLiseth,
           talkDescription: [
-            "Forbannelsen fra filmmusikk-verdenen har kommet til tech. Hvilke alternativ har man når interaktive mockups og generiske prototyper blir grunnlaget for utvikling?",
+            "Forbannelsen fra filmmusikk-verdenen har kommet til tech.",
+            "“Temp-love” brukes om forkjærligheten regissører har til musikken man legger til, før komponisten har laget den ordentlige. Vibekodede proof-of-concepts gir noe av den samme utfordringen.",
+            "Kan vi lære noe av film-verdenen her, som kan hjelpe oss i møtet med temp-love?",
           ],
         },
         {
