@@ -5,6 +5,7 @@ import OddMortenSveås from "../../public/assets/img/people/Odd-Morten-Sveås.jp
 import StianMøllersen from "../../public/assets/img/people/Stian-Møllersen.png";
 import Kortslutning from "../../public/assets/img/podcasts/Kortslutning.jpg";
 import Lesehesten from "../../public/assets/img/podcasts/Lesehesten.png";
+import Idiotraadet from "../../public/assets/img/podcasts/Idiotraadet.png";
 import Placeholder from "../../public/assets/img/placeholder/refill26.png";
 import Chiruto from "../../public/assets/img/venues/Chiruto.png";
 import AnnaEkblom from "../../public/assets/img/people/Anna-Ekblom.png";
@@ -48,7 +49,7 @@ import { SpeakerName } from "./speakers";
 export const speakerImages: Record<SpeakerName, ImageMetadata> = {
   [SpeakerName.None]: Placeholder,
   [SpeakerName.TBA]: Placeholder,
-  [SpeakerName.GodKommunikasjonPraksis]: Placeholder,
+  [SpeakerName.GodKommunikasjonPraksis]: Idiotraadet,
   [SpeakerName.AnnaEkblom]: AnnaEkblom,
   [SpeakerName.TormodLiseth]: TormodLiseth,
   [SpeakerName.Stian]: StianMøllersen,
