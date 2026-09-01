@@ -426,7 +426,7 @@ export const schedule: Schedule = [
     ],
   },
   {
-    title: "TownHall Live + Øl",
+    title: "Townhall + Forfriskninger",
     start: "16:00",
     end: "17:00",
     tracks: [
@@ -434,7 +434,7 @@ export const schedule: Schedule = [
         {
           type: "common",
           id: "24",
-          title: "TownHall Live + Øl",
+          title: "Townhall + Forfriskninger",
           location: "Alle rom",
           from: "16:00",
           to: "17:00",
