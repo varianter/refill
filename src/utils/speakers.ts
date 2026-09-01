@@ -1,7 +1,7 @@
 export enum SpeakerName {
   None = "",
   TBA = "TBA",
-  GodKommunikasjonPraksis = "God kommunikasjon i praksis",
+  GodKommunikasjonPraksis = "Klar tale",
   AnnaEkblom = "Anna Ekblom",
   TormodLiseth = "Tormod Liseth",
   Stian = "Stian Møllersen",
