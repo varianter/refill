@@ -33,7 +33,7 @@ const {
 
 export const schedule: Schedule = [
   {
-    title: "Åpning m/ Mikael og Tonje",
+    title: "Velkommen til Refill 2026",
     start: "10:00",
     end: "10:05",
     tracks: [
@@ -41,8 +41,8 @@ export const schedule: Schedule = [
         {
           type: "common",
           id: "1",
-          title: "Åpning m/ Mikael og Tonje",
-          location: "Alle rom",
+          title: "Velkommen til Refill 2026",
+          location: "Felles (Storsal)",
           from: "10:00",
           to: "10:05",
           speaker: [MikaelBrevik, TonjeEvanger],
@@ -61,7 +61,7 @@ export const schedule: Schedule = [
           id: "2",
           title:
             "Keynote: Anna Ekblom om «Positiv friksjon og meningsutveksling»",
-          location: "Alle rom",
+          location: "Felles (Storsal)",
           from: "10:05",
           to: "10:50",
           speaker: AnnaEkblom,
@@ -435,7 +435,7 @@ export const schedule: Schedule = [
           type: "common",
           id: "24",
           title: "Townhall + Forfriskninger",
-          location: "Alle rom",
+          location: "Felles (Storsal)",
           from: "16:00",
           to: "17:00",
           speaker: [MikaelBrevik, OddMortenSveås],
