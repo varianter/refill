@@ -51,7 +51,7 @@ export const schedule: Schedule = [
     ],
   },
   {
-    title: "Keynote: Anna Ekblom om «Positiv friksjon og meningsutveksling»",
+    title: "Keynote: Slik får du andre til å lytte",
     start: "10:05",
     end: "10:50",
     tracks: [
@@ -59,8 +59,7 @@ export const schedule: Schedule = [
         {
           type: "common",
           id: "2",
-          title:
-            "Keynote: Anna Ekblom om «Positiv friksjon og meningsutveksling»",
+          title: "Keynote: Slik får du andre til å lytte",
           location: "Felles (Storsal)",
           from: "10:05",
           to: "10:50",
