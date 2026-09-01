@@ -195,7 +195,13 @@ export const schedule: Schedule = [
           to: "13:45",
           speaker: GodKommunikasjonPraksis,
           format: PanelDebate,
-          talkDescription: ["Podcast av faggruppen God kommunikasjon i praksis"],
+          talkDescription: [
+            "Vi er alle omgitt av idioter. Kollegaen som må vinne enhver diskusjon. Sjefen som endrer mening fem ganger på ti minutter. Vennen som analyserer en middagsavtale som om det var et regnskap.",
+            "Men hva om de ikke er idioter, de bare kommuniserer på en annen måte enn deg?",
+            "Idiotrådet er en live diskusjon inspirert av «Omgitt av idioter» og Thomas Eriksons fire personlighetstyper. Panelet tar for seg virkelige (anonymiserte) situasjoner sendt inn av deg og dine kolleger, diskuterer hvilke adferdstyper som er i spill, hvem som egentlig er idioten og om det finnes en vei ut av kaoset.",
+            "Tenk «Lørdagsrådet», men med atferdspsykologi på menyen.",
+            "Ta med deg de mest friksjonsrike historiene dine som vi kan ta oss noen friheter med på scenen.",
+          ],
         },
         {
           type: "talk",
@@ -285,7 +291,11 @@ export const schedule: Schedule = [
           to: "14:45",
           speaker: GodKommunikasjonPraksis,
           format: Workshop,
-          talkDescription: ["En workshop fra faggruppen God kommunikasjon i praksis"],
+          talkDescription: [
+            "Du trodde kanskje du lærte alt du trengte i Idiotrådet. Der tok du feil.",
+            "I denne workshopen går vi dypere inn i personlighetstypene fra «Omgitt av idioter», og denne gangen er det din tur til å bryne deg på dem. I løpet av 45 minutter får du verktøyene til å bedre forstå hvorfor folk rundt deg kommuniserer og handler som de gjør, hva du kan gjøre med det i ulike situasjoner, og kanskje det mest spennende: hva det sier om deg selv.",
+            "Passer perfekt for deg som vil ha mer enn bare innsikt og vil prøve det ut i praksis.",
+          ],
         },
         {
           type: "common",
