@@ -1,0 +1,35 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: refill
+  title: Refill
+  description: >
+    Conference site for Refill, Variant's own conference — programme,
+    schedule, call for papers, practical details and registration. Built with
+    Astro and hosted on Vercel. The current edition is Refill 2026: Friction
+    Sparks.
+  tags:
+    - website
+    - conference
+    - event
+    - astro
+    - vercel
+    - open-source
+  links:
+    - url: https://refill-eight.vercel.app
+      title: Live site
+      icon: web
+    - url: https://github.com/varianter/refill
+      title: GitHub repository
+      icon: github
+      type: source
+  annotations:
+    github.com/project-slug: varianter/refill
+    # The trailing slash matters — Backstage resolves relative paths against
+    # this URL, and without it the last path segment is stripped.
+    backstage.io/source-location: url:https://github.com/varianter/refill/tree/main/
+spec:
+  type: website
+  lifecycle: production
+  owner: user:mb_variant.no
