@@ -299,13 +299,15 @@ export const schedule: Schedule = [
         {
           type: "common",
           id: "14",
-          title: "Lesehesten Live",
+          title: "Lesehesten utvikling: AI, friksjon og ansvar",
           location: "Bibliotek",
           from: "14:00",
           to: "14:45",
           speaker: LesehestenUtvikling,
           format: Podcast,
-          talkDescription: ["TBA"],
+          talkDescription: [
+            "Vi leser tre tekster om KI: Cory Doctorows Guardian-essay om AI-boblen og begrepet “reverse centaur”, Emil Kowalskis essay om friksjon som filter mot dårlige ideer, og Niklas Gruhns advarsel mot å bare videreformidle AI-svar uten å tenke selv.",
+          ],
         },
       ],
     ],

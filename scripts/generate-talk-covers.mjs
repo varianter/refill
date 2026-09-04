@@ -15,9 +15,26 @@ const PLACEHOLDER = path.join(ROOT, "public/assets/img/placeholder/refill26.png"
 const BACKGROUND = path.join(ROOT, "public/assets/img/og-talk-background.png");
 const FONT_PATH = path.join(ROOT, "public/fonts/Britti-Sans-Regular.otf");
 
-// 16:9, double the OG resolution scale (1200x630 -> 1920x1080) for crisp output.
-const WIDTH = 1920;
-const HEIGHT = 1080;
+// Non-person "speakers" (podcasts, venues, placeholders) mapped the same way
+// as src/utils/speakerImages.ts — these don't have a photo under /people/.
+const SPECIAL_IMAGE_MAP = {
+  "": PLACEHOLDER,
+  TBA: PLACEHOLDER,
+  "Klar tale": path.join(ROOT, "public/assets/img/podcasts/Idiotraadet.png"),
+  "Mikael Brevik & Stian Møllersen": path.join(
+    ROOT,
+    "public/assets/img/podcasts/Kortslutning.jpg",
+  ),
+  "Lesehesten Utvikling": path.join(
+    ROOT,
+    "public/assets/img/podcasts/Lesehesten.png",
+  ),
+  Chiruto: path.join(ROOT, "public/assets/img/venues/Chiruto.png"),
+};
+
+// 16:9, scaled up from the OG resolution (1200x630) for crisp, high-res output.
+const WIDTH = 5760;
+const HEIGHT = 3240;
 const SCALE = WIDTH / 1200;
 
 const bundlePath = path.join(ROOT, ".astro-cover-tmp.cjs");
@@ -57,20 +74,23 @@ const imageCache = new Map();
 async function loadSpeakerImageDataUri(name) {
   if (imageCache.has(name)) return imageCache.get(name);
 
-  const base = name.replaceAll(" ", "-");
-  const candidates = [base, stripDiacritics(base)];
-  const extensions = ["jpg", "jpeg", "png"];
+  let filePath = SPECIAL_IMAGE_MAP[name];
 
-  let filePath = null;
-  for (const candidate of candidates) {
-    for (const ext of extensions) {
-      const p = path.join(PEOPLE_DIR, `${candidate}.${ext}`);
-      if (existsSync(p)) {
-        filePath = p;
-        break;
+  if (!filePath) {
+    const base = name.replaceAll(" ", "-");
+    const candidates = [base, stripDiacritics(base)];
+    const extensions = ["jpg", "jpeg", "png"];
+
+    for (const candidate of candidates) {
+      for (const ext of extensions) {
+        const p = path.join(PEOPLE_DIR, `${candidate}.${ext}`);
+        if (existsSync(p)) {
+          filePath = p;
+          break;
+        }
       }
+      if (filePath) break;
     }
-    if (filePath) break;
   }
 
   if (!filePath) {
@@ -86,12 +106,11 @@ async function loadSpeakerImageDataUri(name) {
   return dataUri;
 }
 
-async function loadBackgroundDataUri() {
-  const resized = await sharp(BACKGROUND)
+async function loadBackgroundBuffer() {
+  return sharp(BACKGROUND)
     .resize(WIDTH, HEIGHT, { fit: "cover" })
     .png()
     .toBuffer();
-  return `data:image/png;base64,${resized.toString("base64")}`;
 }
 
 function rem(value) {
@@ -101,9 +120,12 @@ function px(value) {
   return `${Math.round(value * SCALE)}px`;
 }
 
-function OGWide({ title, speakerName, speakerImages, from, to, location, backgroundDataUri }) {
+function OGWide({ title, speakerName, speakerImages, from, to, location }) {
   const photoSize = Math.round(180 * SCALE);
 
+  // The background is composited separately with sharp rather than embedded
+  // as a data URI here — at high resolutions the base64 payload blows past
+  // librsvg's XML parser buffer limit when satori's SVG is rasterized.
   return React.createElement(
     "div",
     {
@@ -114,12 +136,6 @@ function OGWide({ title, speakerName, speakerImages, from, to, location, backgro
         height: `${HEIGHT}px`,
       },
     },
-    React.createElement("img", {
-      style: { position: "absolute", top: 0, left: 0 },
-      src: backgroundDataUri,
-      width: WIDTH,
-      height: HEIGHT,
-    }),
     React.createElement(
       "div",
       {
@@ -250,7 +266,7 @@ async function main() {
 
   console.log(`Generating ${talks.length} talk cover images...`);
 
-  const backgroundDataUri = await loadBackgroundDataUri();
+  const backgroundBuffer = await loadBackgroundBuffer();
   const fontData = await readFile(FONT_PATH);
 
   for (const [index, talk] of talks.entries()) {
@@ -269,7 +285,6 @@ async function main() {
         from,
         to,
         location,
-        backgroundDataUri,
       }),
       {
         width: WIDTH,
@@ -281,7 +296,11 @@ async function main() {
       },
     );
 
-    const png = await sharp(Buffer.from(svg)).png().toBuffer();
+    const foreground = await sharp(Buffer.from(svg)).png().toBuffer();
+    const png = await sharp(backgroundBuffer)
+      .composite([{ input: foreground, top: 0, left: 0 }])
+      .png()
+      .toBuffer();
     const order = String(index + 1).padStart(indexPad, "0");
     const filename = `${order}-${id}-${slugify(title)}.png`;
     const outPath = path.join(OUT_DIR, filename);
